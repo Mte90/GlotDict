@@ -219,6 +219,16 @@
         "pos": "verb",
         "translation": "digitise"
     },
+    "disorginize": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "disorginise"
+    },
+    "disorginized": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "disorginised"
+    },
     "digitized": {
         "comment": "",
         "pos": "verb",
@@ -892,6 +902,6 @@
     "ZIP code": {
         "comment": "",
         "pos": "verb",
-        "translation": "postcode"
+        "translation": "Zip / postal code"
     }
 }
