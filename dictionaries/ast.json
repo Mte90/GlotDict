@@ -283,7 +283,7 @@
         "comment": "",
         "pos": "verb",
         "translation": "Conectáu"
-    }
+    },
     "Login": {
         "comment": "",
         "pos": "verb",
@@ -544,7 +544,7 @@
         "pos": "noun",
         "translation": "XML-RPC"
     },
-        "You are not allowed": {
+    "You are not allowed": {
         "comment": "",
         "pos": "	expression",
         "translation": "Nun ties permisos"
