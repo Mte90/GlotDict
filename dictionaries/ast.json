@@ -39,6 +39,11 @@
         "pos": "noun",
         "translation": "Alministrador"
     },
+    "After the Deadline": {
+        "comment": "Nun cambia, Ye'l nome d'una aplicación.",
+        "pos": "noun",
+        "translation": "After the Deadline"
+    },
     "Ajax": {
         "comment": "Nun cambia. Ye'l nome d'una tecnoloxía.",
         "pos": "noun",
@@ -152,12 +157,12 @@
     "Deprecated": {
         "comment": "",
         "pos": "adjective",
-        "translation": "Soletu"
+        "translation": "Anticuáu"
     },
     "Draft": {
         "comment": "",
         "pos": "noun",
-        "translation": "Bocetu"
+        "translation": "Borrador"
     },
     "Email": {
         "comment": "",
@@ -174,6 +179,16 @@
         "pos": "adjective",
         "translation": "Empotráu"
     },
+    "Enable": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "Activar"
+    },
+    "Enabled": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "Activáu"
+    },
     "Excerpt": {
         "comment": "",
         "pos": "noun",
@@ -184,10 +199,10 @@
         "pos": "noun",
         "translation": "FAQ"
     },
-    "fee": {
+    "Fee": {
         "comment": "Nun se pone \"cuota\" porque una cuota s'entiende que se socede en periodos.",
         "pos": "noun",
-        "translation": "tasa"
+        "translation": "Tasa"
     },
     "Feed": {
         "comment": "RSS feed, nun se traduz.",
@@ -195,6 +210,11 @@
         "translation": "Feed"
     },
     "Footer": {
+        "comment": "",
+        "pos": "noun",
+        "translation": "Páxina d'aniciu"
+    },
+    "Front page": {
         "comment": "",
         "pos": "noun",
         "translation": "Páxina d'aniciu"
@@ -219,10 +239,15 @@
         "pos": "interjection",
         "translation": "Hola"
     },
+    "Image": {
+        "comment": "",
+        "pos": "noun",
+        "translation": "Imaxe"
+    },
     "Invalid": {
         "comment": "",
         "pos": "adjetive",
-        "translation": "Nun val"
+        "translation": "Nun val, Nun ye válidu"
     },
     "Issue": {
         "comment": "",
@@ -254,6 +279,11 @@
         "pos": "noun",
         "translation": "Llibrería"
     },
+    "Logged in": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "Conectáu"
+    }
     "Login": {
         "comment": "",
         "pos": "verb",
@@ -322,12 +352,17 @@
     "Powered by WordPress": {
         "comment": "",
         "pos": "expression",
-        "translation": ""
+        "translation": "Furrula con WordPress"
     },
     "Previous": {
         "comment": "",
         "pos": "noun",
         "translation": "Anterior"
+    },
+    "Profile": {
+        "comment": "",
+        "pos": "noun",
+        "translation": "Perfil"
     },
     "query": {
         "comment": "",
@@ -344,6 +379,16 @@
         "pos": "noun",
         "translation": "Llanzamientu"
     },
+    "Remove": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "Quitar"
+    },
+    "Removed": {
+        "comment": "",
+        "pos": "verb",
+        "translation": "Quitáu"
+    },
     "Responsive": {
         "comment": "",
         "pos": "noun",
@@ -356,7 +401,7 @@
     },
     "Scope": {
         "comment": "",
-        "pos": "",
+        "pos": "noun",
         "translation": "Estensión"
     },
     "Screen": {
@@ -387,7 +432,7 @@
     "Shortcut": {
         "comment": "",
         "pos": "noun",
-        "translation": "??"
+        "translation": "Atayu"
     },
     "Sidebar": {
         "comment": "",
