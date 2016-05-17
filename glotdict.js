@@ -167,6 +167,8 @@ jQuery(document).ready(function () {
 		s = s.replace(/( \. | \.)/g, '. ').replace(/( , | ,)/g, ', ');
 		// Replace space-closebracket-space or space-closebracket with just closebracket-space, same for squarebracket
 		s = s.replace(/( \) | \))/g, ') ').replace(/( ] | ])/g, '] ');
+		// Replace space-openbracket-space or openbracket-space with just space-openbracket, same for squarebracket
+		s = s.replace(/( \( |\( )/g, ' (').replace(/( [ |[ )/g, ' [');
 		return s;
 	  });
 	});
