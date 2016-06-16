@@ -81,7 +81,12 @@ jQuery(document).ready(function () {
    * @returns Array
    */
   function gd_list_locales_cached() {
-	return JSON.parse(JSON.parse(localStorage.getItem('gd_locales')));
+        var locales = JSON.parse(JSON.parse(localStorage.getItem('gd_locales')));
+        if (typeof locales === 'undefined') {
+	  gd_locales();
+          locales = JSON.parse(JSON.parse(localStorage.getItem('gd_locales')));
+        }
+	return locales;
   }
 
   /**
