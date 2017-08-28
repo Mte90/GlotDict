@@ -49,7 +49,7 @@ function gd_generate_settings_panel() {
 	if (localStorage.getItem('gd_' + key) === 'true') {
 	  checked = 'checked';
 	}
-	jQuery('.gd_settings_panel').append('<input class="gd_setting_check" type="checkbox" id="gd_' + key + '" ' + checked + '> ' + value + '<br>');
+	jQuery('.gd_settings_panel').append('<input class="gd_setting_check" type="checkbox" id="gd_' + key + '" ' + checked + '> <label for="gd_' + key + '">' + value + '</label><br>');
   });
   jQuery('.gd_settings_panel').append('<br><h3>Do you want a new feature or settings? Ask <a href="https://github.com/Mte90/GlotDict/issues">here</a>.</h3><h3>Do you like this browser extension? You can donate <a href="https://www.paypal.me/mte90">here</a>.</h3>');
 }
