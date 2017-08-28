@@ -176,11 +176,11 @@ function gd_non_breaking_space_highlight() {
   if (!gd_get_setting('no_non_breaking_space')) {
 	jQuery('tr.preview > td.translation.foreign-text').each(function () {
 	  var translation_item = jQuery(this).text();
-	  if (translation_item.indexOf(' ') > -1) {
+	  if (translation_item.indexOf(' ') > -1) {
 		var translation_highlighted = '';
 		for (var i = 0; i < translation_item.length; i++) {
-		  if (translation_item[i] === ' ') {
-			translation_highlighted += '<span style="background-color:yellow"> </span>';
+		  if (translation_item[i] === ' ') {
+			translation_highlighted += '<span style="background-color:yellow"> </span>';
 		  } else {
 			translation_highlighted += translation_item[i];
 		  }
