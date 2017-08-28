@@ -185,7 +185,7 @@ function gd_non_breaking_space_highlight() {
 			translation_highlighted += translation_item[i];
 		  }
 		}
-		jQuery(this).html(translation_highlighted);
+		jQuery(this).html(DOMPurify.sanitize(translation_highlighted));
 	  }
 	});
   }
