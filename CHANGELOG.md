@@ -1,3 +1,7 @@
+#1.3.9
+* Improvement: Highlight non-braking-space by @audrasjb
+* Improvement: A11y label on settings page by @audrasjb
+
 #1.3.8
 * Feature: Black border on old strings (6 months)
 * Feature: Added layover for waiting on loading of the extension
