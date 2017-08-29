@@ -1,3 +1,6 @@
+# 1.3.10
+* Improvement: DomPuriy updated to 1.0.2
+
 # 1.3.9
 * Improvement: Highlight non-braking-space by @audrasjb
 * Improvement: A11y label on settings page by @audrasjb
