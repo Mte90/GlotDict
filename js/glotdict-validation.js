@@ -27,7 +27,7 @@ function gd_run_review() {
 function gd_search_glossary_on_translation(e, selector) {
   var howmany = 0;
   if (gd_get_setting('no_glossary_term_check')) {
-	return;
+	return howmany;
   }
   var discard = gd_get_discard_link(selector);
   jQuery(selector).each(function () {
