@@ -1,3 +1,7 @@
+# 1.3.11
+* Improvement: DomPuriy updated to the original file js
+* Fix: Issue on saving the translation
+
 # 1.3.10
 * Improvement: DomPuriy updated to 1.0.2
 
