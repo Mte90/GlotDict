@@ -1,4 +1,4 @@
-# 1.3.12
+# 1.3.13
 * Improvement: New label for terms validation
 * Fix: Issue on validation of terms
 
