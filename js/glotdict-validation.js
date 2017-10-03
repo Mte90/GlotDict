@@ -47,7 +47,7 @@ function gd_search_glossary_on_translation(e, selector) {
 		}
 	  });
 	  if (reset !== '') {
-		jQuery('.textareas', $editor).prepend(gd_get_warning('The translation is missing of the translation term ' + reset + 'for "<i>' + term + '</i>"', discard));
+		jQuery('.textareas', $editor).prepend(gd_get_warning('The translation is missing the suggested translation ' + reset + 'for "<i>' + term + '</i>"', discard));
 	  }
 	});
   });
