@@ -1,3 +1,7 @@
+# 1.3.12
+* Improvement: New label for terms validation
+* Fix: Issue on validation of terms
+
 # 1.3.11
 * Improvement: DomPuriy updated to the original file js
 * Fix: Issue on saving the translation
