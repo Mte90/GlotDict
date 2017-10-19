@@ -1,3 +1,6 @@
+# 1.3.15
+* Fix: On new translation after 1.3.14
+
 # 1.3.14
 * Improvement: Alert to remind to dimiss warning to add new translation
 
