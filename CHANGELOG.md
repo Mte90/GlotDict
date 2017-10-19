@@ -1,3 +1,6 @@
+# 1.3.14
+* Improvement: Alert to remind to dimiss warning to add new translation
+
 # 1.3.13
 * Improvement: New label for terms validation
 * Fix: Issue on validation of terms
