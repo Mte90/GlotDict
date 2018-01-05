@@ -109,6 +109,12 @@ function gd_validate(e, selector) {
 		howmany++;
 	  }
 	}
+	if (gd_get_setting('curly_apostrophe_warning')) {
+	  if (newtext.indexOf("'") > -1) {
+		jQuery('.textareas', selector).prepend(gd_get_warning('The translation is using straight apostrophes instead of curly ones. Please check them.', discard));
+		howmany++;
+	  }
+	}
   }
   if (howmany !== 0) {
 	gd_stoppropagation(e);
