@@ -1,3 +1,6 @@
+# 1.3.16
+* Fix: Warning for curly apostrophe instead on straight
+
 # 1.3.15
 * Fix: On new translation after 1.3.14
 
