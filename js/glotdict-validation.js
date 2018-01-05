@@ -113,7 +113,7 @@ function gd_validate(e, selector) {
 	  if (newtext.indexOf("'") > -1) {
 		jQuery('.textareas', selector).prepend(gd_get_warning('The translation is using straight apostrophes instead of curly ones. Please check them.', discard));
 		howmany++;
-	  };
+	  }
 	}
   }
   if (howmany !== 0) {
