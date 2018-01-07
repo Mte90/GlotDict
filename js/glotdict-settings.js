@@ -1,16 +1,17 @@
 /* global key, glotdict_version, $gp, pluralize */
 
 jQuery('#menu-headline-nav').append('<li class="current-menu-item gd_setting" style="cursor:pointer;"><a style="font-weight:bold;"> GlotDict</a></li>');
+if (!gd_get_setting('hide_info_message')) {
+  if (jQuery(window).width() > 1390) {
+	jQuery('body').append('<div style="position: absolute;top: 320px;right: 10px;width:200px;background-color: #ddd;padding: .5em;">Don\'t forget to click the <img class="gd_icon2">GlotDict icon in the blu menu!</div>');
+	jQuery('.gd_icon2').attr('src', jQuery('.gd_icon').attr('src'));
+  }
+  jQuery('.gd_icon').prependTo('.gd_setting').show();
 
-if (jQuery(window).width() > 1390) {
-  jQuery('body').append('<div style="position: absolute;top: 320px;right: 10px;width:200px;background-color: #ddd;padding: .5em;">Don\'t forget to click the <img class="gd_icon2">GlotDict icon in the blu menu!</div>');
-  jQuery('.gd_icon2').attr('src', jQuery('.gd_icon').attr('src'));
+  jQuery('.gd_setting').click(function () {
+	gd_generate_settings_panel();
+  });
 }
-jQuery('.gd_icon').prependTo('.gd_setting').show();
-
-jQuery('.gd_setting').click(function () {
-  gd_generate_settings_panel();
-});
 
 jQuery('.gp-content').on('click', '.gd_settings_panel .gd_setting_check', function () {
   localStorage.setItem(jQuery(this).attr('id'), jQuery(this).is(':checked'));
@@ -27,7 +28,8 @@ function gd_generate_settings_panel() {
 	'no_initial_uppercase': 'No first character uppercase warning on translation',
 	'no_glossary_term_check': 'No glossary term missing warning on translation',
 	'no_non_breaking_space': 'No non-breaking-space in preview',
-	'curly_apostrophe_warning': 'Add curly apostrophe warning in preview'
+	'curly_apostrophe_warning': 'Add curly apostrophe warning in preview',
+	'hide_info_message': 'Hide Info message about this menu'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);

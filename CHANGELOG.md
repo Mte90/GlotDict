@@ -1,3 +1,7 @@
+# 1.3.17
+* Improvement: Highlight non-breaking space in details panel
+* Improvement: Option to hide info message
+
 # 1.3.16
 * Fix: Warning for curly apostrophe instead on straight
 
