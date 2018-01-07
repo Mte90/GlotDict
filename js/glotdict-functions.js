@@ -188,6 +188,20 @@ function gd_non_breaking_space_highlight() {
 		jQuery(this).html(DOMPurify.sanitize(translation_highlighted));
 	  }
 	});
+	jQuery('blockquote.translation > em > small').each(function () {
+	  var translation_item = jQuery(this).text();
+	  if (translation_item.indexOf(' ') > -1) {
+		var translation_highlighted = '';
+		for (var i = 0; i < translation_item.length; i++) {
+		  if (translation_item[i] === ' ') {
+			translation_highlighted += '<span style="background-color:yellow"> </span>';
+		  } else {
+			translation_highlighted += translation_item[i];
+		  }
+		}
+		jQuery(this).html(DOMPurify.sanitize(translation_highlighted));
+	  }
+	});
   }
 }
 
