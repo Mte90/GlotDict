@@ -28,6 +28,7 @@ function gd_generate_settings_panel() {
 	'no_initial_uppercase': 'No first character uppercase warning on translation',
 	'no_glossary_term_check': 'No glossary term missing warning on translation',
 	'no_non_breaking_space': 'No non-breaking-space in preview',
+	'no_trailing_space': 'No trailing space warning on translation',
 	'curly_apostrophe_warning': 'Add curly apostrophe warning in preview',
 	'hide_info_message': 'Hide Info message about this menu'
   };
