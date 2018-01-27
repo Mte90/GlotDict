@@ -6,12 +6,12 @@ if (!gd_get_setting('hide_info_message')) {
 	jQuery('body').append('<div style="position: absolute;top: 320px;right: 10px;width:200px;background-color: #ddd;padding: .5em;">Don\'t forget to click the <img class="gd_icon2">GlotDict icon in the blu menu!</div>');
 	jQuery('.gd_icon2').attr('src', jQuery('.gd_icon').attr('src'));
   }
-  jQuery('.gd_icon').prependTo('.gd_setting').show();
-
-  jQuery('.gd_setting').click(function () {
-	gd_generate_settings_panel();
-  });
 }
+jQuery('.gd_icon').prependTo('.gd_setting').show();
+
+jQuery('.gd_setting').click(function () {
+  gd_generate_settings_panel();
+});
 
 jQuery('.gp-content').on('click', '.gd_settings_panel .gd_setting_check', function () {
   localStorage.setItem(jQuery(this).attr('id'), jQuery(this).is(':checked'));

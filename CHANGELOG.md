@@ -1,3 +1,7 @@
+# 1.3.18
+* Improvement: Added missing trailing space warning
+* Fix: Since previous release the settings panel wasn't clickable
+
 # 1.3.17
 * Improvement: Highlight non-breaking space in details panel
 * Improvement: Option to hide info message
