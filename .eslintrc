@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "$gp": true,
+    "key": true,
+    "glotdict_version": true,
+    "$gp_editor_options": true,
+  },
+  "rules": {}
+}
