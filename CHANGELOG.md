@@ -1,3 +1,7 @@
+# 1.3.19
+* Improvement: Improved code style
+* Fix: Validation conflicts with GlotPress/GlotDict warning
+
 # 1.3.18
 * Improvement: Added missing trailing space warning
 * Fix: Since previous release the settings panel wasn't clickable
