@@ -131,7 +131,7 @@ function gd_validate(e, selector) {
 function gd_validate_visible(e) {
   var selector = '.editor:visible';
   var howmany = gd_validate(e, selector);
-  if (typeof howmany !== "undefined" && howmany !== 0) {
+  if (typeof howmany !== 'undefined' && howmany !== 0) {
     alert('You need to close the warning to approve the new string!');
   }
 }
