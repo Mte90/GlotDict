@@ -23,8 +23,8 @@ function gd_generate_settings_panel() {
   var settings = {
     'no_final_dot': 'Don’t validate strings ending with “...“, “.”, “:”',
     'no_final_other_dots': 'Don’t validate strings ending with ;.!:、。؟？！',
-    'no_initial_uppercase': 'No warning for missing uppercase first character in translation',
-    'no_glossary_term_check': 'No warning for missing glossary term in translation',
+    'no_initial_uppercase': 'Don’t show warning for missing uppercase first character in translation',
+    'no_glossary_term_check': 'Don’t show warning for missing glossary term in translation',
     'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
     'no_trailing_space': 'Hide warning for trailing space in translation',
     'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview',
