@@ -1,3 +1,6 @@
+# 1.3.20
+* Enhancement: Changed label text to a better italish ehm english!
+
 # 1.3.19
 * Improvement: Improved code style
 * Fix: Validation conflicts with GlotPress/GlotDict warning
