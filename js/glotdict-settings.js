@@ -21,14 +21,14 @@ function gd_generate_settings_panel() {
     return;
   }
   var settings = {
-    'no_final_dot': 'No validation for final "...", ".", ":"',
-    'no_final_other_dots': 'No validation for final ;.!:、。؟？！',
-    'no_initial_uppercase': 'No first character uppercase warning on translation',
-    'no_glossary_term_check': 'No glossary term missing warning on translation',
-    'no_non_breaking_space': 'No non-breaking-space in preview',
-    'no_trailing_space': 'No trailing space warning on translation',
-    'curly_apostrophe_warning': 'Add curly apostrophe warning in preview',
-    'hide_info_message': 'Hide Info message about this menu'
+    'no_final_dot': 'Don’t validate strings ending with “...“, “.”, “:”',
+    'no_final_other_dots': 'Don’t validate strings ending with ;.!:、。؟？！',
+    'no_initial_uppercase': 'No warning for missing uppercase first character in translation',
+    'no_glossary_term_check': 'No warning for missing glossary term in translation',
+    'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
+    'no_trailing_space': 'Hide warning for trailing space in translation',
+    'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview',
+    'hide_info_message': 'Hide Info messages about this menu'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);
