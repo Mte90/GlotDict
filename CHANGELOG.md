@@ -1,3 +1,6 @@
+# 1.3.21
+* Enhancement: Improved consistency in the text
+
 # 1.3.20
 * Enhancement: Changed label text to a better italish ehm english!
 
