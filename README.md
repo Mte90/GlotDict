@@ -35,7 +35,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Shortcut on Page Down to open the previous string to translate
 * Shortcut on Page Up to open the next string to translate
 * Shortcut on Ctrl+Shift+B to "Copy from original"
-* Shortcut on Ctrl+Shift+F to add non-breaking spaces near symbols
+* Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols
 * Shortcut on Ctrl+Alt+R to reset all the GlotDict settings
 * Right click of the mouse on the term with a dashed line and the translation will be added in the translation area
 

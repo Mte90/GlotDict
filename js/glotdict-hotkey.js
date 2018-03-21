@@ -1,6 +1,6 @@
 /**
  * Add the hotkeys in GlotPress
- * 
+ *
  * @returns void
  */
 function gd_hotkeys() {
@@ -52,7 +52,7 @@ function gd_hotkeys() {
     }
     return false;
   });
-  key('ctrl+shift+f', function() {
+  key('ctrl+shift+n', function() {
     jQuery('textarea.foreign-text:visible:first').val(function(index, text) {
       // Replace space-colon or nbsp-colon with just colon, then replace colons with nbsp-colon
       var s = text.replace(/( :|&nbsp;:)/g, ':').replace(/:/g, '&nbsp;:');

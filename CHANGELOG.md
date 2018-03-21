@@ -1,3 +1,6 @@
+# 1.3.22
+* Fix: Fixed the hotkey for non-braking spaces
+
 # 1.3.21
 * Enhancement: Improved consistency in the text
 
