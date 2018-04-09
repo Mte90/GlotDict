@@ -175,17 +175,9 @@ function gd_mark_old_strings() {
 function gd_non_breaking_space_highlight() {
   if (!gd_get_setting('no_non_breaking_space')) {
     jQuery('tr.preview > td.translation.foreign-text, blockquote.translation > em > small').each(function() {
-      var translation_item = jQuery(this).text();
-      if (translation_item.indexOf(' ') > -1) {
-        var translation_highlighted = '';
-        for (var i = 0; i < translation_item.length; i++) {
-          if (translation_item[i] === ' ') {
-            translation_highlighted += '<span style="background-color:yellow"> </span>';
-          } else {
-            translation_highlighted += translation_item[i];
-          }
-        }
-        jQuery(this).html(DOMPurify.sanitize(translation_highlighted));
+      var translation_item = jQuery(this).html();
+      if (translation_item.indexOf('&nbsp;') > -1) {
+        jQuery(this).html(DOMPurify.sanitize(translation_item.replace('&nbsp;', '<span style="background-color:yellow">&nbsp;</span>')));
       }
     });
   }
