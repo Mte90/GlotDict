@@ -1,5 +1,9 @@
+# 1.3.23
+* Fix: Not render tag inside preview if non-breaking space is enabled
+* Improvement: less code for highlight non-breaking spaces
+
 # 1.3.22
-* Fix: Fixed the hotkey for non-braking spaces
+* Fix: Fixed the hotkey for non-breaking spaces
 
 # 1.3.21
 * Enhancement: Improved consistency in the text
