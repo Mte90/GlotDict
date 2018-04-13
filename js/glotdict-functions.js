@@ -177,7 +177,7 @@ function gd_non_breaking_space_highlight() {
     jQuery('tr.preview > td.translation.foreign-text, blockquote.translation > em > small').each(function() {
       var translation_item = jQuery(this).html();
       if (translation_item.indexOf('&nbsp;') > -1) {
-        jQuery(this).html(DOMPurify.sanitize(translation_item.replace('&nbsp;', '<span style="background-color:yellow">&nbsp;</span>')));
+        jQuery(this).html(DOMPurify.sanitize(translation_item.replace(/&nbsp;/g, '<span style="background-color:yellow">&nbsp;</span>')));
       }
     });
   }
