@@ -1,3 +1,6 @@
+# 1.3.24
+* Fix: Non-Highlight rendered only on the first time
+
 # 1.3.23
 * Fix: Not render tag inside preview if non-breaking space is enabled
 * Improvement: less code for highlight non-breaking spaces
