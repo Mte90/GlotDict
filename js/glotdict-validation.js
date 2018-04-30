@@ -133,6 +133,16 @@ function gd_validate_visible(e) {
   var howmany = gd_validate(e, selector);
   if (typeof howmany !== 'undefined' && howmany !== 0) {
     alert('You need to close the warning to approve the new string!');
+  } else {
+    var interval = setInterval(function () {
+      var $notice = jQuery('#gp-js-message');
+      if (!$notice.hasClass('gp-js-notice')) {
+        if ($notice.hasClass('gp-js-success')) {
+          gd_non_breaking_space_highlight();
+        }
+        clearInterval(interval);
+      }
+    }, 500);
   }
 }
 
