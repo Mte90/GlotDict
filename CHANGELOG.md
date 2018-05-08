@@ -1,5 +1,5 @@
 # 1.3.25
-* Improvemenet: Detection of space for non-highlight spaces
+* Improvement: Detection of space for non-highlight spaces
 
 # 1.3.24
 * Fix: Non-Highlight rendered only on the first time

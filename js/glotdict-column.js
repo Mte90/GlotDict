@@ -7,8 +7,8 @@ function gd_add_column() {
       gd_add_column_buttons(this);
     }
   });
-  jQuery('#translations tr.editor td').attr('colspan', 6);
 }
+
 jQuery('#translations').on('click', '.gd-approve', function() {
   var id = jQuery(this).parent().parent().attr('row');
   var nonce = jQuery('#editor-' + id + ' .meta button.approve').attr('data-nonce');
