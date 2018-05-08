@@ -1,3 +1,6 @@
+# 1.3.26
+* Fix: Support for last changes of Translate.WordPress.org
+ 
 # 1.3.25
 * Improvement: Detection of space for non-highlight spaces
 
