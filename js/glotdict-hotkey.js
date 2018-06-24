@@ -89,4 +89,8 @@ function gd_hotkeys() {
     location.reload();
     return false;
   });
+  key('ctrl+alt+d', function() {
+    jQuery('.discard-glotdict').trigger('click');
+    return false;
+  });
 }
