@@ -1,10 +1,4 @@
 jQuery('#menu-headline-nav').append('<li class="current-menu-item gd_setting" style="cursor:pointer;"><a style="font-weight:bold;"> GlotDict</a></li>');
-if (!gd_get_setting('hide_info_message')) {
-  if (jQuery(window).width() > 1390) {
-    jQuery('body').append('<div style="position: absolute;top: 320px;right: 10px;width:200px;background-color: #ddd;padding: .5em;">Don\’t forget to click on the <img class="gd_icon2">GlotDict icon in the blue menu!</div>');
-    jQuery('.gd_icon2').attr('src', jQuery('.gd_icon').attr('src'));
-  }
-}
 jQuery('.gd_icon').prependTo('.gd_setting').show();
 
 jQuery('.gd_setting').click(function() {
@@ -27,8 +21,7 @@ function gd_generate_settings_panel() {
     'no_glossary_term_check': 'Don’t show warning for missing glossary term in translation',
     'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
     'no_trailing_space': 'Hide warning for trailing space in translation',
-    'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview',
-    'hide_info_message': 'Hide Info messages about this menu'
+    'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);
