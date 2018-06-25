@@ -18,6 +18,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * First character is not uppercase on translation
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
+  * Check for non typographic quotes
 * Review mode with a button
 * New column with fast Approve/Reject/Fuzzy for strings
 * Bulk Actions also on footer
