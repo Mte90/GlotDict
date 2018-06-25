@@ -57,4 +57,3 @@ After that step we have to wait few hours for Chrome and for Firefox and all the
 * [Garrett Hyder](https://github.com/garrett-eclipse) - For all the tickets and patches
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
 * [Jb Audras](https://github.com/audrasjb) - For all the patches
-* [Aurélien Joahny](https://github.com/ajoah) - For all the patches
