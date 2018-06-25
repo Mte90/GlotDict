@@ -22,6 +22,7 @@ function gd_generate_settings_panel() {
     'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
     'no_trailing_space': 'Hide warning for trailing space in translation',
     'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview'
+    'localized_quote_warning': 'Show warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);
