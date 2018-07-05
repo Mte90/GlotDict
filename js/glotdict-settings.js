@@ -37,7 +37,7 @@ function gd_generate_settings_panel() {
     '<li>Shortcut on Ctrl+Shift+B to "Copy from original"</li>' +
     '<li>Shortcut on Ctrl+Shift+F to add non-breaking spaces near symbols</li>' +
     '<li>Shortcut on Ctrl+Alt+R to reset all the GlotDict settings</li>' +
-    '<li>Shortcut on Ctrl+Alt+D to dismiss all the GlotDict validation warnings</li>' +
+    '<li>Shortcut on Ctrl+Alt+D to dismiss all the validation warnings</li>' +
     '<li>Right click of the mouse on the term with a dashed line and the translation will be added in the translation area</li>' +
     '</ul><br><h3>Settings</h3>';
   jQuery('.gd_settings_panel').append(hotkeys);
