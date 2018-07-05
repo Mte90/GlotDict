@@ -10,34 +10,44 @@ function gd_add_column() {
 }
 
 jQuery('#translations').on('click', '.gd-approve', function() {
-  var id = jQuery(this).parent().parent().attr('row');
-  var nonce = jQuery('#editor-' + id + ' .meta button.approve').attr('data-nonce');
-  gd_set_status(id, 'current', nonce);
+  $gp.editor.show(jQuery(this));
+  $gp.editor.set_status( jQuery( this ), 'current' ); return false;
 });
 jQuery('#translations').on('click', '.gd-reject', function() {
-  var id = jQuery(this).parent().parent().attr('row');
-  var nonce = jQuery('#editor-' + id + ' .meta button.reject').attr('data-nonce');
-  gd_set_status(id, 'rejected', nonce);
+  $gp.editor.show(jQuery(this));
+  $gp.editor.set_status( jQuery( this ), 'rejected' ); return false;
 });
 jQuery('#translations').on('click', '.gd-fuzzy', function() {
-  var id = jQuery(this).parent().parent().attr('row');
-  var nonce = jQuery('#editor-' + id + ' .meta button.fuzzy').attr('data-nonce');
-  gd_set_status(id, 'fuzzy', nonce);
+  $gp.editor.show(jQuery(this));
+  $gp.editor.set_status( jQuery( this ), 'fuzzy' ); return false;
 });
 
 function gd_add_column_buttons(element) {
   var approve = '';
   var reject = '';
   var fuzzy = '';
+  var approve_nonce = '';
+  var approve_title = '';
+  var reject_nonce = '';
+  var reject_title = '';
+  var fuzzy_nonce = '';
+  var fuzzy_title = '';
   var id = jQuery(element).attr('row');
+
   if (jQuery('#editor-' + id + ' .meta button.approve').length !== 0) {
-    approve = '<button class="approve gd-approve"><strong>+</strong> Approve</button>';
+    approve_nonce = jQuery('#editor-' + id + ' .meta button.approve').attr('data-nonce');
+    approve_title = jQuery('#editor-' + id + ' .meta button.approve').attr('title');
+    approve = '<button class="approve gd-approve" tabindex="-1" data-nonce="' + reject_nonce + '" title="' + approve_title + '"><strong>+</strong> Approve</button>';
   }
   if (jQuery('#editor-' + id + ' .meta button.reject').length !== 0) {
-    reject = '<button class="reject gd-reject"><strong>−</strong> Reject</button>';
+    reject_nonce = jQuery('#editor-' + id + ' .meta button.reject').attr('data-nonce');
+    reject_title = jQuery('#editor-' + id + ' .meta button.reject').attr('title');
+    reject = '<button class="reject gd-reject" tabindex="-1" data-nonce="' + reject_nonce + '" title="' + reject_title + '"><strong>−</strong> Reject</button>';
   }
   if (jQuery('#editor-' + id + ' .meta button.fuzzy').length !== 0) {
-    fuzzy = '<button class="fuzzy gd-fuzzy"><strong>~</strong> Fuzzy</button>';
+    fuzzy_nonce = jQuery('#editor-' + id + ' .meta button.fuzzy').attr('data-nonce');
+    fuzzy_title = jQuery('#editor-' + id + ' .meta button.fuzzy').attr('title');
+    fuzzy = '<button class="fuzzy gd-fuzzy" tabindex="-1" data-nonce="' + fuzzy_nonce + '" title="' + fuzzy_title + '"><strong>~</strong> Fuzzy</button>';
   }
   var buttons = approve + reject + fuzzy;
 
@@ -45,43 +55,6 @@ function gd_add_column_buttons(element) {
     buttons = '';
   }
   jQuery(element).append('<td>' + buttons + '</td>');
-}
-
-function gd_set_status(id, status, nonce) {
-  jQuery('#translations tr#preview-' + id + ' th.checkbox input').attr('checked', false);
-  var string_id = id.split('-');
-  $gp.notices.notice('Setting status to &#8220;' + status + '&#8221;&hellip;');
-  var data = {
-    translation_id: string_id[1],
-    status: status,
-    _gp_route_nonce: nonce
-  };
-
-  jQuery.ajax({
-    type: 'POST',
-    url: $gp_editor_options.set_status_url,
-    data: data,
-    success: function(data) {
-      $gp.notices.success('Status set!');
-      // Sanitiziation for Firefox
-      data = DOMPurify.sanitize('<table>' + data + '</table>', {
-        ADD_ATTR: ['row']
-      });
-      data = data.replace("<table>\n<tbody>", '').replace("</tbody>\n</table>", '');
-      jQuery('#editor-' + id).after(data);
-      jQuery('.editor[row=' + id + ']').attr('id', 'editor-' + id);
-      jQuery('.preview[row=' + id + ']').attr('id', 'preview-' + id);
-      var old_current = jQuery('#editor-' + id);
-      old_current.attr('id', old_current.attr('id') + '-old').remove();
-      var old_current_preview = jQuery('#preview-' + id);
-      old_current_preview.attr('id', old_current_preview.attr('id') + '-old').remove();
-      gd_add_column_buttons(jQuery('#preview-' + id));
-    },
-    error: function(xhr, msg) {
-      msg = xhr.responseText ? 'Error: ' + xhr.responseText : 'Error setting the status!';
-      $gp.notices.error(msg);
-    }
-  });
 }
 
 function gd_wait_table_alter() {
