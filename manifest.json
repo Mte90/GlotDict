@@ -17,6 +17,7 @@
     "js/glotdict-functions.js",
     "js/glotdict-hotkey.js",
     "js/glotdict-validation.js",
+    "js/glotdict-bulk.js",
     "js/glotdict-column.js",
     "js/glotdict-settings.js",
     "js/keymaster.js",
