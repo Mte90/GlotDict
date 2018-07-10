@@ -117,9 +117,18 @@ function gd_validate(e, selector) {
     }
     if (gd_get_setting('curly_apostrophe_warning')) {
       if (newtext.indexOf("'") > -1) {
-        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is using straight apostrophes instead of curly ones. Please check them.', discard));
+        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is using straight apostrophes instead of curly ones. Please check them against your Locale guidelines.', discard));
         howmany++;
       }
+    }
+    if (gd_get_setting('localized_quote_warning')) {
+      var check_quotes = newtext;
+      check_quotes = check_quotes.replace(/([^>"]*)"(?=[^<]*>)/g, '$1#GDATTR#');
+      if (check_quotes.indexOf('"') > -1) {
+        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is using straight quotes instead of typographic ones. Please check them against your Locale guidelines.', discard));
+        howmany++;
+      }
+      check_quotes = check_quotes.replace(/#GDATTR#/g, '"');
     }
   }
   if (howmany !== 0) {
@@ -132,7 +141,8 @@ function gd_validate_visible(e) {
   var selector = '.editor:visible';
   var howmany = gd_validate(e, selector);
   if (typeof howmany !== 'undefined' && howmany !== 0) {
-    alert('You need to close the warning to approve the new string!');
+    var msg = 'Submission blocked! You need to dismiss all warnings and re-submit the string.';
+    $gp.notices.error( msg );
   } else {
     var interval = setInterval(function () {
       var $notice = jQuery('#gp-js-message');

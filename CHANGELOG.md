@@ -1,3 +1,13 @@
+# 1.4
+* Feature: New Ctrl+Alt+D hotkey to dismiss warnings
+* Feature: New bulk action to Copy from original
+* Feature: New validator for non tipographic quotes
+* Feature: Width of the view is 85%
+* Feature: Count words section
+* Enhancement: Add bulk footer only when is missing
+* Enhancement: Removed alert for a GlotPress notice
+* Enhancement: Rewritten part of GlotDict actions to use GlotPress JS API
+
 # 1.3.26
 * Fix: Support for last changes of Translate.WordPress.org
  
