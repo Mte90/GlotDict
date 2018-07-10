@@ -59,19 +59,3 @@ function gd_add_column_buttons(element) {
   }
   jQuery(element).append('<td>' + buttons + '</td>');
 }
-
-function gd_wait_table_alter() {
-  if (document.querySelector('#translations tbody') !== null) {
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function() {
-        gd_add_column();
-      });
-    });
-
-    observer.observe(document.querySelector('#translations tbody'), {
-      attributes: true,
-      childList: true,
-      characterData: true
-    });
-  }
-}
