@@ -1,5 +1,6 @@
 # GlotDict
-[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://img.shields.io/badge/License-GPL%20v2-blue.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e9107b200511490a961560efcf7c5d1c)](https://www.codacy.com/app/mte90net/GlotDict?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Mte90/GlotDict&amp;utm_campaign=Badge_Grade)  
+[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://img.shields.io/badge/License-GPL%20v2-blue.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e9107b200511490a961560efcf7c5d1c)](https://www.codacy.com/app/mte90net/GlotDict?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Mte90/GlotDict&amp;utm_campaign=Badge_Grade) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMte90%2FGlotDict.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMte90%2FGlotDict?ref=badge_shield)
+ 
 
 [https://translate.wordpress.org](https://translate.wordpress.org) enable to the users to translate plugin, themes and WordPress itself.  
 This extension implements many new feature to improve the quality of translation and speed up that process!
@@ -60,3 +61,7 @@ After that step we have to wait few hours for Chrome and for Firefox and all the
 * [Garrett Hyder](https://github.com/garrett-eclipse) - For all the tickets and patches
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
 * [Jb Audras](https://github.com/audrasjb) - For all the patches
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMte90%2FGlotDict.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMte90%2FGlotDict?ref=badge_large)
