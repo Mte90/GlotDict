@@ -88,4 +88,4 @@ gd_wait_table_alter();
 
 gd_remove_layover();
 
-jQuery('.gp-content').css('max-width', '100%');
+jQuery('.gp-content').css('max-width', '90%');
