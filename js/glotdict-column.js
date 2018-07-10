@@ -11,15 +11,18 @@ function gd_add_column() {
 
 jQuery('#translations').on('click', '.gd-approve', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'current' ); return false;
+  $gp.editor.set_status( jQuery( this ), 'current' ); 
+  return false;
 });
 jQuery('#translations').on('click', '.gd-reject', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'rejected' ); return false;
+  $gp.editor.set_status( jQuery( this ), 'rejected' ); 
+  return false;
 });
 jQuery('#translations').on('click', '.gd-fuzzy', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'fuzzy' ); return false;
+  $gp.editor.set_status( jQuery( this ), 'fuzzy' ); 
+  return false;
 });
 
 function gd_add_column_buttons(element) {

@@ -86,6 +86,8 @@ gd_non_breaking_space_highlight();
 
 gd_wait_table_alter();
 
+gd_add_meta();
+
 gd_remove_layover();
 
 jQuery('.gp-content').css('max-width', '100%');

@@ -19,6 +19,7 @@
     "js/glotdict-validation.js",
     "js/glotdict-bulk.js",
     "js/glotdict-column.js",
+    "js/glotdict-meta.js",
     "js/glotdict-settings.js",
     "js/keymaster.js",
     "js/jquery.bind-first.js",
