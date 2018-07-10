@@ -24,6 +24,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Bulk Actions also on footer
 * Mark old string (6 months) with a black border
 * Highlight non-breaking-space
+* Character and Word Counts in Meta
 * Many hotkeys and shortcut
 
 ## Hotkeys
