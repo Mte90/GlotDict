@@ -11,15 +11,18 @@ function gd_add_column() {
 
 jQuery('#translations').on('click', '.gd-approve', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'current' ); return false;
+  $gp.editor.set_status( jQuery( this ), 'current' ); 
+  return false;
 });
 jQuery('#translations').on('click', '.gd-reject', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'rejected' ); return false;
+  $gp.editor.set_status( jQuery( this ), 'rejected' ); 
+  return false;
 });
 jQuery('#translations').on('click', '.gd-fuzzy', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'fuzzy' ); return false;
+  $gp.editor.set_status( jQuery( this ), 'fuzzy' ); 
+  return false;
 });
 
 function gd_add_column_buttons(element) {
@@ -55,20 +58,4 @@ function gd_add_column_buttons(element) {
     buttons = '';
   }
   jQuery(element).append('<td>' + buttons + '</td>');
-}
-
-function gd_wait_table_alter() {
-  if (document.querySelector('#translations tbody') !== null) {
-    var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function() {
-        gd_add_column();
-      });
-    });
-
-    observer.observe(document.querySelector('#translations tbody'), {
-      attributes: true,
-      childList: true,
-      characterData: true
-    });
-  }
 }

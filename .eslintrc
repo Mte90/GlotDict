@@ -24,6 +24,7 @@
     "gd_wait_table_alter":true,
     "gd_remove_layover":true,
     "gd_add_column":true,
+    "gd_add_meta":true,
     "chrome":true,
     "Promise":true,
     "DOMPurify":true,

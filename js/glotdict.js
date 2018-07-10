@@ -45,6 +45,7 @@ if (jQuery('.filters-toolbar:last div:first').length > 0) {
 
 gd_add_project_links();
 gd_add_button();
+gd_add_meta();
 
 jQuery('.glotdict_language').change(function() {
   localStorage.setItem('gd_language', jQuery('.glotdict_language option:selected').text());

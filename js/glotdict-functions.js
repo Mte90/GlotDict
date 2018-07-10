@@ -246,3 +246,25 @@ function gd_add_layover() {
 function gd_remove_layover() {
   jQuery('.gd-layover').remove();
 }
+
+/**
+ * Mutations Observer for Translation Table Changes
+ * 
+ * @triggers gd_add_column, gd_add_meta
+ */
+function gd_wait_table_alter() {
+  if (document.querySelector('#translations tbody') !== null) {
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function() {
+        gd_add_column();
+        gd_add_meta();
+      });
+    });
+
+    observer.observe(document.querySelector('#translations tbody'), {
+      attributes: true,
+      childList: true,
+      characterData: true
+    });
+  }
+}
