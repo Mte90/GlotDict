@@ -1,3 +1,8 @@
+# 1.4.1
+
+* Fix: Approve button on the column wasn't working
+* Enhancement: Width of 85% only on the string list
+
 # 1.4
 * Feature: New Ctrl+Alt+D hotkey to dismiss warnings
 * Feature: New bulk action to Copy from original
