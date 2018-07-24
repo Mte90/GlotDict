@@ -18,11 +18,13 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * First character is not uppercase on translation
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
+  * Check for non typographic quotes
 * Review mode with a button
 * New column with fast Approve/Reject/Fuzzy for strings
 * Bulk Actions also on footer
 * Mark old string (6 months) with a black border
 * Highlight non-breaking-space
+* Character and Word Counts in Meta
 * Many hotkeys and shortcut
 
 ## Hotkeys
@@ -37,7 +39,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Shortcut on Ctrl+Shift+B to "Copy from original"
 * Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols
 * Shortcut on Ctrl+Alt+R to reset all the GlotDict settings
-* Shortcut on Ctrl+Alt+D to dismiss all the GlotDict validation warnings
+* Shortcut on Ctrl+Alt+D to dismiss all the validation warnings
 * Right click of the mouse on the term with a dashed line and the translation will be added in the translation area
 
 # Download
