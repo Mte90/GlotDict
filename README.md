@@ -29,11 +29,11 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 
 ## Hotkeys
 
+* Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"
 * Shortcut on Ctrl+Shift+Z to click "Cancel"
 * Shortcut on Ctrl+Shift+A to click "Approve"
 * Shortcut on Ctrl+Shift+R to click "Reject"
 * Shortcut on Ctrl+Shift+F to click "Fuzzy"
-* Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"
 * Shortcut on Ctrl+Shift+B to "Copy from original"
 * Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols
 * Shortcut on Ctrl+Shift+R to reset all the GlotDict settings
