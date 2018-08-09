@@ -33,7 +33,7 @@ function gd_add_count(row, selector, countclass, label, textarea = false) {
     var characterCount = string.length;
     var wordCount = 0;
     if (characterCount > 0) {
-        if ( string.indexOf(' ') != -1 ) {
+        if ( string.indexOf(' ') !== -1 ) {
             var words = string.split(' ');
             wordCount = words.length;            
         } else {
@@ -53,7 +53,7 @@ function gd_update_count(row, element, countclass, textarea = false) {
     var characterCount = string.length;
     var wordCount = 0;
     if (characterCount > 0) {
-        if ( string.indexOf(' ') != -1 ) {
+        if ( string.indexOf(' ') !== -1 ) {
             var words = string.split(' ');
             wordCount = words.length;            
         } else {
