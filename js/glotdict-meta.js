@@ -10,44 +10,56 @@ function gd_add_string_counts(row) {
     }
     jQuery(row).find('.meta dl:last-of-type').before('<div class="gd-counts"></div>');
 
-    gd_add_original_count(row);
-
-    if ( jQuery(row).find('.translation').length ) {
-      gd_add_translation_count(row);
+    gd_add_count(row, '.original', 'original-count', 'Original String');
+    if ( jQuery(row).find('.translation').text().trim().length ) {
+        gd_add_count(row, '.translation', 'translated-count', 'Translated String');
     }
 
-    gd_add_current_count(row);
+    gd_add_count(row, '.textareas textarea.foreign-text', 'current-count', 'Current String');
 
     jQuery(row).on("change keyup paste", '.textareas textarea.foreign-text', function() {
-      gd_update_current_count(row, this);
+        gd_update_count(row, jQuery(this), 'current-count', true);
     });
 }
 
-function gd_add_original_count(row) {
-    var originalCharacterCount = jQuery(row).find('.original').text().length;
-    var originalWords = jQuery(row).find('.original').text().split(' ');
-    var originalWordCount = originalWords.length;
-    jQuery(row).find('.gd-counts').append('<dl class="original-count"><dt>Original String:</dt><dd><span class="characters">' + originalCharacterCount + ' Characters</span> (<span class="words">' + originalWordCount + ' Words</span>)</dd></dl>');
+function gd_add_count(row, selector, countclass, label, textarea = false) {
+    var element = jQuery(row).find(selector);
+    var string = '';
+    if (textarea) {
+        string = element.val();
+    } else {
+        string = element.text();        
+    }
+    var characterCount = string.length;
+    var wordCount = 0;
+    if (characterCount > 0) {
+        if ( string.indexOf(' ') !== -1 ) {
+            var words = string.split(' ');
+            wordCount = words.length;            
+        } else {
+            wordCount = 1;
+        }
+    }
+    jQuery(row).find('.gd-counts').append('<dl class="' + countclass + '"><dt>' + label + ':</dt><dd><span class="characters">' + characterCount + ' Characters</span> (<span class="words">' + wordCount + ' Words</span>)</dl>');
 }
 
-function gd_add_translation_count(row) {
-    var translationCharacterCount = jQuery(row).find('.translation').text().length;
-    var translationWords = jQuery(row).find('.original').text().split(' ');
-    var translationWordCount = translationWords.length;
-    jQuery(row).find('.gd-counts').append('<dl class="translated-count"><dt>Translated String:</dt><dd><span class="characters">' + translationCharacterCount + ' Characters</span> (<span class="words">' + translationWordCount + ' Words</span>)</dd></dl>');
-}
-
-function gd_add_current_count(row) {
-    var currentCharacterCount = jQuery(row).find('.textareas textarea.foreign-text').val().length;
-    var currentWords = jQuery(row).find('.textareas textarea.foreign-text').val().split(' ');
-    var currentWordCount = currentWords.length;
-    jQuery(row).find('.gd-counts').append('<dl class="current-count"><dt>Current String:</dt><dd><span class="characters">' + currentCharacterCount + ' Characters</span> (<span class="words">' + currentWordCount + ' Words</span>)</dl>');
-}
-
-function gd_update_current_count(row, textarea) {
-    var currentCharacterCount = jQuery(textarea).val().length;
-    var currentWords = jQuery(row).find('.textareas textarea.foreign-text').val().split(' ');
-    var currentWordCount = currentWords.length;
-    jQuery(row).find('.gd-counts .current-count dd .characters').text(currentCharacterCount + ' Characters');
-    jQuery(row).find('.gd-counts .current-count dd .words').text(currentWordCount + ' Words');
+function gd_update_count(row, element, countclass, textarea = false) {
+    var string = '';
+    if (textarea) {
+        string = element.val();
+    } else {
+        string = element.text();        
+    }
+    var characterCount = string.length;
+    var wordCount = 0;
+    if (characterCount > 0) {
+        if ( string.indexOf(' ') !== -1 ) {
+            var words = string.split(' ');
+            wordCount = words.length;            
+        } else {
+            wordCount = 1;
+        }
+    }
+    jQuery(row).find('.gd-counts .' + countclass + ' dd .characters').text(characterCount + ' Characters');
+    jQuery(row).find('.gd-counts .' + countclass + ' dd .words').text(wordCount + ' Words');
 }
