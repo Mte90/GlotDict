@@ -1,6 +1,8 @@
 # 1.4.2
 
 * Updated keybindings for consistency. New keybindings; Ctrl+Shift+R to reset all GlotDict settings and Ctrl+Shift+D to dismiss all the validation warnings.
+* Fix: Incorrect Word Count
+* Fix: Suppress Translated String count on untranslated strings
 
 # 1.4.1
 
