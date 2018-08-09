@@ -1,3 +1,8 @@
+# 1.4.2
+
+* Fix: Incorrect Word Count
+* Fix: Suppress Translated String count on untranslated strings
+
 # 1.4.1
 
 * Fix: Approve button on the column wasn't working
