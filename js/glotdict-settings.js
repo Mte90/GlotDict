@@ -27,17 +27,17 @@ function gd_generate_settings_panel() {
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);
   var hotkeys = '<h3>Hotkeys</h3><ul>' +
+    '<li>Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"</li>' +
     '<li>Shortcut on Ctrl+Shift+Z to click "Cancel"</li>' +
     '<li>Shortcut on Ctrl+Shift+A to click "Approve"</li>' +
     '<li>Shortcut on Ctrl+Shift+R to click "Reject"</li>' +
     '<li>Shortcut on Ctrl+Shift+F to click "Fuzzy"</li>' +
-    '<li>Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"</li>' +
-    '<li>Shortcut on Page Down to open the previous string to translate</li>' +
-    '<li>Shortcut on Page Up to open the next string to translate</li>' +
     '<li>Shortcut on Ctrl+Shift+B to "Copy from original"</li>' +
     '<li>Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols</li>' +
-    '<li>Shortcut on Ctrl+Alt+R to reset all the GlotDict settings</li>' +
-    '<li>Shortcut on Ctrl+Alt+D to dismiss all the validation warnings</li>' +
+    '<li>Shortcut on Ctrl+Shift+R to reset all the GlotDict settings</li>' +
+    '<li>Shortcut on Ctrl+Shift+D to dismiss all the validation warnings</li>' +
+    '<li>Shortcut on Page Down to open the previous string to translate</li>' +
+    '<li>Shortcut on Page Up to open the next string to translate</li>' +
     '<li>Right click of the mouse on the term with a dashed line and the translation will be added in the translation area</li>' +
     '</ul><br><h3>Settings</h3>';
   jQuery('.gd_settings_panel').append(hotkeys);
