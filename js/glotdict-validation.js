@@ -110,7 +110,7 @@ function gd_validate(e, selector) {
       }
     }
     if (!gd_get_setting('no_trailing_space')) {
-      if (lastcharoriginaltext === ' ' && lastcharnewtext !== ' ') {
+      if ((lastcharoriginaltext === ' ' && lastcharnewtext !== ' ') || (lastcharoriginaltext === ' ' && lastcharnewtext !== ' ')) {
         jQuery('.textareas', selector).prepend(gd_get_warning('The translation is missing an ending space or non-breaking space.', discard));
         howmany++;
       }
