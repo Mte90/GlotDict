@@ -211,7 +211,9 @@ function gd_get_lang_consistency() {
  * @returns {Boolean}
  */
 function gd_is_uppercase(myString) {
-  return (myString === myString.toUpperCase());
+  var lower = myString.toLowerCase();
+  var upper = myString.toUpperCase();
+  return (lower !== upper && myString === upper);
 }
 
 /**
