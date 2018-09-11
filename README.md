@@ -16,6 +16,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * Validation for final "...", ".", ":"
   * Validation for final ;.!:、。؟？！
   * First character is not uppercase on translation
+  * Detect first and last character if they are space
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
   * Check for non typographic quotes
