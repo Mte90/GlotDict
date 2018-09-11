@@ -109,6 +109,12 @@ function gd_validate(e, selector) {
         howmany++;
       }
     }
+    if (!gd_get_setting('no_initial_space')) {
+      if ((firstcharoriginaltext === ' ' && firstcharnewtext !== ' ') || (firstcharoriginaltext === ' ' && firstcharnewtext !== ' ')) {
+        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is missing an initial space or non-breaking space.', discard));
+        howmany++;
+      }
+    }
     if (!gd_get_setting('no_trailing_space')) {
       if ((lastcharoriginaltext === ' ' && lastcharnewtext !== ' ') || (lastcharoriginaltext === ' ' && lastcharnewtext !== ' ')) {
         jQuery('.textareas', selector).prepend(gd_get_warning('The translation is missing an ending space or non-breaking space.', discard));

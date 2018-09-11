@@ -20,6 +20,7 @@ function gd_generate_settings_panel() {
     'no_initial_uppercase': 'Don’t show warning for missing uppercase first character in translation',
     'no_glossary_term_check': 'Don’t show warning for missing glossary term in translation',
     'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
+    'no_initial_space': 'Hide warning for initial space in translation',
     'no_trailing_space': 'Hide warning for trailing space in translation',
     'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview',
     'localized_quote_warning': 'Show warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
