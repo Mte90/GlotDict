@@ -1,6 +1,8 @@
 # 1.4.3
 
 * Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings
+* Add validation for initial space
+* Ignore symbols on uppercase first letter validator
 
 # 1.4.2
 
