@@ -13,7 +13,7 @@ var rejected_count = 0;
 var fuzzied_count = 0;
 var submitted_count = 0;
 jQuery(document).ajaxSuccess(function(event, xhr, settings) {
-  if ( settings.url == $gp_editor_options.set_status_url ) {
+  if ( settings.url === $gp_editor_options.set_status_url ) {
     var pairs = settings.data.split('&');
     var data = [];
     for ( var i = 0; i < pairs.length; i++ ) {
@@ -37,7 +37,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
         jQuery('#translations').before('<div id="gd-fuzzied-count" class="notice fuzzied">' + fuzzied_count + ( fuzzied_count > 1 ? ' translations have ' : ' translation has ' ) + 'been fuzzied.</div>');
         break;
     }
-  } else if ( settings.url == $gp_editor_options.url ) {
+  } else if ( settings.url === $gp_editor_options.url ) {
     jQuery('#gd-submitted-count').remove();
     submitted_count++;
     jQuery('#translations').before('<div id="gd-submitted-count" class="notice submitted">' + submitted_count + ( submitted_count > 1 ? ' translations have ' : ' translation has ' ) + 'been submitted.</div>');
