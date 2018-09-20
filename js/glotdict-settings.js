@@ -17,13 +17,13 @@ function gd_generate_settings_panel() {
   var settings = {
     'no_final_dot': 'Don’t validate strings ending with “...“, “.”, “:”',
     'no_final_other_dots': 'Don’t validate strings ending with ;.!:、。؟？！',
-    'no_initial_uppercase': 'Don’t show warning for missing uppercase first character in translation',
-    'no_glossary_term_check': 'Don’t show warning for missing glossary term in translation',
+    'no_initial_uppercase': 'Don’t show a warning when the translation doesn\'t contain an initial uppercase letter when the original string starts with one.',
+    'no_glossary_term_check': 'Don’t show a warning when the translation is missing a glossary term.',
     'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
     'no_initial_space': 'Hide warning for initial space in translation',
     'no_trailing_space': 'Hide warning for trailing space in translation',
-    'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview',
-    'localized_quote_warning': 'Show warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
+    'curly_apostrophe_warning': 'Show a warning for missing curly apostrophe in preview',
+    'localized_quote_warning': 'Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);
