@@ -15,7 +15,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * More warning on translations
   * Validation for final "...", ".", ":"
   * Validation for final ;.!:、。؟？！
-  * First character is not uppercase on translation
+  * First letter in translation is not uppercase but the original string is
   * Detect first and last character if they are space
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
