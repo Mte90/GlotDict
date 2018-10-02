@@ -105,7 +105,13 @@ function gd_validate(e, selector) {
     }
     if (!gd_get_setting('no_initial_uppercase')) {
       if (gd_is_uppercase(firstcharoriginaltext) && !gd_is_uppercase(firstcharnewtext)) {
-        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is missing an initial uppercase letter for "<i>' + firstcharnewtext + '</i>"', discard));
+        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is missing an initial uppercase letter as "<i>' + firstcharnewtext + '</i>" is an initial uppercase letter present on the original string.', discard));
+        howmany++;
+      }
+    }
+    if (!gd_get_setting('no_initial_space')) {
+      if ((firstcharoriginaltext === ' ' && firstcharnewtext !== ' ') || (firstcharoriginaltext === ' ' && firstcharnewtext !== ' ')) {
+        jQuery('.textareas', selector).prepend(gd_get_warning('The translation is missing an initial space or non-breaking space.', discard));
         howmany++;
       }
     }

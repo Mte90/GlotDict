@@ -15,7 +15,8 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * More warning on translations
   * Validation for final "...", ".", ":"
   * Validation for final ;.!:、。؟？！
-  * First character is not uppercase on translation
+  * First letter in translation is not uppercase but the original string is
+  * Detect first and last character if they are space
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
   * Check for non typographic quotes
@@ -25,21 +26,22 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Mark old string (6 months) with a black border
 * Highlight non-breaking-space
 * Character and Word Counts in Meta
+* Notices with counts for Approved, Rejected, Fuzzied, Submitted and Selected rows
 * Many hotkeys and shortcut
 
 ## Hotkeys
 
+* Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"
 * Shortcut on Ctrl+Shift+Z to click "Cancel"
 * Shortcut on Ctrl+Shift+A to click "Approve"
 * Shortcut on Ctrl+Shift+R to click "Reject"
 * Shortcut on Ctrl+Shift+F to click "Fuzzy"
-* Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"
-* Shortcut on Page Down to open the previous string to translate
-* Shortcut on Page Up to open the next string to translate
 * Shortcut on Ctrl+Shift+B to "Copy from original"
 * Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols
-* Shortcut on Ctrl+Alt+R to reset all the GlotDict settings
-* Shortcut on Ctrl+Alt+D to dismiss all the validation warnings
+* Shortcut on Ctrl+Shift+R to reset all the GlotDict settings
+* Shortcut on Ctrl+Shift+D to dismiss all the validation warnings
+* Shortcut on Page Down to open the previous string to translate
+* Shortcut on Page Up to open the next string to translate
 * Right click of the mouse on the term with a dashed line and the translation will be added in the translation area
 
 # Download
@@ -54,10 +56,13 @@ After that step we have to wait few hours for Chrome and for Firefox and all the
 
 # Contributors
 
-* [Daniele Scasciafratte](https://github.com/Mte90) - The developer [Donate](https://www.paypal.me/mte90)
+## Mantainers
+
+* [Daniele Scasciafratte](https://github.com/Mte90) [Donate](https://www.paypal.me/mte90)
+* [Jb Audras](https://github.com/audrasjb) 
+* [Garrett Hyder](https://github.com/garrett-eclipse) 
+
+## Other contributors
 * [Olegs Belousovs](https://github.com/sgelob) - The ideator
 * [Pascal Casier](https://github.com/ePascalC) - For the help with the glossaries and hotkeys
-* [Garrett Hyder](https://github.com/garrett-eclipse) - For all the tickets and patches
-* [Aurélien Joahny](https://github.com/ajoah) - For all the patches
-* [Jb Audras](https://github.com/audrasjb) - For all the patches
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches

@@ -55,3 +55,19 @@
 		transform: rotate(360deg);
 	}
 }
+.notice.approved {
+	background: #b5e1b9;
+	border-left: 3px solid #46b450;
+}
+.notice.rejected {
+	background: #f1adad;
+	border-left: 3px solid #dc3232;
+}
+.notice.fuzzied {
+	background: #fbc5a9;
+	border-left: 3px solid #f56e28;
+}
+.notice.submitted {
+	background: #b5e1b9;
+	border-left: 3px solid #46b450;
+}

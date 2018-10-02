@@ -74,24 +74,24 @@ function gd_hotkeys() {
     });
     return false;
   });
-  key('pageup', function() {
-    $gp.editor.prev();
-    return false;
-  });
-  key('pagedown', function() {
-    $gp.editor.next();
-    return false;
-  });
-  key('ctrl+alt+r', function() {
+  key('ctrl+shift+r', function() {
     localStorage.removeItem('gd_language');
     localStorage.removeItem('gd_locales');
     localStorage.removeItem('gd_locales_date');
     location.reload();
     return false;
   });
-  key('ctrl+alt+d', function() {
+  key('ctrl+shift+d', function() {
     jQuery('.discard-glotdict').trigger('click');
     jQuery('.discard-warning').trigger('click');
+    return false;
+  });
+  key('pageup', function() {
+    $gp.editor.prev();
+    return false;
+  });
+  key('pagedown', function() {
+    $gp.editor.next();
     return false;
   });
 }

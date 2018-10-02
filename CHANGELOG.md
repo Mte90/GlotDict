@@ -1,3 +1,20 @@
+# 1.4.3
+
+* Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings
+* Add validation for initial space
+* Ignore symbols on uppercase first letter validator
+
+# 1.4.2
+
+* Updated keybindings for consistency. New keybindings; Ctrl+Shift+R to reset all GlotDict settings and Ctrl+Shift+D to dismiss all the validation warnings.
+* Fix: Incorrect Word Count
+* Fix: Suppress Translated String count on untranslated strings
+
+# 1.4.1
+
+* Fix: Approve button on the column wasn't working
+* Enhancement: Width of 85% only on the string list
+
 # 1.4
 * Feature: New Ctrl+Alt+D hotkey to dismiss warnings
 * Feature: New bulk action to Copy from original

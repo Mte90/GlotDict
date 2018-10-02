@@ -17,27 +17,28 @@ function gd_generate_settings_panel() {
   var settings = {
     'no_final_dot': 'Don’t validate strings ending with “...“, “.”, “:”',
     'no_final_other_dots': 'Don’t validate strings ending with ;.!:、。؟？！',
-    'no_initial_uppercase': 'Don’t show warning for missing uppercase first character in translation',
-    'no_glossary_term_check': 'Don’t show warning for missing glossary term in translation',
+    'no_initial_uppercase': 'Don’t show a warning when the translation doesn\'t contain an initial uppercase letter when the original string starts with one.',
+    'no_glossary_term_check': 'Don’t show a warning when the translation is missing a glossary term.',
     'no_non_breaking_space': 'Don’t visualize non-breaking-spaces in preview',
+    'no_initial_space': 'Hide warning for initial space in translation',
     'no_trailing_space': 'Hide warning for trailing space in translation',
-    'curly_apostrophe_warning': 'Show warning for missing curly apostrophe in preview',
-    'localized_quote_warning': 'Show warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
+    'curly_apostrophe_warning': 'Show a warning for missing curly apostrophe in preview',
+    'localized_quote_warning': 'Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);
   var hotkeys = '<h3>Hotkeys</h3><ul>' +
+    '<li>Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"</li>' +
     '<li>Shortcut on Ctrl+Shift+Z to click "Cancel"</li>' +
     '<li>Shortcut on Ctrl+Shift+A to click "Approve"</li>' +
     '<li>Shortcut on Ctrl+Shift+R to click "Reject"</li>' +
     '<li>Shortcut on Ctrl+Shift+F to click "Fuzzy"</li>' +
-    '<li>Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"</li>' +
+    '<li>Shortcut on Ctrl+Shift+B to "Copy from original"</li>' +
+    '<li>Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols</li>' +
+    '<li>Shortcut on Ctrl+Shift+R to reset all the GlotDict settings</li>' +
+    '<li>Shortcut on Ctrl+Shift+D to dismiss all the validation warnings</li>' +
     '<li>Shortcut on Page Down to open the previous string to translate</li>' +
     '<li>Shortcut on Page Up to open the next string to translate</li>' +
-    '<li>Shortcut on Ctrl+Shift+B to "Copy from original"</li>' +
-    '<li>Shortcut on Ctrl+Shift+F to add non-breaking spaces near symbols</li>' +
-    '<li>Shortcut on Ctrl+Alt+R to reset all the GlotDict settings</li>' +
-    '<li>Shortcut on Ctrl+Alt+D to dismiss all the validation warnings</li>' +
     '<li>Right click of the mouse on the term with a dashed line and the translation will be added in the translation area</li>' +
     '</ul><br><h3>Settings</h3>';
   jQuery('.gd_settings_panel').append(hotkeys);

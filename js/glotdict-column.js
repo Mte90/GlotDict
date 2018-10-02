@@ -11,17 +11,17 @@ function gd_add_column() {
 
 jQuery('#translations').on('click', '.gd-approve', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'current' ); 
+  $gp.editor.set_status(jQuery(this), 'current');
   return false;
 });
 jQuery('#translations').on('click', '.gd-reject', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'rejected' ); 
+  $gp.editor.set_status(jQuery(this), 'rejected');
   return false;
 });
 jQuery('#translations').on('click', '.gd-fuzzy', function() {
   $gp.editor.show(jQuery(this));
-  $gp.editor.set_status( jQuery( this ), 'fuzzy' ); 
+  $gp.editor.set_status(jQuery(this), 'fuzzy');
   return false;
 });
 
@@ -40,7 +40,7 @@ function gd_add_column_buttons(element) {
   if (jQuery('#editor-' + id + ' .meta button.approve').length !== 0) {
     approve_nonce = jQuery('#editor-' + id + ' .meta button.approve').attr('data-nonce');
     approve_title = jQuery('#editor-' + id + ' .meta button.approve').attr('title');
-    approve = '<button class="approve gd-approve" tabindex="-1" data-nonce="' + reject_nonce + '" title="' + approve_title + '"><strong>+</strong> Approve</button>';
+    approve = '<button class="approve gd-approve" tabindex="-1" data-nonce="' + approve_nonce + '" title="' + approve_title + '"><strong>+</strong> Approve</button>';
   }
   if (jQuery('#editor-' + id + ' .meta button.reject').length !== 0) {
     reject_nonce = jQuery('#editor-' + id + ' .meta button.reject').attr('data-nonce');
