@@ -24,15 +24,15 @@
 	height: 10em;
 }
 .gd-loader {
-	margin: 60px auto;
-	font-size: 10px;
+	margin: 50px auto;
+	font-size: 12px;
 	position: relative;
-	width: 240px;
-	height: 240px;
+	width: 2800px;
+	height: 280px;
 	text-indent: -9999em;
-	border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-top: 1.1em solid rgba(255, 255, 255, 0.3);
 	border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-	border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1.1em solid rgba(255, 255, 255, 0.3);
 	border-left: 1.1em solid #ffffff;
 	transform: translateZ(0);
 	animation: load8 1.1s infinite linear;
