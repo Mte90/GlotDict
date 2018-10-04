@@ -4,7 +4,6 @@
 [https://translate.wordpress.org](https://translate.wordpress.org) enable to the users to translate plugin, themes and WordPress itself.  
 This extension implements many new feature to improve the quality of translation and speed up that process!
 
-PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org else the extension will not work!.
 
 # Features
 
@@ -20,7 +19,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
   * Check for non typographic quotes
-* Review mode with a button
+* Review mode with a button *Which button?*
 * New column with fast Approve/Reject/Fuzzy for strings
 * Bulk Actions also on footer
 * Mark old string (6 months) with a black border
@@ -48,6 +47,8 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 
 * Firefox [Instruction](https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox): [Download](https://addons.mozilla.org/it/firefox/addon/glotdict/)
 * Chrome [Instructions](https://support.google.com/chrome_webstore/answer/2664769?hl=en): [Download](https://chrome.google.com/webstore/detail/glotdict/jfdkihdmokdigeobcmnjmgigcgckljgl)
+
+PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org else the extension will not work!.
 
 # Update times and release
 
