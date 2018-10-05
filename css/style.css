@@ -6,6 +6,10 @@
 	border-right-width: 2px !important;
 	border-right-color: black !important;
 }
+table.translations tr.preview.has-original-copy, #legend .has-original-copy
+	background: #e5f5fa;
+}
+
 .discard-glotdict{
 	float:right;
 }
@@ -70,4 +74,9 @@
 .notice.submitted {
 	background: #b5e1b9;
 	border-left: 3px solid #46b450;
+}
+.notice.reviewed.warned {
+	color: #fff;
+	background: #e44b3e;
+	border-left: 3px solid #dc3232;
 }

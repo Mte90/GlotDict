@@ -24,7 +24,9 @@ if (jQuery('.filters-toolbar:last div:first').length > 0) {
     jQuery('.preview .action').trigger('click');
   }
 
-  jQuery("<div class='box has-glotdict'></div><div>Contain a Glossary term</div><div class='box has-old-string'></div><div>The string is at least 6 months old</div>").appendTo('#legend');
+  jQuery("<div class='box has-glotdict'></div><div>Contains a Glossary term</div>").appendTo('#legend');
+  jQuery("<div class='box has-old-string'></div><div>The translation is at least 6 months old</div>").appendTo('#legend');
+  jQuery("<div class='box has-original-copy'></div><div>Contains the Original Copy</div>").appendTo('#legend');
 
   jQuery('.glossary-word').each(function() {
     var $this = jQuery(this);
@@ -73,14 +75,10 @@ jQuery('.gp-content').on('click', '.discard-glotdict', function(e) {
   return false;
 });
 
-jQuery('.gp-content').on('click', '.gd-review', function(e) {
+jQuery('.gp-content').on('click', '.gd-review:not(.gd-review-done)', function(e) {
   jQuery(this).val('Review in progress');
   gd_run_review();
-  jQuery(this).removeClass('gd-review').addClass('gd-review-done');
-});
-
-jQuery('.gp-content').on('click', '.gd-review-done', function(e) {
-  alert('For a new Review or stop the review you need a refresh of the page!');
+  jQuery(this).val('Review Complete').removeClass('gd-review').addClass('gd-review-done').attr('disabled', 'disabled');
 });
 
 gd_non_breaking_space_highlight();
