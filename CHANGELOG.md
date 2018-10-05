@@ -1,3 +1,7 @@
+# 1.4.X
+
+* Improve Review Process to provide a notice with error and row counts as well as a complete state.
+
 # 1.4.3
 
 * Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings
