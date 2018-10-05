@@ -32,6 +32,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 ## Hotkeys
 
 * Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"
+* Shortcut on Ctrl+Shift+Enter to double click "Suggest new translation" or "Add translation" to force submission.
 * Shortcut on Ctrl+Shift+Z to click "Cancel"
 * Shortcut on Ctrl+Shift+A to click "Approve"
 * Shortcut on Ctrl+Shift+R to click "Reject"

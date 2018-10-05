@@ -1,3 +1,7 @@
+# 1.4.X
+
+* Feature: New Ctrl+Shift+Enter keybinding to force submission.
+
 # 1.4.3
 
 * Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings
