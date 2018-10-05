@@ -6,7 +6,7 @@
 	border-right-width: 2px !important;
 	border-right-color: black !important;
 }
-table.translations tr.preview.has-original-copy, #legend .has-original-copy
+table.translations tr.preview.has-original-copy, #legend .has-original-copy {
 	background: #e5f5fa;
 }
 
