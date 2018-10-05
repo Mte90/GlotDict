@@ -71,3 +71,8 @@
 	background: #b5e1b9;
 	border-left: 3px solid #46b450;
 }
+.notice.reviewed.warned {
+	color: #fff;
+	background: #e44b3e;
+	border-left: 3px solid #dc3232;
+}
