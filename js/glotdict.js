@@ -24,7 +24,9 @@ if (jQuery('.filters-toolbar:last div:first').length > 0) {
     jQuery('.preview .action').trigger('click');
   }
 
-  jQuery("<div class='box has-glotdict'></div><div>Contain a Glossary term</div><div class='box has-old-string'></div><div>The string is at least 6 months old</div>").appendTo('#legend');
+  jQuery("<div class='box has-glotdict'></div><div>Contains a Glossary term</div>").appendTo('#legend');
+  jQuery("<div class='box has-old-string'></div><div>The translation is at least 6 months old</div>").appendTo('#legend');
+  jQuery("<div class='box has-original-copy'></div><div>Contains the Original Copy</div>").appendTo('#legend');
 
   jQuery('.glossary-word').each(function() {
     var $this = jQuery(this);

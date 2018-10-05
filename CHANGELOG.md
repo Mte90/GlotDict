@@ -1,3 +1,7 @@
+# 1.4.X
+
+* Added setting to change 'Copy from Original' Bulk Action behaviour to auto-submit selected strings.
+
 # 1.4.3
 
 * Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings

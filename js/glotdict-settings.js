@@ -23,7 +23,8 @@ function gd_generate_settings_panel() {
     'no_initial_space': 'Hide warning for initial space in translation',
     'no_trailing_space': 'Hide warning for trailing space in translation',
     'curly_apostrophe_warning': 'Show a warning for missing curly apostrophe in preview',
-    'localized_quote_warning': 'Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes)'
+    'localized_quote_warning': 'Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes)',
+    'autosubmit_bulk_copy_from_original': 'Auto-submit the "Copy From Original" Bulk Action (Warning: When enabled will submit all originals.)'
   };
   var container = '<div class="notice gd_settings_panel"><h2>GlotDict Settings</h2></div>';
   jQuery('.gp-content').prepend(container);

@@ -22,6 +22,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * Check for non typographic quotes
 * Review mode with a button
 * New column with fast Approve/Reject/Fuzzy for strings
+* 'Copy from Original' Bulk Action with setting to enable auto-submit.
 * Bulk Actions also on footer
 * Mark old string (6 months) with a black border
 * Highlight non-breaking-space
@@ -43,6 +44,18 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Shortcut on Page Down to open the previous string to translate
 * Shortcut on Page Up to open the next string to translate
 * Right click of the mouse on the term with a dashed line and the translation will be added in the translation area
+
+## Settings
+* Don’t validate strings ending with “...“, “.”, “:”
+* Don’t validate strings ending with ;.!:、。؟？！
+* Don’t show a warning when the translation doesn't contain an initial uppercase letter when the original string starts with one.
+* Don’t show a warning when the translation is missing a glossary term.
+* Don’t visualize non-breaking-spaces in preview
+* Hide warning for initial space in translation
+* Hide warning for trailing space in translation
+* Show a warning for missing curly apostrophe in preview
+* Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes)
+* Auto-submit the "Copy From Original" Bulk Action (Warning: When enabled will submit all originals.)
 
 # Download
 
