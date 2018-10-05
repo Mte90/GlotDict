@@ -1,5 +1,6 @@
 # 1.4.X
 
+* Feature: New Ctrl+Shift+Enter keybinding to force submission.
 * Added setting to change 'Copy from Original' Bulk Action behaviour to auto-submit selected strings.
 * Improve Review Process to provide a notice with error and row counts as well as a complete state.
 

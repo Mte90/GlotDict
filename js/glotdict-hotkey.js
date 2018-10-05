@@ -10,6 +10,16 @@ function gd_hotkeys() {
     key.setScope(/^(SELECT)$/.test(tagName) ? 'input' : 'other');
     return true;
   };
+  key('ctrl+shift+enter', function() {
+    if (jQuery('.editor:visible').length > 0) {
+      jQuery('.editor:visible .discard-glotdict').trigger('click');
+      jQuery('.editor:visible .discard-warning').trigger('click');
+      jQuery('.editor:visible .actions button.ok').addClass('forcesubmit').trigger('click');
+    } else {
+      alert('No opened string to add!');
+    }
+    return false;
+  });
   key('ctrl+enter', function() {
     if (jQuery('.editor:visible').length > 0) {
       jQuery('.editor:visible .actions button.ok').trigger('click');

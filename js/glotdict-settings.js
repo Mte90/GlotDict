@@ -30,6 +30,7 @@ function gd_generate_settings_panel() {
   jQuery('.gp-content').prepend(container);
   var hotkeys = '<h3>Hotkeys</h3><ul>' +
     '<li>Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"</li>' +
+    '<li>Shortcut on Ctrl+Shift+Enter to double click "Suggest new translation" or "Add translation" to force submission.</li>' +
     '<li>Shortcut on Ctrl+Shift+Z to click "Cancel"</li>' +
     '<li>Shortcut on Ctrl+Shift+A to click "Approve"</li>' +
     '<li>Shortcut on Ctrl+Shift+R to click "Reject"</li>' +
