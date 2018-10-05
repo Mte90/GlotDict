@@ -75,14 +75,10 @@ jQuery('.gp-content').on('click', '.discard-glotdict', function(e) {
   return false;
 });
 
-jQuery('.gp-content').on('click', '.gd-review', function(e) {
+jQuery('.gp-content').on('click', '.gd-review:not(.gd-review-done)', function(e) {
   jQuery(this).val('Review in progress');
   gd_run_review();
-  jQuery(this).removeClass('gd-review').addClass('gd-review-done');
-});
-
-jQuery('.gp-content').on('click', '.gd-review-done', function(e) {
-  alert('For a new Review or stop the review you need a refresh of the page!');
+  jQuery(this).val('Review Complete').removeClass('gd-review').addClass('gd-review-done').attr('disabled', 'disabled');
 });
 
 gd_non_breaking_space_highlight();

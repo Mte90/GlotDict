@@ -4,16 +4,28 @@
  * @returns void
  */
 function gd_run_review() {
+  var review_count = 0;
+  var review_error_count = 0;
+  jQuery('#gd-review-count').remove();
   jQuery('tr.preview').each(function() {
     var $preview = jQuery(this);
     var editor = '#editor-' + $preview.attr('row') + ':not(.untranslated)';
     var howmany = gd_validate('', editor);
     if (howmany > 0) {
+      review_error_count += howmany;
       $preview.find('.checkbox').css({
         'background': 'red'
       });
     }
+    review_count++;
   });
+  if ( review_count ) {
+    if ( review_error_count ) {
+      jQuery('#translations').before('<div id="gd-review-count" class="notice reviewed warned">' + review_count + ( review_count > 1 ? ' translations have ' : ' translation has ' ) + 'been reviewed. (' + review_error_count + ( review_error_count > 0 ? ' warnings have ' : ' warning has ' ) + 'been flagged).</div>');
+    } else {
+      jQuery('#translations').before('<div id="gd-review-count" class="notice reviewed">' + review_count + ( review_count > 1 ? ' translations have ' : ' translation has ' ) + 'been reviewed. (No warnings have been flagged).</div>');
+    }
+  }
 }
 
 /**

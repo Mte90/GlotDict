@@ -20,7 +20,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * Missing term translated using the locale glossary
   * Check for curly apostrophe 
   * Check for non typographic quotes
-* Review mode with a button
+* Review to trigger potential warnings and indicate warnings count via notice.
 * New column with fast Approve/Reject/Fuzzy for strings
 * 'Copy from Original' Bulk Action with setting to enable auto-submit.
 * Bulk Actions also on footer
