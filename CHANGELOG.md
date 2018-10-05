@@ -1,18 +1,19 @@
 # 1.4.X
 
 * Feature: New Ctrl+Shift+Enter keybinding to force submission.
-* Added setting to change 'Copy from Original' Bulk Action behaviour to auto-submit selected strings.
-* Improve Review Process to provide a notice with error and row counts as well as a complete state.
+* Feature: Added setting to change 'Copy from Original' Bulk Action behaviour to auto-submit selected strings.
+* Enhancement: Improve Review Process to provide a notice with error and row counts as well as a complete state.
 
 # 1.4.3
 
-* Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings
-* Add validation for initial space
-* Ignore symbols on uppercase first letter validator
+* Feature: Added notices to track counts in real-time for Approved, Rejected, Fuzzied, Submitted and Selected strings
+* Enhancement: Add validation for initial space
+* Fix: Ignore symbols on uppercase first letter validator
 
 # 1.4.2
 
-* Updated keybindings for consistency. New keybindings; Ctrl+Shift+R to reset all GlotDict settings and Ctrl+Shift+D to dismiss all the validation warnings.
+* Enhancement: Updated keybindings for consistency. 
+* Enhancement: New keybindings: Ctrl+Shift+R to reset all GlotDict settings and Ctrl+Shift+D to dismiss all the validation warnings.
 * Fix: Incorrect Word Count
 * Fix: Suppress Translated String count on untranslated strings
 
