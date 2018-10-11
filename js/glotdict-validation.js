@@ -64,9 +64,10 @@ function gd_search_glossary_on_translation(e, selector) {
         howmany++;
         reset = reset.slice(0, -2);
         var message = 'The translation is missing the suggested translation';
-        if (translations.length > 1) message = 'The translation does not contain any of the suggested translations'
-        jQuery('.textareas', $editor).prepend(
-          gd_get_warning(message + ' (' + reset + ') for the term "<i>' + term + '</i>"', discard));
+        if (translations.length > 1) {
+          message = 'The translation does not contain any of the suggested translations';
+        }
+        jQuery('.textareas', $editor).prepend(gd_get_warning(message + ' (' + reset + ') for the term "<i>' + term + '</i>"', discard));
       }
     });
   });
