@@ -4,6 +4,7 @@
 * Feature: Added setting to change 'Copy from Original' Bulk Action behaviour to auto-submit selected strings.
 * Enhancement: Improve Review Process to provide a notice with error and row counts as well as a complete state.
 * Fix: Ignore the context label on Copy from original
+* Fix: Isolate the dismiss to the visible editor and added a dismiss all to warnings hotkey.
 
 # 1.4.3
 
