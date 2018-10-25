@@ -34,17 +34,18 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 
 * Shortcut on Ctrl+Enter to click "Suggest new translation" or "Add translation"
 * Shortcut on Ctrl+Shift+Enter to double click "Suggest new translation" or "Add translation" to force submission.
-* Shortcut on Ctrl+Shift+Z to click "Cancel"
-* Shortcut on Ctrl+Shift+A to click "Approve"
-* Shortcut on Ctrl+Shift+R to click "Reject"
-* Shortcut on Ctrl+Shift+F to click "Fuzzy"
-* Shortcut on Ctrl+Shift+B to "Copy from original"
-* Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols
-* Shortcut on Ctrl+Shift+R to reset all the GlotDict settings
-* Shortcut on Ctrl+Shift+D to dismiss all the validation warnings
-* Shortcut on Page Down to open the previous string to translate
-* Shortcut on Page Up to open the next string to translate
-* Right click of the mouse on the term with a dashed line and the translation will be added in the translation area
+* Shortcut on Ctrl+Shift+Z to click "Cancel".
+* Shortcut on Ctrl+Shift+A to click "Approve".
+* Shortcut on Ctrl+Shift+R to click "Reject".
+* Shortcut on Ctrl+Shift+F to click "Fuzzy".
+* Shortcut on Ctrl+Shift+B to "Copy from original".
+* Shortcut on Ctrl+Shift+N to add non-breaking spaces near symbols.
+* Shortcut on Ctrl+Shift+R to reset all the GlotDict settings.
+* Shortcut on Ctrl+D to dismiss the validation warnings for the currently visible editor.
+* Shortcut on Ctrl+Shift+D to dismiss all the validation warnings.
+* Shortcut on Page Down to open the previous string to translate.
+* Shortcut on Page Up to open the next string to translate.
+* Right click of the mouse on the term with a dashed line and the translation will be added in the translation area.
 
 ## Settings
 * Don’t validate strings ending with “...“, “.”, “:”
