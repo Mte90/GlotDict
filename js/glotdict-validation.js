@@ -1,6 +1,6 @@
 /**
  * Run the review
- * 
+ *
  * @returns void
  */
 function gd_run_review() {
@@ -13,9 +13,6 @@ function gd_run_review() {
     var howmany = gd_validate('', editor);
     if (howmany > 0) {
       review_error_count += howmany;
-      $preview.find('.checkbox').css({
-        'background': 'red'
-      });
     }
     review_count++;
   });
@@ -30,10 +27,10 @@ function gd_run_review() {
 
 /**
  * Check if in the translations there aren't the translation suggested
- * 
+ *
  * @param {object} e The event.
  * @param {object} selector The selector.
- * 
+ *
  * @returns void
  */
 function gd_search_glossary_on_translation(e, selector) {
@@ -79,7 +76,7 @@ function gd_search_glossary_on_translation(e, selector) {
 
 /**
  * Validation is good to save time!
- * 
+ *
  * @param {object} e The event.
  * @param {string} selector The selector.
  *
@@ -155,12 +152,16 @@ function gd_validate(e, selector) {
     }
   }
   if (howmany !== 0) {
+    jQuery(selector).removeClass('no-warnings').addClass('has-warnings');
+    var previewSelector = '#preview-' + jQuery(selector).attr('row');
+    jQuery(previewSelector).removeClass('no-warnings').addClass('has-warnings');
     gd_stoppropagation(e);
   }
   return howmany;
 }
 
 function gd_validate_visible(e) {
+  if (jQuery(this).hasClass('forcesubmit')) return;
   var selector = '.editor:visible';
   var howmany = gd_validate(e, selector);
   if (typeof howmany !== 'undefined' && howmany !== 0) {
@@ -181,7 +182,7 @@ function gd_validate_visible(e) {
 
 /**
  * Get the discard link
- * 
+ *
  * @param {String} selector
  * @returns {String}
  */
@@ -191,7 +192,7 @@ function gd_get_discard_link(selector) {
 
 /**
  * Get the warning link
- * 
+ *
  * @param {String} text
  * @param {String} discard
  * @returns {String}

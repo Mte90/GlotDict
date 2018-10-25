@@ -108,7 +108,7 @@ jQuery(document).on('click', '.checkbox :checkbox', function(e) {
       }
       glotdict_string_text += ' with Glossary terms';
       selected_strings_text.push(glotdict_string_text);
-    }    
+    }
     jQuery('#translations').before('<div id="gd-checked-count" class="notice">' + checked_count + ( checked_count > 1 ? ' rows are ' : ' row is ' ) + ' selected.</div>');
     if (Array.isArray(selected_strings_text) && selected_strings_text.length > 0) {
       jQuery('#gd-checked-count').append(' (' + selected_strings_text.join(', ') + '.)');

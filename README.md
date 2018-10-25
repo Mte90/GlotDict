@@ -52,12 +52,13 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Don’t validate strings ending with ;.!:、。؟？！
 * Don’t show a warning when the translation doesn't contain an initial uppercase letter when the original string starts with one.
 * Don’t show a warning when the translation is missing a glossary term.
-* Don’t visualize non-breaking-spaces in preview
-* Hide warning for initial space in translation
-* Hide warning for trailing space in translation
-* Show a warning for missing curly apostrophe in preview
-* Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes)
-* Auto-submit the "Copy From Original" Bulk Action (Warning: When enabled will submit all originals.)
+* Don’t visualize non-breaking-spaces in preview.
+* Hide warning for initial space in translation.
+* Hide warning for trailing space in translation.
+* Show a warning for missing curly apostrophe in preview.
+* Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes).
+* Auto-submit the "Copy From Original" Bulk Action (Warning: When enabled will submit all originals).
+* Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)
 
 # Download
 

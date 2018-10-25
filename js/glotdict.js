@@ -71,6 +71,10 @@ jQuery('.gp-content').on('click', '.discard-glotdict', function(e) {
   if (jQuery('#editor-' + row + ' .gd-warning').length === 0) {
     jQuery.removeData('#editor-' + row, 'discard');
   }
+  if (jQuery('#editor-' + row + ' .warning').length === 0) {
+    jQuery('#editor-' + row).removeClass('has-warnings').addClass('no-warnings');
+    jQuery('#preview-' + row).removeClass('has-warnings').addClass('no-warnings');
+  }
   e.preventDefault();
   return false;
 });
