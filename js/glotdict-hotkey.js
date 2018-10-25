@@ -91,6 +91,11 @@ function gd_hotkeys() {
     location.reload();
     return false;
   });
+  key('ctrl+d', function() {
+    jQuery('.editor:visible .discard-glotdict').trigger('click');
+    jQuery('.editor:visible .discard-warning').trigger('click');
+    return false;
+  });
   key('ctrl+shift+d', function() {
     jQuery('.discard-glotdict').trigger('click');
     jQuery('.discard-warning').trigger('click');

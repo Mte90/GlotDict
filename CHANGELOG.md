@@ -6,6 +6,7 @@
 * Fix: Ignore the context label on Copy from original
 * Fix: Introduce delay in "Copy From Original" when autosubmitting to avoid RACE conditions.
 * Enhancement: Added setting to allow bypassing validating during the "Copy From Original" Bulk Action.
+* Fix: Added an isolated dismiss Hotkey which only affects the currently visible editor.
 
 # 1.4.3
 
