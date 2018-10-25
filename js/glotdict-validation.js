@@ -161,6 +161,7 @@ function gd_validate(e, selector) {
 }
 
 function gd_validate_visible(e) {
+  if (jQuery(this).hasClass('forcesubmit')) return;
   var selector = '.editor:visible';
   var howmany = gd_validate(e, selector);
   if (typeof howmany !== 'undefined' && howmany !== 0) {
