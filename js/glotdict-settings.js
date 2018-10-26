@@ -53,7 +53,9 @@ function gd_generate_settings_panel() {
     }
     jQuery('.gd_settings_panel').append('<input class="gd_setting_check" type="checkbox" id="gd_' + key + '" ' + checked + '> <label for="gd_' + key + '">' + value + '</label><br>');
   });
-  jQuery('.gd_settings_panel').append('<br><h3>Do you want a new feature or settings? Ask <a href="https://github.com/Mte90/GlotDict/issues">here</a>.</h3><h3>Do you like this browser extension? You can donate <a href="https://www.paypal.me/mte90">here</a>.</h3>');
+  jQuery('.gd_settings_panel').append('<br><h3>Are you looking for spell checking? Try <a href="https://www.grammarly.com/" target="_blank" rel="noreferrer noopener">Grammarly</a> or <a href="https://languagetool.org/" target="_blank" rel="noreferrer noopener">LanguageTool</a>.</h3>');
+  jQuery('.gd_settings_panel').append('<h3>Do you want a new feature or settings? Ask <a href="https://github.com/Mte90/GlotDict/issues" target="_blank" rel="noreferrer noopener">here</a>.</h3>');
+  jQuery('.gd_settings_panel').append('<h3>Do you like this browser extension? You can donate <a href="https://www.paypal.me/mte90" target="_blank" rel="noreferrer noopener">here</a>.</h3>');
 }
 
 function gd_get_setting(key) {
