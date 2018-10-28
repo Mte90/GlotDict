@@ -7,6 +7,8 @@
 * Fix: Introduce delay in "Copy From Original" when autosubmitting to avoid RACE conditions.
 * Enhancement: Added setting to allow bypassing validating during the "Copy From Original" Bulk Action.
 * Fix: Added an isolated dismiss Hotkey which only affects the currently visible editor.
+* Fix: Added target="_blank" rel="noreferrer noopener" to links introduced by GlotDict
+* Enhancement: Added link to Grammarly and LanguageTool as suggested spell checkers.
 
 # 1.4.3
 

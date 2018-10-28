@@ -35,7 +35,7 @@ if (jQuery('.filters-toolbar:last div:first').length > 0) {
       line = $this.parents().eq(4).attr('row');
     }
     jQuery('#preview-' + line).addClass('has-glotdict');
-    $this.wrap('<a target="_blank" href="https://translate.wordpress.org/consistency?search=' + $this.text() + '&amp;set=' + gd_get_lang_consistency() + '%2Fdefault"></a>');
+    $this.wrap('<a href="https://translate.wordpress.org/consistency?search=' + $this.text() + '&amp;set=' + gd_get_lang_consistency() + '%2Fdefault" target="_blank" rel="noreferrer noopener"></a>');
   });
 
   gd_mark_old_strings();

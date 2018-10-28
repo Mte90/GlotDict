@@ -12,7 +12,7 @@ function sanitize_value(value) {
 
 /**
  * Get the today with the format dd/mm/yyyy used for the update daily check
- * 
+ *
  * @returns String
  */
 function gd_today() {
@@ -30,7 +30,7 @@ function gd_today() {
 
 /**
  * Get the the list of locales cached
- * 
+ *
  * @returns Array
  */
 function gd_list_locales_cached() {
@@ -48,7 +48,7 @@ function gd_list_locales_cached() {
 
 /**
  * Get the list of locales avalaible
- * 
+ *
  * @returns Array
  */
 function gd_locales() {
@@ -77,7 +77,7 @@ function gd_locales() {
 
 /**
  * Get the language saved in GlotDict
- * 
+ *
  * @returns string
  */
 function gd_get_lang() {
@@ -99,8 +99,8 @@ function gd_add_project_links() {
   if (jQuery('.gp-content .breadcrumb li:last-child a').length > 0) {
     var lang = jQuery('.gp-content .breadcrumb li:last-child a').attr('href').split('/');
     lang = sanitize_value(lang[lang.length - 2]);
-    jQuery('.gp-content').prepend('<a style="float:right" href="https://translate.wordpress.org/locale/' + lang + '/default">' + jQuery('.gp-content .breadcrumb li:last-child a').text() + ' Projects to Translate</a>');
-    jQuery(jQuery('.gp-content h2')[0]).prepend('<a class="glossary-link" style="float:right;padding-left:5px;margin-left:5px;border-left: 1px solid black;" href="https://translate.wordpress.org/stats">Translation Global Status</a>');
+    jQuery('.gp-content').prepend('<a style="float:right" href="https://translate.wordpress.org/locale/' + lang + '/default" target="_blank" rel="noreferrer noopener">' + jQuery('.gp-content .breadcrumb li:last-child a').text() + ' Projects to Translate</a>');
+    jQuery(jQuery('.gp-content h2')[0]).prepend('<a class="glossary-link" style="float:right;padding-left:5px;margin-left:5px;border-left: 1px solid black;" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>');
   }
 }
 
@@ -126,7 +126,7 @@ function gd_add_button() {
 
 /**
  * Print the locales selector
- * 
+ *
  * @returns void
  */
 function gd_locales_selector() {
@@ -143,14 +143,14 @@ function gd_locales_selector() {
   });
   if (lang === '' || lang === false) {
     jQuery('.filters-toolbar:last div:first').append('<h3 style="background-color:#ddd;padding:4px;width:130px;display:inline;margin-left:4px;color:red;">&larr; Set the glossary!</h3>')
-      .append('<br><h2 style="background-color:#fff;padding:0;display:block;text-align:center;margin-top: 6px;">Welcome to GlotDict! Discover the features and the hotkeys on the <a href="https://github.com/Mte90/GlotDict/blob/master/README.md#features" target="_blank">Readme</a>.</h2>');
+      .append('<br><h2 style="background-color:#fff;padding:0;display:block;text-align:center;margin-top: 6px;">Welcome to GlotDict! Discover the features and the hotkeys on the <a href="https://github.com/Mte90/GlotDict/blob/master/README.md#features"  target="_blank" rel="noreferrer noopener">Readme</a>.</h2>');
     return;
   }
 }
 
 /**
  * Add a border and a legend for old strings (at least 6 months)
- * 
+ *
  * @returns void
  */
 function gd_mark_old_strings() {
@@ -169,7 +169,7 @@ function gd_mark_old_strings() {
 /**
  * Highlight in preview the non-breaking-space
  * https://github.com/GlotPress/GlotPress-WP/issues/801
- * 
+ *
  * @returns {void}
  */
 function gd_non_breaking_space_highlight() {
@@ -185,7 +185,7 @@ function gd_non_breaking_space_highlight() {
 
 /**
  * Get the language for consistency
- * 
+ *
  * @returns string
  */
 function gd_get_lang_consistency() {
@@ -206,7 +206,7 @@ function gd_get_lang_consistency() {
 
 /**
  * Check if the string is the same
- * 
+ *
  * @param {String} myString
  * @returns {Boolean}
  */
@@ -218,7 +218,7 @@ function gd_is_uppercase(myString) {
 
 /**
  * Stop event propagation
- * 
+ *
  * @param {Object} e
  * @returns {void}
  */
@@ -230,7 +230,7 @@ function gd_stoppropagation(e) {
 
 /**
  * Add a layover
- * 
+ *
  * @returns {void}
  */
 function gd_add_layover() {
@@ -242,7 +242,7 @@ function gd_add_layover() {
 
 /**
  * Remove the layover
- * 
+ *
  * @returns {void}
  */
 function gd_remove_layover() {
@@ -251,7 +251,7 @@ function gd_remove_layover() {
 
 /**
  * Mutations Observer for Translation Table Changes
- * 
+ *
  * @triggers gd_add_column, gd_add_meta
  */
 function gd_wait_table_alter() {
