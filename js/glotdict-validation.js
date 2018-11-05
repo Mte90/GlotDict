@@ -104,8 +104,8 @@ function gd_validate(e, selector) {
     var last_dot = [';', '.', '!', ':', '、', '。', '؟', '？', '！'];
     if (hellipseoriginaltext) {
       if (!gd_get_setting('no_final_dot')) {
-        if (jQuery('textarea', selector).val().slice(-3) === '...' || lastcharnewtext !== ';' && lastcharnewtext !== '.') {
-          jQuery('.textareas', selector).prepend(gd_get_warning('The translation contains a final <b>...</b> that should be translated as <b><code>&amp;hellip;</code></b>', discard));
+        if (jQuery('textarea', selector).val().slice(-3) === '...' || ( lastcharnewtext !== ';' && lastcharnewtext !== '.' && lastcharnewtext !== '…' ) ) {
+          jQuery('.textareas', selector).prepend(gd_get_warning('The translation contains a final <b>...</b> that should be translated as either <b><code>…</code></b> or <b><code>&amp;hellip;</code></b>', discard));
           howmany++;
         }
       }
