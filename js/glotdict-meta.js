@@ -5,25 +5,67 @@ function gd_add_meta() {
 }
 
 function gd_add_string_counts(row) {
-    if ( jQuery(row).find('.meta .gd-counts').length ) {
-      jQuery(row).find('.meta .gd-counts').remove();
+    if ( jQuery('.meta .gd-counts', row).length ) {
+      jQuery('.meta .gd-counts', row).remove();
     }
-    jQuery(row).find('.meta dl:last-of-type').before('<div class="gd-counts"></div>');
+    if ( jQuery('.original', row).length ) {
+        jQuery('.meta dl:last-of-type', row).before('<div class="gd-counts" style="margin-top: 20px;"></div>');
 
-    gd_add_count(row, '.original', 'original-count', 'Original String');
-    if ( jQuery(row).find('.translation').text().trim().length ) {
-        gd_add_count(row, '.translation', 'translated-count', 'Translated String');
+        if ( jQuery('.original', row).length > 1 ) {
+            // Plurals
+            jQuery('.original', row).each( function() {
+                var parts = jQuery(this).parent().text().split(':');
+                var type = parts[0];
+                gd_add_count( row, jQuery(this), 'original-count', type + ' String');
+            });
+            if ( jQuery('.textareas', row).length > 2 ) {
+                // Multi-Plural
+                jQuery('.textareas', row).each(function(index) {
+                    gd_add_plural_definition(row, index, 'plural-heading');
+                    if ( jQuery(this).find('.translation').text().trim().length ) {
+                        gd_add_count(row, jQuery(this).find('.translation'), 'translated-count-'+index, 'Translated String');
+                    }
+
+                    gd_add_count(row, jQuery(this).find('textarea.foreign-text'), 'current-count-'+index, 'Current String');
+
+                    jQuery(this).on("change keyup paste", 'textarea.foreign-text', function() {
+                        gd_update_count(row, jQuery(this), 'current-count-'+index, true);
+                    });                    
+                });
+            } else {
+                // Singular + Plural
+                jQuery('.textareas', row).each(function(index) {
+                    var prefix = 'Singular ';
+                    if ( index > 0 ) prefix = 'Plural ';
+                    if ( jQuery(this).find('.translation').text().trim().length ) {
+                        gd_add_count(row, jQuery(this).find('.translation'), 'translated-count-'+index, prefix + 'Translated');
+                    }
+
+                    gd_add_count(row, jQuery(this).find('textarea.foreign-text'), 'current-count-'+index, prefix + 'Current');
+
+                    jQuery(this).on("change keyup paste", 'textarea.foreign-text', function() {
+                        gd_update_count(row, jQuery(this), 'current-count-'+index, true);
+                    });                    
+                });
+            }
+
+        } else {
+            // Singular
+            gd_add_count(row, jQuery('.original', row), 'original-count', 'Original String');
+            if ( jQuery('.translation', row).text().trim().length ) {
+                gd_add_count(row, jQuery('.translation', row), 'translated-count', 'Translated String');
+            }
+
+            gd_add_count(row, jQuery('.textareas textarea.foreign-text', row), 'current-count', 'Current String');
+
+            jQuery(row).on("change keyup paste", '.textareas textarea.foreign-text', function() {
+                gd_update_count(row, jQuery(this), 'current-count', true);
+            });
+        }
     }
-
-    gd_add_count(row, '.textareas textarea.foreign-text', 'current-count', 'Current String');
-
-    jQuery(row).on("change keyup paste", '.textareas textarea.foreign-text', function() {
-        gd_update_count(row, jQuery(this), 'current-count', true);
-    });
 }
 
-function gd_add_count(row, selector, countclass, label, textarea = false) {
-    var element = jQuery(row).find(selector);
+function gd_add_count(row, element, countclass, label, textarea = false) {
     var string = '';
     if (textarea) {
         string = element.val();
@@ -40,7 +82,7 @@ function gd_add_count(row, selector, countclass, label, textarea = false) {
             wordCount = 1;
         }
     }
-    jQuery(row).find('.gd-counts').append('<dl class="' + countclass + '"><dt>' + label + ':</dt><dd><span class="characters">' + characterCount + ' Characters</span> (<span class="words">' + wordCount + ' Words</span>)</dl>');
+    jQuery('.gd-counts', row).append('<dl class="' + countclass + '"><dt>' + label + ':</dt><dd><span class="characters">' + characterCount + ' Characters</span> (<span class="words">' + wordCount + ' Words</span>)</dl>');
 }
 
 function gd_update_count(row, element, countclass, textarea = false) {
@@ -60,6 +102,11 @@ function gd_update_count(row, element, countclass, textarea = false) {
             wordCount = 1;
         }
     }
-    jQuery(row).find('.gd-counts .' + countclass + ' dd .characters').text(characterCount + ' Characters');
-    jQuery(row).find('.gd-counts .' + countclass + ' dd .words').text(wordCount + ' Words');
+    jQuery('.gd-counts .' + countclass + ' dd .characters', row).text(characterCount + ' Characters');
+    jQuery('.gd-counts .' + countclass + ' dd .words', row).text(wordCount + ' Words');
+}
+
+function gd_add_plural_definition(row, index, pluralclass) {
+    var definition = jQuery('.plural-numbers', row)[index].innerText;
+    jQuery('.gd-counts', row).append('<dl class="' + pluralclass + '" style="margin-top: 20px;"><dt>Plural:</dt><dd>' + definition + '</dl>');
 }
