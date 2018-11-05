@@ -22,8 +22,8 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
   * Check for non typographic quotes
 * Review to trigger potential warnings and indicate warnings count via notice.
 * New column with fast Approve/Reject/Fuzzy for strings
-* 'Copy from Original' Bulk Action with setting to enable auto-submit.
-* Bulk Actions also on footer
+* 'Copy from Original' Bulk Action with setting to enable auto-submit and force auto-submit.
+* Bulk Actions also introduced in the footer
 * Mark old string (6 months) with a black border
 * Highlight non-breaking-space
 * Character and Word Counts in Meta
