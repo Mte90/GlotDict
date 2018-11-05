@@ -1,14 +1,18 @@
-# 1.4.X
+# 1.5
 
 * Feature: New Ctrl+Shift+Enter keybinding to force submission.
-* Feature: Added setting to change 'Copy from Original' Bulk Action behaviour to auto-submit selected strings.
+* Feature: Added setting to change 'Copy from Original' Bulk Action behavior to auto-submit selected strings.
 * Enhancement: Improve Review Process to provide a notice with error and row counts as well as a complete state.
-* Fix: Ignore the context label on Copy from original
+* Fix: Ignore the context label on "Copy from Original"
+* Fix: Update review process to use .has-warnings class instead of just red bg to align better with GlotPress styling.
 * Fix: Introduce delay in "Copy From Original" when autosubmitting to avoid RACE conditions.
 * Enhancement: Added setting to allow bypassing validating during the "Copy From Original" Bulk Action.
 * Fix: Added an isolated dismiss Hotkey which only affects the currently visible editor.
 * Fix: Added target="_blank" rel="noreferrer noopener" to links introduced by GlotDict
 * Enhancement: Added link to Grammarly and LanguageTool as suggested spell checkers.
+* Fix: Updated String Counts to cover Plural & Multi-plural strings
+* Fix: Updated the "Copy from Original" logic to trigger a change on the textarea so as to prompt the string counts be updated.
+* Fix: Updated the ellipsis validation warning and logic to allow for the ellipsis character.
 
 # 1.4.3
 
