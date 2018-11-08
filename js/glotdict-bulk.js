@@ -8,7 +8,7 @@ jQuery('.bulk-actions').on('click', '.button', function(e) {
     var copied_count = 0;
     var timeout = 0;
     $gp.editor.hide(); // Avoid validation on open editors that are empty.
-    jQuery('th.checkbox input:checked').each(function() {
+    jQuery('tbody th.checkbox input:checked').each(function() {
       var checkbox = jQuery(this);
       var parent = checkbox.closest('tr');
       var row = parent.attr('row');
