@@ -85,6 +85,8 @@ jQuery('.gp-content').on('click', '.gd-review:not(.gd-review-done)', function(e)
   jQuery(this).val('Review Complete').removeClass('gd-review').addClass('gd-review-done').attr('disabled', 'disabled');
 });
 
+gd_selected_count();
+
 gd_non_breaking_space_highlight();
 
 gd_wait_table_alter();

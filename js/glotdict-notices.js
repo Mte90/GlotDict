@@ -1,6 +1,8 @@
 /* Add Currently Selected Count */
-jQuery(document).on('click', '.checkbox :checkbox', function(e) {
-  jQuery('#gd-checked-count').remove();
+function gd_selected_count() {
+  if ( jQuery('#gd-checked-count').length ) {
+    jQuery('#gd-checked-count').remove();
+  }
   var checked_count = jQuery('tbody .checkbox :checkbox:checked').length;
   if ( checked_count > 0 ) {
     var current_selectedcount = 0;
@@ -114,6 +116,12 @@ jQuery(document).on('click', '.checkbox :checkbox', function(e) {
       jQuery('#gd-checked-count').append(' (' + selected_strings_text.join(', ') + '.)');
     }
   }
+
+}
+
+/* Trigger Currently Selected ReCount on Checkbox Click */
+jQuery(document).on('click', '.checkbox :checkbox', function(e) {
+  gd_selected_count();
 });
 
 /* Attach to ajaxSuccess to track Approve/Reject/Fuzzy Status Setting */
