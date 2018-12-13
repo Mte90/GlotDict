@@ -91,6 +91,6 @@ gd_wait_table_alter();
 
 gd_remove_layover();
 
-if (jQuery('.gp-content #bulk-actions-toolbar-top').length > 0) {
+if (jQuery('.gp-content #upper-filters-toolbar').length > 0) {
   jQuery('.gp-content').css('max-width', '85%');
 }
