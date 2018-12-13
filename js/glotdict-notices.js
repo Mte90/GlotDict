@@ -131,6 +131,7 @@ var fuzzied_count = 0;
 var submitted_count = 0;
 jQuery(document).ajaxSuccess(function(event, xhr, settings) {
   if ( settings.url === $gp_editor_options.set_status_url ) {
+    gd_selected_count();
     var pairs = settings.data.split('&');
     var data = [];
     for ( var i = 0; i < pairs.length; i++ ) {
@@ -155,6 +156,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
         break;
     }
   } else if ( settings.url === $gp_editor_options.url ) {
+    gd_selected_count();
     jQuery('#gd-submitted-count').remove();
     submitted_count++;
     jQuery('#translations').before('<div id="gd-submitted-count" class="notice submitted">' + submitted_count + ( submitted_count > 1 ? ' translations have ' : ' translation has ' ) + 'been submitted.</div>');
