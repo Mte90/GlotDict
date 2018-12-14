@@ -1,3 +1,9 @@
+# 1.5.1
+
+* Enhancement: Full width page also for non-PTE users
+* Enhancement: Catch count notice before GlotDict loading
+* Fix: Update selected count notice on 'Copy from Original'
+
 # 1.5
 
 * Feature: New Ctrl+Shift+Enter keybinding to force submission.
