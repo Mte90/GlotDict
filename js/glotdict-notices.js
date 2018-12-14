@@ -1,6 +1,8 @@
 /* Add Currently Selected Count */
-jQuery(document).on('click', '.checkbox :checkbox', function(e) {
-  jQuery('#gd-checked-count').remove();
+function gd_selected_count() {
+  if ( jQuery('#gd-checked-count').length ) {
+    jQuery('#gd-checked-count').remove();
+  }
   var checked_count = jQuery('tbody .checkbox :checkbox:checked').length;
   if ( checked_count > 0 ) {
     var current_selectedcount = 0;
@@ -114,6 +116,12 @@ jQuery(document).on('click', '.checkbox :checkbox', function(e) {
       jQuery('#gd-checked-count').append(' (' + selected_strings_text.join(', ') + '.)');
     }
   }
+
+}
+
+/* Trigger Currently Selected ReCount on Checkbox Click */
+jQuery(document).on('click', '.checkbox :checkbox', function(e) {
+  gd_selected_count();
 });
 
 /* Attach to ajaxSuccess to track Approve/Reject/Fuzzy Status Setting */
@@ -123,6 +131,7 @@ var fuzzied_count = 0;
 var submitted_count = 0;
 jQuery(document).ajaxSuccess(function(event, xhr, settings) {
   if ( settings.url === $gp_editor_options.set_status_url ) {
+    gd_selected_count();
     var pairs = settings.data.split('&');
     var data = [];
     for ( var i = 0; i < pairs.length; i++ ) {
@@ -147,6 +156,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
         break;
     }
   } else if ( settings.url === $gp_editor_options.url ) {
+    gd_selected_count();
     jQuery('#gd-submitted-count').remove();
     submitted_count++;
     jQuery('#translations').before('<div id="gd-submitted-count" class="notice submitted">' + submitted_count + ( submitted_count > 1 ? ' translations have ' : ' translation has ' ) + 'been submitted.</div>');
