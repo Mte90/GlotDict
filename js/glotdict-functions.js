@@ -109,7 +109,7 @@ function gd_add_project_links() {
  * @returns void
  */
 function gd_add_button() {
-  if (jQuery('title').text().substring(0, 27) === 'Translation status overview') {
+  if (window.location.href === 'https://translate.wordpress.org/stats/') {
     jQuery('.gp-content').prepend('<button style="float:right" class="gd_scroll">Scroll to ' + gd_get_lang() + '</button>');
     jQuery('.gd_scroll').on('click', function() {
       var row = jQuery("#stats-table tr th a:contains('" + gd_get_lang() + "')");
