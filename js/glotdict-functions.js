@@ -96,7 +96,7 @@ function gd_get_lang() {
  * @returns void
  */
 function gd_add_project_links() {
-  if (jQuery('.gp-content .breadcrumb li:last-child a').length > 0) {
+  if (jQuery('.gp-content .breadcrumb li').length > 3 && jQuery('.gp-content .breadcrumb li:last-child a').length > 0) {
     var lang = jQuery('.gp-content .breadcrumb li:last-child a').attr('href').split('/');
     lang = sanitize_value(lang[lang.length - 3]);
     jQuery('.gp-content').prepend('<a style="float:right" href="https://translate.wordpress.org/locale/' + lang + '/default" target="_blank" rel="noreferrer noopener">' + jQuery('.gp-content .breadcrumb li:last-child a').text() + ' Projects to Translate</a>');
