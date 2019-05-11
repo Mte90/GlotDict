@@ -1,3 +1,16 @@
+# 1.5.4
+
+* Fix: Update support for the new interface of Translate.WordPress.org
+
+# 1.5.3
+
+* Fix: better position of scroll button on specific pages
+
+# 1.5.2
+
+* Fix: wrong link on "Projects to translate"
+* Enhancement: "Scroll to " only on stats page
+
 # 1.5.1
 
 * Enhancement: Full width page also for non-PTE users
