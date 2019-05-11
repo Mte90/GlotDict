@@ -39,10 +39,6 @@
     "16": "icons/icon-16.png"
   },
   "name": "GlotDict",
-  "background": {
-    "scripts": [
-      "js/block-social-footer.js"
-    ]
   },
   "permissions": [
     "<all_urls>",
