@@ -19,9 +19,9 @@ jQuery('.bulk-actions').on('click', '.button', function(e) {
           jQuery('#editor-' + row + ' textarea.foreign-text').trigger('change');
           jQuery('#preview-' + row).addClass('has-original-copy');
           if (gd_get_setting('force_autosubmit_bulk_copy_from_original')) {
-            jQuery('#editor-' + row + ' button.ok').addClass('forcesubmit');
+            jQuery('#editor-' + row + ' button.translation-actions__save').addClass('forcesubmit');
           }
-          jQuery('#editor-' + row + ' button.ok').trigger('click');
+          jQuery('#editor-' + row + ' button.translation-actions__save').trigger('click');
           copied_count++;
           gd_copied_count_notice(copied_count);
         }, timeout);
