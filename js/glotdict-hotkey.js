@@ -14,7 +14,7 @@ function gd_hotkeys() {
     if (jQuery('.editor:visible').length > 0) {
       jQuery('.editor:visible .discard-glotdict').trigger('click');
       jQuery('.editor:visible .discard-warning').trigger('click');
-      jQuery('.editor:visible .actions button.ok').addClass('forcesubmit').trigger('click');
+      jQuery('.editor:visible .translation-actions button.translation-actions__save').addClass('forcesubmit').trigger('click');
     } else {
       alert('No opened string to add!');
     }
@@ -22,7 +22,7 @@ function gd_hotkeys() {
   });
   key('ctrl+enter', function() {
     if (jQuery('.editor:visible').length > 0) {
-      jQuery('.editor:visible .actions button.ok').trigger('click');
+      jQuery('.editor:visible .translation-actions button.translation-actions__save').trigger('click');
     } else {
       alert('No opened string to add!');
     }
@@ -30,21 +30,21 @@ function gd_hotkeys() {
   });
   key('ctrl+shift+z', function() {
     if (jQuery('.editor:visible').length > 0) {
-      jQuery('.editor:visible .actions a.close').trigger('click');
+      jQuery('.editor:visible .panel-header-actions .panel-header-actions__cancel').trigger('click');
     }
     return false;
   });
   key('ctrl+shift+a', function() {
-    if (jQuery('.editor:visible .meta button.approve').length > 0) {
-      jQuery('.editor:visible .meta button.approve').trigger('click');
+    if (jQuery('.editor:visible .translation-actions button.translation-actions__save').length > 0) {
+      jQuery('.editor:visible .translation-actions button.translation-actions__save').trigger('click');
     } else {
       alert('No opened string to approve!');
     }
     return false;
   });
   key('ctrl+shift+b', function() {
-    if (jQuery('.editor:visible .copy').length > 0) {
-      jQuery('.editor:visible .copy').trigger('click');
+    if (jQuery('.editor:visible .translation-actions__copy').length > 0) {
+      jQuery('.editor:visible .translation-actions__copy').trigger('click');
     }
     return false;
   });
