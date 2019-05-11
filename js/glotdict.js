@@ -42,7 +42,7 @@ if (jQuery('.filters-toolbar:last div:first').length > 0) {
 
   gd_locales_selector();
 
-  jQuery($gp.editor.table).onFirst('click', 'button.ok:not(.forcesubmit)', gd_validate_visible);
+  jQuery($gp.editor.table).onFirst('click', 'button.translation-actions__save:not(.forcesubmit)', gd_validate_visible);
 }
 
 gd_add_project_links();
