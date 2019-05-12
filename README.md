@@ -9,7 +9,6 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 # Features
 
 * Daily update of the list of locales
-* Remove the loading of social buttons on the website footer (only for Firefox)
 * Click on the terms with glossary open the consistency tool
 * Add link to the Translation Status Overview with a button to scroll to the language in use
 * More warning on translations
