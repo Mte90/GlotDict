@@ -107,6 +107,6 @@ function gd_update_count(row, element, countclass, textarea = false) {
 }
 
 function gd_add_plural_definition(row, index, pluralclass) {
-    var definition = jQuery('.plural-numbers', row)[index].innerText;
+    var definition = jQuery('.translation-form-list button[data-plural-index="' + index + '"]', row).attr('aria-label');
     jQuery('.gd-counts', row).append('<dl class="' + pluralclass + '" style="margin-top: 20px;"><dt>Plural:</dt><dd>' + definition + '</dl>');
 }
