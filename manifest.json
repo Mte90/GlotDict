@@ -39,7 +39,6 @@
     "16": "icons/icon-16.png"
   },
   "name": "GlotDict",
-  },
   "permissions": [
     "<all_urls>",
     "webRequest",
