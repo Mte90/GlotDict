@@ -1,3 +1,8 @@
+# 1.5.5
+
+* Fix: Update support for the new interface of Translate.WordPress.org
+* Removed: Blocker for Social networks in Firefox because not necessarily
+
 # 1.5.4
 
 * Fix: Update support for the new interface of Translate.WordPress.org
