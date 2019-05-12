@@ -40,7 +40,6 @@ if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
             except:
                 print('No application data, fine!')
             # remove all_url from json on chrome
-            del data['background']
             del data['permissions'][0]
             with open(manifest, 'w') as new_manifest:
                 json.dump(data, new_manifest, indent = 4)
