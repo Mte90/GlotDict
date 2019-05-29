@@ -30,10 +30,7 @@ if (jQuery('.filters-toolbar:last div:first').length > 0) {
 
   jQuery('.glossary-word').each(function() {
     var $this = jQuery(this);
-    var line = $this.parents().eq(3).attr('row');
-    if (typeof line === 'undefined') {
-      line = $this.parents().eq(4).attr('row');
-    }
+    var line = $this.parents().eq(7).attr('row');
     jQuery('#preview-' + line).addClass('has-glotdict');
     $this.wrap('<a href="https://translate.wordpress.org/consistency?search=' + $this.text() + '&amp;set=' + gd_get_lang_consistency() + '%2Fdefault" target="_blank" rel="noreferrer noopener"></a>');
   });
