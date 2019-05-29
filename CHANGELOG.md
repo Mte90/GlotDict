@@ -1,3 +1,7 @@
+# 1.5.6
+
+* Fix: Add support to the legend again
+
 # 1.5.5
 
 * Fix: Update support for the new interface of Translate.WordPress.org
