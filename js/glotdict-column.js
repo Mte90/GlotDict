@@ -9,19 +9,31 @@ function gd_add_column() {
   });
 }
 
+function gl_auto_hide_after_status() {
+   var check_if = setTimeout(function() {
+     if(jQuery('.editor:visible').length > 0) {
+           $gp.editor.hide();
+           clearTimeout(check_if);
+     }
+   }, 800);
+}
+
 jQuery('#translations').on('click', '.gd-approve', function() {
   $gp.editor.show(jQuery(this));
   $gp.editor.set_status(jQuery(this), 'current');
+  gl_auto_hide_after_status()
   return false;
 });
 jQuery('#translations').on('click', '.gd-reject', function() {
   $gp.editor.show(jQuery(this));
   $gp.editor.set_status(jQuery(this), 'rejected');
+  gl_auto_hide_after_status()
   return false;
 });
 jQuery('#translations').on('click', '.gd-fuzzy', function() {
   $gp.editor.show(jQuery(this));
   $gp.editor.set_status(jQuery(this), 'fuzzy');
+  gl_auto_hide_after_status()
   return false;
 });
 
