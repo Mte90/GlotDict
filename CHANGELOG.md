@@ -1,3 +1,7 @@
+# 1.5.7
+
+* Fix: Auto close opened box on Accept/Reject/Fuzzy
+
 # 1.5.6
 
 * Fix: Add support to the legend again
