@@ -6,7 +6,7 @@ This extension implements many new feature to improve the quality of translation
 
 PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org else the extension will not work!.
 
-# Features
+## Features
 
 * Daily update of the list of locales
 * Click on the terms with glossary open the consistency tool
@@ -59,29 +59,29 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Auto-submit the "Copy From Original" Bulk Action (Warning: When enabled will submit all originals).
 * Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)
 
-# Download
+## Download
 
 * Firefox [Instruction](https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox): [Download](https://addons.mozilla.org/it/firefox/addon/glotdict/)
 * Chrome [Instructions](https://support.google.com/chrome_webstore/answer/2664769?hl=en): [Download](https://chrome.google.com/webstore/detail/glotdict/jfdkihdmokdigeobcmnjmgigcgckljgl)
 
-# Spell Checking?
+## Spell Checking?
 
 If you are looking for spell checking we recommend [Grammarly](https://www.grammarly.com/) and [LanguageTool](https://languagetool.org/) as they both provide browser extensions for spelling and grammar checking.
 
-# Update times and release
+## Update times and release
 
 When the developer of the extension think that a new release is ready and tested they create a new release and publish on Firefox and Chrome addons store.  
 After that step we have to wait few hours for Chrome and for Firefox and all the installations will be updated automatically.
 
-# Contributors
+## Contributors
 
-## Mantainers
+### Mantainers
 
 * [Daniele Scasciafratte](https://github.com/Mte90) [Donate](https://www.paypal.me/mte90)
 * [Jb Audras](https://github.com/audrasjb) 
 * [Garrett Hyder](https://github.com/garrett-eclipse) 
 
-## Other contributors
+### Other contributors
 * [Olegs Belousovs](https://github.com/sgelob) - The ideator
 * [Pascal Casier](https://github.com/ePascalC) - For the help with the glossaries and hotkeys
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
