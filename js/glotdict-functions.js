@@ -184,6 +184,23 @@ function gd_non_breaking_space_highlight() {
 }
 
 /**
+ * Highlight in preview the curly apostrophe
+ *
+ * @returns {void}
+ */
+function gd_curly_apostrophe_highlight() {
+  if (!gd_get_setting('curly_apostrophe_warning')) {
+    jQuery('tr.preview > td.translation.foreign-text, blockquote.translation > em > small').each(function() {
+      var translation_item = jQuery(this).html();
+      if (translation_item.indexOf('’') > -1) {
+        jQuery(this).html(DOMPurify.sanitize(translation_item.replace(/([^>])’/g, '$1<span' +
+            ' style="background-color:yellow">’</span>')));
+      }
+    });
+  }
+}
+
+/**
  * Get the language for consistency
  *
  * @returns string
