@@ -1,3 +1,7 @@
+# 1.6.0
+
+* Enhancement: In listing view the curly apostrophe is now highlighted if the warning is disabled
+
 # 1.5.7
 
 * Fix: Auto close opened box on Accept/Reject/Fuzzy
