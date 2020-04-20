@@ -86,6 +86,8 @@ gd_selected_count();
 
 gd_non_breaking_space_highlight();
 
+gd_curly_apostrophe_highlight();
+
 gd_wait_table_alter();
 
 gd_remove_layover();
