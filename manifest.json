@@ -40,9 +40,6 @@
   },
   "name": "GlotDict",
   "permissions": [
-    "<all_urls>",
-    "webRequest",
-    "webRequestBlocking",
     "contextMenus"
   ]
 }
