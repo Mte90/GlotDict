@@ -1,5 +1,10 @@
 # 1.6.1
 
+* Fix: On approving a string the row status wasn't changed
+* Fix: Hotkey for copying now works with multiple textarea
+
+# 1.6.0
+
 * Fix: Place the review buttin the right place
 * Fix: Patched internal jquery library
 * Enhancement: In listing view the curly apostrophe is now highlighted if the warning is disabled
