@@ -1,5 +1,7 @@
-# 1.6.0
+# 1.6.1
 
+* Fix: Place the review buttin the right place
+* Fix: Patched internal jquery library
 * Enhancement: In listing view the curly apostrophe is now highlighted if the warning is disabled
 
 # 1.5.7
