@@ -43,8 +43,15 @@ function gd_hotkeys() {
     return false;
   });
   key('ctrl+shift+b', function() {
-    if (jQuery('.editor:visible .translation-actions__copy').length > 0) {
-      jQuery('.editor:visible .translation-actions__copy').trigger('click');
+    if (jQuery('.editor:visible .textareas').length > 1) {
+        jQuery('.editor:visible .translation-form-list button').each(function( index, item ){
+                jQuery(item).trigger('click');
+                jQuery('.editor:visible .translation-actions__copy').trigger('click');
+        });
+    } else {
+        if (jQuery('.editor:visible .translation-actions__copy').length > 0) {
+            jQuery('.editor:visible .translation-actions__copy').trigger('click');
+        }
     }
     return false;
   });
