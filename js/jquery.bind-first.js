@@ -8,7 +8,7 @@
 
 (function ($) {
   function eventsData($el) {
-	return $el.data('events');
+	return $._data($($el).get(0), "events");
   }
 
   function moveHandlerToTop($el, eventName, isDelegated) {
