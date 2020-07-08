@@ -120,7 +120,7 @@ function gd_add_button() {
     });
   }
   if (jQuery('body.logged-in').length !== 0) {
-    jQuery('.filters-toolbar:first div:last').append(' <input class="button gd-review" value="Review" type="button">');
+    jQuery('.filters-toolbar.bulk-actions:first div:last').append(' <input class="button gd-review" value="Review" type="button">');
   }
 }
 
@@ -131,7 +131,7 @@ function gd_add_button() {
  */
 function gd_locales_selector() {
   var lang = gd_get_lang();
-  jQuery('.filters-toolbar:last div:first').append('<span class="separator">•</span><label for="gd-language-picker">Pick locale: </label><select id="gd-language-picker" class="glotdict_language"></select>');
+  jQuery('.filters-toolbar.bulk-actions:last div:first').append('<span class="separator">•</span><label for="gd-language-picker">Pick locale: </label><select id="gd-language-picker" class="glotdict_language"></select>');
   jQuery('.glotdict_language').append(jQuery('<option></option>'));
   var gd_locales_array = gd_locales();
   jQuery.each(gd_locales_array, function(key, value) {
@@ -142,7 +142,7 @@ function gd_locales_selector() {
     jQuery('.glotdict_language').append(new_option);
   });
   if (lang === '' || lang === false) {
-    jQuery('.filters-toolbar:last div:first').append('<h3 style="background-color:#ddd;padding:4px;width:130px;display:inline;margin-left:4px;color:red;">&larr; Set the glossary!</h3>')
+    jQuery('.filters-toolbar.bulk-actions:last div:first').append('<h3 style="background-color:#ddd;padding:4px;width:130px;display:inline;margin-left:4px;color:red;">&larr; Set the glossary!</h3>')
       .append('<br><h2 style="background-color:#fff;padding:0;display:block;text-align:center;margin-top: 6px;">Welcome to GlotDict! Discover the features and the hotkeys on the <a href="https://github.com/Mte90/GlotDict/blob/master/README.md#features"  target="_blank" rel="noreferrer noopener">Readme</a>.</h2>');
     return;
   }

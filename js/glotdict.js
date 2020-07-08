@@ -4,7 +4,7 @@ var glotdict_version = '1.0.1';
 
 gd_add_layover();
 
-if (jQuery('.filters-toolbar:last div:first').length > 0) {
+if (jQuery('.filters-toolbar.bulk-actions:last div:first').length > 0) {
   gd_hotkeys();
   // Fix for PTE align
   if (jQuery('#bulk-actions-toolbar-top').length > 0) {
