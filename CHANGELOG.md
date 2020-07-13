@@ -1,3 +1,7 @@
+# 1.6.2
+
+* Fix: Removed contextmenus permission because it was useless
+
 # 1.6.1
 
 * Fix: On approving a string the row status wasn't changed

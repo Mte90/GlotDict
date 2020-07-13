@@ -29,7 +29,7 @@
     "css/style.css",
     "js/init.js"
   ],
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Improve the workflow on translate.wordpress.org",
   "homepage_url": "https://github.com/Mte90/GlotDict",
   "manifest_version": 2,
@@ -38,8 +38,5 @@
     "128": "icons/icon-128.png",
     "16": "icons/icon-16.png"
   },
-  "name": "GlotDict",
-  "permissions": [
-    "contextMenus"
-  ]
+  "name": "GlotDict"
 }
