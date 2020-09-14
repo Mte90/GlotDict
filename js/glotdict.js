@@ -4,7 +4,14 @@ var glotdict_version = '1.0.1';
 
 gd_add_layover();
 
-if (jQuery('.filters-toolbar.bulk-actions:last div:first').length > 0) {
+window.gd_filter_bar = jQuery('.filter-toolbar form div:first');
+
+if (jQuery('.filters-toolbar.bulk-actions:last div:first').length > 0 ) {
+  window.gd_filter_bar = jQuery('.filters-toolbar.bulk-actions:last div:first');
+}
+
+if (window.gd_filter_bar.length > 0) {
+
   gd_hotkeys();
   // Fix for PTE align
   if (jQuery('#bulk-actions-toolbar-top').length > 0) {
