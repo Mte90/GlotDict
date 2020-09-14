@@ -1,5 +1,9 @@
 # 1.6.2
 
+* Fix: Re-added support for non-pte users
+
+# 1.6.2
+
 * Fix: Removed contextmenus permission because it was useless
 
 # 1.6.1
