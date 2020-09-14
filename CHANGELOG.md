@@ -1,4 +1,4 @@
-# 1.6.2
+# 1.6.3
 
 * Fix: Re-added support for non-pte users
 
