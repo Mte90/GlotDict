@@ -1,3 +1,7 @@
+# 1.6.4
+
+* Update: DOMPurify updated for security reasons (reported by Mozilla)
+
 # 1.6.3
 
 * Fix: Re-added support for non-pte users
