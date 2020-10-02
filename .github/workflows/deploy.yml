@@ -1,8 +1,6 @@
 name: Release on Tag
 on:
   push:
-    branches:
-      - autodeploy
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
@@ -19,18 +17,18 @@ jobs:
         run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
       - name: Build
         run: ./pack-ext.py ./ && echo GlotDict_${{ steps.get_version.outputs.version }}.zip
-      #- uses: trmcnvn/firefox-addon@v1
-        #with:
-          #uuid: 'glotdict@mte90.net'
-          #xpi: GlotDict_${{ steps.get_version.outputs.version }}.xpi
-          #manifest: manifest.json
-          #api-key: ${{ secrets.FIREFOX_API_KEY }}
-          #api-secret: ${{ secrets.FIREFOX_API_SECRET }}
-          #channel: unlisted
-      #- uses: trmcnvn/chrome-addon@v2
-        #with:
-            #refresh-token: ${{ secrets.CHROME_API_TOKEN }}
-            #client-id: ${{ secrets.CHROME_API_ID }}
-            #client-secret: ${{ secrets.CHROME_API_SECRET }}
-            #file-name: GlotDict_${{ steps.get_version.outputs.version }}.zip
-            #extension: ${{ secrets.CHROME_UUID }}
+      - uses: trmcnvn/firefox-addon@v1
+        with:
+          uuid: 'glotdict@mte90.net'
+          xpi: GlotDict_${{ steps.get_version.outputs.version }}.xpi
+          manifest: manifest.json
+          api-key: ${{ secrets.FIREFOX_API_KEY }}
+          api-secret: ${{ secrets.FIREFOX_API_SECRET }}
+          channel: unlisted
+      - uses: trmcnvn/chrome-addon@v2
+        with:
+            refresh-token: ${{ secrets.CHROME_API_TOKEN }}
+            client-id: ${{ secrets.CHROME_API_ID }}
+            client-secret: ${{ secrets.CHROME_API_SECRET }}
+            file-name: GlotDict_${{ steps.get_version.outputs.version }}.zip
+            extension: ${{ secrets.CHROME_UUID }}
