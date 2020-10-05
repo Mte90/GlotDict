@@ -73,6 +73,17 @@ If you are looking for spell checking we recommend [Grammarly](https://www.gramm
 When the developer of the extension think that a new release is ready and tested they create a new release and publish on Firefox and Chrome addons store.  
 After that step we have to wait few hours for Chrome and for Firefox and all the installations will be updated automatically.
 
+# Additional resources
+
+## Video
+
+* [GlotDict – How a Browser Extension Changes Your Translation Workflow](https://wordpress.tv/2016/05/31/daniele-scasciafratte-glotdict-how-a-browser-extension-changes-your-translation-workflow/) ([Daniele Scasciafratte](https://github.com/Mte90))
+* [GlotDict, Pte-Bot and BulkRejectGP – Why Your Community Needs A Glossary](https://wordpress.tv/2017/04/29/glotdict-pte-bot-and-bulkrejectgp-why-your-community-needs-a-glossary/) ([Daniele Scasciafratte](https://github.com/Mte90))
+
+## Presentations
+
+* [Translating english variants with GlotDict](https://docs.google.com/presentation/d/1MiJNsbv1oIIlq5tj1P-lkc5y_F4JO3mFVNwk45XevtU/present) ([Garrett Hyder](https://github.com/garrett-eclipse)) 
+
 # Contributors
 
 ## Mantainers
