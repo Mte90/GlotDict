@@ -30,7 +30,7 @@ if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
     if os.path.isfile(manifest):
         with open(manifest) as content:
             data = json.load(content)
-            name = data['name'].replace(' ', '-') + '_' + data['version']
+            name = data['name'].replace(' ', '-') + '_v' + data['version']
             zipdir(sys.argv[1], name + '.xpi', 'firefox')
             print("-Firefox WebExtension Package done!")
             # remove applications from json
