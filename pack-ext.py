@@ -31,7 +31,7 @@ if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
         with open(manifest) as content:
             data = json.load(content)
             name = data['name'].replace(' ', '-') + '_v' + data['version']
-            zipdir(sys.argv[1], name + '.xpi')
+            zipdir(sys.argv[1], name + '.zip')
             print("-Package done!")
     else:
         print("The file" + manifest + " not exist")
