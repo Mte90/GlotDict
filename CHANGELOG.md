@@ -1,3 +1,7 @@
+# 1.6.6
+
+* Bugfix on stats page for locales with formal/informal version
+
 # 1.6.5
 
 * Update: DOMPurify updated for security reasons (reported by Mozilla)
