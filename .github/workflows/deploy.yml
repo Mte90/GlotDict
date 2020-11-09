@@ -16,7 +16,7 @@ jobs:
         id: get_version
         run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
       - name: Build
-        run: ./pack-ext.py ./ && echo GlotDict_${{ steps.get_version.outputs.version }}.zip
+        run: ./pack-ext.py ./ && ls
       - uses: trmcnvn/firefox-addon@v1
         with:
           uuid: 'glotdict@mte90.net'
