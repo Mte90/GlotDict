@@ -112,7 +112,7 @@ function gd_add_button() {
   if (window.location.href === 'https://translate.wordpress.org/stats/') {
     jQuery('.gp-content').prepend('<button style="float:right" class="gd_scroll">Scroll to ' + gd_get_lang() + '</button>');
     jQuery('.gd_scroll').on('click', function() {
-      var row = jQuery("#stats-table tr th a").filter(function() { return jQuery(this).html().trim() == gd_get_lang(); } );
+      var row = jQuery("#stats-table tr th a").filter(function() { return jQuery(this).html().trim() === gd_get_lang(); } );
       row.html('<b>&nbsp;&nbsp;&nbsp;' + row.text() + '</b>');
       jQuery('html, body').animate({
         scrollTop: row.offset().top - 50

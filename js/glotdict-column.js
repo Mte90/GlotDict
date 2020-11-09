@@ -22,7 +22,7 @@ jQuery('#translations').on('click', '.gd-approve', function() {
   $gp.editor.show(jQuery(this));
   $gp.editor.set_status(jQuery(this), 'current');
   jQuery(this).parent().parent().removeClass('status-waiting').addClass('status-current');
-  gl_auto_hide_after_status()
+  gl_auto_hide_after_status();
   return false;
 });
 jQuery('#translations').on('click', '.gd-reject', function() {
