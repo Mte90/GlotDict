@@ -1,6 +1,10 @@
+# 1.6.7
+
+* Enhancement: New code for the side buttons approve/reject/fuzzy that avoid fails on submitting 
+
 # 1.6.6
 
-* Bugfix on stats page for locales with formal/informal version
+* Fix: On stats page for locales with formal/informal version
 
 # 1.6.5
 
