@@ -112,7 +112,7 @@ function gd_add_button() {
   if (window.location.href === 'https://translate.wordpress.org/stats/') {
     jQuery('.gp-content').prepend('<button style="float:right" class="gd_scroll">Scroll to ' + gd_get_lang() + '</button>');
     jQuery('.gd_scroll').on('click', function() {
-      var row = jQuery("#stats-table tr th a").filter(function() { return jQuery(this).html().trim() === gd_get_lang(); } );
+      var row = jQuery('#stats-table tr th a').filter(function() { return jQuery(this).html().trim() === gd_get_lang(); });
       row.html('<b>&nbsp;&nbsp;&nbsp;' + row.text() + '</b>');
       jQuery('html, body').animate({
         scrollTop: row.offset().top - 50
@@ -144,7 +144,6 @@ function gd_locales_selector() {
   if (lang === '' || lang === false) {
     window.gd_filter_bar.append('<h3 style="background-color:#ddd;padding:4px;width:130px;display:inline;margin-left:4px;color:red;">&larr; Set the glossary!</h3>')
       .append('<br><h2 style="background-color:#fff;padding:0;display:block;text-align:center;margin-top: 6px;">Welcome to GlotDict! Discover the features and the hotkeys on the <a href="https://github.com/Mte90/GlotDict/blob/master/README.md#features"  target="_blank" rel="noreferrer noopener">Readme</a>.</h2>');
-    return;
   }
 }
 
@@ -274,8 +273,24 @@ function gd_remove_layover() {
 function gd_wait_table_alter() {
   if (document.querySelector('#translations tbody') !== null) {
     var observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function() {
-        gd_add_column();
+      mutations.forEach(function(mutation) {
+        if (document.querySelector('#bulk-actions-toolbar-top') === null) {
+          return;
+        }
+        mutation.addedNodes.forEach(function(addedNode) {
+          if (addedNode.nodeType !== 1) {
+            return;
+          }
+          if (addedNode.classList.contains('editor') && mutation.previousSibling && !mutation.previousSibling.matches('.editor.untranslated')) {
+            var next_row_editor = addedNode.nextElementSibling.nextElementSibling;
+            var next_row_preview = next_row_editor.previousElementSibling;
+            next_row_editor.style.display = 'none';
+            next_row_preview.style.display = 'table-row';
+          }
+          if (addedNode.classList.contains('preview')) {
+            gd_add_column_buttons(addedNode);
+          }
+        });
         gd_add_meta();
       });
     });

@@ -17,6 +17,9 @@ function gd_add_column_buttons(element) {
     clone_button.classList.add('gd-' + clone_button.classList[0]);
     clone_button.addEventListener('click', function(e) {
       var button = e.target;
+      button.disabled = true;
+      button.style.color = '#afafaf';
+      button.querySelector('strong').classList.add('gd-btn-action');
       var editor = button.closest('tr.preview').nextElementSibling;
       var new_status = button.classList[0];
       new_status = new_status === 'approve' ? 'current' : new_status;
@@ -24,7 +27,7 @@ function gd_add_column_buttons(element) {
       $gp.editor.show(jQuery(button));
       $gp.editor.set_status(jQuery(button), new_status);
       editor.style.display = 'none';
-      $gp.editor.show(jQuery(button));
+      button.closest('tr.preview').style.display = 'table-row';
     });
     if (!element.classList.contains('untranslated')) {
       td_buttons.append(clone_button);
