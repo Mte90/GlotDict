@@ -17,16 +17,22 @@ function gd_add_column_buttons(element) {
     clone_button.classList.add('gd-' + clone_button.classList[0]);
     clone_button.addEventListener('click', function(e) {
       var button = e.target;
+      if (!button) { return; }
       button.disabled = true;
       button.style.color = '#afafaf';
-      button.querySelector('strong').classList.add('gd-btn-action');
+      var strong = button.querySelector('strong');
+      if (strong) {
+        button.querySelector('strong').classList.add('gd-btn-action');
+      }
       var editor = button.closest('tr.preview').nextElementSibling;
       var new_status = button.classList[0];
       new_status = new_status === 'approve' ? 'current' : new_status;
       new_status = new_status === 'reject' ? 'rejected' : new_status;
       $gp.editor.show(jQuery(button));
       $gp.editor.set_status(jQuery(button), new_status);
-      editor.style.display = 'none';
+      if (editor) {
+        editor.style.display = 'none';
+      }
       button.closest('tr.preview').style.display = 'table-row';
     });
     if (!element.classList.contains('untranslated')) {

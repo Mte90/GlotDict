@@ -80,3 +80,20 @@ table.translations tr.preview.has-original-copy, #legend .has-original-copy {
 	background: #e44b3e;
 	border-left: 3px solid #dc3232;
 }
+button[class*="gd-"] strong {
+	display: inline-block;
+}
+.gd-btn-action {
+	animation: gd-rotation 2s infinite linear;
+}
+button.gd-approve strong {
+	transform-origin: 51% 49%;
+}
+@keyframes gd-rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
