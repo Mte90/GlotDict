@@ -284,6 +284,7 @@ function gd_wait_table_alter() {
           if (addedNode.classList.contains('editor') && mutation.previousSibling && !mutation.previousSibling.matches('.editor.untranslated')) {
             var next_row_editor = addedNode.nextElementSibling.nextElementSibling;
             var next_row_preview = next_row_editor.previousElementSibling;
+            if (!next_row_editor || !next_row_preview) { return; }
             next_row_editor.style.display = 'none';
             next_row_preview.style.display = 'table-row';
           }
