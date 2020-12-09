@@ -1,3 +1,7 @@
+# 1.6.8
+
+* Bugfix: Avoid opening the next row on using the side buttons
+
 # 1.6.7
 
 * Enhancement: New code for the side buttons approve/reject/fuzzy that avoid fails on submitting 
