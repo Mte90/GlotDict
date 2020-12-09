@@ -29,5 +29,5 @@ jobs:
             refresh-token: ${{ secrets.CHROME_API_TOKEN }}
             client-id: ${{ secrets.CHROME_API_ID }}
             client-secret: ${{ secrets.CHROME_API_SECRET }}
-            file-name: GlotDict_${{ steps.get_version.outputs.version }}.zip
+            zip: GlotDict_${{ steps.get_version.outputs.version }}.zip
             extension: ${{ secrets.CHROME_UUID }}
