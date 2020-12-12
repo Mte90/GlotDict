@@ -105,22 +105,49 @@ function gd_add_project_links() {
 }
 
 /**
- * Add the button to scroll to the row of the language choosen
+ * Add the review button
  * @returns void
  */
-function gd_add_button() {
-  if (window.location.href === 'https://translate.wordpress.org/stats/') {
-    jQuery('.gp-content').prepend('<button style="float:right" class="gd_scroll">Scroll to ' + gd_get_lang() + '</button>');
-    jQuery('.gd_scroll').on('click', function() {
-      var row = jQuery('#stats-table tr th a').filter(function() { return jQuery(this).html().trim() === gd_get_lang(); });
-      row.html('<b>&nbsp;&nbsp;&nbsp;' + row.text() + '</b>');
-      jQuery('html, body').animate({
-        scrollTop: row.offset().top - 50
-      });
-    });
-  }
+function gd_add_review_button() {
   if (jQuery('body.logged-in').length !== 0) {
     jQuery('.filters-toolbar.bulk-actions:first div:last').append(' <input class="button gd-review" value="Review" type="button">');
+  }
+}
+
+/**
+ * Add the buttons to scroll to the row of the language choosen
+ * @returns void
+ */
+function gd_add_scroll_buttons() {
+  var locations = {
+    statsRegex: 'https:\\/\\/translate.wordpress.org\\/stats\\/$',
+    projectsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/[^\\/]+\\/[^\\/]+\\/$'
+  }
+
+  var locale = gd_get_lang().toLowerCase().replace('_', '-').split('-');
+  var slug = (!locale[1] || locale[0] === locale[1]) ? locale[0] : locale[0] + '-' + locale[1];
+
+  for (var regex in locations) {
+    var position = document.querySelector('table');
+    var acquired = (RegExp(locations[regex])).test(window.location.href);
+    if (position && acquired) {
+      jQuery(position).before('<button style="float:right;margin-bottom:1em" class="gd_scroll">Scroll to ' + gd_get_lang() + '</button>');
+
+      jQuery('.gd_scroll').on('click', function() {
+        var target = document.querySelector('table tr th a[href*="/' + slug + '/"]') || document.querySelector('table td strong a[href*="/' + slug + '/"]');
+        if (!target) { return; }
+        var row = target.closest('tr');
+        if (!row) { return; }
+        row.style.border = '2px solid black';
+        target.style.color = '#a70505';
+        if (!target.textContent.includes('➤')) {
+          target.textContent = '➤ ' + target.textContent;
+        }
+        jQuery('html, body').animate({
+          scrollTop: jQuery(row).offset().top - 70
+        });
+      });
+    }
   }
 }
 
