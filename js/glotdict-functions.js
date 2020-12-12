@@ -121,7 +121,8 @@ function gd_add_review_button() {
 function gd_add_scroll_buttons() {
   var locations = {
     statsRegex: 'https:\\/\\/translate.wordpress.org\\/stats\\/$',
-    projectsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/[^\\/]+\\/[^\\/]+\\/$'
+    projectsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/[^\\/]+\\/[^\\/]+\\/$',
+    appsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/apps\\/[^\\/]+\\/[^\\/]+\\/$'
   }
 
   var locale = gd_get_lang().toLowerCase().replace('_', '-').split('-');
