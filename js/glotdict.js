@@ -50,7 +50,8 @@ if (window.gd_filter_bar.length > 0) {
 }
 
 gd_add_project_links();
-gd_add_button();
+gd_add_review_button();
+gd_add_scroll_buttons();
 gd_add_meta();
 
 jQuery('.glotdict_language').change(function() {
