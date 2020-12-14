@@ -1,3 +1,8 @@
+# 1.6.9
+
+* Bugfix: Sidebar's buttons in case of no new lines works badly
+* Enhancement: Scroll to locale in Project Stats improved
+
 # 1.6.8
 
 * Bugfix: Avoid opening the next row on using the side buttons
