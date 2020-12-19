@@ -9,14 +9,14 @@ function gd_add_column() {
   });
 }
 
-function gd_add_column_buttons(element) {
+function gd_add_column_buttons(tr_preview) {
   var td_buttons = document.createElement('TD');
-  element.append(td_buttons);
-  element.nextElementSibling.querySelectorAll('.meta button').forEach(function(button) {
+  tr_preview.append(td_buttons);
+  tr_preview.nextElementSibling.querySelectorAll('.meta button').forEach(function(button) {
     var clone_button = button.cloneNode(true);
     clone_button.classList.add('gd-' + clone_button.classList[0]);
     clone_button.addEventListener('click', function(e) {
-      var button = e.target;
+      var button = (e.target.parentElement.nodeName === 'BUTTON') ? e.target.parentElement : e.target;
       if (!button) { return; }
       button.disabled = true;
       button.style.color = '#afafaf';
@@ -35,7 +35,7 @@ function gd_add_column_buttons(element) {
       }
       button.closest('tr.preview').style.display = 'table-row';
     });
-    if (!element.classList.contains('untranslated')) {
+    if (!tr_preview.classList.contains('untranslated')) {
       td_buttons.append(clone_button);
     }
   });
