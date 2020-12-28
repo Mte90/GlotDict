@@ -115,6 +115,25 @@ function gd_add_review_button() {
 }
 
 /**
+ * Get locale from slug or slug from locale
+ *
+ * @param {string} value locale or slug
+ * @param {string} type the type of value 'locale' or 'slug'
+ * @returns {string} slug or locale depending on type
+ */
+function gd_get_locale_slug(value, type) {
+  if (type === 'locale') {
+    return gd_locales_slugs[value] || '';
+  }
+  for (var elem in gd_locales_slugs) {
+    if (Object.prototype.hasOwnProperty.call(gd_locales_slugs, elem) && gd_locales_slugs[elem] === value) {
+      return elem;
+    }
+  }
+  return '';
+}
+
+/**
  * Add the buttons to scroll to the row of the language choosen
  * @returns void
  */
@@ -125,8 +144,7 @@ function gd_add_scroll_buttons() {
     appsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/apps\\/[^\\/]+\\/[^\\/]+\\/$'
   }
 
-  var locale = gd_get_lang().toLowerCase().replace('_', '-').split('-');
-  var slug = (!locale[1] || locale[0] === locale[1]) ? locale[0] : locale[0] + '-' + locale[1];
+  var slug = gd_get_locale_slug(gd_get_lang(), 'locale');
 
   for (var regex in locations) {
     var position = document.querySelector('table');
@@ -291,6 +309,32 @@ function gd_add_layover() {
  */
 function gd_remove_layover() {
   jQuery('.gd-layover').remove();
+}
+
+/**
+ * Move the current locale first on Translate homepage.
+ *
+ * @returns {void}
+ */
+function gd_current_locale_first() {
+  if (!(/https:\/\/translate\.wordpress\.org\//).test(window.location.href)) { return; }
+  var locales_filter = document.querySelector('#locales-filter');
+  var slug = gd_get_locale_slug(gd_get_lang(), 'locale');
+  var current_locale = document.querySelector('#locales .english a[href="/locale/' + slug + '/"]');
+  var first_locale = document.querySelector('div.locale:first-child');
+  if (!current_locale) { return; }
+  var current_locale_div = current_locale.closest('div.locale');
+  if (!first_locale || !current_locale_div || !locales_filter) { return; }
+  var clone = current_locale_div.cloneNode(true);
+  first_locale.before(clone);
+  clone.classList.add('gd-locale-moved');
+  locales_filter.addEventListener('input', function(e) {
+    if (e.target.value !== '') {
+      clone.style.display = 'none';
+    } else {
+      clone.style.display = 'block';
+    }
+  });
 }
 
 /**
