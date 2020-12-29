@@ -4,6 +4,8 @@ var glotdict_version = '1.0.1';
 
 gd_add_layover();
 
+gd_current_locale_first();
+
 window.gd_filter_bar = jQuery('.filter-toolbar form div:first');
 
 if (jQuery('.filters-toolbar.bulk-actions:last div:first').length > 0 ) {

@@ -1,4 +1,4 @@
-var jsScripts = ['jquery.bind-first', 'dompurify', 'keymaster', 'glotdict-functions', 'glotdict-settings', 'glotdict-hotkey', 'glotdict-validation', 'glotdict-column', 'glotdict-meta', 'glotdict-bulk', 'glotdict-notices', 'glotdict'];
+var jsScripts = ['jquery.bind-first', 'dompurify', 'keymaster', 'glotdict-locales', 'glotdict-functions', 'glotdict-settings', 'glotdict-hotkey', 'glotdict-validation', 'glotdict-column', 'glotdict-meta', 'glotdict-bulk', 'glotdict-notices', 'glotdict'];
 
 script(jsScripts);
 

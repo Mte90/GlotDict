@@ -2,6 +2,7 @@
 
 * Bugfix: Sidebar's buttons in case of no new lines works badly
 * Enhancement: Scroll to locale in Project Stats improved
+* Enhancement: Move current locale at first place on Translate homepage
 
 # 1.6.8
 

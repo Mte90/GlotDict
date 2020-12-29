@@ -97,3 +97,49 @@ button.gd-approve strong {
 		transform: rotate(359deg);
 	}
 }
+.gd-locale-moved {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+}
+.gd-locale-moved:before {
+	z-index:-1;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	-webkit-animation-duration: 1s;
+    animation-duration: 1s;
+	-webkit-animation-delay: .5s;
+    animation-delay: .5s;
+	-webkit-animation-name: gd-ripple-out;
+    animation-name: gd-ripple-out;
+}
+@-webkit-keyframes gd-ripple-out {
+	0% {
+		box-shadow: 0 0 6px 6px rgba(0, 115, 170, .3);
+	}
+	100% {
+		top: -22px;
+		right: -22px;
+		bottom: -22px;
+		left: -22px;
+		opacity: 0;
+	}
+}
+@keyframes gd-ripple-out {
+	0% {
+		box-shadow: 0 0 6px 6px rgba(0, 115, 170, .3);
+	}
+	100% {
+		top: -22px;
+		right: -22px;
+		bottom: -22px;
+		left: -22px;
+		opacity: 0;
+	}
+}
