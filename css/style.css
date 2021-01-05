@@ -84,17 +84,31 @@ button[class*="gd-"] strong {
 	display: inline-block;
 }
 .gd-btn-action {
-	animation: gd-rotation 2s infinite linear;
+	-webkit-animation: gd-rotation 2s infinite linear;
+	        animation: gd-rotation 2s infinite linear;
 }
 button.gd-approve strong {
-	transform-origin: 51% 49%;
+	-webkit-transform-origin: 51% 49%;
+	        transform-origin: 51% 49%;
+}
+@-webkit-keyframes gd-rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+	}
 }
 @keyframes gd-rotation {
 	from {
-		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
 	}
 	to {
-		transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
 	}
 }
 .gd-locale-moved {
