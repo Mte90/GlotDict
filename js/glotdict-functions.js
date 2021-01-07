@@ -338,7 +338,29 @@ function gd_current_locale_first() {
 }
 
 /**
- * Mutations Observer for Translation Table Changes
+ * Auto hide next editor when status action open it.
+ *
+ * @param {object} editor
+ * @returns {void}
+ */
+function gd_auto_hide_next_editor(editor) {
+  var preview = editor.nextElementSibling;
+  if (!preview) {
+    return;
+  }
+  var next_editor = preview.nextElementSibling;
+  var next_preview = next_editor.previousElementSibling;
+  if (!next_editor || !next_preview || !next_editor.classList.contains('editor') || !next_preview.classList.contains('preview')) {
+    return;
+  }
+  next_editor.style.display = 'none';
+  next_preview.style.display = 'table-row';
+}
+
+/**
+ * Mutations Observer for Translation Table Changes:
+ * Auto hide next editor on status actions.
+ * Add clone buttons on new preview rows.
  *
  * @triggers gd_add_column, gd_add_meta
  */
@@ -354,11 +376,7 @@ function gd_wait_table_alter() {
             return;
           }
           if (addedNode.classList.contains('editor') && mutation.previousSibling && !mutation.previousSibling.matches('.editor.untranslated')) {
-            var next_row_editor = addedNode.nextElementSibling.nextElementSibling;
-            var next_row_preview = next_row_editor.previousElementSibling;
-            if (!next_row_editor || !next_row_preview) { return; }
-            next_row_editor.style.display = 'none';
-            next_row_preview.style.display = 'table-row';
+            gd_auto_hide_next_editor(addedNode);
           }
           if (addedNode.classList.contains('preview')) {
             gd_add_column_buttons(addedNode);

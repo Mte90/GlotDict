@@ -13,16 +13,17 @@ function gd_add_column_buttons(tr_preview) {
   var td_buttons = document.createElement('TD');
   tr_preview.append(td_buttons);
   tr_preview.nextElementSibling.querySelectorAll('.meta button').forEach(function(button) {
+    button.removeAttribute('tabindex');
     var clone_button = button.cloneNode(true);
     clone_button.classList.add('gd-' + clone_button.classList[0]);
     clone_button.addEventListener('click', function(e) {
       var button = (e.target.parentElement.nodeName === 'BUTTON') ? e.target.parentElement : e.target;
       if (!button) { return; }
+      var strong = button.querySelector('strong');
       button.disabled = true;
       button.style.color = '#afafaf';
-      var strong = button.querySelector('strong');
       if (strong) {
-        button.querySelector('strong').classList.add('gd-btn-action');
+        strong.classList.add('gd-btn-action');
       }
       var editor = button.closest('tr.preview').nextElementSibling;
       var new_status = button.classList[0];
