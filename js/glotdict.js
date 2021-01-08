@@ -37,12 +37,7 @@ if (window.gd_filter_bar.length > 0) {
   jQuery("<div class='box has-old-string'></div><div>The translation is at least 6 months old</div>").appendTo('#legend');
   jQuery("<div class='box has-original-copy'></div><div>Contains the Original Copy</div>").appendTo('#legend');
 
-  jQuery('.glossary-word').each(function() {
-    var $this = jQuery(this);
-    var line = $this.parents().eq(7).attr('row');
-    jQuery('#preview-' + line).addClass('has-glotdict');
-    $this.wrap('<a href="https://translate.wordpress.org/consistency?search=' + $this.text() + '&amp;set=' + gd_get_lang_consistency() + '%2Fdefault" target="_blank" rel="noreferrer noopener"></a>');
-  });
+  document.querySelectorAll('.glossary-word').forEach(gd_add_glossary_links);
 
   gd_mark_old_strings();
 

@@ -105,6 +105,19 @@ function gd_add_project_links() {
 }
 
 /**
+ * Add links to glossary words
+ *
+ * @param {object} glossary_word node
+ * @returns void
+ */
+function gd_add_glossary_links(glossary_word) {
+  var word = jQuery(glossary_word);
+  var line = word.parents().eq(7).attr('row');
+  jQuery('#preview-' + line).addClass('has-glotdict');
+  word.wrap('<a href="https://translate.wordpress.org/consistency?search=' + word.text() + '&amp;set=' + gd_get_lang_consistency() + '%2Fdefault" target="_blank" rel="noreferrer noopener"></a>');
+}
+
+/**
  * Add the review button
  * @returns void
  */
@@ -360,7 +373,7 @@ function gd_auto_hide_next_editor(editor) {
 /**
  * Mutations Observer for Translation Table Changes:
  * Auto hide next editor on status actions.
- * Add clone buttons on new preview rows.
+ * Add clone buttons on new preview rows and add glossary links.
  *
  * @triggers gd_add_column, gd_add_meta
  */
@@ -368,18 +381,19 @@ function gd_wait_table_alter() {
   if (document.querySelector('#translations tbody') !== null) {
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
-        if (document.querySelector('#bulk-actions-toolbar-top') === null) {
-          return;
-        }
+        var is_pte = document.querySelector('#bulk-actions-toolbar-top') !== null;
         mutation.addedNodes.forEach(function(addedNode) {
           if (addedNode.nodeType !== 1) {
             return;
           }
-          if (addedNode.classList.contains('editor') && mutation.previousSibling && !mutation.previousSibling.matches('.editor.untranslated')) {
+          if (is_pte && addedNode.classList.contains('editor') && mutation.previousSibling && !mutation.previousSibling.matches('.editor.untranslated')) {
             gd_auto_hide_next_editor(addedNode);
           }
-          if (addedNode.classList.contains('preview')) {
+          if (is_pte && addedNode.classList.contains('preview')) {
             gd_add_column_buttons(addedNode);
+          }
+          if (addedNode.classList.contains('preview')) {
+            addedNode.querySelectorAll('.glossary-word').forEach(gd_add_glossary_links);
           }
         });
         gd_add_meta();
