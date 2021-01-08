@@ -112,8 +112,9 @@ function gd_add_project_links() {
  */
 function gd_add_glossary_links(glossary_word) {
   var word = jQuery(glossary_word);
-  var line = word.parents().eq(7).attr('row');
-  jQuery('#preview-' + line).addClass('has-glotdict');
+  if (glossary_word.closest('tr.preview')) {
+    glossary_word.closest('tr.preview').classList.add('has-glotdict');
+  }
   word.wrap('<a href="https://translate.wordpress.org/consistency?search=' + word.text() + '&amp;set=' + gd_get_lang_consistency() + '%2Fdefault" target="_blank" rel="noreferrer noopener"></a>');
 }
 
