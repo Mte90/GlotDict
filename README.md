@@ -91,10 +91,10 @@ After that step we have to wait few hours for Chrome and for Firefox and all the
 * [Daniele Scasciafratte](https://github.com/Mte90) [Donate](https://www.paypal.me/mte90)
 * [Jb Audras](https://github.com/audrasjb) 
 * [Garrett Hyder](https://github.com/garrett-eclipse) 
+* [Loïc Antignac](https://github.com/webaxones)
 
 ## Other contributors
 
 * [Olegs Belousovs](https://github.com/sgelob) - The ideator
 * [Pascal Casier](https://github.com/ePascalC) - For the help with the glossaries and hotkeys
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
-* [Loïc Antignac](https://github.com/webaxones) - For the help
