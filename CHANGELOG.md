@@ -1,3 +1,10 @@
+# 1.6.10
+
+* Enhancement: Improved buttons on the string list
+* Enhancement: Add glossary link to buttons
+* Fix: Blue border lost after translation
+* Fix: Scroll button on stats that don't target the right locale 
+
 # 1.6.9
 
 * Bugfix: Sidebar's buttons in case of no new lines works badly
