@@ -411,3 +411,65 @@ function gd_wait_table_alter() {
     });
   }
 }
+
+/**
+ * Creates HTML Element.
+ *
+ * @param {String} tagName This must be a valid HTML tag name.
+ * @param {Object} attributes
+ * @param {String} textContent
+ * @returns {Element}
+ */
+function createElement( tagName = 'div', attributes = {}, textContent = '' ) {
+  var element = document.createElement( tagName );
+  for ( var attribute in attributes ) {
+    if ( attributes.hasOwnProperty( attribute ) ) {
+      element.setAttribute( attribute, attributes[ attribute ] );
+    }
+  }
+  element.textContent = textContent;
+  return element;
+}
+
+/**
+ * Inserts adjacent elements to all target selectors.
+ *
+ * @param {String} target_selector This must be valid CSS syntax.
+ * @param {('beforebegin' | 'afterbegin' | 'beforeend' | 'afterend')} el_position
+ * @param {Element} new_element
+ * @returns {void}
+ */
+function addElements( target_selector, el_position, new_element ) {
+  document.querySelectorAll( target_selector ).forEach( function( el ){
+    el.insertAdjacentElement( el_position , new_element.cloneNode( true ) );
+  } );
+}
+
+/**
+ * Adds event listeners for all target selectors.
+ *
+ * @param {Event} event_name
+ * @param {String} target_selector This must be valid CSS syntax.
+ * @param {Function} function_to_call
+ * @returns {void}
+ */
+function addEvtListener( event_name, target_selector, function_to_call ) {
+  document.querySelectorAll( target_selector ).forEach( function( el ){
+    el.addEventListener( event_name, function_to_call );
+  } );
+}
+
+/**
+ * Copies text to clipboard.
+ *
+ * @param {String} copy_text
+ * @returns {void}
+ */
+function copyToClipboard( copy_text ) {
+  var elem = document.createElement( 'textarea' );
+  elem.value = copy_text;
+  document.body.appendChild( elem );
+  elem.select();
+  document.execCommand( 'copy' );
+  document.body.removeChild( elem );
+}
