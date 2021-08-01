@@ -168,6 +168,17 @@ button.gd-approve strong {
     content: "|";
     color: #c3c0c0;
 }
+.gd_get_consistency {
+	margin-left: 10px !important;
+}
+.translation-suggestion__translation.index,
+.consistency-count {
+	padding: 0 4px;
+	color: #666;
+}
+.consistency-count {
+	font-size: 0.8em;
+}
 @-webkit-keyframes gd-ripple-out {
 	0% {
 		box-shadow: 0 0 6px 6px rgba(0, 115, 170, .3);
