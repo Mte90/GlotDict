@@ -69,7 +69,7 @@ function gd_hotkeys() {
     }
     return false;
   });
-  key('ctrl+shift+n', function() {
+  key('ctrl+shift+m', function() {
     jQuery('textarea.foreign-text:visible:first').val(function(index, text) {
       // Replace space-colon or nbsp-colon with just colon, then replace colons with nbsp-colon
       var s = text.replace(/( :|&nbsp;:)/g, ':').replace(/:/g, '&nbsp;:');
