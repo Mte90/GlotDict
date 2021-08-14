@@ -37,7 +37,7 @@ function gd_generate_settings_panel() {
     '<li>Shortcut on Ctrl+Shift+R to click "Reject".</li>' +
     '<li>Shortcut on Ctrl+Shift+F to click "Fuzzy".</li>' +
     '<li>Shortcut on Ctrl+Shift+B to "Copy from original".</li>' +
-    '<li>Shortcut on Ctrl+Shift+M to add non-breaking spaces near symbols.</li>' +
+    '<li>Shortcut on Ctrl+Shift+V to add non-breaking spaces near symbols.</li>' +
     '<li>Shortcut on Ctrl+Shift+R to reset all the GlotDict settings.</li>' +
     '<li>Shortcut on Ctrl+D to dismiss the validation warnings for the currently visible editor.</li>' +
     '<li>Shortcut on Ctrl+Shift+D to dismiss all the validation warnings.</li>' +
