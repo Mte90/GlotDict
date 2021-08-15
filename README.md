@@ -38,7 +38,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Shortcut on Ctrl+Shift+R to click "Reject".
 * Shortcut on Ctrl+Shift+F to click "Fuzzy".
 * Shortcut on Ctrl+Shift+B to "Copy from original".
-* Shortcut on Ctrl+Shift+V to add non-breaking spaces near symbols.
+* Shortcut on Ctrl+Shift+X to add non-breaking spaces near symbols.
 * Shortcut on Ctrl+Shift+R to reset all the GlotDict settings.
 * Shortcut on Ctrl+D to dismiss the validation warnings for the currently visible editor.
 * Shortcut on Ctrl+Shift+D to dismiss all the validation warnings.
