@@ -1,3 +1,9 @@
+# TBD
+
+* Fix: strings count after Done pressure
+* Fix: Next editor is now open after translation change
+* Enhancement: Ctrl+Shift+N remapped to Ctrl+Shift+X because is a hotkey used by browsers
+
 # 1.6.10
 
 * Enhancement: Improved buttons on the string list

@@ -28,7 +28,7 @@ function gd_add_string_counts(row) {
 
                     gd_add_count(row, jQuery(this).find('textarea.foreign-text'), 'current-count-'+index, 'Current String');
 
-                    jQuery(this).on("change keyup paste", 'textarea.foreign-text', function() {
+                    jQuery(this).on("change keyup paste focus", 'textarea.foreign-text', function() {
                         gd_update_count(row, jQuery(this), 'current-count-'+index, true);
                     });                    
                 });
@@ -43,7 +43,7 @@ function gd_add_string_counts(row) {
 
                     gd_add_count(row, jQuery(this).find('textarea.foreign-text'), 'current-count-'+index, prefix + 'Current');
 
-                    jQuery(this).on("change keyup paste", 'textarea.foreign-text', function() {
+                    jQuery(this).on("change keyup paste focus", 'textarea.foreign-text', function() {
                         gd_update_count(row, jQuery(this), 'current-count-'+index, true);
                     });                    
                 });
@@ -58,7 +58,7 @@ function gd_add_string_counts(row) {
 
             gd_add_count(row, jQuery('.textareas textarea.foreign-text', row), 'current-count', 'Current String');
 
-            jQuery(row).on("change keyup paste", '.textareas textarea.foreign-text', function() {
+            jQuery(row).on("change keyup paste focus", '.textareas textarea.foreign-text', function() {
                 gd_update_count(row, jQuery(this), 'current-count', true);
             });
         }

@@ -385,18 +385,32 @@ function gd_wait_table_alter() {
   if (document.querySelector('#translations tbody') !== null) {
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
-        var is_pte = document.querySelector('#bulk-actions-toolbar-top') !== null;
+        var user_is_pte = document.querySelector('#bulk-actions-toolbar-top') !== null;
         mutation.addedNodes.forEach(function(addedNode) {
+          // Don't treat text nodes.
           if (addedNode.nodeType !== 1) {
             return;
           }
-          if (is_pte && addedNode.classList.contains('editor') && mutation.previousSibling && !mutation.previousSibling.matches('.editor.untranslated')) {
+
+          var row_is_preview = addedNode.classList.contains('preview');
+          var row_is_editor = addedNode.classList.contains('editor');
+          var is_new_translation = mutation.previousSibling && mutation.previousSibling.matches('.editor.untranslated');
+          var status_has_changed = false;
+          if (row_is_editor && mutation.previousSibling && mutation.previousSibling.matches('[class*="status-"]')) {
+            var status_before = '';
+            var status_after = '';
+            status_before = RegExp(/status-[a-z]*/).exec(mutation.previousSibling.className)[0];
+            status_after = RegExp(/status-[a-z]*/).exec(addedNode.className)[0];
+            status_has_changed = status_before !== status_after;
+          }
+
+          if (user_is_pte && row_is_editor && !is_new_translation && status_has_changed) {
             gd_auto_hide_next_editor(addedNode);
           }
-          if (is_pte && addedNode.classList.contains('preview')) {
+          if (user_is_pte && row_is_preview) {
             gd_add_column_buttons(addedNode);
           }
-          if (addedNode.classList.contains('preview')) {
+          if (row_is_preview) {
             addedNode.querySelectorAll('.glossary-word').forEach(gd_add_glossary_links);
           }
         });
