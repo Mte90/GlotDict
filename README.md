@@ -42,8 +42,8 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Shortcut on Ctrl+Shift+R to reset all the GlotDict settings.
 * Shortcut on Ctrl+D to dismiss the validation warnings for the currently visible editor.
 * Shortcut on Ctrl+Shift+D to dismiss all the validation warnings.
-* Shortcut on Page Down to open the previous string to translate.
-* Shortcut on Page Up to open the next string to translate.
+* Shortcut on Page Down to open the next string to translate.
+* Shortcut on Page Up to open the previous string to translate.
 * Right click of the mouse on the term with a dashed line and the translation will be added in the translation area.
 
 ## Settings
