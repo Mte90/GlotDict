@@ -101,3 +101,4 @@ After that step we have to wait few hours for Chrome and for Firefox and all the
 * [Olegs Belousovs](https://github.com/sgelob) - The ideator
 * [Pascal Casier](https://github.com/ePascalC) - For the help with the glossaries and hotkeys
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
+* [Vlad Timotei](https://github.com/vlad-timotei)
