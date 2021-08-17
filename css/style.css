@@ -133,6 +133,52 @@ button.gd-approve strong {
 	-webkit-animation-name: gd-ripple-out;
     animation-name: gd-ripple-out;
 }
+.editor-panel__right .panel-header button {
+    background: none;
+    border: none;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    box-shadow: none;
+    border-radius: 0;
+}
+.editor-panel__right .panel-header button:hover {
+    background: #fafafa;
+}
+.gd_quicklinks_copy.active {
+    color: #0073aa;
+}
+.gd_quicklinks_copy.active:hover,
+.gd_quicklinks_copy.active:focus {
+    color: #046594;
+}
+.gd_quicklinks_plus.dashicons-plus {
+	margin: 0 10px;
+    vertical-align: middle;
+    color: #0073aa;
+    cursor: pointer;
+}
+.gd_quicklinks_plus.separator {
+	margin: 0 10px;
+    vertical-align: middle;
+}
+.gd_quicklinks_plus.separator:before {
+    content: "|";
+    color: #c3c0c0;
+}
+.gd_get_consistency {
+	margin-left: 10px !important;
+}
+.translation-suggestion__translation.index,
+.consistency-count {
+	padding: 0 4px;
+	color: #666;
+}
+.consistency-count {
+	font-size: 0.8em;
+}
 @-webkit-keyframes gd-ripple-out {
 	0% {
 		box-shadow: 0 0 6px 6px rgba(0, 115, 170, .3);
