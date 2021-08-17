@@ -117,8 +117,8 @@ function gd_hotkeys() {
     return false;
   });
   key('alt+c', function() {
-    if (jQuery('.editor:visible').length > 0) {
-      jQuery('.editor:visible .gd_get_consistency').trigger('click');
+    if ( jQuery( '.editor:visible' ).length > 0 ) {
+      jQuery( '.editor:visible .gd_get_consistency' ).trigger( 'click' );
     }
     return false;
   });
