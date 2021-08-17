@@ -27,6 +27,8 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Highlight non-breaking-space
 * Character and Word Counts in Meta
 * Notices with counts for Approved, Rejected, Fuzzied, Submitted and Selected rows
+* Consistency suggestions loaded directly in the editor
+* QuickLinks in Meta menu: open or copy link
 * Many hotkeys and shortcut
 
 ## Hotkeys
@@ -45,6 +47,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 * Shortcut on Page Down to open the previous string to translate.
 * Shortcut on Page Up to open the next string to translate.
 * Right click of the mouse on the term with a dashed line and the translation will be added in the translation area.
+* Shortcut on Alt+C to start loading the consistency suggestions for a string.
 
 ## Settings
 * Don’t validate strings ending with “...“, “.”, “:”
