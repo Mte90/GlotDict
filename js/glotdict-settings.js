@@ -41,8 +41,8 @@ function gd_generate_settings_panel() {
     '<li>Shortcut on Ctrl+Shift+R to reset all the GlotDict settings.</li>' +
     '<li>Shortcut on Ctrl+D to dismiss the validation warnings for the currently visible editor.</li>' +
     '<li>Shortcut on Ctrl+Shift+D to dismiss all the validation warnings.</li>' +
-    '<li>Shortcut on Page Down to open the previous string to translate.</li>' +
-    '<li>Shortcut on Page Up to open the next string to translate.</li>' +
+    '<li>Shortcut on Page Down to open the next string to translate.</li>' +
+    '<li>Shortcut on Page Up to open the previous string to translate.</li>' +
     '<li>Right click of the mouse on the term with a dashed line and the translation will be added in the translation area.</li>' +
     '<li>Shortcut on Alt+C to start loading the consistency suggestions for current string.</li>' +
     '</ul><br><h3>Settings</h3>';
