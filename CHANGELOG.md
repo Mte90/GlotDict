@@ -4,8 +4,9 @@
 * Fix: Next editor is now open after translation change
 * Enhancement: Ctrl+Shift+N remapped to Ctrl+Shift+X because is a hotkey used by browsers
 * Enhancement: Show Consistency translation in the editor panel
-* Enhancements: New hotkey to load the Consistency translation
-* Enhancements: New buttons on the editor
+* Enhancement: New hotkey to load the Consistency translation
+* Enhancement: New buttons on the editor for history link, copy and consistency
+* Enhancement: Show Review button also for non PTE/GTE
 
 # 1.6.10
 

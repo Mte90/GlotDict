@@ -31,7 +31,7 @@
     "css/style.css",
     "js/init.js"
   ],
-  "version": "1.6.10",
+  "version": "1.7.0",
   "description": "Improve the workflow on translate.wordpress.org",
   "homepage_url": "https://github.com/Mte90/GlotDict",
   "manifest_version": 2,

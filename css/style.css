@@ -87,6 +87,9 @@ button[class*="gd-"] strong {
 	-webkit-animation: gd-rotation 2s infinite linear;
 	        animation: gd-rotation 2s infinite linear;
 }
+input.button.gd-review {
+	margin-top: 5px !important;
+}
 button.gd-approve strong {
 	-webkit-transform-origin: 51% 49%;
 	        transform-origin: 51% 49%;

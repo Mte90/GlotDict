@@ -124,7 +124,7 @@ function gd_add_glossary_links(glossary_word) {
  */
 function gd_add_review_button() {
   if (jQuery('body.logged-in').length !== 0) {
-    jQuery('.filters-toolbar.bulk-actions:first div:last').append(' <input class="button gd-review" value="Review" type="button">');
+    jQuery('.filter-toolbar').after('<input class="button gd-review" value="Review" type="button">');
   }
 }
 
