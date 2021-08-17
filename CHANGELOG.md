@@ -1,8 +1,11 @@
-# TBD
+# 1.7.0
 
 * Fix: strings count after Done pressure
 * Fix: Next editor is now open after translation change
 * Enhancement: Ctrl+Shift+N remapped to Ctrl+Shift+X because is a hotkey used by browsers
+* Enhancement: Show Consistency translation in the editor panel
+* Enhancements: New hotkey to load the Consistency translation
+* Enhancements: New buttons on the editor
 
 # 1.6.10
 
