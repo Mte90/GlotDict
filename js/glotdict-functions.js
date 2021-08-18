@@ -159,13 +159,18 @@ function gd_add_scroll_buttons() {
   }
 
   var slug = gd_get_locale_slug(gd_get_lang(), 'locale');
+  var lang = gd_get_lang();
 
   for (var regex in locations) {
     var position = document.querySelector('table');
     var acquired = (RegExp(locations[regex])).test(window.location.href);
 
     if (position && acquired) {
-      jQuery(position).before('<button style="float:right;margin-bottom:1em" class="gd_scroll">Scroll to ' + gd_get_lang() + '</button>');
+      if (lang === '') {
+        jQuery(position).before('<span style="float:right;margin-bottom:1em">You didn\'t set any locale yet. <a href="https://translate.wordpress.org/projects/wp/dev/en-gb/default/#gd-language-picker">Click here</a> to set it.</span>');
+        return;
+      }
+      jQuery(position).before('<button style="float:right;margin-bottom:1em" class="gd_scroll">Scroll to ' + lang + '</button>');
       var StatsSpecificLinks = Array.prototype.slice.call(document.querySelectorAll('.stats-table tbody tr th a')).filter(function (el) {
         return gd_get_lang() === el.textContent.trim()
       })[0];
