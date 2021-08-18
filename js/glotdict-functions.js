@@ -167,7 +167,7 @@ function gd_add_scroll_buttons() {
 
     if (position && acquired) {
       if (lang === '') {
-        jQuery(position).before('<span style="float:right;margin-bottom:1em">You didn\'t set any locale yet.</span>');
+        jQuery(position).before('<span style="float:right;margin-bottom:1em">You didn\'t set any locale yet. <a href="https://translate.wordpress.org/projects/wp/dev/en-gb/default/#gd-language-picker">Click here</a> to set it.</span>');
         return;
       }
       jQuery(position).before('<button style="float:right;margin-bottom:1em" class="gd_scroll">Scroll to ' + lang + '</button>');
