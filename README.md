@@ -36,7 +36,7 @@ PS: If you are using NoScript or Privacy Badger enable the domain wordpress.org 
 | Hotkey | Action |
 | -- | -- |
 | Ctrl+Enter | Suggest or Save translation |
-| Ctrl+Shift+Enter | Force Suggest or Save translation |
+| Ctrl+Shift+Enter | Force suggest or Force save translation |
 | Ctrl+Shift+A | Approve |
 | Ctrl+Shift+R | Reject |
 | Ctrl+Shift+F | Fuzzy |

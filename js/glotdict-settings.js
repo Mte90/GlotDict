@@ -31,7 +31,7 @@ function gd_generate_settings_panel() {
   jQuery('.gp-content').prepend(container);
   var hotkeys = '<div class="gd-row"><div><h3>Hotkey</h3></div><div><h3>Action</h3></div></div>' +
   '<div class="gd-row"><div>Ctrl+Enter</div><div>Suggest or Save translation</div></div>' +
-  '<div class="gd-row"><div>Ctrl+Shift+Enter</div><div>Force Suggest or Save translation</div></div>' +
+  '<div class="gd-row"><div>Ctrl+Shift+Enter</div><div>Force suggest or Force save translation</div></div>' +
   '<div class="gd-row"><div>Ctrl+Shift+A</div><div>Approve</div></div>' +
   '<div class="gd-row"><div>Ctrl+Shift+R</div><div>Reject</div></div>' +
   '<div class="gd-row"><div>Ctrl+Shift+F</div><div>Fuzzy</div></div>' +
