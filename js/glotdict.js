@@ -4,7 +4,6 @@ const glotdict_version = '1.0.1';
 
 gd_add_layover();
 
-// eslint-disable-next-line no-undef
 gd_current_locale_first();
 
 window.gd_filter_bar = jQuery( '.filter-toolbar form div:first' );
@@ -37,7 +36,6 @@ if ( window.gd_filter_bar.length > 0 ) {
 	jQuery( "<div class='box has-old-string'></div><div>The translation is at least 6 months old</div>" ).appendTo( '#legend' );
 	jQuery( "<div class='box has-original-copy'></div><div>Contains the Original Copy</div>" ).appendTo( '#legend' );
 
-	// eslint-disable-next-line no-undef
 	document.querySelectorAll( '.glossary-word' ).forEach( gd_add_glossary_links );
 
 	gd_mark_old_strings();
@@ -48,9 +46,7 @@ if ( window.gd_filter_bar.length > 0 ) {
 }
 
 gd_add_project_links();
-// eslint-disable-next-line no-undef
 gd_add_review_button();
-// eslint-disable-next-line no-undef
 gd_add_scroll_buttons();
 gd_add_meta();
 
@@ -90,12 +86,10 @@ jQuery( '.gp-content' ).on( 'click', '.gd-review:not(.gd-review-done)', function
 	jQuery( this ).val( 'Review Complete' ).removeClass( 'gd-review' ).addClass( 'gd-review-done' ).attr( 'disabled', 'disabled' );
 } );
 
-// eslint-disable-next-line no-undef
 gd_selected_count();
 
 gd_non_breaking_space_highlight();
 
-// eslint-disable-next-line no-undef
 gd_curly_apostrophe_highlight();
 
 gd_wait_table_alter();
