@@ -16,7 +16,7 @@ function script( url ) {
 		const t = document.getElementsByTagName( 'script' )[0];
 		const s = document.createElement( 'script' );
 		s.type = 'text/javascript';
-		s.src = chrome.extension.getURL( `js/${url}.js` );
+		s.src = chrome.runtime.getURL( `js/${url}.js` );
 		s.async = false;
 		s.onload = s.onreadystatechange = function() {
 			if ( ! r && ( ! this.readyState || 'complete' === this.readyState ) ) {
@@ -31,7 +31,7 @@ function script( url ) {
 // Add the icon
 const t = document.getElementsByTagName( 'header' )[0];
 const s = document.createElement( 'img' );
-s.src = chrome.extension.getURL( 'icons/icon-16.png' );
+s.src = chrome.runtime.getURL( 'icons/icon-16.png' );
 s.style.display = 'none';
 s.classList.add( 'gd_icon' );
 t.parentNode.insertBefore( s, t );
