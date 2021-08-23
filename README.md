@@ -85,7 +85,7 @@ When the developers of the extension think that a new release is ready and teste
 
 ## Presentations
 
-* [Translating english variants with GlotDict](https://docs.google.com/presentation/d/1MiJNsbv1oIIlq5tj1P-lkc5y_F4JO3mFVNwk45XevtU/present) ([Garrett Hyder](https://github.com/garrett-eclipse)) 
+* [Translating english variants with GlotDict](https://docs.google.com/presentation/d/1MiJNsbv1oIIlq5tj1P-lkc5y_F4JO3mFVNwk45XevtU/present) ([Garrett Hyder](https://github.com/garretthyder)) 
 
 # Contributors
 
@@ -93,7 +93,7 @@ When the developers of the extension think that a new release is ready and teste
 
 * [Daniele Scasciafratte](https://github.com/Mte90) [Donate](https://www.paypal.me/mte90)
 * [Jb Audras](https://github.com/audrasjb) 
-* [Garrett Hyder](https://github.com/garrett-eclipse) 
+* [Garrett Hyder](https://github.com/garretthyder) 
 * [Loïc Antignac](https://github.com/webaxones)
 
 ## Other contributors
