@@ -12,7 +12,7 @@ function gd_quicklinks() {
 		'button',
 		{
 			'type': 'button',
-			'class': `gd_quicklinks_copy with-tooltip${( gd_quicklinks_copy_state ) ? ' active' : ' inactive'}`,
+			'class': `gd_quicklinks_copy with-tooltip ${( gd_quicklinks_copy_state ) ? 'active' : 'inactive'}`,
 			'aria-label': 'Click this and another to copy',
 		}
 	);
@@ -23,7 +23,7 @@ function gd_quicklinks() {
 	const gd_quicklinks_separator = gd_create_element(
 		'span',
 		{
-			'class': `gd_quicklinks_plus dashicons${( gd_quicklinks_copy_state ) ? ' dashicons-plus' : ' separator'}`,
+			'class': `gd_quicklinks_plus dashicons ${( gd_quicklinks_copy_state ) ? 'dashicons-plus' : 'separator'}`,
 			'aria-hidden': 'true',
 		}
 	);
