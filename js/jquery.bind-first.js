@@ -6,63 +6,64 @@
  * @license
  **/
 
-( function ( $ ) {
-	function eventsData( $el ) {
-		return $._data( $( $el ).get( 0 ), 'events' );
-	}
+(function ($) {
+  function eventsData($el) {
+	return $._data($($el).get(0), "events");
+  }
 
-	function moveHandlerToTop( $el, eventName, isDelegated ) {
-		const data = eventsData( $el );
-		const events = data[eventName];
+  function moveHandlerToTop($el, eventName, isDelegated) {
+	var data = eventsData($el);
+	var events = data[eventName];
 
-		const handler = isDelegated ? events.splice( events.delegateCount - 1, 1 )[0] : events.pop();
-		events.splice( isDelegated ? 0 : ( events.delegateCount || 0 ), 0, handler );
-	}
+	var handler = isDelegated ? events.splice(events.delegateCount - 1, 1)[0] : events.pop();
+	events.splice(isDelegated ? 0 : (events.delegateCount || 0), 0, handler);
+  }
 
-	function moveEventHandlers( $elems, eventsString, isDelegate ) {
-		const events = eventsString.split( /\s+/ );
-		$elems.each( function () {
-			for ( let i = 0; i < events.length; ++i ) {
-				const pureEventName = $.trim( events[i] ).match( /[^\.]+/i )[0];
-				moveHandlerToTop( $( this ), pureEventName, isDelegate );
-			}
-		} );
-	}
+  function moveEventHandlers($elems, eventsString, isDelegate) {
+	var events = eventsString.split(/\s+/);
+	$elems.each(function () {
+	  for (var i = 0; i < events.length; ++i) {
+		var pureEventName = $.trim(events[i]).match(/[^\.]+/i)[0];
+		moveHandlerToTop($(this), pureEventName, isDelegate);
+	  }
+	});
+  }
 
-	function makeMethod( methodName ) {
-		$.fn[`${methodName}First`] = function () {
-			const args = $.makeArray( arguments );
-			const eventsString = args.shift();
+  function makeMethod(methodName) {
+	$.fn[methodName + 'First'] = function () {
+	  var args = $.makeArray(arguments);
+	  var eventsString = args.shift();
 
-			if ( eventsString ) {
-				$.fn[methodName].apply( this, arguments );
-				moveEventHandlers( this, eventsString );
-			}
+	  if (eventsString) {
+		$.fn[methodName].apply(this, arguments);
+		moveEventHandlers(this, eventsString);
+	  }
 
-			return this;
-		};
-	}
-
-	makeMethod( 'bind' );
-	makeMethod( 'one' );
-
-	$.fn.onFirst = function ( types, selector ) {
-		const $el = $( this );
-		const isDelegated = 'string' === typeof selector;
-
-		$.fn.on.apply( $el, arguments );
-
-		// events map
-		if ( 'object' === typeof types ) {
-			for ( const type in types ) {
-				if ( types.hasOwnProperty( type ) ) {
-					moveEventHandlers( $el, type, isDelegated );
-				}
-			}
-		} else if ( 'string' === typeof types ) {
-			moveEventHandlers( $el, types, isDelegated );
-		}
-
-		return $el;
+	  return this;
 	};
-} )( jQuery );
+  }
+
+  makeMethod('bind');
+  makeMethod('one');
+
+  $.fn.onFirst = function (types, selector) {
+	var $el = $(this);
+	var isDelegated = typeof selector === 'string';
+
+	$.fn.on.apply($el, arguments);
+
+	// events map
+	if (typeof types === 'object') {
+	  for (type in types) {
+		if (types.hasOwnProperty(type)) {
+		  moveEventHandlers($el, type, isDelegated);
+		}
+	  }
+	} else if (typeof types === 'string') {
+	  moveEventHandlers($el, types, isDelegated);
+	}
+
+	return $el;
+  };
+
+})(jQuery);
