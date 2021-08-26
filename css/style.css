@@ -1,6 +1,23 @@
-.has-glotdict td:first-child,.has-glotdict th:first-child,.box.has-glotdict{
-	border-left-width: 2px !important;
-	border-left-color: blue !important;
+.box.has-glotdict {
+    border-left-width: 2px !important;
+    border-left-color: blue !important;
+}
+table.translations tr.preview.has-glotdict th,
+table.translations tr.preview.has-glotdict .original {
+    position: relative;
+}
+table.translations tr.preview.has-glotdict .original::before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 100%;
+    background: blue;
+    position: absolute;
+    margin-left: -.5em;
+    margin-top: -.5em;
+}
+table.translations tr.preview.has-glotdict th+.priority+.original::before {
+    margin-left: calc(-.5em - 31px);
 }
 .has-old-string td:last-child,.has-old-string th:last-child,.box.has-old-string{
 	border-right-width: 2px !important;
