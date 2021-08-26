@@ -1,6 +1,6 @@
 jQuery( '.bulk-action' ).append( jQuery( '<option>', {
 	value: 'copy-from-original',
-	text: 'Copy From Original',
+	text:  'Copy From Original',
 } ) );
 
 jQuery( '.bulk-actions' ).on( 'click', '.button', ( e ) => {

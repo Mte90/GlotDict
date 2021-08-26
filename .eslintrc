@@ -119,8 +119,7 @@
 		"key-spacing": [
 			"error",
 			{
-				"beforeColon": false,
-				"afterColon": true
+				"align": "value"
 			}
 		],
 		"keyword-spacing": [

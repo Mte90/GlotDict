@@ -56,9 +56,9 @@ function gd_locales() {
 	const locales_date_cache = localStorage.getItem( 'gd_locales_date' );
 	if ( null === locales_date_cache || locales_date_cache !== gd_today() ) {
 		jQuery.ajax( {
-			url: `https://codeat.co/glotdict/dictionaries/${glotdict_version}.json`,
+			url:      `https://codeat.co/glotdict/dictionaries/${glotdict_version}.json`,
 			dataType: 'text',
-			cache: false,
+			cache:    false,
 		} ).done( ( data ) => {
 			localStorage.setItem( 'gd_locales', data );
 			window.glotdict_locales = JSON.parse( data );
@@ -153,9 +153,9 @@ function gd_get_locale_slug( value, type ) {
  */
 function gd_add_scroll_buttons() {
 	const locations = {
-		statsRegex: 'https:\\/\\/translate.wordpress.org\\/stats\\/$',
+		statsRegex:    'https:\\/\\/translate.wordpress.org\\/stats\\/$',
 		projectsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/[^\\/]+\\/[^\\/]+\\/$',
-		appsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/apps\\/[^\\/]+\\/[^\\/]+\\/$',
+		appsRegex:     'https:\\/\\/translate.wordpress.org\\/projects\\/apps\\/[^\\/]+\\/[^\\/]+\\/$',
 	}
 
 	const slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
@@ -424,8 +424,8 @@ function gd_wait_table_alter() {
 		} );
 
 		observer.observe( document.querySelector( '#translations tbody' ), {
-			attributes: true,
-			childList: true,
+			attributes:    true,
+			childList:     true,
 			characterData: true,
 		} );
 	}
