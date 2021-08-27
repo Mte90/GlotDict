@@ -244,20 +244,6 @@ button.gd-approve strong {
     font-size: 0.8em;
 }
 
-.gd-row {
-    border-bottom: 1px solid #e8e8e8;
-}
-
-.gd-row div {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 5px;
-}
-
-.gd-row div:first-child {
-    width: 25%;
-}
-
 @-webkit-keyframes gd-ripple-out {
     0% {
         box-shadow: 0 0 6px 6px rgba(0, 115, 170, .3);
