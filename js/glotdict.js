@@ -59,7 +59,9 @@ jQuery( '.glotdict_language' ).change( () => {
 
 jQuery( '.glossary-word' ).contextmenu( function( e ) {
 	const info = jQuery( this ).data( 'translations' );
-	jQuery( '.editor:visible textarea' ).val( jQuery( '.editor:visible textarea' ).val() + info[0].translation );
+	jQuery( '.editor:visible textarea:visible' )
+		.val( jQuery( '.editor:visible textarea:visible' ).val() + info[ 0 ].translation )
+		.focus();
 	e.preventDefault();
 	return false;
 } );
