@@ -31,7 +31,7 @@ function gd_generate_settings_panel() {
 	};
 
 	const hotkeys = {
-		'Add Glossary definition in the translation area':            'Right click on a term',
+		'Add Glossary definition in the translation area':            'Right click on a Glossary term',
 		'Add non-breaking spaces near symbols':                       'Ctrl+Shift+X',
 		'Approve':                                                    'Ctrl+Shift+A',
 		'Cancel':                                                     'Ctrl+Shift+Z',

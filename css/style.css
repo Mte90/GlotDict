@@ -306,6 +306,10 @@ button.gd-approve strong {
 
 .gd_settings_panel label {
     padding-left: 20px;
+    cursor: pointer;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 
 .gd_settings_questions {
