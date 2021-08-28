@@ -95,10 +95,11 @@ When the developers of the extension think that a new release is ready and teste
 * [Jb Audras](https://github.com/audrasjb) 
 * [Garrett Hyder](https://github.com/garretthyder) 
 * [Loïc Antignac](https://github.com/webaxones)
+* [Vlad Timotei](https://github.com/vlad-timotei)
 
 ## Other contributors
 
 * [Olegs Belousovs](https://github.com/sgelob) - The ideator
 * [Pascal Casier](https://github.com/ePascalC) - For the help with the glossaries and hotkeys
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
-* [Vlad Timotei](https://github.com/vlad-timotei)
+
