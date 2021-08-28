@@ -339,7 +339,7 @@ function gd_remove_layover() {
  * @returns {void}
  */
 function gd_current_locale_first() {
-	if ( ! ( /https:\/\/translate\.wordpress\.org\// ).test( window.location.href ) ) { return; }
+	if ( 'https://translate.wordpress.org/' !== document.URL ) { return; }
 	const locales_filter = document.querySelector( '#locales-filter' );
 	const slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
 	const current_locale = document.querySelector( `#locales .english a[href="/locale/${slug}/"]` );
