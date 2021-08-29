@@ -352,6 +352,10 @@ button.gd-approve strong {
     color: white;
 }
 
+.gd-on-translations .gp-content {
+    max-width: 85%;
+}
+
 @media screen and (min-width: 1920px) {
     .gd_settings_panel {
         -ms-flex-direction: row;
