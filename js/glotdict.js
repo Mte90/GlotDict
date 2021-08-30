@@ -2,6 +2,9 @@
 
 const glotdict_version = '1.0.1';
 
+( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
+( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
+
 gd_add_layover();
 
 gd_current_locale_first();
@@ -97,7 +100,3 @@ gd_curly_apostrophe_highlight();
 gd_wait_table_alter();
 
 gd_remove_layover();
-
-if ( jQuery( '.gp-content #upper-filters-toolbar' ).length > 0 ) {
-	jQuery( '.gp-content' ).css( 'max-width', '85%' );
-}
