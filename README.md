@@ -32,22 +32,22 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 
 ## Hotkeys
 
-| Hotkey | Action |
+| Action | Hotkey |
 | -- | -- |
-| Ctrl+Enter | Suggest or Save translation |
-| Ctrl+Shift+Enter | Force suggest or Force save translation |
-| Ctrl+Shift+A | Approve |
-| Ctrl+Shift+R | Reject |
-| Ctrl+Shift+F | Fuzzy |
-| Ctrl+Shift+Z | Cancel |
-| Ctrl+Shift+B | Copy from original |
-| Ctrl+Shift+X | Add non-breaking spaces near symbols |
-| Right click on a term | Add Glossary definition in the translation area |
-| Alt+C | Load consistency suggestions |
-| Ctrl+D | Dismiss validation warnings for the current visible editor |
-| Ctrl+Shift+D | Dismiss all validation warnings |
-| Page Down | Open next string editor |
-| Page Up | Open previous string editor |
+| Add Glossary definition in the translation area | Right click on a Glossary term |
+| Add non-breaking spaces near symbols | Ctrl+Shift+X |
+| Approve | Ctrl+Shift+A |
+| Cancel | Ctrl+Shift+Z |
+| Copy from original | Ctrl+Shift+B |
+| Dismiss validation warnings for the current visible editor | Ctrl+D |
+| Dismiss all validation warnings | Ctrl+Shift+D |
+| Force suggest or Force save translation | Ctrl+Shift+Enter |
+| Fuzzy | Ctrl+Shift+F |
+| Load consistency suggestions | Alt+C |
+| Open next string editor | Page Down |
+| Open previous string editor | Page Up |
+| Reject | Ctrl+Shift+R |
+| Suggest or Save translation | Ctrl+Enter |
 
 ## Settings
 * Don’t validate strings ending with `...`, `.`, `:`
