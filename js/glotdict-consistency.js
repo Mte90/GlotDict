@@ -1,7 +1,7 @@
 let gd_quicklinks_copy_state = 'true' === localStorage.getItem( 'gd_quicklinks_copy_state' );
 let gd_quicklinks_window = { 'closed': true };
 
-if ( 'undefined' !== typeof $gp ) {
+if ( 'undefined' !== typeof $gp_editor_options ) {
 	gd_quicklinks();
 	gd_consistency();
 }
