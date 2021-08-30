@@ -91,13 +91,6 @@ function gd_hotkeys() {
 		} );
 		return false;
 	} );
-	key( 'ctrl+shift+r', () => {
-		localStorage.removeItem( 'gd_language' );
-		localStorage.removeItem( 'gd_locales' );
-		localStorage.removeItem( 'gd_locales_date' );
-		location.reload();
-		return false;
-	} );
 	key( 'ctrl+d', () => {
 		jQuery( '.editor:visible .discard-glotdict' ).trigger( 'click' );
 		jQuery( '.editor:visible .discard-warning' ).trigger( 'click' );
