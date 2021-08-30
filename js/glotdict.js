@@ -2,8 +2,8 @@
 
 const glotdict_version = '1.0.1';
 
-( 'undefined' !== typeof $gp ) && document.body.classList.add( 'gd-on-translations' );
-( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-editor' );
+( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
+( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
 
 gd_add_layover();
 
