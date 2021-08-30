@@ -46,7 +46,6 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 | Alt+C | Load consistency suggestions |
 | Ctrl+D | Dismiss validation warnings for the current visible editor |
 | Ctrl+Shift+D | Dismiss all validation warnings |
-| Ctrl+Shift+R | Reset all GlotDict settings |
 | Page Down | Open next string editor |
 | Page Up | Open previous string editor |
 
