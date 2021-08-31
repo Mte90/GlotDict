@@ -492,3 +492,36 @@ function gd_copy_to_clipboard( copy_text ) {
 	document.execCommand( 'copy' );
 	document.body.removeChild( elem );
 }
+
+/**
+ * If sourceElement is outside viewport, add classElement to targetElement.
+ *
+ * @param {Element} sourceElement
+ * @param {Element} targetElement
+ * @param {String} classElement
+ * @return {void}
+ */
+function gd_tag_target_when_source_outside_viewport( sourceElement, targetElement, classElement ) {
+	const target = document.querySelector( targetElement );
+	if ( ! target ) { return; }
+	const observer = new IntersectionObserver( ( entries ) => {
+		if ( true === entries[0].isIntersecting ) {
+			target.classList.remove( classElement );
+		} else {
+			target.classList.add( classElement );
+		}
+	}, { threshold: [ 1 ], rootMargin: '80px' } );
+	observer.observe( document.querySelector( sourceElement ) );
+}
+
+/**
+ * Scroll to wporg header.
+ *
+ * @returns {void}
+ */
+function gd_scroll_to_top() {
+	document.querySelector( '#wporg-header' ).scrollIntoView( {
+		block:    'start',
+		behavior: 'smooth',
+	} );
+}
