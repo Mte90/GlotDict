@@ -100,3 +100,16 @@ gd_curly_apostrophe_highlight();
 gd_wait_table_alter();
 
 gd_remove_layover();
+
+const gd_to_top = document.createElement( 'A' );
+gd_to_top.id = 'gd-back-to-top';
+gd_to_top.textContent = '↑';
+gd_to_top.title = 'Back to top  🚀';
+document.body.appendChild( gd_to_top );
+
+gd_tag_target_when_source_outside_viewport( '.gp-content > h2', 'body', 'gd-sticky-header' );
+
+gd_to_top.addEventListener( 'click', ( e ) => {
+	e.preventDefault();
+	gd_scroll_to_top();
+} );
