@@ -103,7 +103,7 @@ gd_to_top.textContent = '↑';
 gd_to_top.title = 'Back to top  🚀';
 document.body.appendChild( gd_to_top );
 
-gd_tag_target_when_source_outside_viewport( '.gp-content > h2', 'body', 'gd-sticky-header' );
+gd_tag_target_when_source_outside_viewport( '#masthead', 'body', 'gd-sticky-header' );
 
 gd_to_top.addEventListener( 'click', ( e ) => {
 	e.preventDefault();
