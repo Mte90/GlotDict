@@ -23,6 +23,10 @@ table.translations tr.preview.has-glotdict th+.priority+.original::before {
     margin-left: calc(-.5em - 31px);
 }
 
+table.translations tr.preview.has-glotdict.has-warnings th+.priority+.original::before {
+    margin-left: calc(-.5em - 34px);
+}
+
 .has-old-string td:nth-last-child(2),
 .has-old-string th:nth-last-child(2),
 .box.has-old-string {
