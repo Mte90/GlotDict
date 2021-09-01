@@ -313,27 +313,6 @@ function gd_stoppropagation( e ) {
 }
 
 /**
- * Add a layover
- *
- * @returns {void}
- */
-function gd_add_layover() {
-	if ( jQuery( 'table#translations' ).length > 0 ) {
-		jQuery( 'body' ).append( '<div class="gd-layover"></div>' );
-		jQuery( '.gd-layover' ).append( '<div class="gd-loader"></div>' );
-	}
-}
-
-/**
- * Remove the layover
- *
- * @returns {void}
- */
-function gd_remove_layover() {
-	jQuery( '.gd-layover' ).remove();
-}
-
-/**
  * Move the current locale first on Translate homepage.
  *
  * @returns {void}
