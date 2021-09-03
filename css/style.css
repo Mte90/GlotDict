@@ -135,10 +135,6 @@ button[class*="gd-"] strong {
     animation: gd-rotation 2s infinite linear;
 }
 
-input.button.gd-review {
-    margin-top: 5px !important;
-}
-
 button.gd-approve strong {
     -webkit-transform-origin: 51% 49%;
     transform-origin: 51% 49%;
@@ -382,8 +378,94 @@ button.gd-approve strong {
     border-radius: 50%;
 }
 
-.gd-sticky-header #gd-back-to-top {
+.gd-header-is-hidden #gd-back-to-top {
     display: inline-block;
+}
+
+.gd-header-is-hidden.gd-header-is-sticky #gd-sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5px 7.5%;
+    box-sizing: border-box;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .2);
+    z-index: 999999;
+}
+
+#gd-notices-container {
+    margin-top: 15px;
+}
+
+.gd-header-is-hidden.gd-header-is-sticky #gd-notices-container [id^="gd-"].notice {
+    display: inline-block;
+    padding: .3em .5em;
+    margin: 0 1em .4em 0;
+    box-sizing: border-box;
+}
+
+#bulk-action-top {
+    height: 30px;
+}
+
+.gd-on-translations .gp-content .bulk-actions input.button,
+.gd-on-translations .gp-content input.button.gd-review {
+    vertical-align: top;
+    height: 29px;
+    margin: 0 5px;
+}
+
+#gd-toggle-header {
+    float: right;
+    margin-left: 40px;
+}
+
+.gd-toggle__input {
+    display: none;
+}
+
+.gd-toggle__label {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    outline: 0;
+    width: 34px;
+    height: 18px;
+    margin-top: 3px;
+    padding: 2px;
+    border-radius: 2em;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #888;
+    transition: all .4s ease;
+}
+
+.gd-toggle__label:after {
+    position: relative;
+    display: block;
+    content: '';
+    width: 50%;
+    height: 100%;
+    left: 0;
+    border-radius: 50%;
+    background: #fff;
+    transition: all .2s ease;
+}
+
+.gd-toggle__input:checked+.gd-toggle__label {
+    background: #0085ba;
+}
+
+.gd-toggle__input:checked+.gd-toggle__label:after {
+    left: 50%;
+}
+
+.gd-toggle__input:hover+.gd-toggle__label:hover {
+    background: #7eb7d3;
 }
 
 @media screen and (min-width: 1920px) {
