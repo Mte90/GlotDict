@@ -366,7 +366,6 @@ function gd_auto_hide_next_editor( editor ) {
  * @triggers gd_add_column, gd_add_meta
  */
 function gd_wait_table_alter() {
-	const gd_notices_container = document.querySelector( '#gd-notices-container' );
 	if ( document.querySelector( '#translations tbody' ) !== null ) {
 		const observer = new MutationObserver( ( mutations ) => {
 			mutations.forEach( ( mutation ) => {
