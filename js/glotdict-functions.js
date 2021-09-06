@@ -504,3 +504,58 @@ function gd_scroll_to_top() {
 		behavior: 'smooth',
 	} );
 }
+
+function gd_build_sticky_header() {
+	if ( ! gd_user.is_on_translations ) { return; }
+
+	if ( null === localStorage.getItem( 'gd_header_is_sticky' ) ) {
+		localStorage.setItem( 'gd_header_is_sticky', 'true' );
+	}
+	let gd_header_is_sticky = 'true' === localStorage.getItem( 'gd_header_is_sticky' );
+	if ( gd_header_is_sticky ) {
+		document.body.classList.add( 'gd-header-is-sticky' );
+	}
+
+	const title = document.querySelector( '.gp-content .breadcrumb+h2' );
+	const filter_toolbar = document.querySelector( '.filter-toolbar' );
+	const bulk_actions = document.querySelector( '#bulk-actions-toolbar-top' );
+	const gd_review = document.querySelector( '.gd-review' );
+	const paging_top = document.querySelector( '.paging' );
+	const gd_notices_container = document.querySelector( '#gd-notices-container' );
+
+	const toggle_sticky = document.createElement( 'DIV' );
+	toggle_sticky.id = 'gd-toggle-header';
+	toggle_sticky.classList.add( 'gd-toggle' );
+	const toggle_sticky_input = document.createElement( 'INPUT' );
+	toggle_sticky_input.id = 'gd-toggle-header-sticky';
+	toggle_sticky_input.type = 'checkbox';
+	toggle_sticky_input.classList.add( 'gd-toggle__input' );
+	toggle_sticky_input.checked = gd_header_is_sticky ? 'checked' : '';
+	toggle_sticky_input.addEventListener( 'click', ( e ) => {
+		gd_header_is_sticky = ! gd_header_is_sticky;
+		document.body.classList.toggle( 'gd-header-is-sticky' );
+		localStorage.setItem( 'gd_header_is_sticky', ( ( true === gd_header_is_sticky ) ? 'true' : 'false' ) );
+		e.stopPropagation();
+	} );
+	const toggle_sticky_label = document.createElement( 'LABEL' );
+	toggle_sticky_label.htmlFor = 'gd-toggle-header-sticky';
+	toggle_sticky_label.classList.add( 'gd-toggle__label' );
+	toggle_sticky_label.title = 'Stick it and scroll!';
+	toggle_sticky && toggle_sticky.append( toggle_sticky_input, toggle_sticky_label );
+	const first_link = document.querySelector( '.gd-on-translations .gp-content h2 .glossary-link:first-child' );
+	first_link && first_link.before( toggle_sticky );
+
+	const fragment = document.createDocumentFragment();
+	title && fragment.appendChild( title );
+	filter_toolbar && fragment.appendChild( filter_toolbar );
+	bulk_actions && fragment.appendChild( bulk_actions );
+	gd_review && fragment.appendChild( gd_review );
+	paging_top && fragment.appendChild( paging_top );
+	gd_notices_container && fragment.appendChild( gd_notices_container );
+
+	const gd_sticky_header = document.createElement( 'DIV' );
+	gd_sticky_header.id = 'gd-sticky-header';
+	gd_sticky_header.appendChild( fragment );
+	const translations = document.querySelector( '#translations' );
+	translations && translations.before( gd_sticky_header );
+}

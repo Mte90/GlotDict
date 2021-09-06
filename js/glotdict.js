@@ -2,8 +2,29 @@
 
 const glotdict_version = '1.0.1';
 
-( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
-( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve && document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
+const gd_user = {
+	is_translator:      false,
+	is_editor:          false,
+	is_connected:       false,
+	is_on_translations: false,
+}
+if ( ( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve ) {
+	document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
+	gd_user.is_translator = true;
+	gd_user.is_on_translations = true;
+}
+if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve ) {
+	document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
+	gd_user.is_editor = true;
+	gd_user.is_on_translations = true;
+}
+gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
+
+// Create notice container at the beginning since notices are added in AJAX
+const translations = document.querySelector( '#translations' );
+const gd_notices_container = document.createElement( 'DIV' );
+gd_notices_container.id = 'gd-notices-container';
+translations && translations.before( gd_notices_container );
 
 gd_current_locale_first();
 
@@ -17,7 +38,6 @@ if ( window.gd_filter_bar.length > 0 ) {
 	gd_hotkeys();
 	// Fix for PTE align
 	if ( jQuery( '#bulk-actions-toolbar-top' ).length > 0 ) {
-		jQuery( '#upper-filters-toolbar' ).css( 'clear', 'both' );
 		gd_add_column();
 		if ( 0 === jQuery( '#bulk-actions-toolbar-bottom' ).length ) {
 			jQuery( '#bulk-actions-toolbar-top' ).clone().css( 'float', 'none' ).insertBefore( '#legend' );
@@ -95,17 +115,19 @@ gd_non_breaking_space_highlight();
 
 gd_curly_apostrophe_highlight();
 
-gd_wait_table_alter();
-
 const gd_to_top = document.createElement( 'A' );
 gd_to_top.id = 'gd-back-to-top';
 gd_to_top.textContent = '↑';
 gd_to_top.title = 'Back to top  🚀';
 document.body.appendChild( gd_to_top );
 
-gd_tag_target_when_source_outside_viewport( '#masthead', 'body', 'gd-sticky-header' );
+gd_tag_target_when_source_outside_viewport( '#masthead', 'body', 'gd-header-is-hidden' );
 
 gd_to_top.addEventListener( 'click', ( e ) => {
 	e.preventDefault();
 	gd_scroll_to_top();
 } );
+
+gd_user.is_connected && gd_build_sticky_header();
+
+gd_wait_table_alter();

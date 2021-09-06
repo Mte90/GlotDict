@@ -1,5 +1,7 @@
 /* Add Currently Selected Count */
 function gd_selected_count() {
+	if ( ! gd_user.is_on_translations ) { return; }
+
 	if ( jQuery( '#gd-checked-count' ).length ) {
 		jQuery( '#gd-checked-count' ).remove();
 	}
@@ -111,7 +113,7 @@ function gd_selected_count() {
 			glotdict_string_text += ' with Glossary terms';
 			selected_strings_text.push( glotdict_string_text );
 		}
-		jQuery( '#translations' ).before( `<div id="gd-checked-count" class="notice">${checked_count}${checked_count > 1 ? ' rows are ' : ' row is '} selected.</div>` );
+		jQuery( '#gd-notices-container' ).append( `<div id="gd-checked-count" class="notice">${checked_count}${checked_count > 1 ? ' rows are ' : ' row is '} selected.</div>` );
 		if ( Array.isArray( selected_strings_text ) && selected_strings_text.length > 0 ) {
 			jQuery( '#gd-checked-count' ).append( ` (${selected_strings_text.join( ', ' )}.)` );
 		}
@@ -141,23 +143,23 @@ jQuery( document ).ajaxSuccess( ( event, xhr, settings ) => {
 		case 'current':
 			jQuery( '#gd-approved-count' ).remove();
 			approved_count++;
-			jQuery( '#translations' ).before( `<div id="gd-approved-count" class="notice approved">${approved_count}${approved_count > 1 ? ' translations have ' : ' translation has '}been approved.</div>` );
+			jQuery( '#gd-notices-container' ).append( `<div id="gd-approved-count" class="notice approved">${approved_count}${approved_count > 1 ? ' translations have ' : ' translation has '}been approved.</div>` );
 			break;
 		case 'rejected':
 			jQuery( '#gd-rejected-count' ).remove();
 			rejected_count++;
-			jQuery( '#translations' ).before( `<div id="gd-rejected-count" class="notice rejected">${rejected_count}${rejected_count > 1 ? ' translations have ' : ' translation has '}been rejected.</div>` );
+			jQuery( '#gd-notices-container' ).append( `<div id="gd-rejected-count" class="notice rejected">${rejected_count}${rejected_count > 1 ? ' translations have ' : ' translation has '}been rejected.</div>` );
 			break;
 		case 'fuzzy':
 			jQuery( '#gd-fuzzied-count' ).remove();
 			fuzzied_count++;
-			jQuery( '#translations' ).before( `<div id="gd-fuzzied-count" class="notice fuzzied">${fuzzied_count}${fuzzied_count > 1 ? ' translations have ' : ' translation has '}been fuzzied.</div>` );
+			jQuery( '#gd-notices-container' ).append( `<div id="gd-fuzzied-count" class="notice fuzzied">${fuzzied_count}${fuzzied_count > 1 ? ' translations have ' : ' translation has '}been fuzzied.</div>` );
 			break;
 		}
 	} else if ( settings.url === $gp_editor_options.url ) {
 		gd_selected_count();
 		jQuery( '#gd-submitted-count' ).remove();
 		submitted_count++;
-		jQuery( '#translations' ).before( `<div id="gd-submitted-count" class="notice submitted">${submitted_count}${submitted_count > 1 ? ' translations have ' : ' translation has '}been submitted.</div>` );
+		jQuery( '#gd-notices-container' ).append( `<div id="gd-submitted-count" class="notice submitted">${submitted_count}${submitted_count > 1 ? ' translations have ' : ' translation has '}been submitted.</div>` );
 	}
 } );
