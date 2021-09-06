@@ -506,8 +506,7 @@ function gd_scroll_to_top() {
 }
 
 function gd_build_sticky_header() {
-	const translations = document.querySelector( '#translations' );
-	if ( null === translations ) { return; }
+	if ( ! gd_user.is_on_translations ) { return; }
 
 	if ( null === localStorage.getItem( 'gd_header_is_sticky' ) ) {
 		localStorage.setItem( 'gd_header_is_sticky', 'true' );

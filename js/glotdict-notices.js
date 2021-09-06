@@ -1,7 +1,6 @@
 /* Add Currently Selected Count */
 function gd_selected_count() {
-	const translations = document.querySelector( '#translations' );
-	if ( null === translations ) { return; }
+	if ( ! gd_user.is_on_translations ) { return; }
 
 	if ( jQuery( '#gd-checked-count' ).length ) {
 		jQuery( '#gd-checked-count' ).remove();
