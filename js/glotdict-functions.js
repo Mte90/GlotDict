@@ -556,5 +556,6 @@ function gd_build_sticky_header() {
 	const gd_sticky_header = document.createElement( 'DIV' );
 	gd_sticky_header.id = 'gd-sticky-header';
 	gd_sticky_header.appendChild( fragment );
-	translations.before( gd_sticky_header );
+	const translations = document.querySelector( '#translations' );
+	translations && translations.before( gd_sticky_header );
 }
