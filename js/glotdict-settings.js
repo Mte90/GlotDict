@@ -121,6 +121,13 @@ function gd_generate_settings_panel() {
 	table.appendChild( fragment );
 	container.appendChild( table );
 
+	const caution_note = document.createElement( 'SPAN' );
+	const asterisk = caution_note.cloneNode( true );
+	asterisk.textContent = '*';
+	asterisk.className = 'gd_asterisk';
+	caution_note.append( asterisk, 'Please use features marked like this with caution!' );
+	fragment.appendChild( caution_note );
+
 	const grammarly = document.createElement( 'A' );
 	grammarly.target = '_blank';
 	grammarly.rel = 'noreferrer noopener';
@@ -150,12 +157,6 @@ function gd_generate_settings_panel() {
 	question3.appendChild( document.createTextNode( 'Do you want a new feature or settings? ' ) );
 	question3.appendChild( issues );
 	fragment.appendChild( question3 );
-	const caution_note = document.createElement( 'SPAN' );
-	const asterisk = caution_note.cloneNode( true );
-	asterisk.textContent = '*';
-	asterisk.className = 'gd_asterisk';
-	caution_note.append( asterisk, 'Use with caution!' );
-	fragment.appendChild( caution_note );
 
 	const questions = document.createElement( 'DIV' );
 	questions.classList.add( 'gd_settings_questions' );
