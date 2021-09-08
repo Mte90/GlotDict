@@ -16,19 +16,35 @@ function gd_generate_settings_panel() {
 		return;
 	}
 
-	const settings = {
-		'no_final_dot':                             'Don’t validate strings ending with “...“, “.”, “:”',
-		'no_final_other_dots':                      'Don’t validate strings ending with ;.!:、。؟？！',
-		'no_initial_uppercase':                     'Don’t show a warning when the translation doesn\'t contain an initial uppercase letter when the original string starts with one.',
-		'no_glossary_term_check':                   'Don’t show a warning when the translation is missing a glossary term.',
-		'no_non_breaking_space':                    'Don’t visualize non-breaking-spaces in preview.',
-		'no_initial_space':                         'Hide warning for initial space in translation.',
-		'no_trailing_space':                        'Hide warning for trailing space in translation.',
-		'curly_apostrophe_warning':                 'Show a warning for missing curly apostrophe in preview.',
-		'localized_quote_warning':                  'Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes).',
-		'autosubmit_bulk_copy_from_original':       'Auto-submit the "Copy From Original" Bulk Action (Warning: When enabled will submit all originals).',
-		'force_autosubmit_bulk_copy_from_original': 'Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)',
-	};
+	// Use [[[ code ]]] markdown for symbols and add * at the end of the setting's description if needed.
+	const settings_data = [
+		{
+			'title':    'Hide warnings for:',
+			'settings': {
+				'no_glossary_term_check': 'missing glossary terms',
+				'no_initial_uppercase':   'missing start capitalization',
+				'no_initial_space':       'missing start space',
+				'no_trailing_space':      'missing end space',
+				'no_final_dot':           'missing end hellip [[[…]]]',
+				'no_final_other_dots':    'missing end symbols [[[; . ! : 、。؟ ？]]]',
+			},
+		},
+		{
+			'title':    'Show warnings for:',
+			'settings': {
+				'curly_apostrophe_warning': 'straight single quote [[[\']]]',
+				'localized_quote_warning':  'straight double quote [[["]]]',
+			},
+		},
+		{
+			'title':    'Others',
+			'settings': {
+				'no_non_breaking_space':                    'Hide highlights for non-breaking spaces.',
+				'autosubmit_bulk_copy_from_original':       'Auto-save after "Copy from Original" bulk action.*',
+				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after "Copy from Original".*',
+			},
+		},
+	];
 
 	const hotkeys = {
 		'Add Glossary definition in the translation area':            'Right click on a Glossary term',
@@ -52,16 +68,41 @@ function gd_generate_settings_panel() {
 	container.appendChild( document.createElement( 'H2' ) ).appendChild( document.createTextNode( 'GlotDict Settings' ) );
 
 	const fragment = document.createDocumentFragment();
-	Object.entries( settings ).forEach( setting => {
-		const [ key, value ] = setting;
-		const input = document.createElement( 'INPUT' );
-		const label = document.createElement( 'LABEL' );
-		input.type = 'checkbox';
-		input.id = `gd_${key}`;
-		input.checked = ( 'true' === localStorage.getItem( `gd_${key}` ) ) ? 'checked' : '';
-		label.appendChild( input );
-		label.appendChild( document.createTextNode( `${value}` ) );
-		fragment.appendChild( label );
+	const subfragment = document.createDocumentFragment();
+
+	settings_data.forEach( category => {
+		fragment.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( category.title ) );
+		Object.entries( category.settings ).forEach( setting => {
+			const setting_slug = setting[ 0 ];
+			let setting_desc = setting[ 1 ];
+			const input = document.createElement( 'INPUT' );
+			const label = document.createElement( 'LABEL' );
+			input.type = 'checkbox';
+			input.id = `gd_${setting_slug}`;
+			input.checked = ( 'true' === localStorage.getItem( `gd_${setting_slug}` ) ) ? 'checked' : '';
+			label.appendChild( input );
+			let asterisk = false;
+			if ( '*' === setting_desc.slice( -1 ) ) {
+				asterisk = true;
+				setting_desc = setting_desc.slice( 0, -1 );
+			}
+			if ( -1 === setting_desc.indexOf( '[[[' ) ) {
+				label.appendChild( document.createTextNode( setting_desc ) );
+			} else {
+				setting_desc.split( /\[\[\[|\]\]\]/ ).forEach( ( part, part_i ) => {
+					! ( part_i % 2 ) && subfragment.appendChild( document.createTextNode( part ) );
+					( part_i % 2 ) && subfragment.appendChild( document.createElement( 'CODE' ) ).appendChild( document.createTextNode( part ) );
+				} );
+				label.appendChild( subfragment );
+			}
+			if ( asterisk ) {
+				const asterisk = document.createElement( 'SPAN' );
+				asterisk.classList.add( 'gd_asterisk' );
+				asterisk.textContent = '*';
+				label.appendChild( asterisk );
+			}
+			fragment.appendChild( label );
+		} );
 	} );
 	const fieldset = document.createElement( 'FIELDSET' );
 	fieldset.appendChild( fragment );
@@ -103,12 +144,18 @@ function gd_generate_settings_panel() {
 	question1.appendChild( document.createTextNode( ' or ' ) );
 	question1.appendChild( languagetool );
 	fragment.appendChild( question1 );
-	question2.appendChild( document.createTextNode( 'Do you want a new feature or settings? ' ) );
-	question2.appendChild( issues );
+	question2.appendChild( document.createTextNode( 'Do you like this browser extension? You can ' ) );
+	question2.appendChild( donate );
 	fragment.appendChild( question2 );
-	question3.appendChild( document.createTextNode( 'Do you like this browser extension? You can ' ) );
-	question3.appendChild( donate );
+	question3.appendChild( document.createTextNode( 'Do you want a new feature or settings? ' ) );
+	question3.appendChild( issues );
 	fragment.appendChild( question3 );
+	const caution_note = document.createElement( 'SPAN' );
+	const asterisk = caution_note.cloneNode( true );
+	asterisk.textContent = '*';
+	asterisk.className = 'gd_asterisk';
+	caution_note.append( asterisk, 'Use with caution!' );
+	fragment.appendChild( caution_note );
 
 	const questions = document.createElement( 'DIV' );
 	questions.classList.add( 'gd_settings_questions' );

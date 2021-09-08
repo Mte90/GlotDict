@@ -352,6 +352,22 @@ button.gd-approve strong {
     color: white;
 }
 
+code {
+    padding: .2em .4em;
+    margin: 0 2px;
+    font-size: 85%;
+    background-color: #e4e4e4;
+    border-radius: 5px;
+}
+
+.gd_asterisk {
+    color: red;
+}
+
+.gd_settings_panel fieldset h3 {
+    padding: 15px 0 0 0;
+}
+
 .gd-on-translations .gp-content {
     max-width: 85%;
 }
