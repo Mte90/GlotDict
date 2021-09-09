@@ -35,3 +35,10 @@ s.src = chrome.runtime.getURL( 'icons/icon-16.png' );
 s.style.display = 'none';
 s.classList.add( 'gd_icon' );
 t.parentNode.insertBefore( s, t );
+// Get extension data
+chrome.runtime.sendMessage(
+	'gd-status',
+	( response ) => {
+		( 'undefined' !== response ) && localStorage.setItem( 'gd_extension_status', JSON.stringify( response ) );
+	}
+);

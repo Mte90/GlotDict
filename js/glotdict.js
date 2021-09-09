@@ -2,6 +2,15 @@
 
 const glotdict_version = '1.0.1';
 
+// 'install', 'update', 'chrome_update', or 'shared_module_update'
+const gd_extension_storage = ( null !== localStorage.getItem( 'gd_extension_status' ) ) ? JSON.parse( localStorage.getItem( 'gd_extension_status' ) ) : '';
+
+const gd_extension = {
+	currentVersion:  ( '' !== gd_extension_storage ) ? gd_extension_storage.currentVersion : '0',
+	previousVersion: ( '' !== gd_extension_storage ) ? gd_extension_storage.previousVersion : '0',
+	action:          ( '' !== gd_extension_storage ) ? gd_extension_storage.reason : '',
+}
+
 const gd_user = {
 	is_translator:      false,
 	is_editor:          false,
