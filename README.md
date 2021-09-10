@@ -7,26 +7,26 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 
 # Features
 
-* Warnings on translation submission:
-  * Validation for final `...`, `.`, `:`
-  * Validation for final `;.!:、。؟？！`
-  * Validation for capital first letter in translation if original first letter is capital
-  * Check for start or end space character
-  * Check for missing terms from locale glossary
-  * Check for curly apostrophe 
-  * Check for non typographic quotes
-* Highlight non-breaking-space
+* Checks for:
+  * missing glossary terms
+  * missing start capitalization
+  * missing start and end space
+  * missing end hellip `…`
+  * missing end symbols `; . ! : 、。؟ ？`
+  * straight single `'` or double quote `"` usage 
+* Highlights non-breaking-spaces
 * Review translations button to show and count warnings
-* Terms from glossary are linked to the consistency tool
-* Consistency suggestions loaded directly in the editor
-* *Copy from Original* Bulk Action (auto-submision and forced auto-submission can be enabled in Settings)
+* Links Glossary terms to Consistency tool
+* Loads Consistency suggestions in the editor
 * Bulk Actions in the footer
-* Link to the Translation Global Status with a button to scroll to the language in use
-* New column with easy Approve/Reject/Fuzzy buttons
-* Character and Word Counts in Meta panel
-* QuickLinks in Meta menu: open or copy link
-* Mark older than 6 months strings with a black border
-* Notices with counts for Approved, Rejected, Fuzzied, Submitted and Selected rows
+* Auto-save after "Copy from Original" bulk action.
+* Link and scroll to locale button for the Translation Global Status
+* Right column with quick Approve/Reject/Fuzzy buttons
+* Character and Word counts in Meta panel
+* QuickLinks in Meta menu - open or copy link
+* Optional sticky header
+* Marks older than 6 months strings - black border
+* Notices counts for Approved, Rejected, Fuzzied, Submitted and Selected rows
 * Daily update of the list of locales
 * Many hotkeys and shortcuts
 
