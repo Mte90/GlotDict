@@ -1,6 +1,27 @@
 const jsScripts = [ 'jquery.bind-first', 'dompurify', 'keymaster', 'glotdict-locales', 'glotdict-functions', 'glotdict-settings', 'glotdict-hotkey', 'glotdict-validation', 'glotdict-column', 'glotdict-meta', 'glotdict-bulk', 'glotdict-notices', 'glotdict-consistency', 'glotdict' ];
 
-script( jsScripts );
+// Get extension informations
+const changelog = chrome.runtime.getURL( 'changelog.md' );
+fetch( changelog )
+	.then( ( response ) => response.text() )
+	.then( ( changelogData ) => {
+		chrome.runtime.sendMessage(
+			'gd-status',
+			( response ) => {
+				const gd_extension_storage = ( null !== localStorage.getItem( 'gd_extension_status' ) ) ? JSON.parse( localStorage.getItem( 'gd_extension_status' ) ) : '';
+				if ( 'undefined' !== response &&
+					( 'install' === response['reason'] || 'update' === response['reason'] ) &&
+					gd_extension_storage.currentVersion !== response['currentVersion'] ) {
+					let data = {};
+					data = response;
+					const lastChange = changelogData.match( /(\* [\s\S]*?)(?=#)/ );
+					data['changelog'] = ( null !== lastChange ) ? lastChange[1] : '';
+					localStorage.setItem( 'gd_extension_status', JSON.stringify( data ) );
+				}
+			}
+		);
+	} )
+	.then( () => script( jsScripts ) );
 
 function script( url ) {
 	if ( Array.isArray( url ) ) {
@@ -31,14 +52,7 @@ function script( url ) {
 // Add the icon
 const t = document.getElementsByTagName( 'header' )[0];
 const s = document.createElement( 'img' );
-s.src = chrome.runtime.getURL( 'icons/icon-16.png' );
+s.src = chrome.runtime.getURL( 'icons/icon-48.png' );
 s.style.display = 'none';
 s.classList.add( 'gd_icon' );
 t.parentNode.insertBefore( s, t );
-// Get extension data
-chrome.runtime.sendMessage(
-	'gd-status',
-	( response ) => {
-		( 'undefined' !== response ) && localStorage.setItem( 'gd_extension_status', JSON.stringify( response ) );
-	}
-);

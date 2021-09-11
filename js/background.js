@@ -1,4 +1,5 @@
 let gd_details = {};
+
 chrome.runtime.onInstalled.addListener( ( details ) => {
 	// 'install', 'update', 'chrome_update', or 'shared_module_update'
 	gd_details = details;
