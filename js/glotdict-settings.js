@@ -92,7 +92,7 @@ function gd_generate_settings_panel() {
 	tab1.textContent = 'GlotDict Settings';
 	tab2.id = 'gd_settings_tab2';
 	tab2.htmlFor = 'gd_settings__radio2';
-	tab2.textContent = 'What’s New?';
+	tab2.textContent = 'install' === gd_extension.reason ? 'Welcome' : 'What’s New?';
 	container.appendChild( tabs ).append( tab1, tab2 );
 
 	const panels = document.createElement( 'DIV' );
@@ -107,7 +107,9 @@ function gd_generate_settings_panel() {
 
 	const fragment = document.createDocumentFragment();
 	const subfragment = document.createDocumentFragment();
-
+	const asterisk = document.createElement( 'SPAN' );
+	asterisk.classList.add( 'gd_asterisk' );
+	asterisk.textContent = '*';
 	settings_data.forEach( category => {
 		fragment.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( category.title ) );
 		Object.entries( category.settings ).forEach( setting => {
@@ -119,9 +121,9 @@ function gd_generate_settings_panel() {
 			input.id = `gd_${setting_slug}`;
 			input.checked = ( 'true' === localStorage.getItem( `gd_${setting_slug}` ) ) ? 'checked' : '';
 			label.appendChild( input );
-			let asterisk = false;
+			let has_asterisk = false;
 			if ( '*' === setting_desc.slice( -1 ) ) {
-				asterisk = true;
+				has_asterisk = true;
 				setting_desc = setting_desc.slice( 0, -1 );
 			}
 			if ( -1 === setting_desc.indexOf( '[[[' ) ) {
@@ -133,11 +135,8 @@ function gd_generate_settings_panel() {
 				} );
 				label.appendChild( subfragment );
 			}
-			if ( asterisk ) {
-				const asterisk = document.createElement( 'SPAN' );
-				asterisk.classList.add( 'gd_asterisk' );
-				asterisk.textContent = '*';
-				label.appendChild( asterisk );
+			if ( has_asterisk ) {
+				label.appendChild( asterisk.cloneNode( true ) );
 			}
 			fragment.appendChild( label );
 		} );
@@ -158,9 +157,6 @@ function gd_generate_settings_panel() {
 	table.appendChild( fragment ) && panel1.appendChild( table );
 	const caution_note = document.createElement( 'SPAN' );
 	caution_note.style.fontWeight = 'bold';
-	const asterisk = caution_note.cloneNode( true );
-	asterisk.textContent = '*';
-	asterisk.className = 'gd_asterisk';
 	caution_note.append( asterisk, 'Please use features marked like this with caution!' );
 	panel1.appendChild( caution_note );
 
@@ -172,8 +168,24 @@ function gd_generate_settings_panel() {
 	closeSettings.addEventListener( 'click', () => {
 		gd_settings_menu.click();
 	} );
-	changelog.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( `What’s new in GlotDict ${gd_extension.currentVersion}?` ) );
-	changelog.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( gd_extension.changelog ) );
+	const panel2Title = 'install' === gd_extension.reason ? `Welcome to GlotDict ${gd_extension.currentVersion}!` : `What’s new in GlotDict ${gd_extension.currentVersion}?`;
+	changelog.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( panel2Title ) );
+	if ( 'install' === gd_extension.reason ) {
+		changelog.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Howdy! Let me tell you a few things before starting translating:' ) );
+		const ul = document.createElement( 'UL' );
+		const advices = {
+			1: 'Choose your locale in the top part of any strings translation page.',
+			2: 'Customize GlotDict preferences in the Settings tab.',
+			3: 'Try the Review button on any strings translation page.',
+		}
+		Object.values( advices ).forEach( advice => {
+			ul.appendChild( document.createElement( 'LI' ) ).appendChild( document.createTextNode( advice ) );
+		} );
+		changelog.appendChild( ul );
+		changelog.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Enjoy!' ) );
+	} else {
+		changelog.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( gd_extension.changelog ) );
+	}
 	panel2.append( closeSettings, changelog );
 
 	const grammarly = document.createElement( 'A' );
