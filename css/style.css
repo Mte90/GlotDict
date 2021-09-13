@@ -100,6 +100,28 @@ table.translations tr.preview.has-original-copy,
     }
 }
 
+.gd-language-picker-container {
+    display: inline-block;
+}
+
+.gd-language-picker-container.empty-locale {
+    padding: 2px 5px;
+    color: red;
+    font-weight: 600;
+}
+
+.gd-language-picker-container.empty-locale label:after {
+    content: ' glossary\2002 \2192  \2002';
+}
+
+.gd-language-picker-container.empty-locale #gd-language-picker {
+    border: 2px solid red;
+}
+
+.gd-language-picker-container label:after {
+    content: ': ';
+}
+
 .notice.approved {
     background: #b5e1b9;
     border-left: 3px solid #46b450;

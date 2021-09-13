@@ -45,10 +45,6 @@ gd_current_locale_first();
 
 window.gd_filter_bar = jQuery( '.filter-toolbar form div:first' );
 
-if ( jQuery( '.filters-toolbar.bulk-actions:last div:first' ).length > 0 ) {
-	window.gd_filter_bar = jQuery( '.filters-toolbar.bulk-actions:last div:first' );
-}
-
 if ( window.gd_filter_bar.length > 0 ) {
 	gd_hotkeys();
 	// Fix for PTE align

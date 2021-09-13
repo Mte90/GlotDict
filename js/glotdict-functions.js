@@ -199,7 +199,7 @@ function gd_add_scroll_buttons() {
  */
 function gd_locales_selector() {
 	const lang = gd_get_lang();
-	window.gd_filter_bar.append( '<span class="separator">•</span><label for="gd-language-picker">Pick locale: </label><select id="gd-language-picker" class="glotdict_language"></select>' );
+	window.gd_filter_bar.append( `<span class="separator">•</span><div class="gd-language-picker-container${( '' === lang || false === lang ) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>` );
 	jQuery( '.glotdict_language' ).append( jQuery( '<option></option>' ) );
 	const gd_locales_array = gd_locales();
 	jQuery.each( gd_locales_array, ( key, value ) => {
@@ -209,10 +209,6 @@ function gd_locales_selector() {
 		}
 		jQuery( '.glotdict_language' ).append( new_option );
 	} );
-	if ( '' === lang || false === lang ) {
-		window.gd_filter_bar.append( '<h3 style="background-color:#ddd;padding:4px;width:130px;display:inline;margin-left:4px;color:red;">&larr; Set the glossary!</h3>' )
-			.append( '<br><h2 style="background-color:#fff;padding:0;display:block;text-align:center;margin-top: 6px;">Welcome to GlotDict! Discover the features and the hotkeys on the <a href="https://github.com/Mte90/GlotDict/blob/master/README.md#features"  target="_blank" rel="noreferrer noopener">Readme</a>.</h2>' );
-	}
 }
 
 /**
