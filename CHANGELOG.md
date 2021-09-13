@@ -1,3 +1,15 @@
+# 2.0.0 
+
+* Enhancement: Back to top icon. 
+* Enhancement: Sticky useful tools header. 
+* Enhancement: Improved modern coding standards. 
+* Enhancement: Simpler settings description and shortcuts design
+* Enhancement: "What's new" tab. 
+* Fix: Message if no locale is chosen.
+* Fix: Mark older than 6 months strings.
+* Fix: Mark strings with glossary terms.
+* Fix: Right click on glossary terms for plural strings.
+
 # 1.7.0
 
 * Fix: strings count after Done pressure
