@@ -1,4 +1,7 @@
 {
+  "background": {
+    "scripts": ["js/background.js"]
+  },
   "content_scripts": [
     {
       "js": [
@@ -27,7 +30,8 @@
     "js/keymaster.js",
     "js/jquery.bind-first.js",
     "js/dompurify.js",
-    "icons/icon-16.png",
+	"changelog.md",
+    "icons/icon-48.png",
     "css/style.css",
     "js/init.js"
   ],
