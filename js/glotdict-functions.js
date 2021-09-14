@@ -156,7 +156,7 @@ function gd_add_scroll_buttons() {
 		statsRegex:    'https:\\/\\/translate.wordpress.org\\/stats\\/$',
 		projectsRegex: 'https:\\/\\/translate.wordpress.org\\/projects\\/[^\\/]+\\/[^\\/]+\\/$',
 		appsRegex:     'https:\\/\\/translate.wordpress.org\\/projects\\/apps\\/[^\\/]+\\/[^\\/]+\\/$',
-	}
+	};
 
 	const slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
 	const lang = gd_get_lang();
@@ -172,7 +172,7 @@ function gd_add_scroll_buttons() {
 			}
 			jQuery( position ).before( `<button style="float:right;margin-bottom:1em" class="gd_scroll">Scroll to ${lang}</button>` );
 			const StatsSpecificLinks = Array.prototype.slice.call( document.querySelectorAll( '.stats-table tbody tr th a' ) ).filter( ( el ) => {
-				return gd_get_lang() === el.textContent.trim()
+				return gd_get_lang() === el.textContent.trim();
 			} )[0];
 			jQuery( '.gd_scroll' ).on( 'click', () => {
 				const target = StatsSpecificLinks || document.querySelector( `table tr th a[href*="/${slug}/"]` ) || document.querySelector( `table td strong a[href*="/${slug}/"]` );
@@ -182,7 +182,7 @@ function gd_add_scroll_buttons() {
 				row.style.border = '2px solid black';
 				target.style.color = '#a70505';
 				if ( ! target.textContent.includes( '➤' ) ) {
-					target.textContent = `➤ ${target.textContent}`;
+					target.textContent = `➤ ${target.textContent}`;
 				}
 				jQuery( 'html, body' ).animate( {
 					scrollTop: jQuery( row ).offset().top - 70,
@@ -501,6 +501,11 @@ function gd_scroll_to_top() {
 	} );
 }
 
+/**
+ * Generate the sticky header
+ *
+ * @returns {void}
+ */
 function gd_build_sticky_header() {
 	if ( ! gd_user.is_on_translations ) { return; }
 
@@ -558,6 +563,8 @@ function gd_build_sticky_header() {
 
 /**
  * Copy the original string using Clipboard API
+ *
+ * @returns {void}
  */
 function gd_copy_visible_original_string() {
 	navigator.clipboard.writeText( jQuery( '.editor:visible .original-raw' ).html() );

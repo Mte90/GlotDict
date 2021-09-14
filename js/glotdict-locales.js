@@ -202,4 +202,4 @@ const gd_locales_slugs = {
 	zh_SG:       'zh-sg',
 	zh_TW:       'zh-tw',
 	zul:         'zul',
-}
+};

@@ -9,7 +9,7 @@ const gd_extension = {
 	currentVersion:  ( '' !== gd_extension_storage ) ? gd_extension_storage.currentVersion : '0',
 	previousVersion: ( '' !== gd_extension_storage ) ? gd_extension_storage.previousVersion : '0',
 	reason:          ( '' !== gd_extension_storage ) ? gd_extension_storage.reason : '',
-}
+};
 const gd_thatsnew = gd_extension.currentVersion !== gd_extension.previousVersion;
 const gd_setting = document.querySelector( '.gd_setting' );
 if ( gd_setting && gd_thatsnew ) {

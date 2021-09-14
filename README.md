@@ -60,6 +60,7 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Show a warning for missing curly apostrophe in preview.
 * Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes).
 * Auto-submit the *Copy From Original* Bulk Action (Warning: When enabled will submit all originals).
+* Auto-copy in clipboard the original string when the editor is opened.
 * Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)
 
 # Download
@@ -91,7 +92,6 @@ When the developers of the extension think that a new release is ready and teste
 ## Maintainers
 
 * [Daniele Scasciafratte](https://github.com/Mte90) [Donate](https://www.paypal.me/mte90)
-* [Jb Audras](https://github.com/audrasjb) 
 * [Garrett Hyder](https://github.com/garretthyder) 
 * [Loïc Antignac](https://github.com/webaxones)
 * [Vlad Timotei](https://github.com/vlad-timotei)
@@ -101,4 +101,5 @@ When the developers of the extension think that a new release is ready and teste
 * [Olegs Belousovs](https://github.com/sgelob) - The ideator
 * [Pascal Casier](https://github.com/ePascalC) - For the help with the glossaries and hotkeys
 * [Aurélien Joahny](https://github.com/ajoah) - For all the patches
+* [Jb Audras](https://github.com/audrasjb) - Ex co-Maintainer
 

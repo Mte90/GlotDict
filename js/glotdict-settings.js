@@ -46,7 +46,7 @@ function gd_generate_settings_panel() {
 			'title':    'Others',
 			'settings': {
 				'no_non_breaking_space':                    'Hide highlights for non-breaking spaces.',
-				'autocopy_string_on_translation_opened':    'Auto-copy in clipboard the translation when the editor is opened.',
+				'autocopy_string_on_translation_opened':    'Auto-copy in clipboard the original string when the editor is opened.',
 				'autosubmit_bulk_copy_from_original':       'Auto-save after "Copy from Original" bulk action.*',
 				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after "Copy from Original".*',
 			},
@@ -68,7 +68,7 @@ function gd_generate_settings_panel() {
 		'Open previous string editor':                                'Page Up',
 		'Reject':                                                     'Ctrl+Shift+R',
 		'Suggest or Save translation':                                'Ctrl+Enter',
-	}
+	};
 
 	const container = document.createElement( 'DIV' );
 	container.classList.add( 'gd_settings' );
@@ -169,7 +169,7 @@ function gd_generate_settings_panel() {
 	closeSettings.addEventListener( 'click', () => {
 		gd_settings_menu.click();
 	} );
-	const panel2Title = 'install' === gd_extension.reason ? `Welcome to GlotDict ${gd_extension.currentVersion}!` : `What’s new in GlotDict ${gd_extension.currentVersion}?`;
+	const panel2Title = 'install' === gd_extension.reason ? `Welcome to GlotDict ${gd_extension.currentVersion}!` : `What’s new in GlotDict ${gd_extension.currentVersion}?`;
 	changelog.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( panel2Title ) );
 	if ( 'install' === gd_extension.reason ) {
 		changelog.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Howdy! Let me tell you a few things before starting translating:' ) );
