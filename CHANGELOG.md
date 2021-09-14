@@ -1,5 +1,7 @@
 # 2.0.0 
 
+This versions could not exists without the huge work of Loïc Antignac and Vlad Timotei that imported features from their browser extensions and co-maintaing this tool!
+
 * Enhancement: Back to top icon.
 * Enhancement: Sticky useful tools header.
 * Enhancement: Improved modern coding standards.
