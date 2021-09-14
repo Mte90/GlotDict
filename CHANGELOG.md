@@ -1,6 +1,4 @@
-# 2.0.0 
-
-This versions could not exists without the huge work of Loïc Antignac and Vlad Timotei that imported features from their browser extensions and co-maintaing this tool!
+# 2.0.0
 
 * Enhancement: Back to top icon.
 * Enhancement: Sticky useful tools header.
@@ -12,6 +10,9 @@ This versions could not exists without the huge work of Loïc Antignac and Vlad 
 * Fix: Mark older than 6 months strings.
 * Fix: Mark strings with glossary terms.
 * Fix: Right click on glossary terms for plural strings.
+
+This versions could not exists without the huge work of Loïc Antignac and Vlad Timotei
+that imported features from their browser extensions and co-maintain this tool!
 
 # 1.7.0
 
