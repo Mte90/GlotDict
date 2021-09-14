@@ -22,7 +22,7 @@ const gd_user = {
 	is_editor:          false,
 	is_connected:       false,
 	is_on_translations: false,
-}
+};
 if ( ( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve ) {
 	document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
 	gd_user.is_translator = true;
@@ -116,10 +116,10 @@ jQuery( '.gp-content' ).on( 'click', '.discard-glotdict', function( e ) {
 
 if ( gd_get_setting( 'autocopy_string_on_translation_opened' ) ) {
 	jQuery( $gp.editor.table ).on( 'click', 'a.edit', function() {
-		setTimeout(() => { gd_copy_visible_original_string() }, 400);
+		setTimeout(() => { gd_copy_visible_original_string(); }, 400);
 	} );
 	jQuery( $gp.editor.table ).on( 'dblclick', 'tr.preview td', function() {
-		setTimeout(() => { gd_copy_visible_original_string() }, 400);
+		setTimeout(() => { gd_copy_visible_original_string(); }, 400);
 	} );
 }
 

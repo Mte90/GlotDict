@@ -5,7 +5,7 @@
 * Enhancement: Improved modern coding standards.
 * Enhancement: Simpler settings description and shortcuts design.
 * Enhancement: "What's new" tab.
-* Enhancement: New option to auto copy the original string when the editor is opened.
+* Enhancement: Setting, Auto-copy original to clipboard on editor opening.
 * Fix: Message if no locale is chosen.
 * Fix: Mark older than 6 months strings.
 * Fix: Mark strings with glossary terms.

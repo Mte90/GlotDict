@@ -46,7 +46,7 @@ function gd_generate_settings_panel() {
 			'title':    'Others',
 			'settings': {
 				'no_non_breaking_space':                    'Hide highlights for non-breaking spaces.',
-				'autocopy_string_on_translation_opened':    'Auto-copy in clipboard the original string when the editor is opened.',
+				'autocopy_string_on_translation_opened':    'Auto-copy original to clipboard on editor opening.',
 				'autosubmit_bulk_copy_from_original':       'Auto-save after "Copy from Original" bulk action.*',
 				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after "Copy from Original".*',
 			},

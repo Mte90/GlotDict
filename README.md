@@ -60,7 +60,7 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Show a warning for missing curly apostrophe in preview.
 * Show a warning for using non-typographic quotes in preview (except for HTML attributes quotes).
 * Auto-submit the *Copy From Original* Bulk Action (Warning: When enabled will submit all originals).
-* Auto-copy in clipboard the original string when the editor is opened.
+* Auto-copy original to clipboard on editor opening.
 * Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)
 
 # Download
