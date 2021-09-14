@@ -1,10 +1,11 @@
 # 2.0.0 
 
-* Enhancement: Back to top icon. 
-* Enhancement: Sticky useful tools header. 
-* Enhancement: Improved modern coding standards. 
-* Enhancement: Simpler settings description and shortcuts design
-* Enhancement: "What's new" tab. 
+* Enhancement: Back to top icon.
+* Enhancement: Sticky useful tools header.
+* Enhancement: Improved modern coding standards.
+* Enhancement: Simpler settings description and shortcuts design.
+* Enhancement: "What's new" tab.
+* Enhancement: New option to auto copy the original string when the editor is opened.
 * Fix: Message if no locale is chosen.
 * Fix: Mark older than 6 months strings.
 * Fix: Mark strings with glossary terms.

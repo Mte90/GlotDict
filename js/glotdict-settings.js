@@ -178,7 +178,7 @@ function gd_generate_settings_panel() {
 			1: 'Choose your locale in the top part of any strings translation page.',
 			2: 'Customize GlotDict preferences in the Settings tab.',
 			3: 'Try the Review button on any strings translation page.',
-		}
+		};
 		Object.values( advices ).forEach( advice => {
 			ul.appendChild( document.createElement( 'LI' ) ).appendChild( document.createTextNode( advice ) );
 		} );
