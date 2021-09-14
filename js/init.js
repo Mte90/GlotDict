@@ -2,10 +2,10 @@ const jsScripts = [ 'jquery.bind-first', 'dompurify', 'keymaster', 'glotdict-loc
 
 // Get extension informations
 const changelog = chrome.runtime.getURL( 'CHANGELOG.md' );
-
 fetch( changelog )
 	.then( ( response ) => response.text() )
 	.then( ( changelogData ) => {
+        console.log(changelogData)
 		chrome.runtime.sendMessage(
 			'gd-status',
 			( response ) => {
