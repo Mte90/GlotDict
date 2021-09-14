@@ -591,6 +591,10 @@ button.gd-approve strong {
     z-index: 999999;
 }
 
+#gp-js-message {
+    z-index: 1000000;
+}
+
 #gd-notices-container {
     margin-top: 15px;
 }
