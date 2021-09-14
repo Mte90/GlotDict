@@ -555,3 +555,10 @@ function gd_build_sticky_header() {
 	const translations = document.querySelector( '#translations' );
 	translations && translations.before( gd_sticky_header );
 }
+
+/**
+ * Copy the original string using Clipboard API
+ */
+function gd_copy_visible_original_string() {
+	navigator.clipboard.writeText( jQuery( '.editor:visible .original-raw' ).html() );
+}

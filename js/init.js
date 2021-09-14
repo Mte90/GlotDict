@@ -5,7 +5,6 @@ const changelog = chrome.runtime.getURL( 'CHANGELOG.md' );
 fetch( changelog )
 	.then( ( response ) => response.text() )
 	.then( ( changelogData ) => {
-        console.log(changelogData)
 		chrome.runtime.sendMessage(
 			'gd-status',
 			( response ) => {

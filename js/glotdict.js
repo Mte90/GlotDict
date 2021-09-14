@@ -114,6 +114,15 @@ jQuery( '.gp-content' ).on( 'click', '.discard-glotdict', function( e ) {
 	return false;
 } );
 
+if ( gd_get_setting( 'autocopy_string_on_translation_opened' ) ) {
+	jQuery( $gp.editor.table ).on( 'click', 'a.edit', function() {
+		setTimeout(() => { gd_copy_visible_original_string() }, 400);
+	} );
+	jQuery( $gp.editor.table ).on( 'dblclick', 'tr.preview td', function() {
+		setTimeout(() => { gd_copy_visible_original_string() }, 400);
+	} );
+}
+
 jQuery( '.gp-content' ).on( 'click', '.gd-review:not(.gd-review-done)', function( e ) {
 	jQuery( this ).val( 'Review in progress' );
 	gd_run_review();
