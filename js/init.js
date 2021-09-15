@@ -21,15 +21,15 @@ fetch( changelog )
 		);
 	} )
 	.then( () => script( jsScripts ) )
-    // Fallback in case the file is missing
-    .catch(function() {
-        script( jsScripts );
-        let data = {};
-        manifest = browser.runtime.getManifest();
-        data['currentVersion'] = manifest.version;
-        data['changelog'] = '';
-        localStorage.setItem( 'gd_extension_status', JSON.stringify( data ) );
-    });
+	// Fallback in case the file is missing
+	.catch(function() {
+		script( jsScripts );
+		let data = {};
+		manifest = browser.runtime.getManifest();
+		data['currentVersion'] = manifest.version;
+		data['changelog'] = '';
+		localStorage.setItem( 'gd_extension_status', JSON.stringify( data ) );
+	});
 
 function script( url ) {
 	if ( Array.isArray( url ) ) {

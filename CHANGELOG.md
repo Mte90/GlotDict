@@ -1,3 +1,7 @@
+# 2.0.2
+
+* Enhancement: Shows always the link of the changelog
+
 # 2.0.1
 
 * Fix: Missing changelog file was crashing the extension
