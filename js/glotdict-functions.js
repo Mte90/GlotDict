@@ -99,8 +99,8 @@ function gd_add_project_links() {
 	if ( jQuery( '.gp-content .breadcrumb li' ).length > 3 && jQuery( '.gp-content .breadcrumb li:last-child a' ).length > 0 ) {
 		let lang = jQuery( '.gp-content .breadcrumb li:last-child a' ).attr( 'href' ).split( '/' );
 		lang = sanitize_value( lang[lang.length - 3] );
-		jQuery( '.gp-content' ).prepend( `<a style="float:right" href="https://translate.wordpress.org/locale/${lang}/default" target="_blank" rel="noreferrer noopener">${jQuery( '.gp-content .breadcrumb li:last-child a' ).text()} Projects to Translate</a>` );
-		jQuery( jQuery( '.gp-content h2' )[0] ).prepend( '<a class="glossary-link" style="float:right;padding-left:5px;margin-left:5px;border-left: 1px solid black;" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>' );
+		jQuery( '.gp-content' ).prepend(  );
+		jQuery( jQuery( '.gp-content h2' )[0] ).prepend( `<a class="glossary-link" style="float:right;padding-left:5px;margin-left:5px;border-left: 1px solid black;" href="https://translate.wordpress.org/locale/${lang}/default" target="_blank" rel="noreferrer noopener">${jQuery( '.gp-content .breadcrumb li:last-child a' ).text()} Projects to Translate</a>` + '<a class="glossary-link" style="float:right;" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>' );
 	}
 }
 

@@ -1,6 +1,7 @@
 # 2.0.2
 
 * Enhancement: Shows always the link of the changelog
+* Fix: Projects to translate label mispositioned
 
 # 2.0.1
 
