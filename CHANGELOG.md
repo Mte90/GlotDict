@@ -1,3 +1,7 @@
+# 2.0.1
+
+* Fix: Missing changelog file was crashing the extension
+
 # 2.0.0
 
 * Enhancement: Back to top icon.

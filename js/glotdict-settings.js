@@ -185,7 +185,17 @@ function gd_generate_settings_panel() {
 		changelog.appendChild( ul );
 		changelog.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Enjoy!' ) );
 	} else {
-		changelog.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( gd_extension.changelog ) );
+    // Fallback in case the changelog is empty
+        if ( gd_extension.changelog === '' ) {
+            link = document.createElement( 'A' );
+            link.href = 'https://github.com/Mte90/GlotDict/blob/master/CHANGELOG.md';
+            link.innerHTML = 'Check the Changelog!';
+            gd_extension.changelog = link;
+            container.style.display = 'none';
+        } else {
+            gd_extension.changelog = document.createTextNode( gd_extension.changelog );
+        }
+		changelog.appendChild( document.createElement( 'DIV' ) ).appendChild( gd_extension.changelog );
 	}
 	panel2.append( closeSettings, changelog );
 
