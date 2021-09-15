@@ -114,7 +114,7 @@ jQuery( '.gp-content' ).on( 'click', '.discard-glotdict', function( e ) {
 	return false;
 } );
 
-if ( gd_get_setting( 'autocopy_string_on_translation_opened' ) ) {
+if ( gd_user.is_on_translations && gd_get_setting( 'autocopy_string_on_translation_opened' ) ) {
 	jQuery( $gp.editor.table ).on( 'click', 'a.edit', function() {
 		setTimeout(() => { gd_copy_visible_original_string(); }, 400);
 	} );
