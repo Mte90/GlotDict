@@ -7,8 +7,8 @@ import sys, os, json, zipfile
 
 def zipdir(path,name):
     zipf = zipfile.ZipFile(name, 'w', zipfile.ZIP_DEFLATED)
-    exclude_prefixes = ['__', '.', 'jshintrc','tests']  # list of exclusion prefixes
-    exclude_suffixes = ['.xpi', '.zip', '.py']  # list of exclusion suffix
+    exclude_prefixes = ['__', '.', 'eslinttrc','tests']  # list of exclusion prefixes
+    exclude_suffixes = ['.xpi', '.zip', '.py', 'ISSUE_TEMPLATE.md', 'README.md']  # list of exclusion suffix
     for dirpath, dirnames, filenames in os.walk(path):
         # exclude all dirs/files starting/endings
         dirnames[:] = [dirname
