@@ -2,6 +2,15 @@
 
 * Enhancement: Shows always the link of the changelog
 * Fix: Projects to translate label mispositioned
+* Enhancement: Back to top icon.
+* Enhancement: Sticky useful tools header.
+* Enhancement: Improved modern coding standards.
+* Enhancement: Simpler settings description and shortcuts design.
+* Enhancement: "What's new" tab.
+* Enhancement: Setting, Auto-copy original to clipboard on editor opening.
+
+This versions could not exists without the huge work of Loïc Antignac and Vlad Timotei
+that imported features from their browser extensions and co-maintain this tool!
 
 # 2.0.1
 
