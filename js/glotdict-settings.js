@@ -31,7 +31,7 @@ function gd_generate_settings_panel() {
 				'no_initial_uppercase':   'missing start capitalization',
 				'no_initial_space':       'missing start space',
 				'no_trailing_space':      'missing end space',
-				'no_final_dot':		   'missing end hellip [[[…]]]',
+				'no_final_dot':           'missing end hellip [[[…]]]',
 				'no_final_other_dots':    'missing end symbols [[[; . ! : 、。؟ ？]]]',
 			},
 		},
@@ -45,7 +45,7 @@ function gd_generate_settings_panel() {
 		{
 			'title':    'Others',
 			'settings': {
-				'no_non_breaking_space':				    'Hide highlights for non-breaking spaces.',
+				'no_non_breaking_space':                    'Hide highlights for non-breaking spaces.',
 				'autocopy_string_on_translation_opened':    'Auto-copy original to clipboard on editor opening.',
 				'autosubmit_bulk_copy_from_original':       'Auto-save after "Copy from Original" bulk action.*',
 				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after "Copy from Original".*',
@@ -54,20 +54,20 @@ function gd_generate_settings_panel() {
 	];
 
 	const hotkeys = {
-		'Add Glossary definition in the translation area':		    'Right click on a Glossary term',
-		'Add non-breaking spaces near symbols':				       'Ctrl+Shift+X',
-		'Approve':												    'Ctrl+Shift+A',
-		'Cancel':												     'Ctrl+Shift+Z',
-		'Copy from original':										 'Ctrl+Shift+B',
+		'Add Glossary definition in the translation area':            'Right click on a Glossary term',
+		'Add non-breaking spaces near symbols':                       'Ctrl+Shift+X',
+		'Approve':                                                    'Ctrl+Shift+A',
+		'Cancel':                                                     'Ctrl+Shift+Z',
+		'Copy from original':                                         'Ctrl+Shift+B',
 		'Dismiss validation warnings for the current visible editor': 'Ctrl+D',
-		'Dismiss all validation warnings':						    'Ctrl+Shift+D',
-		'Force suggest or Force save translation':				    'Ctrl+Shift+Enter',
-		'Fuzzy':												      'Ctrl+Shift+F',
-		'Load consistency suggestions':						       'Alt+C',
-		'Open next string editor':								    'Page Down',
-		'Open previous string editor':								'Page Up',
-		'Reject':												     'Ctrl+Shift+R',
-		'Suggest or Save translation':								'Ctrl+Enter',
+		'Dismiss all validation warnings':                            'Ctrl+Shift+D',
+		'Force suggest or Force save translation':                    'Ctrl+Shift+Enter',
+		'Fuzzy':                                                      'Ctrl+Shift+F',
+		'Load consistency suggestions':                               'Alt+C',
+		'Open next string editor':                                    'Page Down',
+		'Open previous string editor':                                'Page Up',
+		'Reject':                                                     'Ctrl+Shift+R',
+		'Suggest or Save translation':                                'Ctrl+Enter',
 	};
 
 	const container = document.createElement( 'DIV' );
@@ -185,17 +185,10 @@ function gd_generate_settings_panel() {
 		changelog.appendChild( ul );
 		changelog.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Enjoy!' ) );
 	} else {
-		link = document.createElement( 'A' );
+		const link = document.createElement( 'A' );
 		link.href = 'https://github.com/Mte90/GlotDict/blob/master/CHANGELOG.md';
-		link.innerHTML = 'Check the Changelog!';
-		// Fallback in case the changelog is empty
-		if ( gd_extension.changelog === '' ) {
-		    gd_extension.changelog = document.createElement( 'SPAN' );
-		    container.style.display = 'none';
-		} else {
-		    gd_extension.changelog = document.createTextNode( gd_extension.changelog );
-		}
-		changelog.appendChild( document.createElement( 'DIV' ) ).appendChild( gd_extension.changelog );
+		link.textContent = 'Check the Changelog!';
+		changelog.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( gd_extension.changelog ) );
 		changelog.appendChild( link );
 	}
 	panel2.append( closeSettings, changelog );
