@@ -169,7 +169,8 @@ function gd_generate_settings_panel() {
 	closeSettings.addEventListener( 'click', () => {
 		gd_settings_menu.click();
 	} );
-	const panel2Title = 'install' === gd_extension.reason ? `Welcome to GlotDict ${gd_extension.currentVersion}!` : `What’s new in GlotDict ${gd_extension.currentVersion}?`;
+	const currentVersion = '0' === gd_extension.currentVersion ? '' : gd_extension.currentVersion;
+	const panel2Title = 'install' === gd_extension.reason ? `Welcome to GlotDict ${currentVersion}!` : `What’s new in GlotDict ${currentVersion}?`;
 	changelog.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( panel2Title ) );
 	if ( 'install' === gd_extension.reason ) {
 		changelog.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Howdy! Let me tell you a few things before starting translating:' ) );
