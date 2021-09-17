@@ -12,6 +12,7 @@ fetch( changelog )
 				if ( 'undefined' !== response &&
 					( 'install' === response['reason'] || 'update' === response['reason'] ) &&
 					gd_extension_storage.currentVersion !== response['currentVersion'] ) {
+					let data = {};
 					data = response;
 					const lastChange = changelogData.match( /(\* [\s\S]*?)(?=#)/ );
 					data['changelog'] = ( null !== lastChange ) ? lastChange[1] : '';
@@ -21,15 +22,9 @@ fetch( changelog )
 		);
 	} )
 	.then( () => script( jsScripts ) )
-	// Fallback in case the file is missing
-	.catch(function() {
+	.catch( ( _error ) => {
 		script( jsScripts );
-		let data = {};
-		manifest = browser.runtime.getManifest();
-		data['currentVersion'] = manifest.version;
-		data['changelog'] = '';
-		localStorage.setItem( 'gd_extension_status', JSON.stringify( data ) );
-	});
+	} );
 
 function script( url ) {
 	if ( Array.isArray( url ) ) {
