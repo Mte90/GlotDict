@@ -459,12 +459,11 @@ function gd_add_evt_listener( event_name, target_selector, function_to_call ) {
  * @returns {void}
  */
 function gd_copy_to_clipboard( copy_text ) {
-	const elem = document.createElement( 'textarea' );
-	elem.value = copy_text;
-	document.body.appendChild( elem );
-	elem.select();
-	document.execCommand( 'copy' );
-	document.body.removeChild( elem );
+	navigator.permissions.query({name: "clipboard-write"}).then(result => {
+		if (result.state == "granted" || result.state == "prompt") {
+			navigator.clipboard.writeText( copy_text );
+		}
+	});
 }
 
 /**
