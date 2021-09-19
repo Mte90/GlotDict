@@ -78,10 +78,11 @@ When the developers of the extension think that a new release is ready and teste
 
 # Additional resources
 
-## Video
+## Videos
 
-* [GlotDict – How a Browser Extension Changes Your Translation Workflow](https://wordpress.tv/2016/05/31/daniele-scasciafratte-glotdict-how-a-browser-extension-changes-your-translation-workflow/) ([Daniele Scasciafratte](https://github.com/Mte90))
-* [GlotDict, Pte-Bot and BulkRejectGP – Why Your Community Needs A Glossary](https://wordpress.tv/2017/04/29/glotdict-pte-bot-and-bulkrejectgp-why-your-community-needs-a-glossary/) ([Daniele Scasciafratte](https://github.com/Mte90))
+* [GlotDict – How a Browser Extension Changes Your Translation Workflow - 2016](https://wordpress.tv/2016/05/31/daniele-scasciafratte-glotdict-how-a-browser-extension-changes-your-translation-workflow/) ([Daniele Scasciafratte](https://github.com/Mte90))
+* [GlotDict, Pte-Bot and BulkRejectGP – Why Your Community Needs A Glossary - 2017](https://wordpress.tv/2017/04/29/glotdict-pte-bot-and-bulkrejectgp-why-your-community-needs-a-glossary/) ([Daniele Scasciafratte](https://github.com/Mte90))
+* [GlotDict demonstration - 2021](https://www.youtube.com/watch?v=lkJXBBByUKM) ([Vlad Timotei](https://github.com/vlad-timotei))
 
 ## Presentations
 
