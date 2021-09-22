@@ -561,5 +561,5 @@ function gd_build_sticky_header() {
  * @returns {void}
  */
 function gd_copy_visible_original_string() {
-	navigator.clipboard.writeText( jQuery( '.editor:visible .original-raw' ).html() );
+	gd_copy_to_clipboard( document.querySelector('.editor:visible .original-raw' ).innerHTML );
 }
