@@ -620,6 +620,7 @@ button.gd-approve strong {
 #gd-toggle-header {
     float: right;
     margin-left: 40px;
+    margin-top: -1px;
 }
 
 .gd-toggle__input {
@@ -677,12 +678,60 @@ code {
     border-radius: 5px;
 }
 
+.gd-on-translations h2 {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.gd-on-translations .gp-content h2 a.glossary-link {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.gd-on-translations .gp-content h2 a.glossary-link:last-child,
+.gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link {
+    margin-right: 26px;
+}
+
+.gd-on-translations .gp-content h2 a.glossary-link:last-child::after,
+.gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link::after {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    height: 36px;
+    width: 1px;
+    background: #c4c4c4;
+    margin-left: 13px;
+    margin-top: -7px;
+}
+
 @media screen and (min-width: 1920px) {
+
+    .gd-on-translations h2 {
+        font-size: 20px;
+        line-height: 21px;
+    }
+
+    .gd-on-translations .gp-content h2 a.glossary-link {
+        font-size: 17px;
+    }
 
     #gd_settings_panel1 fieldset,
     #gd_settings_panel1 table {
         width: 50%;
     }
+
+    .gd-on-translations .gp-content h2 a.glossary-link:last-child,
+    .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link {
+        margin-right: 54px;
+    }
+
+    .gd-on-translations .gp-content h2 a.glossary-link:last-child::after,
+    .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link::after {
+        margin-left: 27px;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -710,6 +759,35 @@ code {
 
     #gd_settings_panel1 label {
         max-width: 750px;
+    }
+}
+
+
+@media screen and (max-width: 1679.98px) {
+
+    .gd-on-translations .gp-content h2 a.glossary-link:last-child,
+    .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link {
+        margin-right: 14px;
+    }
+
+    .gd-on-translations .gp-content h2 a.glossary-link:last-child::after,
+    .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link::after {
+        margin-left: 7px;
+    }
+
+    .gd-on-translations h2 {
+        font-size: 19px;
+        line-height: 21px;
+    }
+
+    .gd-on-translations .gp-content h2 a.glossary-link {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1439.98px) {
+    .gd-on-translations h2 {
+        font-size: 15px;
     }
 }
 
