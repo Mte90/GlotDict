@@ -1,5 +1,5 @@
-jQuery( '#menu-headline-nav' ).append( '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
-jQuery( '.gd_icon' ).prependTo( '.gd_setting' ).show();
+document.getElementById( 'menu-headline-nav' ).append( '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
+document.getElementsByClassName( 'gd_icon' ).prependTo( '.gd_setting' ).show();
 
 const gd_settings_menu = document.querySelector( '.gd_setting' );
 gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
@@ -11,12 +11,12 @@ gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
 	gd_generate_settings_panel();
 } );
 
-jQuery( '.gp-content' ).on( 'click', '.gd_settings input[type="checkbox"]', function() {
-	localStorage.setItem( jQuery( this ).attr( 'id' ), jQuery( this ).is( ':checked' ) );
+document.getElementsByClassName( 'gp-content' ).addEventListener( 'click', '.gd_settings input[type="checkbox"]', (e) => {
+	localStorage.setItem( e.target.id, e.target.checked );
 } );
 
 function gd_generate_settings_panel() {
-	const gd_settings = document.querySelector( '.gd_settings' );
+	const gd_settings = document.getElementsByClassName( 'gd_settings' );
 	if ( null !== gd_settings ) {
 		gd_settings.style.display = ( 'none' === gd_settings.style.display ) ? '' : 'none';
 		return;
