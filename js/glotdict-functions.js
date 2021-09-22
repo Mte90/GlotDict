@@ -459,12 +459,7 @@ function gd_add_evt_listener( event_name, target_selector, function_to_call ) {
  * @returns {void}
  */
 function gd_copy_to_clipboard( copy_text ) {
-	const elem = document.createElement( 'textarea' );
-	elem.value = copy_text;
-	document.body.appendChild( elem );
-	elem.select();
-	document.execCommand( 'copy' );
-	document.body.removeChild( elem );
+	navigator.clipboard.writeText( copy_text );
 }
 
 /**
@@ -566,5 +561,5 @@ function gd_build_sticky_header() {
  * @returns {void}
  */
 function gd_copy_visible_original_string() {
-	navigator.clipboard.writeText( jQuery( '.editor:visible .original-raw' ).html() );
+	gd_copy_to_clipboard( document.querySelector('.editor:visible .original-raw' ).innerHTML );
 }
