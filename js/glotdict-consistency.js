@@ -4,6 +4,7 @@ let gd_quicklinks_window = { 'closed': true };
 if ( typeof $gp_editor_options !== 'undefined' ) {
 	gd_quicklinks();
 	gd_consistency();
+	gd_notranslate();
 }
 
 function gd_quicklinks() {
@@ -275,4 +276,88 @@ function gd_consistency_end( el, error = false ) {
 	error && el.append( error );
 	const loading = el.querySelector( '.suggestions__loading-indicator' );
 	loading && el.removeChild( loading );
+}
+
+function gd_notranslate() {
+	const notranslate_header = document.createElement( 'div' );
+	notranslate_header.textContent = 'Non-translatable';
+	notranslate_header.append( gd_create_element( 'button', { 'type': 'button', 'class': 'gd_notranslate_copy_all' }, 'Copy all' ) );
+	document.querySelectorAll( '.preview .original' ).forEach( ( original_preview ) => {
+		const editor = original_preview.parentNode.nextElementSibling;
+		const notranslate = gd_create_element( 'div', { 'class': 'gd_notranslate' } );
+		const notranslate_fragment = document.createDocumentFragment();
+		const original_preview_forms = original_preview.querySelectorAll( '.original-text' );
+
+		// Workaround. See https://gist.github.com/vlad-timotei/9fc62e9c1b7a40d4708a3b0345ad2a22
+		( original_preview_forms.length > 1 ) && editor.querySelectorAll( '.source-string.strings div .original' ).forEach( ( original_editor_form, form_i ) => {
+			original_editor_form.textContent = '';
+			original_editor_form.append( original_preview_forms[ form_i ].cloneNode( true ) );
+		} );
+
+		let has_notranslate = false;
+		original_preview_forms[ 0 ].parentNode.querySelectorAll( '.original-text > .notranslate' ).forEach( ( item ) => {
+			const notranslate_item = document.createElement( 'a' );
+			notranslate_item.setAttribute( 'title', 'Click to insert this item to textarea!' );
+			notranslate_item.textContent = item.textContent;
+			notranslate_fragment.appendChild( notranslate_item );
+			has_notranslate = true;
+		} );
+
+		if ( has_notranslate ) {
+			notranslate.prepend( notranslate_header.cloneNode( true ) );
+			notranslate.append( notranslate_fragment );
+			// To do: Replace with user object to check if is logged in.
+			const suggestion_wrapper_el = editor.querySelector( '.suggestions-wrapper' );
+			( suggestion_wrapper_el ) && suggestion_wrapper_el.prepend( notranslate );
+		}
+	} );
+	document.querySelectorAll( '.editor .notranslate' ).forEach( ( el ) => { el.setAttribute( 'title', 'Click to insert this item to textarea!' ); } );
+	gd_notranslate_events();
+}
+
+function gd_notranslate_events() {
+	gd_add_evt_listener( 'click', '.translation-form-list li button', ( ev ) => {
+		const textareas = ev.currentTarget.closest( '.translation-wrapper' ).querySelectorAll( '.textareas' )[ ev.currentTarget.dataset.pluralIndex ];
+		textareas.classList.add( 'active' );
+		textareas.querySelector( 'textarea' ).focus();
+	} );
+	gd_add_evt_listener( 'focus', '.editor textarea', gd_notranslate_update );
+	gd_add_evt_listener( 'keyup', '.editor textarea', gd_notranslate_update );
+	gd_add_evt_listener( 'click', '.gd_notranslate a, .editor .notranslate', ( ev ) => {
+		gd_notranslate_insertText( ev.currentTarget.closest( '.editor-panel__left' ).querySelector( '.textareas.active textarea' ), ev.currentTarget.textContent );
+	} );
+	gd_add_evt_listener( 'click', '.gd_notranslate_copy_all', ( ev ) => {
+		let all_notranslate = '';
+		const notranslate_div = ev.currentTarget.parentNode.parentNode;
+		notranslate_div.querySelectorAll( 'a' ).forEach( ( el ) => {
+			all_notranslate += `${el.textContent} `;
+		} );
+		gd_notranslate_insertText( notranslate_div.closest( '.editor-panel__left' ).querySelector( '.textareas.active textarea' ), all_notranslate );
+	} );
+	const unique_editor = document.querySelector( '.editor[style*="display: table-row;"] textarea' );
+	if ( unique_editor ) {
+		unique_editor.blur();
+		unique_editor.focus();
+	}
+}
+
+function gd_notranslate_insertText( el, text ) {
+	const selection = { start: el.selectionStart, end: el.selectionEnd };
+	const new_position = selection.start + text.length;
+	el.value = el.value.slice( 0, selection.start ) + text + el.value.slice( selection.end );
+	el.focus();
+	el.setSelectionRange( new_position, new_position );
+}
+
+function gd_notranslate_update( ev ) {
+	let textarea_content = ev.currentTarget.value;
+	ev.currentTarget.closest( '.editor-panel__left' ).querySelectorAll( '.gd_notranslate a' ).forEach( ( notranslate_item ) => {
+		const notranslate_text = notranslate_item.textContent;
+		if ( textarea_content.indexOf( notranslate_text ) > -1 ) {
+			notranslate_item.classList.add( 'used' );
+			textarea_content = textarea_content.replace( notranslate_text, '' );
+			return;
+		}
+		notranslate_item.classList.remove( 'used' );
+	} );
 }
