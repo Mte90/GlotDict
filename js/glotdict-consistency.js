@@ -110,14 +110,16 @@ function gd_consistency() {
 	$gp.editor.show = ( function( original ) {
 		return function() {
 			original.apply( $gp.editor, arguments );
-			const gd_consistency = $gp.editor.current[ 0 ].querySelector( '.gd-consistency' );
-			gd_consistency && gd_do_consistency( gd_consistency );
+			gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
 		}
 	} )( $gp.editor.show );
+
+	// If the current table has only one editor, already opened, load suggestions for it.
+	( $gp.editor.current ) && gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
 }
 
 async function gd_do_consistency( el ) {
-	if ( el.classList.contains( 'initialized' ) ) {
+	if ( ! el || el.classList.contains( 'initialized' ) ) {
 		return;
 	}
 	el.classList.add( 'initialized' );
