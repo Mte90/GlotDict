@@ -151,3 +151,4 @@ gd_to_top.addEventListener( 'click', ( e ) => {
 gd_user.is_connected && gd_build_sticky_header();
 
 gd_wait_table_alter();
+gd_anonymous();
