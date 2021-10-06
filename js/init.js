@@ -18,7 +18,7 @@ fetch( changelog )
 					data['changelog'] = ( null !== lastChange ) ? lastChange[1] : '';
 					localStorage.setItem( 'gd_extension_status', JSON.stringify( data ) );
 				}
-			}
+			},
 		);
 	} )
 	.then( () => script( jsScripts ) )

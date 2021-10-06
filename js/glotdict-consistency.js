@@ -14,35 +14,35 @@ function gd_quicklinks() {
 			'type':       'button',
 			'class':      `gd_quicklinks_copy with-tooltip ${( gd_quicklinks_copy_state ) ? 'active' : 'inactive'}`,
 			'aria-label': 'Click this and another to copy',
-		}
+		},
 	);
 	gd_quicklinks_copy.append(
 		gd_create_element( 'span', { 'class': 'screen-reader-text' }, 'Copy toggle' ),
-		gd_create_element( 'span', { 'class': 'dashicons dashicons-clipboard', 'aria-hidden': 'true' } )
+		gd_create_element( 'span', { 'class': 'dashicons dashicons-clipboard', 'aria-hidden': 'true' } ),
 	);
 	const gd_quicklinks_separator = gd_create_element(
 		'span',
 		{
 			'class':       `gd_quicklinks_plus dashicons ${( gd_quicklinks_copy_state ) ? 'dashicons-plus' : 'separator'}`,
 			'aria-hidden': 'true',
-		}
+		},
 	);
 	const gd_quicklinks_permalink = gd_create_element( 'button', { 'class': 'gd_quicklinks_item gd_quicklinks_permalink with-tooltip', 'aria-label': 'Permalink to translation' } );
 	gd_quicklinks_permalink.append(
 		gd_create_element( 'span', { 'class': 'screen-reader-text' }, 'Permalink to translation' ),
-		gd_create_element( 'span', { 'class': 'dashicons dashicons-admin-links', 'aria-hidden': 'true' } )
+		gd_create_element( 'span', { 'class': 'dashicons dashicons-admin-links', 'aria-hidden': 'true' } ),
 	);
 
 	const gd_quicklinks_history = gd_create_element( 'button', { 'class': 'gd_quicklinks_item gd_quicklinks_history with-tooltip', 'aria-label': 'Translation History' } );
 	gd_quicklinks_history.append(
 		gd_create_element( 'span', { 'class': 'screen-reader-text' }, 'Translation History' ),
-		gd_create_element( 'span', { 'class': 'dashicons dashicons-backup', 'aria-hidden': 'true' } )
+		gd_create_element( 'span', { 'class': 'dashicons dashicons-backup', 'aria-hidden': 'true' } ),
 	);
 
 	const gd_quicklinks_consistency = gd_create_element( 'button', { 'class': 'gd_quicklinks_item gd_quicklinks_consistency with-tooltip', 'aria-label': 'View original in consistency tool' } );
 	gd_quicklinks_consistency.append(
 		gd_create_element( 'span', { 'class': 'screen-reader-text' }, 'View original in consistency tool' ),
-		gd_create_element( 'span', { 'class': 'dashicons dashicons-list-view', 'aria-hidden': 'true' } )
+		gd_create_element( 'span', { 'class': 'dashicons dashicons-list-view', 'aria-hidden': 'true' } ),
 	);
 
 	gd_quicklinks_output.append(
@@ -50,7 +50,7 @@ function gd_quicklinks() {
 		gd_quicklinks_separator,
 		gd_quicklinks_permalink,
 		gd_quicklinks_history,
-		gd_quicklinks_consistency
+		gd_quicklinks_consistency,
 	);
 
 	gd_add_elements( '.editor-panel__right .panel-header', 'beforeend', gd_quicklinks_output );
