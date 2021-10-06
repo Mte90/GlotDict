@@ -20,6 +20,7 @@
 		"gd_add_project_links": true,
 		"gd_add_review_button": true,
 		"gd_add_scroll_buttons": true,
+		"gd_anonymous": true,
 		"gd_build_sticky_header": true,
 		"gd_copy_visible_original_string": true,
 		"gd_copy_to_clipboard": true,
