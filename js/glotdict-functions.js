@@ -563,3 +563,26 @@ function gd_build_sticky_header() {
 function gd_copy_visible_original_string() {
 	gd_copy_to_clipboard( document.querySelector( '.editor[style="display: table-row;"] .original-raw' ).innerHTML );
 }
+
+/**
+ * Adds an anonimous check next to the author filter field
+ * @returns {void}
+ */
+function gd_anonymous() {
+	const user_filter_el = document.getElementById( 'filters[user_login]' );
+	if ( ! user_filter_el ) {
+		return;
+	}
+	const anonymous = document.createElement( 'div' );
+	const anonymous_input = gd_create_element( 'input', { 'type': 'checkbox', 'id': 'gd_search_anonymous' } );
+	const anonymous_label = gd_create_element( 'label', { 'for': 'gd_search_anonymous' }, 'Anonymous author' );
+	anonymous.append( anonymous_input, anonymous_label );
+	user_filter_el.insertAdjacentElement( 'afterend', anonymous );
+	anonymous_input.addEventListener( 'click', ( event ) => {
+		if ( event.target.checked ) {
+			document.getElementById( 'filters[user_login]' ).value = 'anonymous';
+			return;
+		}
+		document.getElementById( 'filters[user_login]' ).value = '';
+	} );
+}

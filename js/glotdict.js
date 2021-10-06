@@ -115,11 +115,11 @@ jQuery( '.gp-content' ).on( 'click', '.discard-glotdict', function( e ) {
 } );
 
 if ( gd_user.is_on_translations && gd_get_setting( 'autocopy_string_on_translation_opened' ) ) {
-	jQuery( $gp.editor.table ).on( 'click', 'a.edit', function() {
-		setTimeout(() => { gd_copy_visible_original_string(); }, 400);
+	jQuery( $gp.editor.table ).on( 'click', 'a.edit', () => {
+		setTimeout( () => { gd_copy_visible_original_string(); }, 400 );
 	} );
-	jQuery( $gp.editor.table ).on( 'dblclick', 'tr.preview td', function() {
-		setTimeout(() => { gd_copy_visible_original_string(); }, 400);
+	jQuery( $gp.editor.table ).on( 'dblclick', 'tr.preview td', () => {
+		setTimeout( () => { gd_copy_visible_original_string(); }, 400 );
 	} );
 }
 
@@ -152,3 +152,4 @@ gd_user.is_connected && gd_build_sticky_header();
 
 gd_wait_table_alter();
 gd_localize_date();
+gd_anonymous();
