@@ -1,4 +1,4 @@
-const jsScripts = [ 'jquery.bind-first', 'dompurify', 'keymaster', 'glotdict-locales', 'glotdict-functions', 'glotdict-settings', 'glotdict-hotkey', 'glotdict-validation', 'glotdict-column', 'glotdict-meta', 'glotdict-bulk', 'glotdict-notices', 'glotdict', 'glotdict-consistency' ];
+const jsScripts = [ 'jquery.bind-first', 'dompurify', 'keymaster', 'glotdict-locales', 'glotdict-functions', 'glotdict-settings', 'glotdict-hotkey', 'glotdict-validation', 'glotdict-column', 'glotdict-meta', 'glotdict-bulk', 'glotdict-notices', 'glotdict-consistency', 'glotdict' ];
 
 // Get extension informations
 const changelog = chrome.runtime.getURL( 'CHANGELOG.md' );

@@ -1,7 +1,7 @@
 let gd_quicklinks_copy_state = 'true' === localStorage.getItem( 'gd_quicklinks_copy_state' );
 let gd_quicklinks_window = { 'closed': true };
 
-if ( gd_user.is_on_translations ) {
+if ( typeof $gp_editor_options !== 'undefined' ) {
 	gd_quicklinks();
 	gd_consistency();
 }
@@ -183,7 +183,7 @@ async function gd_do_consistency( el ) {
 		}
 		gd_consistency_suggestions.append( gd_consistency_add_alternative( alternative, current_string ) );
 	}
-	if ( gd_user.is_editor && consistency_alternatives.length > 1 ) {
+	if ( '1' === $gp_editor_options.can_approve && consistency_alternatives.length > 1 ) {
 		const warning = document.createElement( 'div' );
 		warning.className = 'gte-warning';
 		warning.textContent = `${consistency_alternatives.length} current different translations!`;
