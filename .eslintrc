@@ -32,6 +32,7 @@
 		"gd_header_is_sticky": true,
 		"gd_hotkeys": true,
 		"gd_is_uppercase": true,
+		"gd_localize_date": true,
 		"gd_locales": true,
 		"gd_locales_selector": true,
 		"gd_locales_slugs": true,

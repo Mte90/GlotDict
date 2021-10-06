@@ -266,6 +266,15 @@ button.gd-approve strong {
     font-size: 0.8em;
 }
 
+.localized_date {
+    font-weight: 700;
+}
+
+.localized_date .timezone {
+    padding-left: 3px;
+    font-size: 0.8em;
+}
+
 @-webkit-keyframes gd-ripple-out {
     0% {
         box-shadow: 0 0 6px 6px rgba(0, 115, 170, .3);

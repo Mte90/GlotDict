@@ -109,3 +109,23 @@ function gd_add_plural_definition( row, index, pluralclass ) {
 	const definition = jQuery( `.translation-form-list button[data-plural-index="${index}"]`, row ).attr( 'aria-label' );
 	jQuery( '.gd-counts', row ).append( `<dl class="${pluralclass}" style="margin-top: 20px;"><dt>Plural:</dt><dd>${definition}</dl>` );
 }
+
+function gd_localize_date() {
+	const local_time = new Date();
+	let timezone_offset = local_time.getTimezoneOffset() / 60 * -1;
+	timezone_offset = `UTC${( timezone_offset !== 0 ) ? ( ( ( timezone_offset > 0 ) ? '+' : '' ) + timezone_offset ) : ''}`;
+	const localized_date = gd_create_element( 'span', { 'class': 'localized_date' } );
+	localized_date.append( gd_create_element( 'span', { 'class': 'timezone' }, timezone_offset ) );
+	document.querySelectorAll( '.editor-panel__right .meta dd' ).forEach( ( dd ) => {
+		if ( 19 === dd.textContent.indexOf( ' UTC' ) ) {
+			const date_data = dd.textContent.split( ' ', 3 );
+			const date_date = date_data[ 0 ].split( '-', 3 );
+			const date_time = date_data[ 1 ].split( ':', 3 );
+			const new_date = new Date( Date.UTC( date_date[ 0 ], date_date[ 1 ] - 1, date_date[ 2 ], date_time[ 0 ], date_time[ 1 ], date_time[ 2 ] ) );
+			const this_localized_date = localized_date.cloneNode( true );
+			this_localized_date.prepend( `${new_date.toLocaleDateString()} ${new_date.toLocaleTimeString()}` );
+			dd.insertAdjacentElement( 'afterend', this_localized_date );
+			dd.style.display = 'none';
+		}
+	} );
+}
