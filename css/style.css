@@ -271,11 +271,6 @@ button.gd-approve strong {
     font-weight: 700;
 }
 
-.localized_date .timezone {
-    padding-left: 3px;
-    font-size: 0.8em;
-}
-
 li.consistency-header-index {
     font-size: 0.9em;
     color: grey;
