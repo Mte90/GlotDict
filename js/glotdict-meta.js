@@ -111,9 +111,8 @@ function gd_add_plural_definition( row, index, pluralclass ) {
 }
 
 function gd_localize_date() {
-	const local_time = new Date();
-    	var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    	var locale = Intl.DateTimeFormat().resolvedOptions().locale;
+	const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	const locale = Intl.DateTimeFormat().resolvedOptions().locale;
 	const localized_date = gd_create_element( 'span', { 'class': 'localized_date' } );
 	document.querySelectorAll( '.editor-panel__right .meta dd' ).forEach( ( dd ) => {
 		if ( 19 === dd.textContent.indexOf( ' UTC' ) ) {
@@ -122,7 +121,7 @@ function gd_localize_date() {
 			const date_time = date_data[ 1 ].split( ':', 3 );
 			const new_date = new Date( Date.UTC( date_date[ 0 ], date_date[ 1 ] - 1, date_date[ 2 ], date_time[ 0 ], date_time[ 1 ], date_time[ 2 ] ) );
 			const this_localized_date = localized_date.cloneNode( true );
-			this_localized_date.prepend( `${new_date.toLocaleDateString(locale, { timeZone: tz, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName:'shortOffset' })}` );
+			this_localized_date.prepend( `${new_date.toLocaleDateString( locale, { timeZone: tz, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' } )}` );
 			dd.insertAdjacentElement( 'afterend', this_localized_date );
 			dd.style.display = 'none';
 		}
