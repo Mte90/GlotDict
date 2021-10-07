@@ -267,6 +267,10 @@ button.gd-approve strong {
     font-size: 0.8em;
 }
 
+.localized_date {
+    font-weight: 700;
+}
+
 li.consistency-header-index {
     font-size: 0.9em;
     color: grey;
