@@ -112,8 +112,8 @@ function gd_consistency() {
 		return function() {
 			original.apply( $gp.editor, arguments );
 			gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
-		}
-	} )( $gp.editor.show );
+		};
+	}( $gp.editor.show ) );
 
 	// If the current table has only one editor, already opened, load suggestions for it.
 	( $gp.editor.current ) && gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
@@ -250,7 +250,7 @@ function gd_consistency_add_alternative ( alternative, current_string ) {
 function gd_consistency_format_for_plural( this_panel_content ) {
 	gd_add_evt_listener( 'click', '.copy-full-alternative', gd_consistency_copy_full_alternative );
 	this_panel_content.querySelectorAll( '.gd-consistency .copy-suggestion' ).forEach( ( el ) => {
-		el.parentNode.removeChild( el )
+		el.parentNode.removeChild( el );
 	} );
 	this_panel_content.querySelectorAll( '.gd-consistency .translation-suggestion' ).forEach( ( el ) => {
 		el.classList.remove( 'translation-suggestion' );
