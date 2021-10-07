@@ -63,7 +63,7 @@ function gd_generate_settings_panel() {
 		'Dismiss all validation warnings':                            'Ctrl+Shift+D',
 		'Force suggest or Force save translation':                    'Ctrl+Shift+Enter',
 		'Fuzzy':                                                      'Ctrl+Shift+F',
-		'Load consistency suggestions':                               'Alt+C',
+		'Load all consistency suggestions':                           'Alt+C',
 		'Open next string editor':                                    'Page Down',
 		'Open previous string editor':                                'Page Up',
 		'Reject':                                                     'Ctrl+Shift+R',
