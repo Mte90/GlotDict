@@ -17,17 +17,20 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Highlights non-breaking-spaces
 * Review translations button to show and count warnings
 * Links Glossary terms to Consistency tool
-* Loads Consistency suggestions in the editor
+* Autoloads Consistency suggestions in the editor
+* Easy insertion of non-translatable items
 * Bulk Actions in the footer
 * Auto-save after "Copy from Original" bulk action.
 * Link and scroll to locale button for the Translation Global Status
 * Right column with quick Approve/Reject/Fuzzy buttons
 * Character and Word counts in Meta panel
+* Localized dates in the Meta panel
 * QuickLinks in Meta menu - open or copy link
 * Optional sticky header
 * Marks older than 6 months strings - black border
 * Notices counts for Approved, Rejected, Fuzzied, Submitted and Selected rows
 * Daily update of the list of locales
+* Anonymous author search filter
 * Many hotkeys and shortcuts
 
 ## Hotkeys
