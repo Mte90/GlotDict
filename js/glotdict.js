@@ -114,13 +114,15 @@ jQuery( '.gp-content' ).on( 'click', '.discard-glotdict', function( e ) {
 	return false;
 } );
 
-if ( gd_user.is_on_translations && gd_get_setting( 'autocopy_string_on_translation_opened' ) ) {
-	jQuery( $gp.editor.table ).on( 'click', 'a.edit', () => {
-		setTimeout( () => { gd_copy_visible_original_string(); }, 400 );
-	} );
-	jQuery( $gp.editor.table ).on( 'dblclick', 'tr.preview td', () => {
-		setTimeout( () => { gd_copy_visible_original_string(); }, 400 );
-	} );
+if ( gd_user.is_on_translations ) {
+	$gp.editor.current && gd_get_setting( 'autocopy_string_on_translation_opened' ) && gd_copy_visible_original_string();
+	$gp.editor.show = ( function( original ) {
+		return function() {
+			original.apply( $gp.editor, arguments );
+			gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
+			gd_get_setting( 'autocopy_string_on_translation_opened' ) && gd_copy_visible_original_string();
+		};
+	}( $gp.editor.show ) );
 }
 
 jQuery( '.gp-content' ).on( 'click', '.gd-review:not(.gd-review-done)', function( e ) {

@@ -108,13 +108,6 @@ function gd_consistency() {
 	gd_consistency_loading && gd_consistency_output.append( gd_consistency_loading );
 	gd_add_elements( '.editor-panel__left .suggestions-wrapper .suggestions__translation-memory', 'afterEnd', gd_consistency_output );
 
-	$gp.editor.show = ( function( original ) {
-		return function() {
-			original.apply( $gp.editor, arguments );
-			gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
-		};
-	}( $gp.editor.show ) );
-
 	// If the current table has only one editor, already opened, load suggestions for it.
 	( $gp.editor.current ) && gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
 }
