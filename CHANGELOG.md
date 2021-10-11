@@ -1,3 +1,18 @@
+# 2.0.3
+
+* Enhancement: Deprecated methods to copy on clipboard
+* Enhancement: Support for Non-translatable items
+* Enhancement: Date localized by timezone in editor
+* Enhancement: Anonymous author checkbox in filters
+* Enhancement: Plurals for consistency supported also in alerts
+* Changes: Alt+C now loads all the consistency suggestions
+* Fix: Auto copy now works everywhere
+* Fix: Text aligned rightly in header
+* Fix: Changelog show improved
+
+This versions could not exists without the huge work of Loïc Antignac and Vlad Timotei
+that imported features from their browser extensions and co-maintain this tool!
+
 # 2.0.2
 
 * Enhancement: Shows always the link of the changelog
