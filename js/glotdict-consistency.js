@@ -7,7 +7,7 @@ if ( typeof $gp_editor_options !== 'undefined' ) {
 	gd_notranslate();
 }
 
-function gd_quicklinks() {
+function gd_quicklinks( current_editor = '.editor' ) {
 	const gd_quicklinks_output = gd_create_element( 'span', { 'class': 'gd_quicklinks' } );
 	const gd_quicklinks_copy = gd_create_element(
 		'button',
@@ -54,9 +54,9 @@ function gd_quicklinks() {
 		gd_quicklinks_consistency,
 	);
 
-	gd_add_elements( '.editor-panel__right .panel-header', 'beforeend', gd_quicklinks_output );
+	gd_add_elements( `${current_editor} .editor-panel__right .panel-header`, 'beforeend', gd_quicklinks_output );
 
-	document.querySelectorAll( '.editor' ).forEach( ( editor ) => {
+	document.querySelectorAll( `${current_editor}` ).forEach( ( editor ) => {
 		const editor_menu = editor.querySelectorAll( '.button-menu__dropdown li a' );
 		editor.querySelector( '.gd_quicklinks_permalink' ).dataset.quicklink = editor_menu[ 0 ].href;
 		editor_menu[ 1 ].href += '&historypage';
@@ -64,8 +64,8 @@ function gd_quicklinks() {
 		editor.querySelector( '.gd_quicklinks_consistency' ).dataset.quicklink = `${editor_menu[ 2 ].href}&consistencypage`;
 	} );
 
-	gd_add_evt_listener( 'click', '.gd_quicklinks_copy, .gd_quicklinks_plus', gd_toggle_quicklinks_copy );
-	gd_add_evt_listener( 'click', '.gd_quicklinks_item', gd_do_quicklinks );
+	gd_add_evt_listener( 'click', `${current_editor} .gd_quicklinks_copy, ${current_editor} .gd_quicklinks_plus`, gd_toggle_quicklinks_copy );
+	gd_add_evt_listener( 'click', `${current_editor} .gd_quicklinks_item`, gd_do_quicklinks );
 }
 
 function gd_do_quicklinks( event ) {
