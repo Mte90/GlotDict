@@ -271,11 +271,11 @@ function gd_consistency_end( el, error = false ) {
 	loading && el.removeChild( loading );
 }
 
-function gd_notranslate() {
+function gd_notranslate( current_editor = '.editor' ) {
 	const notranslate_header = document.createElement( 'div' );
 	notranslate_header.textContent = 'Non-translatable';
 	notranslate_header.append( gd_create_element( 'button', { 'type': 'button', 'class': 'gd_notranslate_copy_all' }, 'Copy all' ) );
-	document.querySelectorAll( '.preview .original' ).forEach( ( original_preview ) => {
+	document.querySelectorAll( `${current_editor.replace( 'editor', 'preview' )} .original` ).forEach( ( original_preview ) => {
 		const editor = original_preview.parentNode.nextElementSibling;
 		const notranslate = gd_create_element( 'div', { 'class': 'gd_notranslate' } );
 		const notranslate_fragment = document.createDocumentFragment();
@@ -305,21 +305,21 @@ function gd_notranslate() {
 		}
 	} );
 	document.querySelectorAll( '.editor .notranslate' ).forEach( ( el ) => { el.setAttribute( 'title', 'Click to insert this item to textarea!' ); } );
-	gd_notranslate_events();
+	gd_notranslate_events( current_editor );
 }
 
-function gd_notranslate_events() {
-	gd_add_evt_listener( 'click', '.translation-form-list li button', ( ev ) => {
+function gd_notranslate_events( current_editor ) {
+	gd_add_evt_listener( 'click', `${current_editor} .translation-form-list li button`, ( ev ) => {
 		const textareas = ev.currentTarget.closest( '.translation-wrapper' ).querySelectorAll( '.textareas' )[ ev.currentTarget.dataset.pluralIndex ];
 		textareas.classList.add( 'active' );
 		textareas.querySelector( 'textarea' ).focus();
 	} );
-	gd_add_evt_listener( 'focus', '.editor textarea', gd_notranslate_update );
-	gd_add_evt_listener( 'keyup', '.editor textarea', gd_notranslate_update );
-	gd_add_evt_listener( 'click', '.gd_notranslate a, .editor .notranslate', ( ev ) => {
+	gd_add_evt_listener( 'focus', `${current_editor} textarea`, gd_notranslate_update );
+	gd_add_evt_listener( 'keyup', `${current_editor} textarea`, gd_notranslate_update );
+	gd_add_evt_listener( 'click', `${current_editor} .gd_notranslate a, ${current_editor} .notranslate`, ( ev ) => {
 		gd_notranslate_insertText( ev.currentTarget.closest( '.editor-panel__left' ).querySelector( '.textareas.active textarea' ), ev.currentTarget.textContent );
 	} );
-	gd_add_evt_listener( 'click', '.gd_notranslate_copy_all', ( ev ) => {
+	gd_add_evt_listener( 'click', `${current_editor} .gd_notranslate_copy_all`, ( ev ) => {
 		let all_notranslate = '';
 		const notranslate_div = ev.currentTarget.parentNode.parentNode;
 		notranslate_div.querySelectorAll( 'a' ).forEach( ( el ) => {

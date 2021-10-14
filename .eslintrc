@@ -40,6 +40,7 @@
 		"gd_locales_selector": true,
 		"gd_locales_slugs": true,
 		"gd_mark_old_strings": true,
+		"gd_notranslate": true,
 		"gd_non_breaking_space_highlight": true,
 		"gd_quicklinks": true,
 		"gd_run_review": true,

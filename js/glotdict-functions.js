@@ -396,6 +396,7 @@ function gd_wait_table_alter() {
 						const editor_id = `#${addedNode.id}`;
 						gd_quicklinks( editor_id );
 						gd_consistency( editor_id );
+						gd_notranslate( editor_id );
 					}
 				} );
 				gd_add_meta();
