@@ -110,11 +110,11 @@ function gd_add_plural_definition( row, index, pluralclass ) {
 	jQuery( '.gd-counts', row ).append( `<dl class="${pluralclass}" style="margin-top: 20px;"><dt>Plural:</dt><dd>${definition}</dl>` );
 }
 
-function gd_localize_date() {
+function gd_localize_date( current_editor = '.editor' ) {
 	const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 	const locale = Intl.DateTimeFormat().resolvedOptions().locale;
 	const localized_date = gd_create_element( 'span', { 'class': 'localized_date' } );
-	document.querySelectorAll( '.editor-panel__right .meta dd' ).forEach( ( dd ) => {
+	document.querySelectorAll( `${current_editor} .editor-panel__right .meta dd` ).forEach( ( dd ) => {
 		if ( 19 === dd.textContent.indexOf( ' UTC' ) ) {
 			const date_data = dd.textContent.split( ' ', 3 );
 			const date_date = date_data[ 0 ].split( '-', 3 );

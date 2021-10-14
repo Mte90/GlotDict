@@ -397,6 +397,7 @@ function gd_wait_table_alter() {
 						gd_quicklinks( editor_id );
 						gd_consistency( editor_id );
 						gd_notranslate( editor_id );
+						gd_localize_date( editor_id );
 					}
 				} );
 				gd_add_meta();
