@@ -314,7 +314,7 @@ function gd_notranslate_events( current_editor ) {
 		textareas.classList.add( 'active' );
 		textareas.querySelector( 'textarea' ).focus();
 	} );
-	gd_add_evt_listener( 'focus', `${current_editor} textarea`, gd_notranslate_update );
+	gd_add_evt_listener( 'focusin', `${current_editor} textarea`, gd_notranslate_update );
 	gd_add_evt_listener( 'keyup', `${current_editor} textarea`, gd_notranslate_update );
 	gd_add_evt_listener( 'click', `${current_editor} .gd_notranslate a, ${current_editor} .notranslate`, ( ev ) => {
 		gd_notranslate_insertText( ev.currentTarget.closest( '.editor-panel__left' ).querySelector( '.textareas.active textarea' ), ev.currentTarget.textContent );
