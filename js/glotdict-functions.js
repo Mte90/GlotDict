@@ -394,13 +394,13 @@ function gd_wait_table_alter() {
 					}
 					if ( row_is_editor ) {
 						const editor_id = `#${addedNode.id}`;
+						gd_add_string_counts( editor_id );
 						gd_quicklinks( editor_id );
 						gd_consistency( editor_id );
 						gd_notranslate( editor_id );
 						gd_localize_date( editor_id );
 					}
 				} );
-				gd_add_meta();
 			} );
 		} );
 
