@@ -1,3 +1,7 @@
+# 2.0.4
+
+* Enhancement: re-add GD features to rows after saving
+
 # 2.0.3
 
 * Enhancement: Deprecated methods to copy on clipboard
