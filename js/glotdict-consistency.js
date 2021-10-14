@@ -96,7 +96,7 @@ function gd_toggle_quicklinks_copy() {
 	localStorage.setItem( 'gd_quicklinks_copy_state', gd_quicklinks_copy_state );
 }
 
-function gd_consistency() {
+function gd_consistency( current_editor = '.editor' ) {
 	if ( document.querySelector( '.gd-get-consistency' ) !== null ) {
 		return;
 	}
@@ -106,7 +106,7 @@ function gd_consistency() {
 
 	gd_consistency_output.append( gd_consistency_summary );
 	gd_consistency_loading && gd_consistency_output.append( gd_consistency_loading );
-	gd_add_elements( '.editor-panel__left .suggestions-wrapper .suggestions__translation-memory', 'afterEnd', gd_consistency_output );
+	gd_add_elements( `${current_editor} .editor-panel__left .suggestions-wrapper .suggestions__translation-memory`, 'afterEnd', gd_consistency_output );
 
 	// If the current table has only one editor, already opened, load suggestions for it.
 	( $gp.editor.current ) && gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
