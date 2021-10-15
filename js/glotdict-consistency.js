@@ -7,7 +7,7 @@ if ( typeof $gp_editor_options !== 'undefined' ) {
 	gd_notranslate();
 }
 
-function gd_quicklinks() {
+function gd_quicklinks( current_editor = '.editor' ) {
 	const gd_quicklinks_output = gd_create_element( 'span', { 'class': 'gd_quicklinks' } );
 	const gd_quicklinks_copy = gd_create_element(
 		'button',
@@ -54,9 +54,9 @@ function gd_quicklinks() {
 		gd_quicklinks_consistency,
 	);
 
-	gd_add_elements( '.editor-panel__right .panel-header', 'beforeend', gd_quicklinks_output );
+	gd_add_elements( `${current_editor} .editor-panel__right .panel-header`, 'beforeend', gd_quicklinks_output );
 
-	document.querySelectorAll( '.editor' ).forEach( ( editor ) => {
+	document.querySelectorAll( `${current_editor}` ).forEach( ( editor ) => {
 		const editor_menu = editor.querySelectorAll( '.button-menu__dropdown li a' );
 		editor.querySelector( '.gd_quicklinks_permalink' ).dataset.quicklink = editor_menu[ 0 ].href;
 		editor_menu[ 1 ].href += '&historypage';
@@ -64,8 +64,8 @@ function gd_quicklinks() {
 		editor.querySelector( '.gd_quicklinks_consistency' ).dataset.quicklink = `${editor_menu[ 2 ].href}&consistencypage`;
 	} );
 
-	gd_add_evt_listener( 'click', '.gd_quicklinks_copy, .gd_quicklinks_plus', gd_toggle_quicklinks_copy );
-	gd_add_evt_listener( 'click', '.gd_quicklinks_item', gd_do_quicklinks );
+	gd_add_evt_listener( 'click', `${current_editor} .gd_quicklinks_copy, ${current_editor} .gd_quicklinks_plus`, gd_toggle_quicklinks_copy );
+	gd_add_evt_listener( 'click', `${current_editor} .gd_quicklinks_item`, gd_do_quicklinks );
 }
 
 function gd_do_quicklinks( event ) {
@@ -96,7 +96,7 @@ function gd_toggle_quicklinks_copy() {
 	localStorage.setItem( 'gd_quicklinks_copy_state', gd_quicklinks_copy_state );
 }
 
-function gd_consistency() {
+function gd_consistency( current_editor = '.editor' ) {
 	if ( document.querySelector( '.gd-get-consistency' ) !== null ) {
 		return;
 	}
@@ -106,7 +106,7 @@ function gd_consistency() {
 
 	gd_consistency_output.append( gd_consistency_summary );
 	gd_consistency_loading && gd_consistency_output.append( gd_consistency_loading );
-	gd_add_elements( '.editor-panel__left .suggestions-wrapper .suggestions__translation-memory', 'afterEnd', gd_consistency_output );
+	gd_add_elements( `${current_editor} .editor-panel__left .suggestions-wrapper .suggestions__translation-memory`, 'afterEnd', gd_consistency_output );
 
 	// If the current table has only one editor, already opened, load suggestions for it.
 	( $gp.editor.current ) && gd_do_consistency( $gp.editor.current[ 0 ].querySelector( '.gd-consistency' ) );
@@ -271,11 +271,11 @@ function gd_consistency_end( el, error = false ) {
 	loading && el.removeChild( loading );
 }
 
-function gd_notranslate() {
+function gd_notranslate( current_editor = '.editor' ) {
 	const notranslate_header = document.createElement( 'div' );
 	notranslate_header.textContent = 'Non-translatable';
 	notranslate_header.append( gd_create_element( 'button', { 'type': 'button', 'class': 'gd_notranslate_copy_all' }, 'Copy all' ) );
-	document.querySelectorAll( '.preview .original' ).forEach( ( original_preview ) => {
+	document.querySelectorAll( `${current_editor.replace( 'editor', 'preview' )} .original` ).forEach( ( original_preview ) => {
 		const editor = original_preview.parentNode.nextElementSibling;
 		const notranslate = gd_create_element( 'div', { 'class': 'gd_notranslate' } );
 		const notranslate_fragment = document.createDocumentFragment();
@@ -305,21 +305,21 @@ function gd_notranslate() {
 		}
 	} );
 	document.querySelectorAll( '.editor .notranslate' ).forEach( ( el ) => { el.setAttribute( 'title', 'Click to insert this item to textarea!' ); } );
-	gd_notranslate_events();
+	gd_notranslate_events( current_editor );
 }
 
-function gd_notranslate_events() {
-	gd_add_evt_listener( 'click', '.translation-form-list li button', ( ev ) => {
+function gd_notranslate_events( current_editor ) {
+	gd_add_evt_listener( 'click', `${current_editor} .translation-form-list li button`, ( ev ) => {
 		const textareas = ev.currentTarget.closest( '.translation-wrapper' ).querySelectorAll( '.textareas' )[ ev.currentTarget.dataset.pluralIndex ];
 		textareas.classList.add( 'active' );
 		textareas.querySelector( 'textarea' ).focus();
 	} );
-	gd_add_evt_listener( 'focus', '.editor textarea', gd_notranslate_update );
-	gd_add_evt_listener( 'keyup', '.editor textarea', gd_notranslate_update );
-	gd_add_evt_listener( 'click', '.gd_notranslate a, .editor .notranslate', ( ev ) => {
+	gd_add_evt_listener( 'focusin', `${current_editor} textarea`, gd_notranslate_update );
+	gd_add_evt_listener( 'keyup', `${current_editor} textarea`, gd_notranslate_update );
+	gd_add_evt_listener( 'click', `${current_editor} .gd_notranslate a, ${current_editor} .notranslate`, ( ev ) => {
 		gd_notranslate_insertText( ev.currentTarget.closest( '.editor-panel__left' ).querySelector( '.textareas.active textarea' ), ev.currentTarget.textContent );
 	} );
-	gd_add_evt_listener( 'click', '.gd_notranslate_copy_all', ( ev ) => {
+	gd_add_evt_listener( 'click', `${current_editor} .gd_notranslate_copy_all`, ( ev ) => {
 		let all_notranslate = '';
 		const notranslate_div = ev.currentTarget.parentNode.parentNode;
 		notranslate_div.querySelectorAll( 'a' ).forEach( ( el ) => {
