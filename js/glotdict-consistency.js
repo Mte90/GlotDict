@@ -280,14 +280,8 @@ function gd_notranslate( current_editor = '.editor' ) {
 		const notranslate = gd_create_element( 'div', { 'class': 'gd_notranslate' } );
 		const notranslate_fragment = document.createDocumentFragment();
 		const original_preview_forms = original_preview.querySelectorAll( '.original-text' );
-
-		// Workaround. See https://gist.github.com/vlad-timotei/9fc62e9c1b7a40d4708a3b0345ad2a22
-		( original_preview_forms.length > 1 ) && editor.querySelectorAll( '.source-string.strings div .original' ).forEach( ( original_editor_form, form_i ) => {
-			original_editor_form.textContent = '';
-			original_editor_form.append( original_preview_forms[ form_i ].cloneNode( true ) );
-		} );
-
 		let has_notranslate = false;
+
 		original_preview_forms[ 0 ].parentNode.querySelectorAll( '.original-text > .notranslate' ).forEach( ( item ) => {
 			const notranslate_item = document.createElement( 'a' );
 			notranslate_item.setAttribute( 'title', 'Click to insert this item to textarea!' );
