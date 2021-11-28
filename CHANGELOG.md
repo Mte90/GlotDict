@@ -1,6 +1,7 @@
 # 2.0.4
 
-* Enhancement: re-add GD features to rows after saving
+* Enhancement: Re-add GD features to rows after saving
+* Enhancement: Dropdown Pagination
 
 # 2.0.3
 

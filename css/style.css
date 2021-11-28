@@ -636,6 +636,10 @@ li.consistency-header-index {
     margin: 10px 0;
 }
 
+.gd-pagination {
+    margin: 4px 6px;    
+}
+
 .gp-content .gd_changelog h3 {
     font-size: 1.6rem;
     color: #1d2327;
