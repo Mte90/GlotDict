@@ -31,7 +31,6 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Notices counts for Approved, Rejected, Fuzzied, Submitted and Selected rows
 * Daily update of the list of locales
 * Anonymous author search filter
-* Dropdown Pagination
 * Many hotkeys and shortcuts
 
 ## Hotkeys
