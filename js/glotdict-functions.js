@@ -593,3 +593,52 @@ function gd_anonymous() {
 		document.getElementById( 'filters[user_login]' ).value = '';
 	} );
 }
+
+/**
+ * Adds dropdown pagination
+ * @returns {void}
+ */
+function gd_pagination() {
+	const default_pagination = document.querySelectorAll( '.paging' );
+	if ( ! default_pagination.length ) {
+		return;
+	}
+
+	const pages = default_pagination[ 0 ].querySelectorAll( 'a' );
+	if ( ! pages.length ) {
+		return;
+	}
+
+	const last_page = {};
+	if ( '→' === pages[ pages.length - 1 ].textContent ) {
+		last_page.id = parseInt( pages[ pages.length - 2 ].textContent );
+		last_page.url = pages[ pages.length - 2 ].href;
+	} else {
+		last_page.id = parseInt( pages[ pages.length - 1 ].textContent ) + 1;
+		last_page.url = pages[ pages.length - 1 ].href;
+	}
+
+	const gd_pagination = document.createElement( 'select' );
+	const option = document.createElement( 'option' );
+	gd_pagination.className = 'gd-pagination';
+
+	const current = parseInt( default_pagination[ 0 ].querySelector( '.current' ).textContent );
+
+	for ( let i = 1; i <= last_page.id; i++ ) {
+		const this_option = option.cloneNode( true );
+		this_option.value = i;
+		this_option.textContent = i;
+		if ( i === current ) {
+			this_option.className = 'current-page';
+		}
+		gd_pagination.appendChild( this_option );
+	}
+
+	default_pagination.forEach( default_pagination_instance => {
+		const this_gd_pagination = gd_pagination.cloneNode( true );
+		this_gd_pagination.addEventListener( 'change', ( ev ) => { window.location = last_page.url.replace( /page=\d+/, `page=${ev.target.value}` ); } );
+		default_pagination_instance.insertAdjacentElement( 'beforeend', this_gd_pagination );
+	} );
+
+	document.querySelectorAll( '.gd-pagination .current-page' ).forEach( el => { el.selected = true; } );
+}
