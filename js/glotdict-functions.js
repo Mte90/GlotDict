@@ -642,3 +642,24 @@ function gd_pagination() {
 
 	document.querySelectorAll( '.gd-pagination .current-page' ).forEach( el => { el.selected = true; } );
 }
+
+/**
+ * Counts the occurrences of a subString in a string
+ * Algorithm by Vitim.us at https://gist.github.com/victornpb/7736865
+ *
+ * @param {String} string
+ * @param {String} subString
+ * @return {number}
+ */
+function gd_occurrences( string, subString ) {
+	string = `${string.toLowerCase()}`;
+	subString = `${subString.toLowerCase()}`;
+	if ( subString.length <= 0 ) { return ( string.length + 1 ); }
+	let n = 0, pos = 0;
+	const step = subString.length;
+	while ( true ) {
+		pos = string.indexOf( subString, pos );
+		if ( pos >= 0 ) { ++n; pos += step; } else { break; }
+	}
+	return n;
+}

@@ -42,16 +42,28 @@ function gd_search_glossary_on_translation( e, selector ) {
 	jQuery( selector ).each( function() {
 		const $editor = jQuery( this );
 		const translation = jQuery( 'textarea', $editor ).val();
+		const glossary_words = jQuery( '.glossary-word', $editor ).map( function() {return this.textContent;} ).get();
+		const words_with_warning = [];
 		jQuery( '.glossary-word', $editor ).each( function() {
+			const glossary_word = this.textContent.toLowerCase();
+			if ( words_with_warning.includes( glossary_word ) ) {
+				return true;
+			}
+			const glossary_word_occurrence = glossary_words.filter( word => word.toLowerCase() === glossary_word ).length;
 			const translations = jQuery( this ).data( 'translations' );
 			let reset = '';
+			let count = '';
 			const term = jQuery( this ).html();
 			jQuery( translations ).each( ( index ) => {
 				if ( 'N/A' === translations[index].translation ) {
 					return true;
 				}
-				if ( -1 === translation.search( new RegExp( translations[index].translation, 'gi' ) ) ) {
-					reset = `${reset}"<b>${translations[index].translation}</b>", `;
+				const translation_word_occurrence = gd_occurrences( translation, translations[index].translation );
+				if ( translation_word_occurrence < glossary_word_occurrence ) {
+					words_with_warning.push( glossary_word );
+					reset = `${reset}“<b>${translations[index].translation}</b>“, `;
+					const diff = glossary_word_occurrence - translation_word_occurrence;
+					count = `${diff} time${diff > 1 ? 's' : ''}`;
 				} else {
 					reset = '';
 					return false;
@@ -64,7 +76,7 @@ function gd_search_glossary_on_translation( e, selector ) {
 				if ( translations.length > 1 ) {
 					message = 'The translation does not contain any of the suggested translations';
 				}
-				jQuery( '.textareas', $editor ).prepend( gd_get_warning( `${message} (${reset}) for the term "<i>${term}</i>"`, discard ) );
+				jQuery( '.textareas', $editor ).prepend( gd_get_warning( `${message} (${reset}) for the term “<i>${term}</i>“ ${count}`, discard ) );
 			}
 		} );
 	} );

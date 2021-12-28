@@ -2,6 +2,7 @@
 
 * Enhancement: Re-add GD features to rows after saving
 * Enhancement: Dropdown Pagination
+* Enhancement: Check all glossary word occurrences on validation
 
 # 2.0.3
 
