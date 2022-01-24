@@ -496,7 +496,7 @@ function gd_tag_target_when_source_outside_viewport( sourceElement, targetElemen
  * @returns {void}
  */
 function gd_scroll_to_top() {
-	document.querySelector( '#wporg-header' ).scrollIntoView( {
+	document.querySelector( '#masthead' ).scrollIntoView( {
 		block:    'start',
 		behavior: 'smooth',
 	} );
