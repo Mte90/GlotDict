@@ -34,50 +34,66 @@ function gd_run_review() {
  * @returns void
  */
 function gd_search_glossary_on_translation( e, selector ) {
+	const SINGULAR = 0;
+	const PLURAL = 1;
+
 	let howmany = 0;
 	if ( gd_get_setting( 'no_glossary_term_check' ) ) {
 		return howmany;
 	}
 	const discard = gd_get_discard_link( selector );
+
 	jQuery( selector ).each( function() {
 		const $editor = jQuery( this );
-		const translation = jQuery( 'textarea', $editor ).val();
-		const glossary_words = jQuery( '.glossary-word', $editor ).map( function() {return this.textContent;} ).get();
-		const words_with_warning = [];
-		jQuery( '.glossary-word', $editor ).each( function() {
-			const glossary_word = this.textContent.toLowerCase();
-			if ( words_with_warning.includes( glossary_word ) ) {
-				return true;
-			}
-			const glossary_word_occurrence = glossary_words.filter( word => word.toLowerCase() === glossary_word ).length;
-			const translations = jQuery( this ).data( 'translations' );
-			let reset = '';
-			let count = '';
-			const term = jQuery( this ).html();
-			jQuery( translations ).each( ( index ) => {
-				if ( 'N/A' === translations[index].translation ) {
+		const translations = jQuery( 'textarea', $editor );
+		const originals = jQuery( '.original, .original-text', $editor );
+
+		let original_index = SINGULAR;
+		if ( 2 === originals.length && 1 === translations.length ) {
+			original_index = PLURAL; // For locales where nplural === 1.
+		}
+
+		translations.each( ( i, translation ) => {
+			const glossary_words = jQuery( '.glossary-word', originals[original_index] ).map( function() {return this.textContent;} ).get();
+			const words_with_warning = [];
+			jQuery( '.glossary-word', originals[original_index] ).each( ( j, glossary_element ) => {
+				const glossary_word = glossary_element.textContent.toLowerCase();
+
+				if ( words_with_warning.includes( glossary_word ) ) {
 					return true;
 				}
-				const translation_word_occurrence = gd_occurrences( translation, translations[index].translation );
-				if ( translation_word_occurrence < glossary_word_occurrence ) {
-					words_with_warning.push( glossary_word );
-					reset = `${reset}“<b>${translations[index].translation}</b>“, `;
-					const diff = glossary_word_occurrence - translation_word_occurrence;
-					count = `${diff} time${diff > 1 ? 's' : ''}`;
-				} else {
-					reset = '';
-					return false;
+				const glossary_word_occurrence = glossary_words.filter( word => word.toLowerCase() === glossary_word ).length;
+				const glossary_word_translations = jQuery( glossary_element ).data( 'translations' );
+				let reset = '';
+				let count = '';
+				const term = jQuery( glossary_element ).html();
+				jQuery( glossary_word_translations ).each( ( index ) => {
+					if ( 'N/A' === glossary_word_translations[index].translation ) {
+						return true;
+					}
+					const translation_word_occurrence = gd_occurrences( translation.value, glossary_word_translations[index].translation );
+					if ( translation_word_occurrence < glossary_word_occurrence ) {
+						words_with_warning.push( glossary_word );
+						reset = `${reset}“<b>${glossary_word_translations[index].translation}</b>“, `;
+						const diff = glossary_word_occurrence - translation_word_occurrence;
+						count = `${diff} time${diff > 1 ? 's' : ''}`;
+					} else {
+						reset = '';
+						return false;
+					}
+				} );
+				if ( reset !== '' ) {
+					howmany++;
+					reset = reset.slice( 0, -2 );
+					let message = 'The translation is missing the suggested translation';
+					if ( glossary_word_translations.length > 1 ) {
+						message = 'The translation does not contain any of the suggested translations';
+					}
+					const form = translations.length > 1 ? ( original_index === SINGULAR ? ' for singular' : ' for plural' ) : '';
+					jQuery( '.textareas', $editor ).prepend( gd_get_warning( `${message} (${reset}) for the term “<i>${term}</i>“ ${count}${form}.`, discard ) );
 				}
 			} );
-			if ( reset !== '' ) {
-				howmany++;
-				reset = reset.slice( 0, -2 );
-				let message = 'The translation is missing the suggested translation';
-				if ( translations.length > 1 ) {
-					message = 'The translation does not contain any of the suggested translations';
-				}
-				jQuery( '.textareas', $editor ).prepend( gd_get_warning( `${message} (${reset}) for the term “<i>${term}</i>“ ${count}`, discard ) );
-			}
+			original_index = PLURAL;
 		} );
 	} );
 	if ( howmany !== 0 ) {
