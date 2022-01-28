@@ -297,7 +297,7 @@ li.consistency-header-index {
     padding-left: 0 !important;
 }
 
-.gd-suggestions-list li + li {
+.gd-suggestions-list li+li {
     margin-top: 5px;
 }
 
@@ -314,7 +314,7 @@ li.consistency-header-index {
 }
 
 .gd-suggestions-list.with-plural .gd-arrow {
-    float:right;
+    float: right;
 }
 
 .suggestions__other-languages .suggestions-list,
@@ -365,7 +365,7 @@ li.consistency-header-index {
 
 
 .gd_notranslate_copy_all {
-    float:right;
+    float: right;
 }
 
 @-webkit-keyframes gd-ripple-out {
@@ -637,7 +637,7 @@ li.consistency-header-index {
 }
 
 .gd-pagination {
-    margin: 4px 6px;    
+    margin: 4px 6px;
 }
 
 .gp-content .gd_changelog h3 {
@@ -732,7 +732,7 @@ li.consistency-header-index {
 }
 
 .gd-toggle__input {
-    display: none;
+    display: none !important;
 }
 
 .gd-toggle__label {
