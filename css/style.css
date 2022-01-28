@@ -495,14 +495,15 @@ li.consistency-header-index {
 .gd_settings::before {
     content: '';
     display: block;
-    height: 40px;
     background: #0073aa;
     left: 0;
     position: absolute;
-    margin-top: -7px;
     z-index: -1;
     max-width: 100vw;
     right: 0;
+    z-index: -1;
+    margin-top: -22px;
+    height: 55px;
 }
 
 .gd_settings_panels fieldset,
@@ -589,7 +590,7 @@ li.consistency-header-index {
 }
 
 .gd_settings__radio {
-    display: none;
+    display: none !important;
 }
 
 .gd_settings_tab {
@@ -609,6 +610,10 @@ li.consistency-header-index {
 .gd_settings_panels {
     background: #e5f5fa;
     padding: 10px;
+}
+
+.gd_settings_tabs {
+    margin-top: 22px;
 }
 
 #gd_settings__radio1:checked~.gd_settings_tabs #gd_settings_tab1,
@@ -825,9 +830,12 @@ code {
         font-size: 17px;
     }
 
-    #gd_settings_panel1 fieldset,
     #gd_settings_panel1 table {
         width: 50%;
+    }
+
+    #gd_settings_panel1 fieldset {
+        width: 49%;
     }
 
     .gd-on-translations .gp-content h2 a.glossary-link:last-child,
@@ -848,6 +856,12 @@ code {
         flex-direction: row;
     }
 
+    .gd_settings fieldset {
+        border: 0 !important;
+        margin: 0;
+        padding: 0;
+    }
+
     .gd_settings h2,
     #gd_settings_panel1 {
         width: 100%;
@@ -858,7 +872,7 @@ code {
     }
 
     #gd_settings_panel1 fieldset {
-        width: 40%;
+        width: 39%;
     }
 
     #gd_settings_panel1 table {
