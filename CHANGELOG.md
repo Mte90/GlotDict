@@ -3,6 +3,8 @@
 * Enhancement: Re-add GD features to rows after saving
 * Enhancement: Dropdown Pagination
 * Enhancement: Check all glossary word occurrences on validation
+* Enhancement: Check glossary words in plural forms as well
+* Fix: UI components for the new Translate.WordPress UI
 
 # 2.0.3
 
