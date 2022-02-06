@@ -1,3 +1,6 @@
+# 2.0.5
+
+* Fix: More UI adjustemnts to the new theme
 # 2.0.4
 
 * Enhancement: Re-add GD features to rows after saving
