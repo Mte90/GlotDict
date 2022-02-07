@@ -756,7 +756,7 @@ li.consistency-header-index {
 .gd-toggle__label {
     display: block;
     position: relative;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     outline: 0;
     width: 34px;
     height: 18px;
