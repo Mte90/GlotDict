@@ -804,7 +804,7 @@ code {
     border-radius: 5px;
 }
 
-.gd-on-translations h2 {
+.gd-on-translations .gp-content h2 {
     font-size: 19px;
     font-weight: 500;
     line-height: 20px;
@@ -834,7 +834,7 @@ code {
 
 @media screen and (min-width: 1920px) {
 
-    .gd-on-translations h2 {
+    .gd-on-translations .gp-content h2 {
         font-size: 20px;
         line-height: 21px;
     }
@@ -910,7 +910,7 @@ code {
         margin-left: 7px;
     }
 
-    .gd-on-translations h2 {
+    .gd-on-translations .gp-content h2 {
         font-size: 19px;
         line-height: 21px;
     }
@@ -921,7 +921,7 @@ code {
 }
 
 @media screen and (max-width: 1439.98px) {
-    .gd-on-translations h2 {
+    .gd-on-translations .gp-content h2 {
         font-size: 15px;
     }
 }
