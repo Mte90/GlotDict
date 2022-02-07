@@ -112,6 +112,11 @@ table.translations tr.preview.has-original-copy,
     display: inline-block;
 }
 
+.gd-language-picker-container label {
+    vertical-align: 0;
+    margin: 0 2px;
+}
+
 .gd-language-picker-container.empty-locale {
     padding: 2px 5px;
     color: red;
