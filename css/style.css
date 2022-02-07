@@ -20,7 +20,7 @@ table.translations tr.preview.has-glotdict .original::before {
 }
 
 table.translations tr.preview.has-glotdict th+.priority+.original::before {
-    margin-left: calc(-.5em - 31px);
+    margin-left: calc(-.5em - 32px);
 }
 
 table.translations tr.preview.has-glotdict.has-warnings th+.priority+.original::before {
@@ -731,7 +731,7 @@ li.consistency-header-index {
     margin: 0 5px;
     padding: 10px;
     font-size: 14px;
-    
+
 }
 
 #gd-toggle-header {
