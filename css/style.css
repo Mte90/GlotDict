@@ -104,6 +104,10 @@ table.translations tr.preview.has-original-copy,
     margin-right: 5px;
 }
 
+#gd-language-picker {
+    box-sizing: border-box;
+}
+
 .gd-language-picker-container {
     display: inline-block;
 }
@@ -643,6 +647,7 @@ li.consistency-header-index {
 
 .gd-pagination {
     margin: 4px 6px;
+    height: 20px;
 }
 
 .gp-content .gd_changelog h3 {
@@ -719,15 +724,14 @@ li.consistency-header-index {
     box-sizing: border-box;
 }
 
-#bulk-action-top {
-    height: 30px;
-}
-
 .gd-on-translations .gp-content .bulk-actions input.button,
 .gd-on-translations .gp-content input.button.gd-review {
     vertical-align: top;
-    height: 29px;
+    height: auto;
     margin: 0 5px;
+    padding: 10px;
+    font-size: 14px;
+    
 }
 
 #gd-toggle-header {
