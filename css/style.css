@@ -443,6 +443,10 @@ li.consistency-header-index {
     vertical-align: -5px;
 }
 
+.gd_settings_panel table {
+    font-size: 14px;
+}
+
 #gd_settings_panel1 {
     display: -ms-flexbox;
     display: flex;
