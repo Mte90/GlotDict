@@ -813,6 +813,7 @@ code {
 .gd-on-translations .gp-content h2 a.glossary-link {
     font-size: 16px;
     font-weight: 500;
+    margin-top: 0;
 }
 
 .gd-on-translations .gp-content h2 a.glossary-link:last-child,
