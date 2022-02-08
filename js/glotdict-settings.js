@@ -158,6 +158,7 @@ function gd_generate_settings_panel() {
 	table.appendChild( fragment ) && panel1.appendChild( table );
 	const caution_note = document.createElement( 'SPAN' );
 	caution_note.style.fontWeight = 'bold';
+	caution_note.style.margin = '1em 0 .2em';
 	caution_note.append( asterisk, 'Please use features marked like this with caution!' );
 	panel1.appendChild( caution_note );
 
