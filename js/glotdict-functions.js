@@ -184,7 +184,7 @@ function gd_add_scroll_buttons() {
 					target.textContent = `➤ ${target.textContent}`;
 				}
 				jQuery( 'html, body' ).animate( {
-					scrollTop: jQuery( row ).offset().top - 70,
+					scrollTop: jQuery( row ).offset().top - 160,
 				} );
 			} );
 		}
