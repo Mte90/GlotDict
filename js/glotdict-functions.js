@@ -159,8 +159,8 @@ function gd_add_scroll_buttons() {
 
 	let slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
 	const lang = gd_get_lang();
-	slug = slug.replace( 'de', 'de/default' );
-	slug = slug.replace( 'nl', 'nl/default' );
+	slug = slug.replace( /de/, 'de/default' );
+	slug = slug.replace( /nl/, 'nl/default' );
 	for ( const regex in locations ) {
 		const position = document.querySelector( 'table' );
 		const acquired = ( RegExp( locations[regex] ) ).test( window.location.href );
