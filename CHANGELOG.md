@@ -1,7 +1,7 @@
 # 2.0.5
 
-* Fix: More UI adjustemnts to the new theme
-* 
+* Fix: More UI adjustements to the new Translate.WordPress UI
+
 # 2.0.4
 
 * Enhancement: Re-add GD features to rows after saving
