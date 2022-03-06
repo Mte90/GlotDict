@@ -254,6 +254,7 @@ function gd_get_setting( key ) {
  * Add GTE Tools panel3 to settings
  *
  * @returns void
+ * @param panel3 Target div element for 3rd panel
  */
 function gd_set_panel3_settings( panel3 ) {
 	const fragment3 = document.createDocumentFragment();

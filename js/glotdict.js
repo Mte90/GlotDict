@@ -93,13 +93,6 @@ gd_add_review_button();
 gd_add_scroll_buttons();
 gd_add_meta();
 
-jQuery( '.glotdict_language' ).change( () => {
-	localStorage.setItem( 'gd_language', jQuery( '.glotdict_language option:selected' ).text() );
-	localStorage.setItem( 'gd_glossary_date', '' );
-	gd_locales();
-	location.reload();
-} );
-
 jQuery( '.glossary-word' ).contextmenu( function( e ) {
 	const info = jQuery( this ).data( 'translations' );
 	jQuery( '.editor:visible textarea:visible' )

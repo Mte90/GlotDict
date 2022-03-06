@@ -210,6 +210,12 @@ function gd_locales_selector() {
 		}
 		jQuery( '.glotdict_language' ).append( new_option );
 	} );
+	jQuery( '.glotdict_language' ).change( () => {
+		localStorage.setItem( 'gd_language', jQuery( '.glotdict_language option:selected' ).text() );
+		localStorage.setItem( 'gd_glossary_date', '' );
+		gd_locales();
+		location.reload();
+	} );
 }
 
 /**
@@ -270,10 +276,10 @@ function gd_get_glossary_global_data() {
  * @returns void
  */
 function gd_extract_glossary_data( glossary_data ) {
-	gd_user.is_gte = null !== glossary_data.match( /href="\/glossaries\/[0-9]*\/-edit"/gmi );
+	gd_user.is_gte = null !== glossary_data.match( /href="\/glossaries\/[0-9]*\/-edit/gmi );
 	gd_user.is_gte && document.body.classList.add( 'gd-user-is-gte' );
 
-	const glossary_description = glossary_data.replace( /(\r\n|\n|\r)/gm, '' ).match( /(?<=glossary-description">)(.*?)(?=<\/div>)/gmi );
+	const glossary_description = glossary_data.replace( /(\r\n|\n|\r)/gm, '' ).match( /(?<=glossary-description">)(.*?)(?=<\/div>)/gmi ); 
 	if ( Array.isArray( glossary_description ) && glossary_description.length ) {
 		const description_data = `<div>${glossary_description[0]}</div>}`;
 		const html_document = new DOMParser().parseFromString( description_data, 'text/html' );
