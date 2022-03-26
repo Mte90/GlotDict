@@ -1,3 +1,23 @@
+const gd_user = {
+	is_translator:      false,
+	is_editor:          false,
+	is_connected:       false,
+	is_on_translations: false,
+	is_gte:             false,
+};
+
+if ( ( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve ) {
+	document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
+	gd_user.is_translator = true;
+	gd_user.is_on_translations = true;
+}
+if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve ) {
+	document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
+	gd_user.is_editor = true;
+	gd_user.is_on_translations = true;
+}
+gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
+
 jQuery( '#menu-headline-nav' ).append( '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
 jQuery( '.gd_icon' ).prependTo( '.gd_setting' ).show();
 

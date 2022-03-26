@@ -17,26 +17,6 @@ if ( gd_setting && gd_has_been_updated ) {
 	document.querySelector( '#gd_settings_tab2' ).click();
 }
 
-const gd_user = {
-	is_translator:      false,
-	is_editor:          false,
-	is_connected:       false,
-	is_on_translations: false,
-	is_gte:             false,
-};
-
-if ( ( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve ) {
-	document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
-	gd_user.is_translator = true;
-	gd_user.is_on_translations = true;
-}
-if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve ) {
-	document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
-	gd_user.is_editor = true;
-	gd_user.is_on_translations = true;
-}
-gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
-
 const gd_glossary = {
 	glossary_url: '',
 	handbook_url: '',
