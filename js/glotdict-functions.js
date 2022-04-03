@@ -3,7 +3,7 @@
  * @param {string} value
  * @returns {string} sanitized
  */
- function sanitize_value( value ) {
+function sanitize_value( value ) {
 	if ( 'function' === typeof value.replace ) {
 		return value.replace( /<![\s\S]*?--[ \t\n\r]*>/gi, '' );
 	}
@@ -647,8 +647,10 @@ function gd_build_sticky_header() {
 
 	const titleLinks = document.querySelector( '#gd_title_links' );
 	const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
-	pluginGlossaryLink.textContent = 'Project Glossary';
-	titleLinks.append( pluginGlossaryLink );
+	if ( pluginGlossaryLink ) {
+		pluginGlossaryLink.textContent = 'Project Glossary';
+		titleLinks.append( pluginGlossaryLink );
+	}
 
 	const title = document.querySelector( '.gp-content .breadcrumb+h2' );
 	const filter_toolbar = document.querySelector( '.filter-toolbar' );
