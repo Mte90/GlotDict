@@ -15,7 +15,7 @@ function gd_add_column_buttons( tr_preview ) {
 	tr_preview.nextElementSibling.querySelectorAll( '.meta button' ).forEach( ( button ) => {
 		button.removeAttribute( 'tabindex' );
 		const clone_button = button.cloneNode( true );
-		clone_button.classList.add( `gd-${clone_button.classList[0]}` );
+		clone_button.classList.add( 'gd-button' );
 		clone_button.addEventListener( 'click', ( e ) => {
 			const button = ( 'BUTTON' === e.target.parentElement.nodeName ) ? e.target.parentElement : e.target;
 			if ( ! button ) { return; }
@@ -26,7 +26,9 @@ function gd_add_column_buttons( tr_preview ) {
 				strong.classList.add( 'gd-btn-action' );
 			}
 			const editor = button.closest( 'tr.preview' ).nextElementSibling;
-			let new_status = button.classList[0];
+			const status_classes = button.classList;
+			status_classes.remove( 'button', 'gd-button', 'is-primary' );
+			let new_status = status_classes[0];
 			new_status = 'approve' === new_status ? 'current' : new_status;
 			new_status = 'reject' === new_status ? 'rejected' : new_status;
 			$gp.editor.show( jQuery( button ) );
