@@ -647,7 +647,7 @@ function gd_build_sticky_header() {
 
 	const titleLinks = document.querySelector( '#gd_title_links' );
 	const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
-	pluginGlossaryLink.textContent = 'Plugin Glossary';
+	pluginGlossaryLink.textContent = 'Project Glossary';
 	titleLinks.append( pluginGlossaryLink );
 
 	const title = document.querySelector( '.gp-content .breadcrumb+h2' );
