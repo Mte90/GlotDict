@@ -783,7 +783,7 @@ li.consistency-header-index {
 }
 
 #gd-sticky-header .paging{
-	width: 100%;
+	float: right;
 	margin-top: .5em !important;
 }
 
