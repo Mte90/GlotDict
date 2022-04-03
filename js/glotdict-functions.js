@@ -158,6 +158,7 @@ function gd_add_scroll_buttons() {
 	};
 
 	let slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
+
 	const lang = gd_get_lang();
 	slug = slug.replace( /de/, 'de/default' );
 	slug = slug.replace( /nl/, 'nl/default' );
@@ -209,6 +210,128 @@ function gd_locales_selector() {
 		}
 		jQuery( '.glotdict_language' ).append( new_option );
 	} );
+	jQuery( '.glotdict_language' ).change( () => {
+		localStorage.setItem( 'gd_language', jQuery( '.glotdict_language option:selected' ).text() );
+		localStorage.setItem( 'gd_glossary_date', '' );
+		gd_locales();
+		location.reload();
+	} );
+}
+
+/**
+ * Get Global Handbook URL for current locale and populates gd_glossary global constant
+ * Don't check if handbook exists
+ *
+ * @return void
+ */
+function gd_get_handbook_link() {
+	const slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
+	const global_handbook_url = `https://${slug}.wordpress.org/team/handbook/`;
+	gd_glossary.handbook_url  = global_handbook_url;
+}
+
+/**
+ * Get Global Glossary URL for current locale
+ * Don't check if it exists
+ *
+ * @return string Global glossary URL
+ */
+function gd_get_global_glossary_url() {
+	const slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
+	const global_glossary_url = `https://translate.wordpress.org/locale/${slug}/default/glossary/`;
+	return global_glossary_url;
+}
+
+/**
+ * Get Locale glossary page HTML, treat data and populate gd_glossary global constant
+ *
+ * @return string HTML of glossary page
+ */
+function gd_get_glossary_global_data() {
+	gd_get_handbook_link();
+	const global_glossary_url = gd_get_global_glossary_url();
+	fetch( global_glossary_url )
+	.then( ( response ) => response.text() )
+	.then( ( glossary_data ) => {
+		gd_glossary.glossary_url = global_glossary_url;
+		return glossary_data;
+	} )
+	.then( ( glossary_data ) => {
+		gd_extract_glossary_data( glossary_data );
+	} )
+	.then( () => {
+		gd_add_official_links_to_filters();
+	} )
+	.then( () => {
+		gd_locales_selector();
+	} )
+	.catch( () => {
+		gd_locales_selector();
+	} );
+}
+
+/**
+ * Extract data from Glossary and populates gd_glossary global constant
+ *
+ * @returns void
+ */
+function gd_extract_glossary_data( glossary_data ) {
+	gd_user.is_gte = null !== glossary_data.match( /href="\/glossaries\/[0-9]*\/-edit/gmi );
+	gd_user.is_gte && document.body.classList.add( 'gd-user-is-gte' );
+
+	const glossary_description = glossary_data.replace( /(\r\n|\n|\r)/gm, '' ).match( /(?<=glossary-description">)(.*?)(?=<\/div>)/gmi ); 
+	if ( Array.isArray( glossary_description ) && glossary_description.length ) {
+		const description_data = `<div>${glossary_description[0]}</div>}`;
+		const html_document = new DOMParser().parseFromString( description_data, 'text/html' );
+		const guide_link = html_document.querySelector( '#gd-guide-link' );
+		if ( guide_link ) {
+			gd_glossary.guide.url = guide_link.href;
+			gd_glossary.guide.title = guide_link.dataset.title;
+		}
+	}
+}
+
+/**
+ * Add official links to filters links
+ *
+ * @returns void
+ */
+function gd_add_official_links_to_filters() {
+	const gd_glossary_link = document.createElement('A');
+	gd_glossary_link.id = 'gd-glossary-link';
+	gd_glossary_link.href = gd_glossary.glossary_url;
+	gd_glossary_link.textContent = 'Global glossary';
+	gd_glossary_link.target = '_blank';
+
+	const gd_guide_link = document.createElement('A');
+	gd_guide_link.id = 'gd-guide-link';
+	gd_guide_link.target = '_blank';
+	gd_guide_link.textContent = '' !== gd_glossary.guide.title ? gd_glossary.guide.title : 'Style guide';
+
+	if ( '' !== gd_glossary.guide.url ) {
+		gd_guide_link.href = gd_glossary.guide.url;
+	}
+
+	if ( '' === gd_glossary.guide.url && '' !== gd_glossary.handbook_url ) {
+		gd_guide_link.href = gd_glossary.handbook_url;
+	}
+
+	const filter_toolbars_div = document.querySelector('.filters-toolbar>div:first-child');
+	const gp_separator = document.createElement('SPAN');
+	gp_separator.classList.add( 'separator' );
+	gp_separator.textContent = '•';
+	if ( ! filter_toolbars_div ) {
+		return;
+	}
+	if ( '' !== gd_glossary.glossary_url && gd_glossary_link ) {
+		filter_toolbars_div.append( gp_separator, gd_glossary_link );
+	}
+	if ( gd_guide_link && ( '' !== gd_glossary.guide.url || '' !== gd_glossary.handbook_url ) ) {
+		filter_toolbars_div.append( gp_separator.cloneNode( true ), gd_guide_link );
+	}
+}
+
+function gd_set_gte_settings() {
 }
 
 /**

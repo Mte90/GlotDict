@@ -1,3 +1,23 @@
+const gd_user = {
+	is_translator:      false,
+	is_editor:          false,
+	is_connected:       false,
+	is_on_translations: false,
+	is_gte:             false,
+};
+
+if ( ( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve ) {
+	document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
+	gd_user.is_translator = true;
+	gd_user.is_on_translations = true;
+}
+if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve ) {
+	document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
+	gd_user.is_editor = true;
+	gd_user.is_on_translations = true;
+}
+gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
+
 jQuery( '#menu-headline-nav' ).append( '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
 jQuery( '.gd_icon' ).prependTo( '.gd_setting' ).show();
 
@@ -77,33 +97,43 @@ function gd_generate_settings_panel() {
 	input1.classList.add( 'gd_settings__radio' );
 	input1.type = 'radio';
 	input1.name = 'group';
+
 	const input2 = input1.cloneNode( true );
+	const input3 = input1.cloneNode( true );
 	input1.id = 'gd_settings__radio1';
 	input1.checked = 'checked';
 	input2.id = 'gd_settings__radio2';
-	container.append( input1, input2 );
+	input3.id = 'gd_settings__radio3';
+
+	container.append( input1, input2, input3 );
 
 	const tabs = document.createElement( 'DIV' );
 	tabs.classList.add( 'gd_settings_tabs' );
 	const tab1 = document.createElement( 'LABEL' );
 	tab1.classList.add( 'gd_settings_tab' );
 	const tab2 = tab1.cloneNode( true );
+	const tab3 = tab1.cloneNode( true );
 	tab1.id = 'gd_settings_tab1';
 	tab1.htmlFor = 'gd_settings__radio1';
 	tab1.textContent = 'GlotDict Settings';
 	tab2.id = 'gd_settings_tab2';
 	tab2.htmlFor = 'gd_settings__radio2';
 	tab2.textContent = 'install' === gd_extension.reason ? 'Welcome' : 'What’s New?';
-	container.appendChild( tabs ).append( tab1, tab2 );
+	tab3.id = 'gd_settings_tab3';
+	tab3.htmlFor = 'gd_settings__radio3';
+	tab3.textContent = 'GTE Tools';
+	container.appendChild( tabs ).append( tab1, tab2, tab3 );
 
 	const panels = document.createElement( 'DIV' );
 	panels.classList.add( 'gd_settings_panels' );
 	const panel1 = document.createElement( 'DIV' );
 	panel1.classList.add( 'gd_settings_panel' );
 	const panel2 = panel1.cloneNode( true );
+	const panel3 = panel1.cloneNode( true );
 	panel1.id = 'gd_settings_panel1';
 	panel2.id = 'gd_settings_panel2';
-	panels.append( panel1, panel2 );
+	panel3.id = 'gd_settings_panel3';
+	panels.append( panel1, panel2, panel3 );
 	container.appendChild( panels );
 
 	const fragment = document.createDocumentFragment();
@@ -227,6 +257,8 @@ function gd_generate_settings_panel() {
 	questions.classList.add( 'gd_settings_questions' );
 	panel2.appendChild( questions ).appendChild( fragment );
 
+	gd_user.is_connected && gd_user.is_gte && gd_set_panel3_settings( panel3 );
+
 	document.querySelector( '.gp-content' ).prepend( container );
 }
 
@@ -236,4 +268,85 @@ function gd_get_setting( key ) {
 		return false;
 	}
 	return true;
+}
+
+/**
+ * Add GTE Tools panel3 to settings
+ *
+ * @returns void
+ * @param panel3 Target div element for 3rd panel
+ */
+function gd_set_panel3_settings( panel3 ) {
+	const fragment3 = document.createDocumentFragment();
+	fragment3.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( 'Locale-specific settings' ) );
+	fragment3.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'As a GTE, you can customize some GlotDict settings for all users in your locale. First step is to have a global glossary.' ) );
+	const styleGuide = document.createElement( 'DIV' );
+	fragment3.appendChild( styleGuide );
+	styleGuide.classList.add( 'gd-settings-tab3__style-guide' );
+	styleGuide.appendChild( document.createElement( 'H4' ) ).appendChild( document.createTextNode( 'Style guide link' ) );
+	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'GlotDict add 2 links in filters toolbar: Global glossary link, and Style guide link.' ) );
+	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'If you don\'t already have a global glossary for your locale, we recommend that you create one. Style guide link points to the locale handbook. If you don\'t have one, we also advise you to create one. But maybe you would prefer this link to point to a sub-page of the handbook that describes the style rules, or even an external page like a google doc or a github page… well that\'s possible. We are going to use the description field of the glossary for this.' ) );
+	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Fill in the following values, then click on the button which will generate an HTML code that you must copy and paste into the Description field of the glossary. And voilà !' ) );
+	const styleGuideForm = document.createDocumentFragment();
+
+	const styleGuideURLLabel = document.createElement( 'LABEL' );
+	styleGuideURLLabel.htmlFor = 'gd-styleguide-url';
+	styleGuideURLLabel.classList.add( 'gd-settings-label' );
+	styleGuideURLLabel.textContent = 'Enter an URL for the style guide link';
+
+	const styleGuideURLInput = document.createElement( 'INPUT' );
+	styleGuideURLInput.type = 'url';
+	styleGuideURLInput.size = 100;
+	styleGuideURLInput.name = 'gd-styleguide-url';
+	styleGuideURLInput.id = 'gd-styleguide-url';
+	styleGuideURLInput.placeholder = 'https://en-gb.wordpress.org/translations/';
+
+	const styleGuideTextLabel = document.createElement( 'LABEL' );
+	styleGuideTextLabel.htmlFor = 'gd-styleguide-text';
+	styleGuideTextLabel.classList.add( 'gd-settings-label' );
+	styleGuideTextLabel.textContent = 'Enter a text for the style guide link on glossary page';
+
+	const styleGuideTextInput = document.createElement( 'INPUT' );
+	styleGuideTextInput.type = 'text';
+	styleGuideTextInput.size = 60;
+	styleGuideTextInput.name = 'gd-styleguide-text';
+	styleGuideTextInput.id = 'gd-styleguide-text';
+	styleGuideTextInput.placeholder = 'typographical rules used for the translation of WordPress in UK English';
+
+	const styleGuideMenuLabel = document.createElement( 'LABEL' );
+	styleGuideMenuLabel.htmlFor = 'gd-styleguide-menu';
+	styleGuideMenuLabel.classList.add( 'gd-settings-label' );
+	styleGuideMenuLabel.textContent = 'Enter a title for the style guide link menu on translations pages';
+
+	const styleGuideMenuInput = document.createElement( 'INPUT' );
+	styleGuideMenuInput.type = 'text';
+	styleGuideMenuInput.size = 30;
+	styleGuideMenuInput.name = 'gd-styleguide-menu';
+	styleGuideMenuInput.id = 'gd-styleguide-menu';
+	styleGuideMenuInput.placeholder = 'Style guide';
+
+	const styleGuideGeneratorButton = document.createElement( 'BUTTON' );
+	styleGuideGeneratorButton.id = 'gd-styleguide-btn';
+	styleGuideGeneratorButton.type = 'button';
+	styleGuideGeneratorButton.style.margin = '10px 0';
+	styleGuideGeneratorButton.textContent = 'Generate HTML';
+
+	const styleGuideHTMLCode = document.createElement( 'TEXTAREA' );
+	styleGuideHTMLCode.id = 'gd-styleguide-html';
+	styleGuideHTMLCode.rows = 5;
+	styleGuideHTMLCode.cols = 33;
+
+	styleGuideForm.append( styleGuideURLLabel, styleGuideURLInput, styleGuideTextLabel, styleGuideTextInput, styleGuideMenuLabel, styleGuideMenuInput, styleGuideGeneratorButton, styleGuideHTMLCode );
+	fragment3.appendChild( styleGuideForm );
+	panel3.appendChild( fragment3 );
+
+	styleGuideGeneratorButton.addEventListener( 'click', () => {
+		styleGuideURLInput.style.border = '' === styleGuideURLInput.value ? 'red 1px solid' : 'green 1px solid';
+		styleGuideTextInput.style.border = '' === styleGuideTextInput.value ? 'red 1px solid' : 'green 1px solid';
+		styleGuideMenuInput.style.border = '' === styleGuideMenuInput.value ? 'red 1px solid' : 'green 1px solid';
+		if ( '' === styleGuideURLInput.value || '' === styleGuideTextInput.value || '' === styleGuideMenuInput.value ) {
+			return;
+		}
+		styleGuideHTMLCode.value = `<a href="${styleGuideURLInput.value}" id="gd-guide-link" data-title="${styleGuideMenuInput.value}">${styleGuideTextInput.value}</a>`;
+	} );
 }

@@ -31,6 +31,7 @@
 		"gd_current_locale_first": true,
 		"gd_do_consistency": true,
 		"gd_extension": true,
+		"gd_get_glossary_global_data": true,
 		"gd_get_lang_consistency": true,
 		"gd_get_setting": true,
 		"gd_header_is_sticky": true,

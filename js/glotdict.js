@@ -10,30 +10,23 @@ const gd_extension = {
 	previousVersion: ( '' !== gd_extension_storage ) ? gd_extension_storage.previousVersion : '0',
 	reason:          ( '' !== gd_extension_storage ) ? gd_extension_storage.reason : '',
 };
-const gd_thatsnew = gd_extension.currentVersion !== gd_extension.previousVersion;
+const gd_has_been_updated = gd_extension.currentVersion !== gd_extension.previousVersion;
 const gd_setting = document.querySelector( '.gd_setting' );
-if ( gd_setting && gd_thatsnew ) {
+if ( gd_setting && gd_has_been_updated ) {
 	gd_setting.click();
 	document.querySelector( '#gd_settings_tab2' ).click();
 }
 
-const gd_user = {
-	is_translator:      false,
-	is_editor:          false,
-	is_connected:       false,
-	is_on_translations: false,
+const gd_glossary = {
+	glossary_url: '',
+	handbook_url: '',
+	guide:        {
+		title: '',
+		url:   '',
+	},
 };
-if ( ( 'undefined' !== typeof $gp_editor_options ) && '' === $gp_editor_options.can_approve ) {
-	document.body.classList.add( 'gd-user-is-translator', 'gd-on-translations' );
-	gd_user.is_translator = true;
-	gd_user.is_on_translations = true;
-}
-if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options.can_approve ) {
-	document.body.classList.add( 'gd-user-is-editor', 'gd-on-translations' );
-	gd_user.is_editor = true;
-	gd_user.is_on_translations = true;
-}
-gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
+
+gd_get_glossary_global_data();
 
 // Create notice container at the beginning since notices are added in AJAX
 const translations = document.querySelector( '#translations' );
@@ -72,8 +65,6 @@ if ( window.gd_filter_bar.length > 0 ) {
 
 	gd_mark_old_strings();
 
-	gd_locales_selector();
-
 	jQuery( $gp.editor.table ).onFirst( 'click', 'button.translation-actions__save:not(.forcesubmit)', gd_validate_visible );
 }
 
@@ -81,13 +72,6 @@ gd_add_project_links();
 gd_add_review_button();
 gd_add_scroll_buttons();
 gd_add_meta();
-
-jQuery( '.glotdict_language' ).change( () => {
-	localStorage.setItem( 'gd_language', jQuery( '.glotdict_language option:selected' ).text() );
-	localStorage.setItem( 'gd_glossary_date', '' );
-	gd_locales();
-	location.reload();
-} );
 
 jQuery( '.glossary-word' ).contextmenu( function( e ) {
 	const info = jQuery( this ).data( 'translations' );

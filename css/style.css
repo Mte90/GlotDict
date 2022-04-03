@@ -554,6 +554,10 @@ li.consistency-header-index {
     width: fit-content;
 }
 
+.gd_settings_panels label.gd-settings-label {
+    padding-left: 0;
+}
+
 .gd_settings_questions {
     text-align: center;
 }
@@ -629,23 +633,48 @@ li.consistency-header-index {
     margin-top: 22px;
 }
 
+.gd_settings__radio3,
+#gd_settings_tab3 {
+    display: none;
+}
+
+.logged-in.gd-user-is-gte .gd_settings__radio3,
+.logged-in.gd-user-is-gte #gd_settings_tab3 {
+    display: inline-block;
+}
+
 #gd_settings__radio1:checked~.gd_settings_tabs #gd_settings_tab1,
-#gd_settings__radio2:checked~.gd_settings_tabs #gd_settings_tab2 {
+#gd_settings__radio2:checked~.gd_settings_tabs #gd_settings_tab2,
+#gd_settings__radio3:checked~.gd_settings_tabs #gd_settings_tab3 {
     background: #e5f5fa;
     color: #000;
     font-weight: bold;
 }
 
 #gd_settings_panel1,
-#gd_settings_panel2 {
+#gd_settings_panel2,
+#gd_settings_panel3 {
     box-sizing: content-box;
     display: none;
     -webkit-animation: fadein 0.8s;
     animation: fadein 0.8s;
 }
 
+#gd_settings_panel3 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#gd-styleguide-url {
+    max-width: 98%;
+}
+
 #gd_settings__radio1:checked~.gd_settings_panels #gd_settings_panel1,
-#gd_settings__radio2:checked~.gd_settings_panels #gd_settings_panel2 {
+#gd_settings__radio2:checked~.gd_settings_panels #gd_settings_panel2,
+#gd_settings__radio3:checked~.gd_settings_panels #gd_settings_panel3 {
     display: -ms-flexbox;
     display: flex;
 }
@@ -865,6 +894,7 @@ code {
 }
 
 @media screen and (min-width: 1200px) {
+
     #gd_settings_panel1 {
         -ms-flex-direction: row;
         flex-direction: row;
@@ -877,6 +907,8 @@ code {
     }
 
     .gd_settings h2,
+    .gd_settings h3,
+    .gd_settings h4,
     #gd_settings_panel1 {
         width: 100%;
     }
