@@ -15,7 +15,7 @@ table.translations tr.preview.has-glotdict .original::before {
     height: 100%;
     background: blue;
     position: absolute;
-    margin-left: -.5em;
+    margin-left: calc(-0.5em - 4px);
     margin-top: -.5em;
 }
 
