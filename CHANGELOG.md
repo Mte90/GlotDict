@@ -1,3 +1,8 @@
+# 2.0.6
+
+* Enhancement: Glossary and custom Style Guide links
+* Fix: UI adjustments for GlotPress 3.0 compatibility
+
 # 2.0.5
 
 * Fix: More UI adjustements to the new Translate.WordPress UI
