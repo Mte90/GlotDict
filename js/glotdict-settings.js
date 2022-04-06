@@ -67,8 +67,8 @@ function gd_generate_settings_panel() {
 			'settings': {
 				'no_non_breaking_space':                    'Hide highlights for non-breaking spaces.',
 				'autocopy_string_on_translation_opened':    'Auto-copy original to clipboard on editor opening.',
-				'autosubmit_bulk_copy_from_original':       'Auto-save after "Copy from Original" bulk action.*',
-				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after "Copy from Original".*',
+				'autosubmit_bulk_copy_from_original':       'Auto-save after “Copy from Original” bulk action.*',
+				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after “Copy from Original”.*',
 			},
 		},
 	];
@@ -278,45 +278,33 @@ function gd_get_setting( key ) {
  */
 function gd_set_panel3_settings( panel3 ) {
 	const fragment3 = document.createDocumentFragment();
-	fragment3.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( 'Locale-specific settings' ) );
-	fragment3.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'As a GTE, you can customize some GlotDict settings for all users in your locale. First step is to have a global glossary.' ) );
+	fragment3.appendChild( document.createElement( 'H3' ) ).appendChild( document.createTextNode( 'Locale specific settings' ) );
+	fragment3.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( 'GlotDict links to the Locale Glossary in the filters toolbar, so it\'s highly recommended that your locale has a Glossary.' ) );
 	const styleGuide = document.createElement( 'DIV' );
 	fragment3.appendChild( styleGuide );
 	styleGuide.classList.add( 'gd-settings-tab3__style-guide' );
-	styleGuide.appendChild( document.createElement( 'H4' ) ).appendChild( document.createTextNode( 'Style guide link' ) );
-	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'GlotDict add 2 links in filters toolbar: Global glossary link, and Style guide link.' ) );
-	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'If you don\'t already have a global glossary for your locale, we recommend that you create one. Style guide link points to the locale handbook. If you don\'t have one, we also advise you to create one. But maybe you would prefer this link to point to a sub-page of the handbook that describes the style rules, or even an external page like a google doc or a github page… well that\'s possible. We are going to use the description field of the glossary for this.' ) );
-	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'Fill in the following values, then click on the button which will generate an HTML code that you must copy and paste into the Description field of the glossary. And voilà !' ) );
+	styleGuide.appendChild( document.createElement( 'H4' ) ).appendChild( document.createTextNode( 'Customize Translation Style Guide link' ) );
+	styleGuide.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( 'By default, Translation Style Guide links to the locale handbook - locale.wordpress.org/team/handbook - also a recommended resource for your team. However, as a GTE you can customize this link to point to a certain resource your team uses, such as a sub-page of the handbook or even an external page.' ) );
+	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'To do so, fill in this form, click on  “Generate HTML”, then copy and paste it into the Description field of your locale glossary.' ) );
 	const styleGuideForm = document.createDocumentFragment();
 
 	const styleGuideURLLabel = document.createElement( 'LABEL' );
 	styleGuideURLLabel.htmlFor = 'gd-styleguide-url';
 	styleGuideURLLabel.classList.add( 'gd-settings-label' );
-	styleGuideURLLabel.textContent = 'Enter an URL for the style guide link';
+	styleGuideURLLabel.textContent = 'Enter an URL for the Translation Style Guide link:';
 
 	const styleGuideURLInput = document.createElement( 'INPUT' );
-	styleGuideURLInput.type = 'url';
+	styleGuideURLInput.type = 'text';
 	styleGuideURLInput.size = 100;
 	styleGuideURLInput.name = 'gd-styleguide-url';
 	styleGuideURLInput.id = 'gd-styleguide-url';
 	styleGuideURLInput.placeholder = 'https://en-gb.wordpress.org/translations/';
-
-	const styleGuideTextLabel = document.createElement( 'LABEL' );
-	styleGuideTextLabel.htmlFor = 'gd-styleguide-text';
-	styleGuideTextLabel.classList.add( 'gd-settings-label' );
-	styleGuideTextLabel.textContent = 'Enter a text for the style guide link on glossary page';
-
-	const styleGuideTextInput = document.createElement( 'INPUT' );
-	styleGuideTextInput.type = 'text';
-	styleGuideTextInput.size = 60;
-	styleGuideTextInput.name = 'gd-styleguide-text';
-	styleGuideTextInput.id = 'gd-styleguide-text';
-	styleGuideTextInput.placeholder = 'typographical rules used for the translation of WordPress in UK English';
+	styleGuideURLInput.setAttribute( 'style', 'width: 98%!important' );
 
 	const styleGuideMenuLabel = document.createElement( 'LABEL' );
 	styleGuideMenuLabel.htmlFor = 'gd-styleguide-menu';
 	styleGuideMenuLabel.classList.add( 'gd-settings-label' );
-	styleGuideMenuLabel.textContent = 'Enter a title for the style guide link menu on translations pages';
+	styleGuideMenuLabel.textContent = 'Enter a title for the Translation Style Guide link:';
 
 	const styleGuideMenuInput = document.createElement( 'INPUT' );
 	styleGuideMenuInput.type = 'text';
@@ -333,20 +321,20 @@ function gd_set_panel3_settings( panel3 ) {
 
 	const styleGuideHTMLCode = document.createElement( 'TEXTAREA' );
 	styleGuideHTMLCode.id = 'gd-styleguide-html';
+	styleGuideHTMLCode.placeholder = 'Copy and paste this generated HTML in the Description field of your locale glossary.';
 	styleGuideHTMLCode.rows = 5;
-	styleGuideHTMLCode.cols = 33;
+	styleGuideHTMLCode.setAttribute( 'style', 'width: 98%!important' );
 
-	styleGuideForm.append( styleGuideURLLabel, styleGuideURLInput, styleGuideTextLabel, styleGuideTextInput, styleGuideMenuLabel, styleGuideMenuInput, styleGuideGeneratorButton, styleGuideHTMLCode );
+	styleGuideForm.append( styleGuideMenuLabel, styleGuideMenuInput, styleGuideURLLabel, styleGuideURLInput, styleGuideGeneratorButton, styleGuideHTMLCode );
 	fragment3.appendChild( styleGuideForm );
 	panel3.appendChild( fragment3 );
 
 	styleGuideGeneratorButton.addEventListener( 'click', () => {
 		styleGuideURLInput.style.border = '' === styleGuideURLInput.value ? 'red 1px solid' : 'green 1px solid';
-		styleGuideTextInput.style.border = '' === styleGuideTextInput.value ? 'red 1px solid' : 'green 1px solid';
 		styleGuideMenuInput.style.border = '' === styleGuideMenuInput.value ? 'red 1px solid' : 'green 1px solid';
-		if ( '' === styleGuideURLInput.value || '' === styleGuideTextInput.value || '' === styleGuideMenuInput.value ) {
+		if ( '' === styleGuideURLInput.value || '' === styleGuideMenuInput.value ) {
 			return;
 		}
-		styleGuideHTMLCode.value = `<a href="${styleGuideURLInput.value}" id="gd-guide-link" data-title="${styleGuideMenuInput.value}">${styleGuideTextInput.value}</a>`;
+		styleGuideHTMLCode.value = `<a href="${styleGuideURLInput.value}" id="gd-guide-link" data-title="${styleGuideMenuInput.value}">${styleGuideMenuInput.value}</a>`;
 	} );
 }

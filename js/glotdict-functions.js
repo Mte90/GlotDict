@@ -303,13 +303,13 @@ function gd_add_official_links_to_filters() {
 	const gd_glossary_link = document.createElement('A');
 	gd_glossary_link.id = 'gd-glossary-link';
 	gd_glossary_link.href = gd_glossary.glossary_url;
-	gd_glossary_link.textContent = 'Global Glossary';
+	gd_glossary_link.textContent = 'Locale Glossary';
 	gd_glossary_link.target = '_blank';
 
 	const gd_guide_link = document.createElement('A');
 	gd_guide_link.id = 'gd-guide-link';
 	gd_guide_link.target = '_blank';
-	gd_guide_link.textContent = '' !== gd_glossary.guide.title ? gd_glossary.guide.title : 'Style Guide';
+	gd_guide_link.textContent = '' !== gd_glossary.guide.title ? gd_glossary.guide.title : 'Translation Style Guide';
 
 	if ( '' !== gd_glossary.guide.url ) {
 		gd_guide_link.href = gd_glossary.guide.url;
