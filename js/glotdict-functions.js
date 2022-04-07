@@ -103,6 +103,13 @@ function gd_add_project_links() {
 		titleLinksContainer.id = 'gd_title_links';
 		document.querySelector( '.gp-content h2' ).appendChild( titleLinksContainer );
 		jQuery( '#gd_title_links' ).append( `<a class="glossary-link" href="https://translate.wordpress.org/locale/${lang}/default" target="_blank" rel="noreferrer noopener">${jQuery( '.gp-content .breadcrumb li:last-child a' ).text()} Projects to Translate</a>` + '<a class="glossary-link" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>' );
+	
+		const titleLinks = document.querySelector( '#gd_title_links' );
+		const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
+		if ( pluginGlossaryLink ) {
+			pluginGlossaryLink.textContent = 'Project Glossary';
+			titleLinks.append( pluginGlossaryLink );
+		}
 	}
 }
 
@@ -643,13 +650,6 @@ function gd_build_sticky_header() {
 	let gd_header_is_sticky = 'true' === localStorage.getItem( 'gd_header_is_sticky' );
 	if ( gd_header_is_sticky ) {
 		document.body.classList.add( 'gd-header-is-sticky' );
-	}
-
-	const titleLinks = document.querySelector( '#gd_title_links' );
-	const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
-	if ( pluginGlossaryLink ) {
-		pluginGlossaryLink.textContent = 'Project Glossary';
-		titleLinks.append( pluginGlossaryLink );
 	}
 
 	const title = document.querySelector( '.gp-content .breadcrumb+h2' );
