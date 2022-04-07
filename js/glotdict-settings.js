@@ -283,15 +283,15 @@ function gd_set_panel3_settings( panel3 ) {
 	const styleGuide = document.createElement( 'DIV' );
 	fragment3.appendChild( styleGuide );
 	styleGuide.classList.add( 'gd-settings-tab3__style-guide' );
-	styleGuide.appendChild( document.createElement( 'H4' ) ).appendChild( document.createTextNode( 'Customize Translation Style Guide link' ) );
-	styleGuide.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( 'By default, Translation Style Guide links to the locale handbook - locale.wordpress.org/team/handbook - also a recommended resource for your team. However, as a GTE you can customize this link to point to a certain resource your team uses, such as a sub-page of the handbook or even an external page.' ) );
+	styleGuide.appendChild( document.createElement( 'H4' ) ).appendChild( document.createTextNode( 'Customize Style Guide link' ) );
+	styleGuide.appendChild( document.createElement( 'DIV' ) ).appendChild( document.createTextNode( 'By default, Style Guide links to the locale handbook - locale.wordpress.org/team/handbook - also a recommended resource for your team. However, as a GTE you can customize this link to point to a certain resource your team uses, such as a sub-page of the handbook or even an external page.' ) );
 	styleGuide.appendChild( document.createElement( 'P' ) ).appendChild( document.createTextNode( 'To do so, fill in this form, click on  “Generate HTML”, then copy and paste it into the Description field of your locale glossary.' ) );
 	const styleGuideForm = document.createDocumentFragment();
 
 	const styleGuideURLLabel = document.createElement( 'LABEL' );
 	styleGuideURLLabel.htmlFor = 'gd-styleguide-url';
 	styleGuideURLLabel.classList.add( 'gd-settings-label' );
-	styleGuideURLLabel.textContent = 'Enter an URL for the Translation Style Guide link:';
+	styleGuideURLLabel.textContent = 'Enter an URL for the Style Guide link:';
 
 	const styleGuideURLInput = document.createElement( 'INPUT' );
 	styleGuideURLInput.type = 'text';
@@ -304,7 +304,7 @@ function gd_set_panel3_settings( panel3 ) {
 	const styleGuideMenuLabel = document.createElement( 'LABEL' );
 	styleGuideMenuLabel.htmlFor = 'gd-styleguide-menu';
 	styleGuideMenuLabel.classList.add( 'gd-settings-label' );
-	styleGuideMenuLabel.textContent = 'Enter a title for the Translation Style Guide link:';
+	styleGuideMenuLabel.textContent = 'Enter a title for the Style Guide link:';
 
 	const styleGuideMenuInput = document.createElement( 'INPUT' );
 	styleGuideMenuInput.type = 'text';
