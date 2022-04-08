@@ -103,6 +103,13 @@ function gd_add_project_links() {
 		titleLinksContainer.id = 'gd_title_links';
 		document.querySelector( '.gp-content h2' ).appendChild( titleLinksContainer );
 		jQuery( '#gd_title_links' ).append( `<a class="glossary-link" href="https://translate.wordpress.org/locale/${lang}/default" target="_blank" rel="noreferrer noopener">${jQuery( '.gp-content .breadcrumb li:last-child a' ).text()} Projects to Translate</a>` + '<a class="glossary-link" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>' );
+	
+		const titleLinks = document.querySelector( '#gd_title_links' );
+		const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
+		if ( pluginGlossaryLink ) {
+			pluginGlossaryLink.textContent = 'Project Glossary';
+			titleLinks.append( pluginGlossaryLink );
+		}
 	}
 }
 
@@ -303,13 +310,13 @@ function gd_add_official_links_to_filters() {
 	const gd_glossary_link = document.createElement('A');
 	gd_glossary_link.id = 'gd-glossary-link';
 	gd_glossary_link.href = gd_glossary.glossary_url;
-	gd_glossary_link.textContent = 'Global Glossary';
+	gd_glossary_link.textContent = 'Locale Glossary';
 	gd_glossary_link.target = '_blank';
 
 	const gd_guide_link = document.createElement('A');
 	gd_guide_link.id = 'gd-guide-link';
 	gd_guide_link.target = '_blank';
-	gd_guide_link.textContent = '' !== gd_glossary.guide.title ? gd_glossary.guide.title : 'Style Guide';
+	gd_guide_link.textContent = '' !== gd_glossary.guide.title ? gd_glossary.guide.title : 'Translation Style Guide';
 
 	if ( '' !== gd_glossary.guide.url ) {
 		gd_guide_link.href = gd_glossary.guide.url;
@@ -643,13 +650,6 @@ function gd_build_sticky_header() {
 	let gd_header_is_sticky = 'true' === localStorage.getItem( 'gd_header_is_sticky' );
 	if ( gd_header_is_sticky ) {
 		document.body.classList.add( 'gd-header-is-sticky' );
-	}
-
-	const titleLinks = document.querySelector( '#gd_title_links' );
-	const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
-	if ( pluginGlossaryLink ) {
-		pluginGlossaryLink.textContent = 'Project Glossary';
-		titleLinks.append( pluginGlossaryLink );
 	}
 
 	const title = document.querySelector( '.gp-content .breadcrumb+h2' );
