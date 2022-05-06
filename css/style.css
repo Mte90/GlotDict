@@ -872,11 +872,13 @@ code {
     margin-top: 0;
 }
 
+.glossary-links .glossary-link:first-child,
 .gd-on-translations .gp-content h2 a.glossary-link:last-child,
 .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link {
     margin-right: 26px;
 }
 
+.glossary-links .glossary-link:first-child::after,
 .gd-on-translations .gp-content h2 a.glossary-link:last-child::after,
 .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link::after {
     position: absolute;
@@ -909,10 +911,12 @@ code {
     }
 
     .gd-on-translations .gp-content h2 a.glossary-link:last-child,
+    .gd-on-translations .gp-content h2 .glossary-links a.glossary-link:first-child,
     .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link {
         margin-right: 54px;
     }
 
+	.glossary-links .glossary-link:first-child::after,
     .gd-on-translations .gp-content h2 a.glossary-link:last-child::after,
     .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link::after {
         margin-left: 27px;
@@ -960,11 +964,13 @@ code {
 
 @media screen and (max-width: 1679.98px) {
 
+	.glossary-links .glossary-link:first-child,
     .gd-on-translations .gp-content h2 a.glossary-link:last-child,
     .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link {
         margin-right: 14px;
     }
 
+	.glossary-links .glossary-link:first-child::after,
     .gd-on-translations .gp-content h2 a.glossary-link:last-child::after,
     .gd-on-translations .gp-content h2 a.glossary-link+a.glossary-link::after {
         margin-left: 7px;

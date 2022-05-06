@@ -102,14 +102,15 @@ function gd_add_project_links() {
 		const titleLinksContainer = document.createElement( 'SPAN' );
 		titleLinksContainer.id = 'gd_title_links';
 		document.querySelector( '.gp-content h2' ).appendChild( titleLinksContainer );
-		jQuery( '#gd_title_links' ).append( `<a class="glossary-link" href="https://translate.wordpress.org/locale/${lang}/default" target="_blank" rel="noreferrer noopener">${jQuery( '.gp-content .breadcrumb li:last-child a' ).text()} Projects to Translate</a>` + '<a class="glossary-link" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>' );
+		jQuery( '#gd_title_links' ).append( `<a class="glossary-link" href="https://translate.wordpress.org/locale/${lang}/default" target="_blank" rel="noreferrer noopener">${jQuery( '.gp-content .breadcrumb li:last-child a' ).text()} Projects</a>` + '<a class="glossary-link" href="https://translate.wordpress.org/stats" target="_blank" rel="noreferrer noopener">Translation Global Status</a>' );
 	
 		const titleLinks = document.querySelector( '#gd_title_links' );
-		const pluginGlossaryLink = document.querySelector( '.gp-heading>h2+a.glossary-link' );
-		if ( pluginGlossaryLink ) {
-			pluginGlossaryLink.textContent = 'Project Glossary';
-			titleLinks.append( pluginGlossaryLink );
+		const glossaryLinks = document.querySelector( '.gp-heading>h2+.glossary-links' );
+		if ( glossaryLinks ) {
+			titleLinks.append( glossaryLinks );
 		}
+		const glossaryLinksSeparator = document.querySelector( '#gd_title_links .glossary-links .separator' );
+		glossaryLinksSeparator.remove();
 	}
 }
 
@@ -307,12 +308,6 @@ function gd_extract_glossary_data( glossary_data ) {
  * @returns void
  */
 function gd_add_official_links_to_filters() {
-	const gd_glossary_link = document.createElement('A');
-	gd_glossary_link.id = 'gd-glossary-link';
-	gd_glossary_link.href = gd_glossary.glossary_url;
-	gd_glossary_link.textContent = 'Locale Glossary';
-	gd_glossary_link.target = '_blank';
-
 	const gd_guide_link = document.createElement('A');
 	gd_guide_link.id = 'gd-guide-link';
 	gd_guide_link.target = '_blank';
@@ -333,11 +328,11 @@ function gd_add_official_links_to_filters() {
 	if ( ! filter_toolbars_div ) {
 		return;
 	}
-	if ( '' !== gd_glossary.glossary_url && gd_glossary_link ) {
-		filter_toolbars_div.append( gp_separator, gd_glossary_link );
+	if ( '' !== gd_glossary.glossary_url ) {
+		filter_toolbars_div.append( gp_separator );
 	}
 	if ( gd_guide_link && ( '' !== gd_glossary.guide.url || '' !== gd_glossary.handbook_url ) ) {
-		filter_toolbars_div.append( gp_separator.cloneNode( true ), gd_guide_link );
+		filter_toolbars_div.append( gd_guide_link );
 	}
 }
 
