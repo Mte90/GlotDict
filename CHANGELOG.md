@@ -1,3 +1,6 @@
+# 2.0.7
+* Fix: UI adjustments for the Glossary links
+
 # 2.0.6
 
 * Enhancement: Glossary and custom Style Guide links
