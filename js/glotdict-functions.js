@@ -110,7 +110,7 @@ function gd_add_project_links() {
 			titleLinks.append( glossaryLinks );
 		}
 		const glossaryLinksSeparator = document.querySelector( '#gd_title_links .glossary-links .separator' );
-		glossaryLinksSeparator.remove();
+		glossaryLinksSeparator && glossaryLinksSeparator.remove();
 	}
 }
 
