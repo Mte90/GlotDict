@@ -45,7 +45,7 @@ function gd_search_glossary_on_translation( e, selector ) {
 
 	jQuery( selector ).each( function() {
 		const $editor = jQuery( this );
-		const translations = jQuery( 'textarea', $editor );
+		const translations = jQuery( 'textarea.foreign-text', $editor );
 		const originals = jQuery( '.original, .original-text', $editor );
 
 		let original_index = SINGULAR;
