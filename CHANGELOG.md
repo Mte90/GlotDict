@@ -1,6 +1,7 @@
 # 2.0.9
 
 * Fix: Fixes to comply with the w.org Beta Testing program [Fixes #391]
+
 # 2.0.8
 
 * Fix: Edge case for some locales without glossary configured
