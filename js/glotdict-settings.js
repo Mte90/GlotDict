@@ -24,22 +24,12 @@ document.querySelector( '.gd_icon' ).style.display = '';
 
 const gd_settings_menu = document.querySelector( '.gd_setting' );
 gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
-	const checkbox_listeners_flag = document.querySelector( '.gp-content .gd_settings input[type="checkbox"]' ) ? true : false;
 	if ( document.body.classList.contains( 'gd-settings-on-screen' ) && '0' !== gd_extension.previousVersion ) {
 		gd_extension.previousVersion = gd_extension.currentVersion;
 		localStorage.setItem( 'gd_extension_status', JSON.stringify( gd_extension ) );
 	}
 	document.body.classList.toggle( 'gd-settings-on-screen' );
 	gd_generate_settings_panel();
-
-	if ( ! checkbox_listeners_flag ) {
-		const checkboxes = document.querySelectorAll( '.gp-content .gd_settings input[type="checkbox"]' );
-		checkboxes.forEach( checkbox => {
-			checkbox.addEventListener( 'click', ( event ) => {
-				localStorage.setItem( event.target.id, event.target.checked );
-			} )
-		} );
-	}
 } );
 
 function gd_generate_settings_panel() {
@@ -158,6 +148,11 @@ function gd_generate_settings_panel() {
 			input.type = 'checkbox';
 			input.id = `gd_${setting_slug}`;
 			input.checked = ( 'true' === localStorage.getItem( `gd_${setting_slug}` ) ) ? 'checked' : '';
+
+			input.addEventListener( 'click', ( event ) => {
+				localStorage.setItem( event.target.id, event.target.checked );
+			} );
+
 			label.appendChild( input );
 			let has_asterisk = false;
 			if ( '*' === setting_desc.slice( -1 ) ) {
