@@ -18,13 +18,13 @@ if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options
 }
 gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
 
-document.querySelector( '#menu-headline-nav' ).insertAdjacentHTML('beforeend', '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>');
-document.querySelector('.gd_setting').prepend(document.querySelector('.gd_icon'));
-document.querySelector('.gd_icon').style.display = "";
+document.querySelector( '#menu-headline-nav' ).insertAdjacentHTML( 'beforeend', '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
+document.querySelector( '.gd_setting' ).prepend( document.querySelector( '.gd_icon' ) );
+document.querySelector( '.gd_icon' ).style.display = '';
 
 const gd_settings_menu = document.querySelector( '.gd_setting' );
 gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
-	const checkbox_listeners_flag = document.querySelector('.gp-content .gd_settings input[type="checkbox"]' ) ? true : false;
+	const checkbox_listeners_flag = document.querySelector( '.gp-content .gd_settings input[type="checkbox"]' ) ? true : false;
 	if ( document.body.classList.contains( 'gd-settings-on-screen' ) && '0' !== gd_extension.previousVersion ) {
 		gd_extension.previousVersion = gd_extension.currentVersion;
 		localStorage.setItem( 'gd_extension_status', JSON.stringify( gd_extension ) );
@@ -32,13 +32,13 @@ gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
 	document.body.classList.toggle( 'gd-settings-on-screen' );
 	gd_generate_settings_panel();
 
-	if (!checkbox_listeners_flag) {
-		const checkboxes = document.querySelectorAll('.gp-content .gd_settings input[type="checkbox"]' );
-		checkboxes.forEach(checkbox => {
-			checkbox.addEventListener('click', function(event) {
+	if ( ! checkbox_listeners_flag ) {
+		const checkboxes = document.querySelectorAll( '.gp-content .gd_settings input[type="checkbox"]' );
+		checkboxes.forEach( checkbox => {
+			checkbox.addEventListener( 'click', ( event ) => {
 				localStorage.setItem( event.target.id, event.target.checked );
-			})
-		});
+			} )
+		} );
 	}
 } );
 
