@@ -18,8 +18,9 @@ if ( ( 'undefined' !== typeof $gp_editor_options ) && '1' === $gp_editor_options
 }
 gd_user.is_connected = document.querySelector( 'body.logged-in' ) !== null;
 
-jQuery( '#menu-headline-nav' ).append( '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
-jQuery( '.gd_icon' ).prependTo( '.gd_setting' ).show();
+document.querySelector( '#menu-headline-nav' ).insertAdjacentHTML( 'beforeend', '<li class="gd_setting" style="cursor:pointer;"><a> GlotDict</a></li>' );
+document.querySelector( '.gd_setting' ).prepend( document.querySelector( '.gd_icon' ) );
+document.querySelector( '.gd_icon' ).style.display = '';
 
 const gd_settings_menu = document.querySelector( '.gd_setting' );
 gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
@@ -29,10 +30,6 @@ gd_settings_menu && gd_settings_menu.addEventListener( 'click', () => {
 	}
 	document.body.classList.toggle( 'gd-settings-on-screen' );
 	gd_generate_settings_panel();
-} );
-
-jQuery( '.gp-content' ).on( 'click', '.gd_settings input[type="checkbox"]', function() {
-	localStorage.setItem( jQuery( this ).attr( 'id' ), jQuery( this ).is( ':checked' ) );
 } );
 
 function gd_generate_settings_panel() {
@@ -151,6 +148,11 @@ function gd_generate_settings_panel() {
 			input.type = 'checkbox';
 			input.id = `gd_${setting_slug}`;
 			input.checked = ( 'true' === localStorage.getItem( `gd_${setting_slug}` ) ) ? 'checked' : '';
+
+			input.addEventListener( 'click', ( event ) => {
+				localStorage.setItem( event.target.id, event.target.checked );
+			} );
+
 			label.appendChild( input );
 			let has_asterisk = false;
 			if ( '*' === setting_desc.slice( -1 ) ) {
