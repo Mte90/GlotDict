@@ -1,3 +1,6 @@
+# 2.1.0
+* Enhancement: Add Discussion Quick Link.
+
 # 2.0.11
 
 * Fix: incomplete support as per previous release
