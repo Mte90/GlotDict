@@ -16,7 +16,7 @@ jQuery( 'tbody th.checkbox input' ).on( 'change', function() {
 jQuery( 'thead th.checkbox input' ).on( 'change', function() {
 	gd_checked_rows.slice( 0 );
 	if ( jQuery( this ).is( ':checked' ) ) {
-		jQuery( '.preview .checkbox input' ).each( function() {
+		jQuery( 'tbody th.checkbox input' ).each( function() {
 			gd_checked_rows.push( jQuery( this ) );
 		} );
 	}
