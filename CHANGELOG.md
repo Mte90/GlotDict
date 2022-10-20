@@ -1,6 +1,7 @@
-#2.0.10
+# 2.0.10
 
 * Fix: Fix bulk copy from original to comply with the latest GP Translation Helpers on W.org [Fixes #396]
+
 # 2.0.9
 
 * Fix: Fixes to comply with the w.org Beta Testing program [Fixes #391]
