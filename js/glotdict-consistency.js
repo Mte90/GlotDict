@@ -46,12 +46,19 @@ function gd_quicklinks( current_editor = '.editor' ) {
 		gd_create_element( 'span', { 'class': 'dashicons dashicons-list-view', 'aria-hidden': 'true' } ),
 	);
 
+	const gd_quicklinks_discussion = gd_create_element( 'button', { 'class': 'gd_quicklinks_item gd_quicklinks_discussion with-tooltip', 'aria-label': 'Discussion' } );
+	gd_quicklinks_discussion.append(
+		gd_create_element( 'span', { 'class': 'screen-reader-text' }, 'Discussion' ),
+		gd_create_element( 'span', { 'class': 'dashicons dashicons-format-chat', 'aria-hidden': 'true' } ),
+	);
+
 	gd_quicklinks_output.append(
 		gd_quicklinks_copy,
 		gd_quicklinks_separator,
 		gd_quicklinks_permalink,
 		gd_quicklinks_history,
 		gd_quicklinks_consistency,
+		gd_quicklinks_discussion,
 	);
 
 	gd_add_elements( `${current_editor} .editor-panel__right .panel-header`, 'beforeend', gd_quicklinks_output );
@@ -62,6 +69,7 @@ function gd_quicklinks( current_editor = '.editor' ) {
 		editor_menu[ 1 ].href += '&historypage';
 		editor.querySelector( '.gd_quicklinks_history' ).dataset.quicklink = editor_menu[ 1 ].href;
 		editor.querySelector( '.gd_quicklinks_consistency' ).dataset.quicklink = `${editor_menu[ 2 ].href}&consistencypage`;
+		editor.querySelector( '.gd_quicklinks_discussion' ).dataset.quicklink = editor_menu[ 3 ].href
 	} );
 
 	gd_add_evt_listener( 'click', `${current_editor} .gd_quicklinks_copy, ${current_editor} .gd_quicklinks_plus`, gd_toggle_quicklinks_copy );
