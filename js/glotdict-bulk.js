@@ -3,13 +3,33 @@ jQuery( '.bulk-action' ).append( jQuery( '<option>', {
 	text:  'Copy From Original',
 } ) );
 
+const gd_checked_rows = [];
+
+jQuery( 'tbody th.checkbox input' ).on( 'change', function() {
+	if ( jQuery( this ).is( ':checked' ) ) {
+		gd_checked_rows.push( jQuery( this ) );
+	} else {
+		gd_checked_rows.splice( gd_checked_rows.indexOf( jQuery( this ) ), 1 );
+	}
+} );
+
+jQuery( 'tbody th.checkbox input, .gp-column-checkbox input' ).on( 'change', function() {
+  if ( jQuery( this ).is( ':checked' ) ) {
+    jQuery('.preview .checkbox input').each( function() {
+      gd_checked_rows.push( jQuery( this ) );
+    });
+  } else {
+    gd_checked_rows.slice(0);
+  }
+} );
+
 jQuery( '.bulk-actions' ).on( 'click', '.button', ( e ) => {
 	if ( 'copy-from-original' === jQuery( '.bulk-action option:selected' ).val() ) {
 		let copied_count = 0;
 		let timeout = 0;
 		$gp.editor.hide(); // Avoid validation on open editors that are empty.
-		jQuery( 'tbody th.checkbox input:checked' ).each( function() {
-			const checkbox = jQuery( this );
+		gd_checked_rows.forEach( el => {
+			const checkbox = jQuery( el );
 			const parent = checkbox.closest( 'tr' );
 			const row = parent.attr( 'row' );
 			if ( gd_get_setting( 'autosubmit_bulk_copy_from_original' ) ) {
