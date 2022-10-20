@@ -13,6 +13,16 @@ jQuery( 'tbody th.checkbox input' ).on( 'change', function() {
 	}
 } );
 
+jQuery( 'tbody th.checkbox input, .gp-column-checkbox input' ).on( 'change', function() {
+  if ( jQuery( this ).is( ':checked' ) ) {
+    jQuery('.preview .checkbox input').each( function() {
+      gd_checked_rows.push( jQuery( this ) );
+    });
+  } else {
+    gd_checked_rows.slice(0);
+  }
+} );
+
 jQuery( '.bulk-actions' ).on( 'click', '.button', ( e ) => {
 	if ( 'copy-from-original' === jQuery( '.bulk-action option:selected' ).val() ) {
 		let copied_count = 0;
