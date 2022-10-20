@@ -1,3 +1,7 @@
+# 2.0.11
+
+* Fix: incomplete support as per previous release
+
 # 2.0.10
 
 * Fix: Fix bulk copy from original to comply with the latest GP Translation Helpers on W.org [Fixes #396]
