@@ -1,0 +1,48 @@
+{
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "js/init.js"
+      ],
+      "css": [
+        "css/style.css"
+      ],
+      "matches": [
+        "*://translate.wordpress.org/*"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "js/glotdict-locales.js",
+    "js/glotdict.js",
+    "js/glotdict-functions.js",
+    "js/glotdict-hotkey.js",
+    "js/glotdict-validation.js",
+    "js/glotdict-notices.js",
+    "js/glotdict-bulk.js",
+    "js/glotdict-column.js",
+    "js/glotdict-meta.js",
+    "js/glotdict-consistency.js",
+    "js/glotdict-settings.js",
+    "js/keymaster.js",
+    "js/jquery.bind-first.js",
+    "js/dompurify.js",
+    "CHANGELOG.md",
+    "icons/icon-48.png",
+    "css/style.css",
+    "js/init.js"
+  ],
+  "version": "2.0.11",
+  "description": "Improve the workflow on translate.wordpress.org",
+  "homepage_url": "https://github.com/Mte90/GlotDict",
+  "manifest_version": 2,
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png",
+    "16": "icons/icon-16.png"
+  },
+  "name": "GlotDict"
+}
