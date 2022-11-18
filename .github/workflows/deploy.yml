@@ -20,7 +20,7 @@ jobs:
       - uses: trmcnvn/firefox-addon@v1
         with:
           uuid: 'glotdict@mte90.net'
-          xpi: GlotDict_${{ steps.get_version.outputs.version }}.zip
+          xpi: GlotDict_${{ steps.get_version.outputs.version }}.xpi
           manifest: manifest.json
           api-key: ${{ secrets.FIREFOX_API_KEY }}
           api-secret: ${{ secrets.FIREFOX_API_SECRET }}
