@@ -73,6 +73,8 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Firefox [Instructions](https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox): [Download](https://addons.mozilla.org/en-US/firefox/addon/glotdict/)
 * Chrome [Instructions](https://support.google.com/chrome_webstore/answer/2664769?hl=en): [Download](https://chrome.google.com/webstore/detail/glotdict/jfdkihdmokdigeobcmnjmgigcgckljgl)
 
+The `pack-ext.py` script generate 2 different packages one for Firefox using Manifest V2 and for Chrome Manifest V3.
+
 # Spell Checking?
 
 If you are looking for spell checking we recommend [Grammarly](https://www.grammarly.com/) and [LanguageTool](https://languagetool.org/) as they both provide browser extensions for spelling and grammar checking.
