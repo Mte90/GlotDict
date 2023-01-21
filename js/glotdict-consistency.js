@@ -61,7 +61,7 @@ function gd_quicklinks( current_editor = '.editor' ) {
 		gd_quicklinks_discussion,
 	);
 
-	gd_add_elements( `${current_editor} .editor-panel__right .panel-header`, 'beforeend', gd_quicklinks_output );
+	gd_add_elements( `${current_editor} .editor-panel__left .panel-header .panel-header-actions`, 'afterBegin', gd_quicklinks_output );
 
 	document.querySelectorAll( `${current_editor}` ).forEach( ( editor ) => {
 		const editor_menu = editor.querySelectorAll( '.button-menu__dropdown li a' );
