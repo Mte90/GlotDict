@@ -238,22 +238,6 @@ button.gd-approve strong {
     animation-name: gd-ripple-out;
 }
 
-.editor-panel__right .panel-header button {
-    background: none;
-    border: none;
-    height: 40px;
-    width: 40px;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-    box-shadow: none;
-    border-radius: 0;
-}
-
-.editor-panel__right .panel-header button:hover {
-    background: #fafafa;
-}
-
 .gd_quicklinks_copy.active {
     color: #0073aa;
 }

@@ -1,5 +1,6 @@
 # 2.1.0
 * Enhancement: Add Discussion Quick Link.
+* Change: Move the location of QuickLinks to accomodate the upcoming changes on translate.w.org.
 
 # 2.0.11
 
