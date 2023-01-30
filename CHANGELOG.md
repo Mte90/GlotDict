@@ -1,4 +1,9 @@
+# 2.1.1
+
+* Fix: Wrong manifest.json for Chrome
+
 # 2.1.0
+
 * Enhancement: Add Discussion Quick Link.
 * Change: Move the location of QuickLinks to accomodate the upcoming changes on translate.w.org.
 
