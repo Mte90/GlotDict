@@ -43,11 +43,12 @@ if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
             # change parameters
             data['background']['service_worker'] = data['background']['scripts'][0]
             del data['background']['scripts']
-            data['web_accessible_resources'] = {
-                'resources': data['web_accessible_resources'],
-                'matches': ["https://translate.wordpress.org/*"]
-            }
-            print(data)
+            data['web_accessible_resources'] = [
+                {
+                    'resources': data['web_accessible_resources'],
+                    'matches': ["https://translate.wordpress.org/*"]
+                }
+            ]
             data['manifest_version'] = 3
 
             with open(manifest, 'w') as new_manifest:
