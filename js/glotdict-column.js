@@ -12,7 +12,7 @@ function gd_add_column() {
 function gd_add_column_buttons( tr_preview ) {
 	const td_buttons = document.createElement( 'TD' );
 	tr_preview.append( td_buttons );
-	tr_preview.nextElementSibling.querySelectorAll( '.meta button' ).forEach( ( button ) => {
+	tr_preview.nextElementSibling.querySelectorAll( '.status-actions button.approve,.status-actions button.reject,.status-actions button.fuzzy' ).forEach( ( button ) => {
 		button.removeAttribute( 'tabindex' );
 		const clone_button = button.cloneNode( true );
 		clone_button.classList.add( 'gd-button' );
