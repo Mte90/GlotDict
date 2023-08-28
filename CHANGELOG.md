@@ -1,3 +1,7 @@
+# 2.1.2
+
+* Fix: updates to latest GlotPress UI changes
+
 # 2.1.1
 
 * Fix: Wrong manifest.json for Chrome
