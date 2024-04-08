@@ -2,7 +2,8 @@
 
 * Enhancement: GH Action updated for automatic extension deploy
 * Enhancement: No review button on discussions
-* Bugfix: Noglossary loading if language not configured
+* Enhancement: Auto select language on new install by browser language
+* Bugfix: No glossary loading if language not configured
 
 # 2.1.2
 

@@ -26,7 +26,6 @@ const gd_glossary = {
 	},
 };
 
-gd_get_glossary_global_data();
 
 // Create notice container at the beginning since notices are added in AJAX
 const translations = document.querySelector( '#translations' );
@@ -37,6 +36,7 @@ translations && translations.before( gd_notices_container );
 gd_current_locale_first();
 
 window.gd_filter_bar = jQuery( '.filter-toolbar form div:first' );
+gd_get_glossary_global_data();
 
 if ( window.gd_filter_bar.length > 0 ) {
 	gd_hotkeys();

@@ -214,9 +214,11 @@ function gd_locales_selector() {
 	window.gd_filter_bar.append( `<span class="separator">•</span><div class="gd-language-picker-container${( '' === lang || false === lang ) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>` );
 	jQuery( '.glotdict_language' ).append( jQuery( '<option></option>' ) );
 	const gd_locales_array = gd_locales();
+	var browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
+	browserlanguage = browserlanguage.replace('-', '_');
 	jQuery.each( gd_locales_array, ( key, value ) => {
 		const new_option = jQuery( '<option></option>' ).attr( 'value', value ).text( value );
-		if ( lang === value ) {
+		if ( lang === value || lang === '' && browserlanguage === value ) {
 			new_option.attr( 'selected', true );
 		}
 		jQuery( '.glotdict_language' ).append( new_option );
@@ -266,6 +268,7 @@ function gd_get_glossary_global_data() {
 	gd_get_handbook_link();
 	const global_glossary_url = gd_get_global_glossary_url();
 	if (global_glossary_url === false) {
+		gd_locales_selector();
 		return;
 	}
 
