@@ -133,7 +133,7 @@ function gd_add_glossary_links( glossary_word ) {
  * @returns void
  */
 function gd_add_review_button() {
-	if ( jQuery( 'body.logged-in' ).length !== 0 ) {
+	if ( jQuery( 'body.logged-in' ).length !== 0 && jQuery('.discussions-table-head').length === 0 ) {
 		jQuery( '.filter-toolbar' ).after( '<input class="button gd-review" value="Review" type="button">' );
 	}
 }
