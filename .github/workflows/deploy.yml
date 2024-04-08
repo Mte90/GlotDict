@@ -11,23 +11,22 @@ jobs:
     
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Get the version
         id: get_version
         run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
       - name: Build
         run: ./pack-ext.py ./
-      - uses: trmcnvn/firefox-addon@v1
+      - uses: wdzeng/firefox-addon@v1
         with:
-          uuid: 'glotdict@mte90.net'
-          xpi: GlotDict_${{ steps.get_version.outputs.version }}.xpi
-          manifest: manifest.json
-          api-key: ${{ secrets.FIREFOX_API_KEY }}
-          api-secret: ${{ secrets.FIREFOX_API_SECRET }}
-      - uses: trmcnvn/chrome-addon@v2
+          addon-guid: 'glotdict@mte90.net'
+          xpi-path: GlotDict_${{ steps.get_version.outputs.version }}.xpi
+          jwt-issuer: ${{ secrets.FIREFOX_API_KEY }}
+          jwt-secret: ${{ secrets.FIREFOX_API_SECRET }}
+      - uses: wdzeng/chrome-extension@v1
         with:
             refresh-token: ${{ secrets.CHROME_API_TOKEN }}
             client-id: ${{ secrets.CHROME_API_ID }}
             client-secret: ${{ secrets.CHROME_API_SECRET }}
-            zip: GlotDict_${{ steps.get_version.outputs.version }}.zip
-            extension: ${{ secrets.CHROME_UUID }}
+            zip-path: GlotDict_${{ steps.get_version.outputs.version }}.zip
+            extension-id: ${{ secrets.CHROME_UUID }}
