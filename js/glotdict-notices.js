@@ -131,7 +131,7 @@ let rejected_count = 0;
 let fuzzied_count = 0;
 let submitted_count = 0;
 jQuery( document ).ajaxSuccess( ( event, xhr, settings ) => {
-	if ( settings.url === $gp_editor_options.set_status_url ) {
+	if ( typeof $gp_editor_options !== 'undefined' && settings.url === $gp_editor_options.set_status_url ) {
 		gd_selected_count();
 		const pairs = settings.data.split( '&' );
 		const data = [];
