@@ -249,6 +249,10 @@ function gd_get_handbook_link() {
  */
 function gd_get_global_glossary_url() {
 	const slug = gd_get_locale_slug( gd_get_lang(), 'locale' );
+	if (slug === '') {
+		return false;
+	}
+
 	const global_glossary_url = `https://translate.wordpress.org/locale/${slug}/default/glossary/`;
 	return global_glossary_url;
 }
@@ -261,6 +265,10 @@ function gd_get_global_glossary_url() {
 function gd_get_glossary_global_data() {
 	gd_get_handbook_link();
 	const global_glossary_url = gd_get_global_glossary_url();
+	if (global_glossary_url === false) {
+		return;
+	}
+
 	fetch( global_glossary_url )
 	.then( ( response ) => response.text() )
 	.then( ( glossary_data ) => {

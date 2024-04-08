@@ -1,3 +1,9 @@
+# 2.1.3
+
+* Enhancement: GH Action updated for automatic extension deploy
+* Enhancement: No review button on discussions
+* Bugfix: Noglossary loading if language not configured
+
 # 2.1.2
 
 * Fix: updates to latest GlotPress UI changes
