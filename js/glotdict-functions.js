@@ -52,7 +52,7 @@ function gd_list_locales_cached() {
  * @returns Array
  */
 function gd_locales() {
-	window.glotdict_locales = [ 'ast', 'bel', 'bg_BG', 'cy', 'da_DK', 'de_DE', 'en_AU', 'en_CA', 'en_GB', 'es_ES', 'fi', 'fr_FR', 'he_IL', 'hi_IN', 'hr_HR', 'it_IT', 'ja', 'lt_LT', 'lv_LV', 'nl_BE', 'nl_NL', 'pt_BR', 'ro_RO', 'sv_SE', 'th', 'tr_TR', 'uk' ];
+	window.glotdict_locales = [ 'ast', 'bel', 'bg_BG', 'cy', 'da_DK', 'de_DE', 'en_AU', 'en_CA', 'en_GB', 'es_ES', 'fi', 'fr_FR', 'he_IL', 'hi_IN', 'hr_HR', 'it_IT', 'ja', 'ko_KR', 'lt_LT', 'lv_LV', 'nl_BE', 'nl_NL', 'pt_BR', 'ro_RO', 'sv_SE', 'th', 'tr_TR', 'uk' ];
 	const locales_date_cache = localStorage.getItem( 'gd_locales_date' );
 	if ( null === locales_date_cache || locales_date_cache !== gd_today() ) {
 		jQuery.ajax( {
