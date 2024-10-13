@@ -180,7 +180,8 @@ is not appied before action buttons are rendered
     border-left: 3px solid #dc3232;
 }
 
-.actions+td button[class*="gd-"] strong {
+.actions+td button[class*="gd-"] strong,
+.actions+td button .gd-btn-action {
     font-size: 32px;
     color: #fff;
     line-height: 32px !important;
@@ -189,7 +190,10 @@ is not appied before action buttons are rendered
     display: block;
 }
 
-.actions+td button.gd-button{
+.actions+td button.gd-button,
+.actions+td button.approve,
+.actions+td button.reject,
+.actions+td button.fuzzy {
 	-ms-flex-pack: center!important;
 	    justify-content: center!important;
 	min-height: 28px !important;
@@ -203,20 +207,23 @@ is not appied before action buttons are rendered
     margin: 1px 3px 0 1px !important;
     vertical-align: middle;
 }
-.actions+td button.gd-button.approve,
-.actions+td button.gd-button.approve:hover {
-  background-color: #46B450;
+.actions+td button.approve,
+.actions+td button.approve:hover {
+  background-color: #46B450 !important;
 }
-.actions+td button.gd-button.reject {
+.actions+td button.reject,
+.actions+td button.reject:hover {
   background-color: #DC3232;
 }
-.actions+td button.gd-button.fuzzy {
+.actions+td button.fuzzy,
+.actions+td button.fuzzy:hover {
   background-color: #f56e28;
 }
 
 .gd-btn-action {
     -webkit-animation: gd-rotation 2s infinite linear;
     animation: gd-rotation 2s infinite linear;
+    transform-origin: 50% 60%;
 }
 
 button.gd-approve strong {
