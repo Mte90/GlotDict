@@ -39,6 +39,20 @@ table.translations tr.preview.has-original-copy,
     background: #e5f5fa;
 }
 
+/*
+using nth-child(6) instead of last-child ensures that the style 
+is not appied before action buttons are rendered
+*/
+@media screen and (min-width: 601px) {
+    table.translations > thead > tr > th:nth-child(6),
+    table.translations > tbody > tr > td:nth-child(6) {
+      width: 130px !important;
+      padding: 3px 0 3px 3px;
+      text-align: right;
+    }
+}
+
+
 .discard-glotdict {
     float: right;
 }
@@ -167,17 +181,37 @@ table.translations tr.preview.has-original-copy,
 }
 
 .actions+td button[class*="gd-"] strong {
-    display: inline-block;
-	margin-left:-10px;
+    font-size: 32px;
+    color: #fff;
+    line-height: 32px !important;
+    padding: 0 !important;
+    margin: -5px 0 0 !important;
+    display: block;
 }
 
 .actions+td button.gd-button{
 	-ms-flex-pack: center!important;
 	    justify-content: center!important;
-	padding: 14px 2px !important;
-	width: 80px !important;
-	margin: 1px 0 !important;
 	min-height: 28px !important;
+
+    display: inline-block;
+    font-size: 0;
+    width: 32px !important;
+    height: 32px !important;
+    text-align: center;
+    padding: 0 !important;
+    margin: 1px 3px 0 1px !important;
+    vertical-align: middle;
+}
+.actions+td button.gd-button.approve,
+.actions+td button.gd-button.approve:hover {
+  background-color: #46B450;
+}
+.actions+td button.gd-button.reject {
+  background-color: #DC3232;
+}
+.actions+td button.gd-button.fuzzy {
+  background-color: #f56e28;
 }
 
 .gd-btn-action {
