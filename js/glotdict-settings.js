@@ -66,6 +66,7 @@ function gd_generate_settings_panel() {
 				'autocopy_string_on_translation_opened':    'Auto-copy original to clipboard on editor opening.',
 				'autosubmit_bulk_copy_from_original':       'Auto-save after “Copy from Original” bulk action.*',
 				'force_autosubmit_bulk_copy_from_original': 'Ignore auto-save warnings after “Copy from Original”.*',
+				'hide_lang_selector':                       'Hide the language selector on the title.*',
 			},
 		},
 	];
