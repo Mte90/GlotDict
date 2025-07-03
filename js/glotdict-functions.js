@@ -210,25 +210,31 @@ function gd_add_scroll_buttons() {
  * @returns void
  */
 function gd_locales_selector() {
+	let my_hide_lang_selector = gd_get_setting("hide_lang_selector")
+        if (my_hide_lang_selector === null) { 
+           my_hide_lang_selector = false
+        }
 	const lang = gd_get_lang();
-	window.gd_filter_bar.append( `<span class="separator">•</span><div class="gd-language-picker-container${( '' === lang || false === lang ) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>` );
-	jQuery( '.glotdict_language' ).append( jQuery( '<option></option>' ) );
-	const gd_locales_array = gd_locales();
-	var browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
-	browserlanguage = browserlanguage.replace('-', '_');
-	jQuery.each( gd_locales_array, ( key, value ) => {
+	if (my_hide_lang_selector === false) { 
+	    window.gd_filter_bar.append( `<span class="separator">•</span><div class="gd-language-picker-container${( '' === lang || false === lang ) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>` );
+	    jQuery( '.glotdict_language' ).append( jQuery( '<option></option>' ) );
+	    const gd_locales_array = gd_locales();
+	    var browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
+	    browserlanguage = browserlanguage.replace('-', '_');
+	    jQuery.each( gd_locales_array, ( key, value ) => {
 		const new_option = jQuery( '<option></option>' ).attr( 'value', value ).text( value );
 		if ( lang === value || lang === '' && browserlanguage === value ) {
 			new_option.attr( 'selected', true );
 		}
 		jQuery( '.glotdict_language' ).append( new_option );
-	} );
-	jQuery( '.glotdict_language' ).change( () => {
+	     } );
+	     jQuery( '.glotdict_language' ).change( () => {
 		localStorage.setItem( 'gd_language', jQuery( '.glotdict_language option:selected' ).text() );
 		localStorage.setItem( 'gd_glossary_date', '' );
 		gd_locales();
 		location.reload();
 	} );
+	}
 }
 
 /**
