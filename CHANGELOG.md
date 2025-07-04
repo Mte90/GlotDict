@@ -5,6 +5,7 @@
 * Enhancement: Added a function to check if a glossary word is withing an URL
 * Enhancement: Added titles to the button
 * Bugfix: The toggle for making the header sticky did not work anymore
+* Improvement: Removed the max-width from the CSS file
 
 # 2.1.4
 
