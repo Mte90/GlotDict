@@ -7,7 +7,6 @@
 
 * Enhancement: Quick actions button improved
 
-
 # 2.1.3
 
 * Enhancement: GH Action updated for automatic extension deploy
