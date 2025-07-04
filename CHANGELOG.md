@@ -1,7 +1,10 @@
 # 2.1.5
 
 * Enhancement added option to hide the language selector
-* Enhancement: Added functions to check if WPTF is active, and a function to check if a glossary word is withing an URL
+* Enhancement: Added function to check if WPTF is active, so creating the buttons is now working properly
+* Enhancement: Added a function to check if a glossary word is withing an URL
+* Enhancement: added titles to the button
+* Bugfix: The toggle for making the header sticky did not work anymore
 
 # 2.1.4
 
