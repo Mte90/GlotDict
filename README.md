@@ -67,6 +67,7 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Auto-submit the *Copy From Original* Bulk Action (Warning: When enabled will submit all originals).
 * Auto-copy original to clipboard on editor opening.
 * Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)
+* Hide the language selector
 
 # Download
 
