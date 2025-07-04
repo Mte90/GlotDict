@@ -17,8 +17,6 @@ function gd_add_column() {
 }
 
 function gd_add_column_buttons(tr_preview) {
-	let WPTF_active = get_WPTF()
-	
 	
 	const td_buttons = document.createElement( 'TD' );
 	tr_preview.append( td_buttons );
