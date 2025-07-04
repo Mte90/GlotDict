@@ -1,6 +1,8 @@
 # 2.1.5
 
 * Enhancement added option to hide the language selector
+* Enhancement: Added functions to check if WPTF is active, and a function to check if a glossary word is withing an URL
+
 
 # 2.1.4
 
