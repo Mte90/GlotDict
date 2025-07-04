@@ -1,3 +1,8 @@
+# 2.1.5
+
+* Enhancement: Improved behavior when WPTF and GlotDict are active
+* Enhancement: Added functions to check if WPTF is active, and a function to check if a glossary word is withing an URL
+
 # 2.1.4
 
 * Enhancement: Quick actions button improved
