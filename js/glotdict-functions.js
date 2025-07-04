@@ -690,10 +690,13 @@ function gd_build_sticky_header() {
 	toggle_sticky_label.htmlFor = 'gd-toggle-header-sticky';
 	toggle_sticky_label.classList.add( 'gd-toggle__label' );
 	toggle_sticky_label.title = 'Stick it and scroll!';
-	toggle_sticky && toggle_sticky.append( toggle_sticky_input, toggle_sticky_label );
-	const first_link = document.querySelector( '.gd-on-translations .gp-content h2 .glossary-link:first-child' );
-	first_link && first_link.before( toggle_sticky );
-
+	toggle_sticky && toggle_sticky.append(toggle_sticky_input, toggle_sticky_label);
+     // the below class does not exist anymore
+	//const first_link = document.querySelector('.gd-on-translations .gp-content h2 .glossary-link:first-child');
+	// PSS 04-07-2025 fixed not showing the toggle for sticky header
+	let glossary_link = document.querySelector('.gp-heading .glossary-links');
+	glossary_link && glossary_link.before( toggle_sticky );
+	
 	const fragment = document.createDocumentFragment();
 	title && fragment.appendChild( title );
 	filter_toolbar && fragment.appendChild( filter_toolbar );

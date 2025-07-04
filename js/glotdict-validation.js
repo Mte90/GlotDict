@@ -67,7 +67,7 @@ function gd_search_glossary_on_translation( e, selector ) {
 				let reset = '';
 				let count = '';
 				const term = jQuery( glossary_element ).html();
-				jQuery(glossary_word_translations).each((index) => {git remote - v
+				jQuery(glossary_word_translations).each((index) => {
 
 					if ( 'N/A' === glossary_word_translations[index].translation ) {
 						return true;
