@@ -52,8 +52,8 @@ function gd_search_glossary_on_translation( e, selector ) {
 		if ( 2 === originals.length && 1 === translations.length ) {
 			original_index = PLURAL; // For locales where nplural === 1.
 		}
-
-		translations.each( ( i, translation ) => {
+		translations.each((i, translation) => {
+			var translatedText = translation.value
 			const glossary_words = jQuery( '.glossary-word', originals[original_index] ).map( function() {return this.textContent;} ).get();
 			const words_with_warning = [];
 			jQuery( '.glossary-word', originals[original_index] ).each( ( j, glossary_element ) => {
@@ -67,7 +67,8 @@ function gd_search_glossary_on_translation( e, selector ) {
 				let reset = '';
 				let count = '';
 				const term = jQuery( glossary_element ).html();
-				jQuery( glossary_word_translations ).each( ( index ) => {
+				jQuery(glossary_word_translations).each((index) => {git remote - v
+
 					if ( 'N/A' === glossary_word_translations[index].translation ) {
 						return true;
 					}
@@ -89,8 +90,18 @@ function gd_search_glossary_on_translation( e, selector ) {
 					if ( glossary_word_translations.length > 1 ) {
 						message = 'The translation does not contain any of the suggested translations';
 					}
-					const form = translations.length > 1 ? ( original_index === SINGULAR ? ' for singular' : ' for plural' ) : '';
-					jQuery( '.textareas', $editor ).prepend( gd_get_warning( `${message} (${reset}) for the term “<i>${term}</i>“ ${count}${form}.`, discard ) );
+					const form = translations.length > 1 ? (original_index === SINGULAR ? ' for singular' : ' for plural') : '';
+					// We need to check if the word is within a URL
+					let is_within_URL = check_for_URL(glossary_word,translatedText)
+					// If it is not part of an URL give the warning for it
+					if (is_within_URL == false ) {
+						jQuery('.textareas', $editor).prepend(gd_get_warning(`${message} (${reset}) for the term “<i>${term}</i>“ ${count}${form}.`, discard));
+					}
+					else {
+						// We need not to mark the current as wrong
+						howmany--
+						return howmany;
+					}
 				}
 			} );
 			original_index = PLURAL;

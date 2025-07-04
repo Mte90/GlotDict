@@ -3,20 +3,30 @@ function gd_add_column() {
 		jQuery( '#translations thead tr' ).append( '<th></th>' );
 	}
 	jQuery( '#translations tr.preview' ).each( function() {
-		if ( jQuery( this ).find( 'td' ).length < 5 ) {
-			gd_add_column_buttons( this );
+		if (jQuery(this).find('td').length < 5) {
+			let timeout = 0
+			let WPTF_active = get_WPTF()	
+			if (WPTF_active === true) {
+				timeout = 200
+			}
+			setTimeout(() => {
+				gd_add_column_buttons(this);
+			}, timeout);
 		}
 	} );
 }
 
-function gd_add_column_buttons( tr_preview ) {
+function gd_add_column_buttons(tr_preview) {
+	let WPTF_active = get_WPTF()
+	
+	
 	const td_buttons = document.createElement( 'TD' );
 	tr_preview.append( td_buttons );
-	tr_preview.nextElementSibling.querySelectorAll( '.status-actions button.approve,.status-actions button.reject,.status-actions button.fuzzy' ).forEach( ( button ) => {
-		button.removeAttribute( 'tabindex' );
-		const clone_button = button.cloneNode( true );
-		clone_button.classList.add( 'gd-button' );
-		clone_button.addEventListener( 'click', ( e ) => {
+	tr_preview.nextElementSibling.querySelectorAll('.status-actions button.approve,.status-actions button.reject,.status-actions button.fuzzy').forEach((button) => {
+		 button.removeAttribute( 'tabindex' );
+		 const clone_button = button.cloneNode( true );
+		 clone_button.classList.add( 'gd-button' );
+		 clone_button.addEventListener( 'click', ( e ) => {
 			const button = ( 'BUTTON' === e.target.parentElement.nodeName ) ? e.target.parentElement : e.target;
 			if ( ! button ) { return; }
 			const strong = button.querySelector( 'strong' );
@@ -40,6 +50,6 @@ function gd_add_column_buttons( tr_preview ) {
 		} );
 		if ( ! tr_preview.classList.contains( 'untranslated' ) ) {
 			td_buttons.append( clone_button );
-		}
+			}
 	} );
 }
