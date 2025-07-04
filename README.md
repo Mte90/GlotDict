@@ -69,6 +69,8 @@ PS: If you are using NoScript or Privacy Badger enable wordpress.org domain or e
 * Don’t validate strings during "Copy From Original" Bulk Action to bypass validation. (Warning: When enabled will submit originals with Glossary terms or other warnings.)
 * Setting "hide the language selector"
 
+
+
 # Download
 
 * Firefox [Instructions](https://support.mozilla.org/en-US/kb/find-and-install-add-ons-add-features-to-firefox): [Download](https://addons.mozilla.org/en-US/firefox/addon/glotdict/)
