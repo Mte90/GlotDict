@@ -1,3 +1,7 @@
+# 2.1.5
+
+* Enhancement added option to hide the language selector
+
 # 2.1.4
 
 * Enhancement: Quick actions button improved
