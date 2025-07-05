@@ -684,8 +684,8 @@ function gd_build_sticky_header() {
 	toggle_sticky_label.classList.add( 'gd-toggle__label' );
 	toggle_sticky_label.title = 'Stick it and scroll!';
 	toggle_sticky && toggle_sticky.append( toggle_sticky_input, toggle_sticky_label );
-	let glossary_link = document.querySelector('.gp-heading .glossary-links');
-	glossary_link && glossary_link.before(toggle_sticky);
+	let glossary_link = document.querySelector( '.gp-heading .glossary-links' );
+	glossary_link && glossary_link.before( toggle_sticky );
 
 	const fragment = document.createDocumentFragment();
 	title && fragment.appendChild( title );
