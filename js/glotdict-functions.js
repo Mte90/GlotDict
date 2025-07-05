@@ -803,3 +803,21 @@ function gd_occurrences( string, subString ) {
 	}
 	return n;
 }
+function gd_check_for_URL(word, translatedText) {
+	// This function checks if a word is within an URL or part URL
+	const lowerWord = word.toLowerCase();
+
+	// Match full URLs (http, https, ftp)
+	const fullURLRegex = /\b(?:https?|ftp):\/\/[^\s"'<>]+/gi;
+
+	// Match partial paths like wp-content/plugins/
+	const partialPathRegex = /\bwp-content\/plugins\/[^\s"'<>]*/gi;
+
+	// Combine all matches
+	const matches = [
+		...(translatedText.match(fullURLRegex) || []),
+		...(translatedText.match(partialPathRegex) || [])
+	];
+
+	return matches.some(url => url.toLowerCase().includes(lowerWord));
+}
