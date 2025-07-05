@@ -56,6 +56,7 @@ function gd_search_glossary_on_translation( e, selector ) {
 		translations.each((i, translation) => {
 			// PSS issue issue #120 check for URL
 			var translatedText = translation.value
+
 			const glossary_words = jQuery( '.glossary-word', originals[original_index] ).map( function() {return this.textContent;} ).get();
 			const words_with_warning = [];
 			jQuery( '.glossary-word', originals[original_index] ).each( ( j, glossary_element ) => {
