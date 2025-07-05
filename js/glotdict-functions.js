@@ -217,7 +217,7 @@ function gd_locales_selector() {
 	window.gd_filter_bar.append( `<span class="separator">•</span><div class="gd-language-picker-container${( '' === lang || false === lang ) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>` );
 	jQuery( '.glotdict_language' ).append( jQuery( '<option></option>' ) );
 	const gd_locales_array = gd_locales();
-	const browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
+	let browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
 	browserlanguage = browserlanguage.replace('-', '_');
 	jQuery.each( gd_locales_array, ( key, value ) => {
 		const new_option = jQuery( '<option></option>' ).attr( 'value', value ).text( value );
