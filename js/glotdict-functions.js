@@ -210,25 +210,32 @@ function gd_add_scroll_buttons() {
  * @returns void
  */
 function gd_locales_selector() {
+	let my_hide_lang_selector = gd_get_setting("hide_lang_selector")
+	if (my_hide_lang_selector === null) { 
+	   my_hide_lang_selector = false
+    }
 	const lang = gd_get_lang();
-	window.gd_filter_bar.append( `<span class="separator">•</span><div class="gd-language-picker-container${( '' === lang || false === lang ) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>` );
-	jQuery( '.glotdict_language' ).append( jQuery( '<option></option>' ) );
-	const gd_locales_array = gd_locales();
-	var browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
-	browserlanguage = browserlanguage.replace('-', '_');
-	jQuery.each( gd_locales_array, ( key, value ) => {
-		const new_option = jQuery( '<option></option>' ).attr( 'value', value ).text( value );
-		if ( lang === value || lang === '' && browserlanguage === value ) {
-			new_option.attr( 'selected', true );
+	if (my_hide_lang_selector === false) { 
+	  window.gd_filter_bar.append(`<span class="separator">•</span><div class="gd-language-picker-container${('' === lang || false === lang) ? ' empty-locale' : ''}"><label for="gd-language-picker">Pick locale</label><select id="gd-language-picker" class="glotdict_language"></select></div>`);
+	  jQuery('.glotdict_language').append(jQuery('<option></option>'));
+	  const gd_locales_array = gd_locales();
+	  var browserlanguage = Intl.DateTimeFormat().resolvedOptions().locale;
+	  browserlanguage = browserlanguage.replace('-', '_');
+	  jQuery.each(gd_locales_array, (key, value) => {
+		const new_option = jQuery('<option></option>').attr('value', value).text(value);
+		if (lang === value || lang === '' && browserlanguage === value) {
+			new_option.attr('selected', true);
 		}
-		jQuery( '.glotdict_language' ).append( new_option );
-	} );
-	jQuery( '.glotdict_language' ).change( () => {
-		localStorage.setItem( 'gd_language', jQuery( '.glotdict_language option:selected' ).text() );
-		localStorage.setItem( 'gd_glossary_date', '' );
+		jQuery('.glotdict_language').append(new_option);
+	  });
+	  jQuery('.glotdict_language').change(() => {
+		localStorage.setItem('gd_language', jQuery('.glotdict_language option:selected').text());
+		localStorage.setItem('gd_glossary_date', '');
+		//localStorage.setItem('gd_hide_lang_selector',true)
 		gd_locales();
 		location.reload();
-	} );
+	  });
+   }
 }
 
 /**
@@ -683,10 +690,13 @@ function gd_build_sticky_header() {
 	toggle_sticky_label.htmlFor = 'gd-toggle-header-sticky';
 	toggle_sticky_label.classList.add( 'gd-toggle__label' );
 	toggle_sticky_label.title = 'Stick it and scroll!';
-	toggle_sticky && toggle_sticky.append( toggle_sticky_input, toggle_sticky_label );
-	const first_link = document.querySelector( '.gd-on-translations .gp-content h2 .glossary-link:first-child' );
-	first_link && first_link.before( toggle_sticky );
-
+	toggle_sticky && toggle_sticky.append(toggle_sticky_input, toggle_sticky_label);
+     // the below class does not exist anymore
+	//const first_link = document.querySelector('.gd-on-translations .gp-content h2 .glossary-link:first-child');
+	// PSS 04-07-2025 fixed not showing the toggle for sticky header
+	let glossary_link = document.querySelector('.gp-heading .glossary-links');
+	glossary_link && glossary_link.before( toggle_sticky );
+	
 	const fragment = document.createDocumentFragment();
 	title && fragment.appendChild( title );
 	filter_toolbar && fragment.appendChild( filter_toolbar );
@@ -802,4 +812,33 @@ function gd_occurrences( string, subString ) {
 		if ( pos >= 0 ) { ++n; pos += step; } else { break; }
 	}
 	return n;
+}
+
+function get_WPTF() {
+	let WPTF = document.getElementsByClassName('menu-item wptf_settings_menu')
+	if (WPTF.length != 0) {
+		return true;
+	}
+	else {
+		return false
+	}
+}
+
+function check_for_URL(word, translatedText) {
+	// This function checks if a word is within an URL or part URL
+	const lowerWord = word.toLowerCase();
+
+	// Match full URLs (http, https, ftp)
+	const fullURLRegex = /\b(?:https?|ftp):\/\/[^\s"'<>]+/gi;
+
+	// Match partial paths like wp-content/plugins/
+	const partialPathRegex = /\bwp-content\/plugins\/[^\s"'<>]*/gi;
+
+	// Combine all matches
+	const matches = [
+		...(translatedText.match(fullURLRegex) || []),
+		...(translatedText.match(partialPathRegex) || [])
+	];
+
+	return matches.some(url => url.toLowerCase().includes(lowerWord));
 }

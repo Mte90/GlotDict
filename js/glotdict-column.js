@@ -3,25 +3,34 @@ function gd_add_column() {
 		jQuery( '#translations thead tr' ).append( '<th></th>' );
 	}
 	jQuery( '#translations tr.preview' ).each( function() {
-		if ( jQuery( this ).find( 'td' ).length < 5 ) {
-			gd_add_column_buttons( this );
+		if (jQuery(this).find('td').length < 5) {
+			let timeout = 0
+			let WPTF_active = get_WPTF()	
+			if (WPTF_active === true) {
+				timeout = 200
+			}
+			setTimeout(() => {
+				gd_add_column_buttons(this);
+			}, timeout);
 		}
 	} );
 }
 
-function gd_add_column_buttons( tr_preview ) {
+function gd_add_column_buttons(tr_preview) {
+	
 	const td_buttons = document.createElement( 'TD' );
 	tr_preview.append( td_buttons );
-	tr_preview.nextElementSibling.querySelectorAll( '.status-actions button.approve,.status-actions button.reject,.status-actions button.fuzzy' ).forEach( ( button ) => {
-		button.removeAttribute( 'tabindex' );
-		const clone_button = button.cloneNode( true );
-		clone_button.classList.add( 'gd-button' );
-		clone_button.addEventListener( 'click', ( e ) => {
+	tr_preview.nextElementSibling.querySelectorAll('.status-actions button.approve,.status-actions button.reject,.status-actions button.fuzzy').forEach((button) => {
+		 button.removeAttribute( 'tabindex' );
+		 const clone_button = button.cloneNode( true );
+		 clone_button.classList.add( 'gd-button' );
+		 clone_button.addEventListener( 'click', ( e ) => {
 			const button = ( 'BUTTON' === e.target.parentElement.nodeName ) ? e.target.parentElement : e.target;
 			if ( ! button ) { return; }
 			const strong = button.querySelector( 'strong' );
 			button.disabled = true;
-			button.style.color = '#afafaf';
+			 button.style.color = '#afafaf';
+			button.title = "my first attempt"
 			if ( strong ) {
 				strong.classList.add( 'gd-btn-action' );
 			}
@@ -38,8 +47,18 @@ function gd_add_column_buttons( tr_preview ) {
 			}
 			button.closest( 'tr.preview' ).style.display = 'table-row';
 		} );
-		if ( ! tr_preview.classList.contains( 'untranslated' ) ) {
+		if (!tr_preview.classList.contains('untranslated')) {
+			// 04-07-2025 PSS added titles to the buttons, so we know what is does
+			if (clone_button.classList.contains('approve')) {
+				clone_button.title = 'Click to approve this item';
+			}
+			else if (clone_button.classList.contains('reject')) {
+				clone_button.title = 'Click to reject this item';
+			}
+			else if (clone_button.classList.contains('fuzzy')) {
+				clone_button.title = 'Set this item to fuzzy';
+			}
 			td_buttons.append( clone_button );
-		}
+			}
 	} );
 }
