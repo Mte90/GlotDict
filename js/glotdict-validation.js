@@ -91,7 +91,7 @@ function gd_search_glossary_on_translation( e, selector ) {
 					}
 					const form = translations.length > 1 ? ( original_index === SINGULAR ? ' for singular' : ' for plural' ) : '';
 					// We need to check if the word is within a URL
-					let is_within_URL = check_for_URL(glossary_word, translatedText)
+					let is_within_URL = gd_check_for_URL(glossary_word, translatedText)
 					// If it is not part of an URL give the warning for it
 					if (is_within_URL == false) {
 						jQuery('.textareas', $editor).prepend(gd_get_warning(`${message} (${reset}) for the term “<i>${term}</i>“ ${count}${form}.`, discard));
