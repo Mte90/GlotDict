@@ -38,7 +38,17 @@ function gd_add_column_buttons( tr_preview ) {
 			}
 			button.closest( 'tr.preview' ).style.display = 'table-row';
 		} );
-		if ( ! tr_preview.classList.contains( 'untranslated' ) ) {
+		if (!tr_preview.classList.contains('untranslated')) {
+			// 04-07-2025 PSS added titles to the buttons, so we know what is does issue #418
+			if (clone_button.classList.contains('approve')) {
+				clone_button.title = 'Click to approve this item';
+			}
+			else if (clone_button.classList.contains('reject')) {
+				clone_button.title = 'Click to reject this item';
+			}
+			else if (clone_button.classList.contains('fuzzy')) {
+				clone_button.title = 'Set this item to fuzzy';
+			}
 			td_buttons.append( clone_button );
 		}
 	} );
