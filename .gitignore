@@ -1,2 +1,21 @@
-*.zip
-*.xpi
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+*.sdf
+*.opensdf
+ipch/
+*.dbmdl
+*.log
+*.tlog
+*.cache
+*.pdb
+*.ilk
+*.obj
+*.exe
+*.dll
+*.nupkg
+*.log
