@@ -90,7 +90,17 @@ function gd_search_glossary_on_translation( e, selector ) {
 						message = 'The translation does not contain any of the suggested translations';
 					}
 					const form = translations.length > 1 ? ( original_index === SINGULAR ? ' for singular' : ' for plural' ) : '';
-					jQuery( '.textareas', $editor ).prepend( gd_get_warning( `${message} (${reset}) for the term “<i>${term}</i>“ ${count}${form}.`, discard ) );
+					// We need to check if the word is within a URL
+					let is_within_URL = check_for_URL(glossary_word, translatedText)
+					// If it is not part of an URL give the warning for it
+					if (is_within_URL == false) {
+						jQuery('.textareas', $editor).prepend(gd_get_warning(`${message} (${reset}) for the term “<i>${term}</i>“ ${count}${form}.`, discard));
+					}
+					else {
+						// We need not to mark the current as wrong
+						howmany--
+						return howmany;
+					}
 				}
 			} );
 			original_index = PLURAL;
