@@ -40,13 +40,13 @@ function gd_add_column_buttons( tr_preview ) {
 		} );
 		if ( ! tr_preview.classList.contains( 'untranslated' ) ) {
 			if ( clone_button.classList.contains( 'approve' ) ) {
-				clone_button.title = 'Approve this item';
+				clone_button.title = 'Approve';
 			}
 			if ( clone_button.classList.contains( 'reject' ) ) {
-				clone_button.title = 'Reject this item';
+				clone_button.title = 'Reject';
 			}
 			if ( clone_button.classList.contains( 'fuzzy' ) ) {
-				clone_button.title = 'Set this item to fuzzy';
+				clone_button.title = 'Set to fuzzy';
 			}
 			td_buttons.append( clone_button );
 		}
