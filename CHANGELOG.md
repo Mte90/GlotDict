@@ -1,3 +1,13 @@
+# 2.1.5
+
+* Enhancement: Added option to hide the language selector (has been deprecated)
+* Enhancement: Added function to check if WPTF is active, so creating the buttons is now working properly
+* Enhancement: Added a function to check if a glossary word is within an URL
+* Enhancement: Added titles to the button
+* Bugfix: The toggle for making the header sticky did not work anymore
+* Improvement: Removed the max-width from the CSS file
+* Bugfix: The columns where not shown properly with long lists or slow connection
+
 # 2.1.4
 
 * Enhancement: Quick actions button improved

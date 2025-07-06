@@ -356,16 +356,22 @@ function gd_set_gte_settings() {
  * @returns void
  */
 function gd_mark_old_strings() {
-	jQuery( 'tr.preview' ).each( function() {
-		const id = jQuery( this ).attr( 'row' );
-		let date_timestamp = Date.parse( jQuery( `#editor-${id} .meta dl:eq(1)` ).html().slice( 0, -3 ).trim() );
-		date_timestamp = new Date( date_timestamp );
-		const today = new Date();
-		const months = today.getMonth() - date_timestamp.getMonth() + ( 12 * ( today.getFullYear() - date_timestamp.getFullYear() ) );
-		if ( months > 6 ) {
-			jQuery( this ).addClass( 'has-old-string' );
+	jQuery('tr.preview').each(function () {
+		const id = jQuery(this).attr('row');
+		//console.debug("#editor:", (jQuery(`#editor-${id} .meta dl:eq(1) dd`).html().trim()))
+		// PSS fix for issue #424 Sometimes there is an error when opening a table with waiting strings
+		const date_found = jQuery(`#editor-${id} .meta dl:eq(1) dd`).html()
+		if (date_found != null) {
+			let date_timestamp = date_found
+			//let date_timestamp = Date.parse( jQuery( `#editor-${id} .meta dl:eq(1)` ).html().slice( 0, -3 ).trim() );
+			date_timestamp = new Date(date_timestamp);
+			const today = new Date();
+			const months = today.getMonth() - date_timestamp.getMonth() + (12 * (today.getFullYear() - date_timestamp.getFullYear()));
+			if (months > 6) {
+				jQuery(this).addClass('has-old-string');
+			}
 		}
-	} );
+	});
 }
 
 /**

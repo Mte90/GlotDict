@@ -1,2 +1,4 @@
 *.zip
 *.xpi
+.vscode/
+.vs/
