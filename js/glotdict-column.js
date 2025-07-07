@@ -44,7 +44,7 @@ function gd_add_column_buttons(tr_preview) {
 					editor.style.display = 'none';
 				}
 				button.closest('tr.preview').style.display = 'table-row';
-			});
+			} );
 			if (!tr_preview.classList.contains('untranslated')) {
 				if (clone_button.classList.contains('approve')) {
 					clone_button.title = 'Approve';
@@ -57,6 +57,6 @@ function gd_add_column_buttons(tr_preview) {
 				}
 				td_buttons.append(clone_button);
 			}
-		});
+		} );
 	}
 }
