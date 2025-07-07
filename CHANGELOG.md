@@ -1,3 +1,9 @@
+# 2.1.5
+
+* Bugfix: The button to hide sticky header was no longer shown
+* Enhancement: Buttons do now show Tooltip
+
+
 # 2.1.4
 
 * Enhancement: Quick actions button improved
