@@ -684,8 +684,8 @@ function gd_build_sticky_header() {
 	toggle_sticky_label.classList.add( 'gd-toggle__label' );
 	toggle_sticky_label.title = 'Stick it and scroll!';
 	toggle_sticky && toggle_sticky.append( toggle_sticky_input, toggle_sticky_label );
-	let glossary_link = document.querySelector( '.gp-heading .glossary-links' );
-	glossary_link && glossary_link.before( toggle_sticky );
+	const first_link = document.querySelector( '.gd-on-translations .gp-content h2 .glossary-link:first-child' );
+	first_link && first_link.before( toggle_sticky );
 
 	const fragment = document.createDocumentFragment();
 	title && fragment.appendChild( title );
@@ -802,4 +802,47 @@ function gd_occurrences( string, subString ) {
 		if ( pos >= 0 ) { ++n; pos += step; } else { break; }
 	}
 	return n;
+}
+function old_gd_check_for_URL(word, translatedText) {
+	// This function checks if a word is within an URL or part URL
+	const lowerWord = word.toLowerCase();
+
+	// Match full URLs (http, https, ftp)
+	const fullURLRegex = /\b(?:https?|ftp):\/\/[^\s"'<>]+/gi;
+
+	// Match partial paths like wp-content/plugins/
+	const partialPathRegex = /\bwp-content\/plugins\/[^\s"'<>]*/gi;
+
+	// Combine all matches
+	const matches = [
+		...(translatedText.match(fullURLRegex) || []),
+		...(translatedText.match(partialPathRegex) || [])
+	];
+
+	return matches.some(url => url.toLowerCase().includes(lowerWord));
+}
+
+function gd_check_for_URL(word, translatedText) {
+	if (!word || !translatedText) return false;
+
+	const lowerWord = word.toLowerCase();
+
+	// Step 1: Remove HTML tags to expose inner text
+	const textWithoutTags = translatedText.replace(/<[^>]*>/g, '');
+
+	// Step 2: Match full URLs
+	const fullURLRegex = /\b(?:https?|ftp):\/\/[^\s"'<>]+/gi;
+
+	// Step 3: Match common plugin paths
+	const partialPathRegex = /\b[a-zA-Z0-9\-_.\/]*wp-content\/plugins\/[^\s"'<>]*/gi;
+
+	// Step 4: Extract matches from cleaned text
+	const matches = [
+		...(textWithoutTags.match(fullURLRegex) || []),
+		...(textWithoutTags.match(partialPathRegex) || []),
+		textWithoutTags // Also search the whole cleaned text
+	];
+
+	// Step 5: Return true if the word appears in any relevant part
+	return matches.some(entry => entry.toLowerCase().includes(lowerWord));
 }
