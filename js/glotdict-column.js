@@ -30,31 +30,31 @@ function gd_add_column_buttons( tr_preview ) {
 				if (strong) {
 					strong.classList.add('gd-btn-action');
 				}
-				const editor = button.closest('tr.preview').nextElementSibling;
-				const status_classes = button.classList;
-				status_classes.remove('button', 'gd-button', 'is-primary');
-				let new_status = status_classes[0];
-				new_status = 'approve' === new_status ? 'current' : new_status;
-				new_status = 'reject' === new_status ? 'rejected' : new_status;
-				$gp.editor.show(jQuery(button));
-				$gp.editor.set_status(jQuery(button), new_status);
-				if (editor) {
-					editor.style.display = 'none';
-				}
-				button.closest('tr.preview').style.display = 'table-row';
-			});
-			if (!tr_preview.classList.contains('untranslated')) {
-				if (clone_button.classList.contains('approve')) {
-					clone_button.title = 'Approve';
-				}
-				if (clone_button.classList.contains('reject')) {
-					clone_button.title = 'Reject';
-				}
-				if (clone_button.classList.contains('fuzzy')) {
-					clone_button.title = 'Set to fuzzy';
-				}
-				td_buttons.append(clone_button);
+				const editor = button.closest( 'tr.preview' ).nextElementSibling;
+			const status_classes = button.classList;
+			status_classes.remove( 'button', 'gd-button', 'is-primary' );
+			let new_status = status_classes[0];
+			new_status = 'approve' === new_status ? 'current' : new_status;
+			new_status = 'reject' === new_status ? 'rejected' : new_status;
+			$gp.editor.show( jQuery( button ) );
+			$gp.editor.set_status( jQuery( button ), new_status );
+			if ( editor ) {
+				editor.style.display = 'none';
 			}
-		});
+			button.closest( 'tr.preview' ).style.display = 'table-row';
+		} );
+		if ( ! tr_preview.classList.contains( 'untranslated' ) ) {
+			if ( clone_button.classList.contains( 'approve' ) ) {
+				clone_button.title = 'Approve';
+			}
+			if ( clone_button.classList.contains( 'reject' ) ) {
+				clone_button.title = 'Reject';
+			}
+			if ( clone_button.classList.contains( 'fuzzy' ) ) {
+				clone_button.title = 'Set to fuzzy';
+			}
+			td_buttons.append( clone_button );
+		}
+	} );
 	}
 }
