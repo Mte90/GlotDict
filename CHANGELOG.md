@@ -8,6 +8,8 @@
 * Improvement: Removed the max-width from the CSS file
 * Bugfix: The columns where not shown properly with long lists or slow connection
 
+
+
 # 2.1.4
 
 * Enhancement: Quick actions button improved
