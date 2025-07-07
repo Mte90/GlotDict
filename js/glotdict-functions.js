@@ -803,7 +803,7 @@ function gd_occurrences( string, subString ) {
 	}
 	return n;
 }
-function gd_check_for_URL(word, translatedText) {
+function old_gd_check_for_URL(word, translatedText) {
 	// This function checks if a word is within an URL or part URL
 	const lowerWord = word.toLowerCase();
 
@@ -820,4 +820,29 @@ function gd_check_for_URL(word, translatedText) {
 	];
 
 	return matches.some(url => url.toLowerCase().includes(lowerWord));
+}
+
+function gd_check_for_URL(word, translatedText) {
+	if (!word || !translatedText) return false;
+
+	const lowerWord = word.toLowerCase();
+
+	// Step 1: Remove HTML tags to expose inner text
+	const textWithoutTags = translatedText.replace(/<[^>]*>/g, '');
+
+	// Step 2: Match full URLs
+	const fullURLRegex = /\b(?:https?|ftp):\/\/[^\s"'<>]+/gi;
+
+	// Step 3: Match common plugin paths
+	const partialPathRegex = /\b[a-zA-Z0-9\-_.\/]*wp-content\/plugins\/[^\s"'<>]*/gi;
+
+	// Step 4: Extract matches from cleaned text
+	const matches = [
+		...(textWithoutTags.match(fullURLRegex) || []),
+		...(textWithoutTags.match(partialPathRegex) || []),
+		textWithoutTags // Also search the whole cleaned text
+	];
+
+	// Step 5: Return true if the word appears in any relevant part
+	return matches.some(entry => entry.toLowerCase().includes(lowerWord));
 }
