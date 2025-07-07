@@ -45,14 +45,14 @@ function gd_add_column_buttons(tr_preview) {
 				}
 				button.closest('tr.preview').style.display = 'table-row';
 			} );
-			if (!tr_preview.classList.contains('untranslated')) {
-				if (clone_button.classList.contains('approve')) {
+			if ( !tr_preview.classList.contains( 'untranslated' ) ) {
+				if ( clone_button.classList.contains( 'approve' ) ) {
 					clone_button.title = 'Approve';
 				}
-				if (clone_button.classList.contains('reject')) {
+				if ( clone_button.classList.contains( 'reject' ) ) {
 					clone_button.title = 'Reject';
 				}
-				if (clone_button.classList.contains('fuzzy')) {
+				if ( clone_button.classList.contains( 'fuzzy' ) ) {
 					clone_button.title = 'Set to fuzzy';
 				}
 				td_buttons.append(clone_button);
