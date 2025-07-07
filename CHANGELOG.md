@@ -7,7 +7,8 @@
 * Bugfix: The toggle for making the header sticky did not work anymore
 * Improvement: Removed the max-width from the CSS file
 * Bugfix: The columns where not shown properly with long lists or slow connection
-
+* Bugfix: The button to hide sticky header was no longer shown
+* Enhancement: Buttons do now show Tooltip
 
 
 # 2.1.4
