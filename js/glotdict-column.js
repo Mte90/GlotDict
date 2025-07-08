@@ -1,6 +1,4 @@
 function gd_add_column() {
-	// 05-07-2025 PSS issue #428 columns are not shown properly
-		// 06-07-2025 the jQuery gave 9 colums back causing the header not to be modified
 		let header = document.querySelector('#translations thead tr')
 		const thCount = header.querySelectorAll('th').length;
 		if (thCount < 6) {
