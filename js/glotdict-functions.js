@@ -356,16 +356,19 @@ function gd_set_gte_settings() {
  * @returns void
  */
 function gd_mark_old_strings() {
-	jQuery( 'tr.preview' ).each( function() {
-		const id = jQuery( this ).attr( 'row' );
-		let date_timestamp = Date.parse( jQuery( `#editor-${id} .meta dl:eq(1)` ).html().slice( 0, -3 ).trim() );
-		date_timestamp = new Date( date_timestamp );
-		const today = new Date();
-		const months = today.getMonth() - date_timestamp.getMonth() + ( 12 * ( today.getFullYear() - date_timestamp.getFullYear() ) );
-		if ( months > 6 ) {
-			jQuery( this ).addClass( 'has-old-string' );
+	jQuery('tr.preview').each(function () {
+		const id = jQuery(this).attr('row');
+		const date_found = jQuery(`#editor-${id} .meta dl:eq(1) dd`).html()
+		if (date_found != null) {
+			let date_timestamp = date_found
+			date_timestamp = new Date(date_timestamp);
+			const today = new Date();
+			const months = today.getMonth() - date_timestamp.getMonth() + (12 * (today.getFullYear() - date_timestamp.getFullYear()));
+			if (months > 6) {
+				jQuery(this).addClass('has-old-string');
+			}
 		}
-	} );
+	});
 }
 
 /**
@@ -683,8 +686,8 @@ function gd_build_sticky_header() {
 	toggle_sticky_label.htmlFor = 'gd-toggle-header-sticky';
 	toggle_sticky_label.classList.add( 'gd-toggle__label' );
 	toggle_sticky_label.title = 'Stick it and scroll!';
-	toggle_sticky && toggle_sticky.append( toggle_sticky_input, toggle_sticky_label );
-	let glossary_link = document.querySelector( '.gp-heading .glossary-links' );
+	toggle_sticky && toggle_sticky.append(toggle_sticky_input, toggle_sticky_label);
+	let glossary_link = document.querySelector('.gp-heading .glossary-links');
 	glossary_link && glossary_link.before( toggle_sticky );
 
 	const fragment = document.createDocumentFragment();

@@ -1,6 +1,7 @@
 # 2.1.5
 
-* Bugfix: The button to hide sticky header was no longer shown
+* Fix: columns where not added on large pages
+* Fix: The button to hide sticky header was no longer shown
 * Enhancement: Buttons do now show Tooltip
 
 
