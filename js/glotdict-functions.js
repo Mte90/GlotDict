@@ -530,7 +530,11 @@ function gd_wait_table_alter() {
 						gd_auto_hide_next_editor( addedNode );
 					}
 					if ( user_is_pte && row_is_preview ) {
-						gd_add_column_buttons( addedNode );
+						if ( gd_has_native_inline_actions() ) {
+							gd_enhance_inline_action_buttons( addedNode );
+						} else {
+							gd_add_column_buttons( addedNode );
+						}
 					}
 					if ( row_is_preview ) {
 						addedNode.querySelectorAll( '.glossary-word' ).forEach( gd_add_glossary_links );
