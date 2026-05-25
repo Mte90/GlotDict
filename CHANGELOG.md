@@ -1,3 +1,7 @@
+# 2.1.6
+
+* Fix quick buttons
+
 # 2.1.5
 
 * Fix: Columns where not added on large pages
