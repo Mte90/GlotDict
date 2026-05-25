@@ -45,7 +45,9 @@ is not appied before action buttons are rendered
 */
 @media screen and (min-width: 601px) {
     table.translations > thead > tr > th:nth-child(6),
-    table.translations > tbody > tr > td:nth-child(6) {
+    table.translations > tbody > tr > td:nth-child(6),
+    table.translations > thead > tr > th.gp-column-inline-actions,
+    table.translations > tbody > tr > td.inline-actions {
       width: 130px !important;
       padding: 3px 0 3px 3px;
       text-align: right;
@@ -181,7 +183,9 @@ is not appied before action buttons are rendered
 }
 
 .actions+td button[class*="gd-"] strong,
-.actions+td button .gd-btn-action {
+.actions+td button .gd-btn-action,
+td.inline-actions button[class*="gd-"] strong,
+td.inline-actions button .gd-btn-action {
     font-size: 32px;
     color: #fff;
     line-height: 32px !important;
@@ -193,7 +197,9 @@ is not appied before action buttons are rendered
 .actions+td button.gd-button,
 .actions+td button.approve,
 .actions+td button.reject,
-.actions+td button.fuzzy {
+.actions+td button.fuzzy,
+td.inline-actions button.gd-button,
+td.inline-actions button.inline-action {
 	-ms-flex-pack: center!important;
 	    justify-content: center!important;
 	min-height: 28px !important;
@@ -208,16 +214,28 @@ is not appied before action buttons are rendered
     vertical-align: middle;
 }
 .actions+td button.approve,
-.actions+td button.approve:hover {
+.actions+td button.approve:hover,
+td.inline-actions button.inline-action-approve,
+td.inline-actions button.approve {
   background-color: #46B450 !important;
+  border-color: #46B450 !important;
+  color: #fff !important;
 }
 .actions+td button.reject,
-.actions+td button.reject:hover {
+.actions+td button.reject:hover,
+td.inline-actions button.inline-action-reject,
+td.inline-actions button.reject {
   background-color: #DC3232;
+  border-color: #DC3232;
+  color: #fff !important;
 }
 .actions+td button.fuzzy,
-.actions+td button.fuzzy:hover {
+.actions+td button.fuzzy:hover,
+td.inline-actions button.inline-action-fuzzy,
+td.inline-actions button.fuzzy {
   background-color: #f56e28;
+  border-color: #f56e28;
+  color: #fff !important;
 }
 
 .gd-btn-action {
